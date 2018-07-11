@@ -4,7 +4,7 @@ ini_set('display_errors', 'On');
 
 $servername = "localhost";
 $username = "root";
-$password = "jvaac2283591";
+$password = "Asal4Asal41";
 $dbname = "projekt";
 $limit = 6;
  

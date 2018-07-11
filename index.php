@@ -10,73 +10,105 @@ $_SESSION['state'] = $_POST['state'];
 <head>
 <title>LOVONEO | FIND YOUR LOVE</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.js"></script>
 </head>
 <body>
-<ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
-                <li><a class="welcom" > <?php 
-if (isset($_SESSION['username'])) {
-   echo 'Welcome, '.$_SESSION['username'];
-}
-?>
-</a></li>
-
-</ul>
-
-
-<form class="search" action="search_form.php" method="post">
-<input list="age" autocomplete="off" id="age1" type="text" name="age1" value="<?php echo isset($_POST['age1']) ? $_POST['age1'] : '' ?>" placeholder="age from, years">
-<input list="age" autocomplete="off" id="age2" type="text" name="age2" value="<?php echo isset($_POST['age2']) ? $_POST['age2'] : '' ?>" placeholder="age to, years">
-<input id="gender" type="text" name="gender"  value="<?php echo isset($_POST['gender']) ? $_POST['gender'] : '' ?>" placeholder="gender">
-<input list="state1" autocomplete="off" id="state" type="text" name="state"value="<?php echo isset($_POST['state']) ? $_POST['state'] : '' ?>" placeholder="state">
-<input id="search" onclick="location.href = 'search_form.php';" type="submit" name="search" value="search">
-
-<datalist id="age">
-<?php
-for($i = 18; $i <= 100; $i += 1){
-     echo("<option value='{$i}'>");}
-?>
-</datalist>
-<datalist id="state1">
-<option value="USA">
-<option value="Germany">
-<option value="Ukraine">
-<option value="Russia">
-
-
-
-</datalist>
-
-</form>
-<div class="main_foto">
-
- <div class="form-signin"  method="POST">
-
-<?php
-if(isset($_SESSION['user_name']))
-{
-include("123.php");
-}
-else 
-{
-include("login.php");
-}
-
-
-?>
-      </div>
+<header class="head fixed">
+    <div class="wrap">
+        <nav class="pull_left">
+            <ul class="list-unstyled ">
+            <a class="active" href="#home"><li class="li-item inline-block">Home</li></a>
+              <a href="#news"><li class="li-item inline-block">News</li></a>
+              <a href="#contact"><li class="li-item inline-block">Contact</li></a>
+              <a href="#about"><li class="li-item inline-block">About</li></a>
+            </ul>
+        </nav>
+        <div class="pull-right">
+            <a class="welcom" > <?php 
+                if (isset($_SESSION['user_name'])) {
+                   echo 'Welcome, '.$_SESSION['username'];
+                }
+                ?>
+            </a>
+            <a href="#" class="log-in-out">
+            <?php 
+                if (isset($_SESSION['user_name'])) {
+                   echo 'Log out';
+                }
+                else echo 'Log in';
+                ?>
+            </a>
+        </div>
+    </div>
+</header>
+<section class="section-head rel">
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="form-signin col-md-4"  method="POST">
+                    <?php
+                    if(isset($_SESSION['user_name']))
+                    {
+                    include("user_on.php");
+                    }
+                    else 
+                    {
+                    include("login.php");
+                    }
+                    ?>
+            </div>
+            <div class="panel panel-default col-md-4">
+				<div class="panel-body">
+            <div class="card ">
+               <h2> Featured</h2>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    
 </div>
+</div>
+
+</section>
+<section class="section-search">
+    <div class="wrap">
+        <form class="search" action="search_form.php" method="post">
+            <input list="age" autocomplete="off" id="age1" type="text" name="age1" value="<?php echo isset($_POST['age1']) ? $_POST['age1'] : '' ?>" placeholder="age from, years">
+            <input list="age" autocomplete="off" id="age2" type="text" name="age2" value="<?php echo isset($_POST['age2']) ? $_POST['age2'] : '' ?>" placeholder="age to, years">
+            <input id="gender" type="text" name="gender"  value="<?php echo isset($_POST['gender']) ? $_POST['gender'] : '' ?>" placeholder="gender">
+            <input list="state1" autocomplete="off" id="state" type="text" name="state"value="<?php echo isset($_POST['state']) ? $_POST['state'] : '' ?>" placeholder="state">
+            <input id="search" onclick="location.href = 'search_form.php';" type="submit" name="search" value="search">
+            <datalist id="age">
+                <?php
+                for($i = 18; $i <= 100; $i += 1){
+                     echo("<option value='{$i}'>");}
+                ?>
+                </datalist>
+                <datalist id="state1">
+                <option value="USA">
+                <option value="Germany">
+                <option value="Ukraine">
+                <option value="Russia">
+            </datalist>
+        </form>
+    </div>
+    
+
+</section>
+
+
+
 <div id="target-content" class="clearfix">
-<script type="text/javascript">
-$(document).ready(function(){
-        jQuery("#target-content").load("response.php?page=1");
-})
-</script>
+
 
 </div>
      <?php
@@ -88,15 +120,13 @@ $row = mysqli_fetch_row($tot_result);
 $total_records = $row[0];
 $total_pages = ceil($total_records / $limit);
 ?>
-<div class="header_main">
-</div>
 <div class="pagination_main">
 <ul class='pagination' id="pagination">
  <?php if(!empty($total_pages)):for($i=1; $i<=$total_pages; $i++):  
  if($i == 1):?>
- <li class='page-item active'  id="<?php echo $i;?>"><a href='response.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li> 
+ <li class='page-item active'  id="<?php echo $i;?>"><a href='user_icon.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li> 
  <?php else:?>
- <li id="<?php echo $i;?>" class="page-item"><a href='response.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li>
+ <li id="<?php echo $i;?>" class="page-item"><a href='user_icon.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li>
  <?php endif;?>
  <?php endfor;endif;?>
  </ul>
@@ -108,11 +138,11 @@ jQuery("#pagination li").on('click',function(e){
  jQuery("#pagination li").removeClass('active');
  jQuery(this).addClass('active');
         var pageNum = this.id;
-        jQuery("#target-content").load("response.php?page=" + pageNum);
+        jQuery("#target-content").load("user_icon.php?page=" + pageNum);
 });
 </script>
       
-
+<!--
 
 <style>
 
@@ -388,6 +418,12 @@ margin-left:5px;
 <footer>
 <p>Contact US</p>
 </footer>
+-->
+<script type="text/javascript">
+$(document).ready(function(){
+        jQuery("#target-content").load("response.php?page=1");
+})
+</script>
 </body>
 
 

@@ -6,7 +6,7 @@ include('connection.php');
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
 $start_from = ($page-1) * $limit;  
   
-$sql = "SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , first_name, last_name, details, register_user_id,  profile_foto FROM register_user ORDER BY register_user_id  ASC LIMIT $start_from, $limit";  
+$sql = "SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , first_name, user_id, last_name, details,  profile_foto FROM register_user ORDER BY register_user_id  ASC LIMIT $start_from, $limit";  
 $rs_result = mysqli_query($conn, $sql);
  
 ?>
@@ -23,14 +23,15 @@ while ($row = mysqli_fetch_assoc($rs_result)) :
 	
 	  <?php echo $row['first_name']?><br>
 	  <?php echo $row['last_name']?><br>
-	  <a href="fetch_card.php?register_user_id=<?php echo $row['register_user_id']?>" class="btn btn-primary">More Info!</a>
+	  <a href="personal_page.php?user_id=<?php echo $row['user_id']?>" class="btn btn-primary">More Info!</a>
 	</div>
+
 
 
 <?php
 endwhile; 
 ?>
-</form> 
-<style>
+</form>
 
-</style>
+<div class="album">
+</div> 

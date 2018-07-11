@@ -36,10 +36,11 @@ if(isset($_POST["register"]))
 		$user_password = rand(100000,999999);
 		$user_encrypted_password = password_hash($user_password, PASSWORD_DEFAULT);
 		$user_activation_code = md5(rand());
+		$user_id = md5(rand());
 		$insert_query = "
 		INSERT INTO register_user 
-		(user_name, user_email, user_password, user_activation_code, user_email_status, first_name, last_name, country, city,  profile_foto, details, gender) 
-		VALUES (:user_name, :user_email, :user_password, :user_activation_code, :user_email_status, :first_name, :last_name, :country, :city, :profile_foto, :details, :gender)
+		(user_name, user_email, user_password, user_activation_code, user_id, user_email_status, first_name, last_name, country, city,  profile_foto, details, gender) 
+		VALUES (:user_name, :user_email, :user_password, :user_activation_code, :user_id, :user_email_status, :first_name, :last_name, :country, :city, :profile_foto, :details, :gender)
 		";
 		$statement = $connect->prepare($insert_query);
 		$statement->execute(
@@ -48,6 +49,7 @@ if(isset($_POST["register"]))
 				':user_email'			=>	$_POST['user_email'],
 				':user_password'		=>	$user_encrypted_password,
 				':user_activation_code'	=>	$user_activation_code,
+				':user_id'	=>	$user_id,
 				':user_email_status'	=>	'not verified',
 				':first_name'    =>      '',
 				':last_name'    =>      '',
@@ -64,7 +66,7 @@ if(isset($_POST["register"]))
 		$result = $statement->fetchAll();
 		if(isset($result))
 		{
-			$base_url = "http://165.227.165.59/";  
+			$base_url = "https://lovoneo.com/";  
 			$mail_body = "
 			<p>Hi ".$_POST['user_name'].",</p>
 			<p>Thanks for Registration. Your password is ".$user_password.", This password will work only after your email verification.</p>

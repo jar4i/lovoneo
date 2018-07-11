@@ -30,7 +30,7 @@ $_SESSION['state'] = $_POST['state'];
 </div>
 <script type="text/javascript">
 $(document).ready(function(){
-	jQuery("#target-content").load("response1.php?page=1");
+	jQuery("#target-content").load("search_form_response.php?page=1");
 })
 </script>
      <?php
@@ -49,9 +49,9 @@ $total_pages = ceil($total_records / $limit);
 <ul class='pagination' id="pagination">
  <?php  if(!empty($total_pages)):for($i=1; $i<=$total_pages; $i++):  
  if($i == 1):?>
- <li class='page-item active'  id="<?php echo $i;?>"><a href='response1.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li> 
+ <li class='page-item active'  id="<?php echo $i;?>"><a href='search_form_response.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li> 
  <?php else:?>
- <li id="<?php echo $i;?>" class="page-item"><a href='response1.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li>
+ <li id="<?php echo $i;?>" class="page-item"><a href='search_form_response.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li>
  <?php endif;?>
  <?php endfor;endif;?>
  </ul>
@@ -63,7 +63,7 @@ jQuery("#pagination li").on('click',function(e){
  jQuery("#pagination li").removeClass('active');
  jQuery(this).addClass('active');
         var pageNum = this.id;
-        jQuery("#target-content").load("response1.php?page=" + pageNum);
+        jQuery("#target-content").load("search_form_response.php?page=" + pageNum);
 });
 </script>
       

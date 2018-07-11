@@ -92,6 +92,17 @@ Change your profile foto:
 </form>
 </div>
 <?php endwhile;?>
+
+<div class = "album">
+<?php include('fotos/index.php');
+	include('fotos/upload.php');?>
+</div>
+<div class = "view">
+
+<?php
+$user_id=$_GET["user_id"];
+include('fotos/view.php');?>
+</div>
 <style>
 .welcom
 {

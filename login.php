@@ -31,7 +31,7 @@ if(isset($_POST["login"]))
 					$user_name=$_SESSION['user_name'];
 
 
-					header("location:card_response.php?user_activation_code=$user_activation_code");
+					header("location:personal_page_edit.php?user_activation_code=$user_activation_code");
 				}
 				else
 				{
@@ -58,13 +58,11 @@ if(isset($_POST["login"]))
 				
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="style.css">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<br />
-		<div class="container" style="width:100%; max-width:600px">
-			<h2 align="center">Login</h2>
-			<br />
+		<div class=" form-log"  >
 			<div class="panel panel-default">
 				<div class="panel-heading"><h4>Login</h4></div>
 				<div class="panel-body">
@@ -82,7 +80,7 @@ if(isset($_POST["login"]))
 							<input type="submit" name="login" value="Login" class="btn btn-info" />
 						</div>
 					</form>
-					<p align="right"><a href="register.php">Register</a></p>
+					<div align="right"><a href="register.php" >or Register</a></div>
 				</div>
 			</div>
 		</div>
