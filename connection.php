@@ -3,8 +3,8 @@ error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
 
 $servername = "localhost";
-$username = "root";
-$password = "Asal4Asal41";
+$username = "lovoneo";
+$password = "ZMaLPF2-unV-ch";
 $dbname = "projekt";
 $limit = 6;
  

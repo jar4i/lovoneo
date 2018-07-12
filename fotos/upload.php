@@ -17,7 +17,7 @@ ini_set('display_errors', 'On');
 			return;
 		}
 		
-		$conn = mysqli_connect("localhost","root","Asal4Asal41","projekt");	
+		$conn = mysqli_connect("localhost","lovoneo","ZMaLPF2-unV-ch","projekt");	
 		
 		foreach($_FILES["files"]["tmp_name"] as $key=>$tmp_name)
 		{
