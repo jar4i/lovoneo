@@ -43,7 +43,7 @@ $_SESSION['state'] = $_POST['state'];
         </div>
     </div>
 </header>
-<section class="section-head rel">
+<section class="section-control rel">
 <div class="wrap">
     <div class="container">
         <div class="row">
@@ -59,22 +59,8 @@ $_SESSION['state'] = $_POST['state'];
                     }
                     ?>
             </div>
-            <div class="panel panel-default col-md-4">
-				<div class="panel-body">
-            <div class="card ">
-               <h2> Featured</h2>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-            </div>
-            </div>
         </div>
     </div>
-    
 </div>
 </div>
 
@@ -106,7 +92,7 @@ $_SESSION['state'] = $_POST['state'];
 </section>
 
 
-
+<!--
 <div id="target-content" class="clearfix">
 
 
@@ -142,7 +128,7 @@ jQuery("#pagination li").on('click',function(e){
 });
 </script>
       
-<!--
+
 
 <style>
 

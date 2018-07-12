@@ -62,21 +62,19 @@ if(isset($_POST["login"]))
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<div class=" form-log"  >
+		<div class=" form-log">
 			<div class="panel panel-default">
 				<div class="panel-heading"><h4>Login</h4></div>
 				<div class="panel-body">
 					<form method="post">
 						<?php echo $message; ?>
-						<div class="form-group">
-							<label>User Email</label>
-							<input type="email" name="user_email" class="form-control" required />
+						<div class="form-group email">
+							<input type="email" name="user_email" class="form-control" required autocomplete="off" placeholder="Username"/>
 						</div>
-						<div class="form-group">
-							<label>Password</label>
-							<input type="password" name="user_password" class="form-control" required />
+						<div class="form-group password">
+							<input type="password" name="user_password" class="form-control" autocomplete="off" required  placeholder="Password"/>
 						</div>
-						<div class="form-group">
+						<div class="form-group login-btn">
 							<input type="submit" name="login" value="Login" class="btn btn-info" />
 						</div>
 					</form>

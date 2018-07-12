@@ -61,13 +61,15 @@ transition: 400ms;
 ul{
   margin-bottom: 0 !important;
 }
-/*section 1 - head*/
-.section-head{
+/*section 1 - control*/
+.section-control{
   height: 350px;
   margin-top: 100px; 
   width: 100%;
 }
 .form-log{
   width: 250px;
-  
+}
+.email, .password{
+  width: 180px;
 }
