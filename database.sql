@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
--- http://www.phpmyadmin.net
+-- version 4.8.2
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jul 12, 2018 at 09:46 AM
--- Server version: 5.7.22-0ubuntu0.16.04.1
--- PHP Version: 7.0.30-0ubuntu0.16.04.1
+-- Хост: localhost
+-- Час створення: Лип 12 2018 р., 09:26
+-- Версія сервера: 10.2.16-MariaDB
+-- Версія PHP: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `projekt`
+-- База даних: `projekt`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `city`
+-- Структура таблиці `city`
 --
 
 CREATE TABLE `city` (
@@ -34,7 +36,7 @@ CREATE TABLE `city` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `country`
+-- Структура таблиці `country`
 --
 
 CREATE TABLE `country` (
@@ -45,7 +47,7 @@ CREATE TABLE `country` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pers_data`
+-- Структура таблиці `pers_data`
 --
 
 CREATE TABLE `pers_data` (
@@ -64,7 +66,7 @@ CREATE TABLE `pers_data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pers_data`
+-- Дамп даних таблиці `pers_data`
 --
 
 INSERT INTO `pers_data` (`u_id`, `username`, `last_name`, `birth_date`, `country_id`, `city_id`, `profile_foto`, `e_mail`, `password`, `gender`, `details`, `more_info`) VALUES
@@ -86,7 +88,7 @@ INSERT INTO `pers_data` (`u_id`, `username`, `last_name`, `birth_date`, `country
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Структура таблиці `products`
 --
 
 CREATE TABLE `products` (
@@ -102,7 +104,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `products`
+-- Дамп даних таблиці `products`
 --
 
 INSERT INTO `products` (`productCode`, `productName`, `productLine`, `productScale`, `productVendor`, `productDescription`, `quantityInStock`, `buyPrice`, `MSRP`) VALUES
@@ -116,7 +118,7 @@ INSERT INTO `products` (`productCode`, `productName`, `productLine`, `productSca
 -- --------------------------------------------------------
 
 --
--- Table structure for table `register_user`
+-- Структура таблиці `register_user`
 --
 
 CREATE TABLE `register_user` (
@@ -138,7 +140,7 @@ CREATE TABLE `register_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `register_user`
+-- Дамп даних таблиці `register_user`
 --
 
 INSERT INTO `register_user` (`register_user_id`, `user_name`, `user_email`, `user_password`, `user_activation_code`, `user_id`, `user_email_status`, `first_name`, `last_name`, `country`, `city`, `birth_date`, `profile_foto`, `details`, `gender`) VALUES
@@ -151,12 +153,12 @@ INSERT INTO `register_user` (`register_user_id`, `user_name`, `user_email`, `use
 (18, 'putin', 'upasha1996@mail.ru', '$2y$10$cneEf7nbgG.yS2P33ahAFegrsh5.8bgi7sr8otkgtnpRk5VjZUBHK', 'bddb4a1513ed10537173f42aaaeea0dc', '', 'verified', '', '', '', '', NULL, '', '', ''),
 (19, 'Irishka', 'more.turov.kr.86@gmail.com', '$2y$10$DOMcgEAiU8YCg6/qH7QA2OclraioKFT7lJKYEkBoxzVleNQyI0u4e', '857221df6e987cad538e12c891a27c49', '', 'verified', 'Irina', 'Shevchenko', 'Ukraine ', 'Krivoy Rog ', NULL, 'uploads/BeautyPlus_20180702114549030_save.jpg', 'I hope soon have happy family.  \r\nI like so much travel. I have small daughter she is 4.5 years old.  \r\nO work in travel company. ', ''),
 (20, 'ks ', 'Ks@gamil.com', '$2y$10$aAWph/UdhmB0Z8HlCiAdNuGsIpP.Wn9y0pRM3TfMqXjBY0XrgxAde', 'c07ceb729e8b3ad1243b892385a083a5', '', 'not verified', '', '', '', '', NULL, '', '', ''),
-(21, 'vinni', 'vinni666@gail.com', '$2y$10$Gm3IwqclmlXQwmCeWM6GjeSRiB1HVCQMcQSh9Sc25dAiGEOZUSct2', 'ccc597d3b7230aca3c5875c069c387f9', 'f2ac92673ae90e179ffb00b513cc053f', 'verified', 'jar', 'vinni', '', '', NULL, 'uploads/images.jpeg', '', '');
+(21, 'test_user', 'test_mail@ukr.net', '$2y$10$ZBymn2PDvJcom5Jjcxj5e.5u.JCJCDZpm9hx2v0Lpk/BHQHpyhoGq', 'ccc597d3b7230aca3c5875c069c387f9', 'f2ac92673ae90e179ffb00b513cc053f', 'verified', 'jar', 'vinni', 'Ukraine', 'Kyiv', NULL, 'uploads/images.jpeg', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Структура таблиці `user`
 --
 
 CREATE TABLE `user` (
@@ -166,7 +168,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Дамп даних таблиці `user`
 --
 
 INSERT INTO `user` (`uuu_id`, `username`, `password`) VALUES
@@ -175,7 +177,7 @@ INSERT INTO `user` (`uuu_id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userfiles`
+-- Структура таблиці `userfiles`
 --
 
 CREATE TABLE `userfiles` (
@@ -186,7 +188,7 @@ CREATE TABLE `userfiles` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `userfiles`
+-- Дамп даних таблиці `userfiles`
 --
 
 INSERT INTO `userfiles` (`FilePath`, `FileName`, `ID`, `user_user_id`) VALUES
@@ -206,46 +208,50 @@ INSERT INTO `userfiles` (`FilePath`, `FileName`, `ID`, `user_user_id`) VALUES
 ('Upload', '11111111111111111.jpeg', 14, 'f2ac92673ae90e179ffb00b513cc053f');
 
 --
--- Indexes for dumped tables
+-- Індекси збережених таблиць
 --
 
 --
--- Indexes for table `pers_data`
+-- Індекси таблиці `pers_data`
 --
 ALTER TABLE `pers_data`
   ADD PRIMARY KEY (`u_id`);
 
 --
--- Indexes for table `register_user`
+-- Індекси таблиці `register_user`
 --
 ALTER TABLE `register_user`
   ADD PRIMARY KEY (`register_user_id`);
 
 --
--- Indexes for table `userfiles`
+-- Індекси таблиці `userfiles`
 --
 ALTER TABLE `userfiles`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT для збережених таблиць
 --
 
 --
--- AUTO_INCREMENT for table `pers_data`
+-- AUTO_INCREMENT для таблиці `pers_data`
 --
 ALTER TABLE `pers_data`
   MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
--- AUTO_INCREMENT for table `register_user`
+-- AUTO_INCREMENT для таблиці `register_user`
 --
 ALTER TABLE `register_user`
   MODIFY `register_user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 --
--- AUTO_INCREMENT for table `userfiles`
+-- AUTO_INCREMENT для таблиці `userfiles`
 --
 ALTER TABLE `userfiles`
   MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
