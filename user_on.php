@@ -1,8 +1,6 @@
 <?php
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
-session_start();
-$_SESSION['user_name'] = "vinni";
 if(isset($_SESSION['user_name']))
 {
 echo 'Welcome, '.$_SESSION['user_name'];
