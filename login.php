@@ -57,28 +57,28 @@ if(isset($_POST["login"]))
 	<head>
 				
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="style.css">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<div class=" form-log">
 			<div class="panel panel-default">
-				<div class="panel-heading"><h4>Login</h4></div>
-				<div class="panel-body">
+				<div class="panel-heading">Log in</div>
+				<div class="panel-body rel">
 					<form method="post">
 						<?php echo $message; ?>
-						<div class="form-group email">
-							<input type="email" name="user_email" class="form-control" required autocomplete="off" placeholder="Username"/>
+						<div class="form-group ">
+							<input type="email" name="user_email" class="form-control email" required autocomplete="off" placeholder="Username"/>
 						</div>
-						<div class="form-group password">
-							<input type="password" name="user_password" class="form-control" autocomplete="off" required  placeholder="Password"/>
+						<div class="form-group ">
+							<input type="password" name="user_password" class="form-control password" autocomplete="off" required  placeholder="Password"/>
 						</div>
-						<div class="form-group login-btn">
-							<input type="submit" name="login" value="Login" class="btn btn-info" />
+						<div class="form-group ">
+							<input type="submit" name="login" value="Log in" class="btn btn-dark login-btn" />
 						</div>
 					</form>
-					<div align="right"><a href="register.php" >or Register</a></div>
+					<div class="register-link"><a href="register.php" >or Register</a></div>
 				</div>
 			</div>
 		</div>
