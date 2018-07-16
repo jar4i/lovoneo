@@ -8,26 +8,34 @@ include('connection.php');
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
 $start_from = ($page-1) * $limit;  
   
-$sql = "SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , gender,  user_id, first_name, last_name, details, profile_foto FROM register_user WHERE gender LIKE '%".$_SESSION['gender']."%'ORDER BY user_id ASC LIMIT $start_from, $limit";  
+$sql = "SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , gender,  user_id, country, first_name, last_name, details, profile_foto FROM register_user WHERE gender LIKE '%".$_SESSION['gender']."%' AND TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) BETWEEN ".$_SESSION['age1']." AND ".$_SESSION['age2']." ORDER BY user_id ASC LIMIT $start_from, $limit";  
 $rs_result = mysqli_query($conn, $sql); 
 ?>
+
+
 <form class= "main_form">
 <?php  
 
 while ($row = mysqli_fetch_assoc($rs_result)) :
 ?>  
 
-<div class="clearfix_card">
-	<img src = "<?php echo $row['profile_foto']; ?>"><br>
-	
-	  <?php echo $row['first_name']?><br>
-	  <?php echo $row['last_name']?><br>
-	  <a href="personal_page.php?user_id=<?php echo $row['user_id']?>" class="btn btn-primary">More Info!</a>
-	</div>
-<?php
-endwhile;
-?>
-</form> 
-<style>
+<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 card-container">
+	<div class="rel card">
+		<a href="personal_page.php?user_id=<?php echo $row['user_id'];?>" >
+			<img src="<?php echo $row['profile_foto']; ?>" class="card-photo">
+			<div class="small-info" >
+				  	<?php echo $row['first_name']?>,
+					  <?php echo $row['age']?>
+					  <p id="card-country"><?php echo $row['country']?></p>
+			</div>
+		</a>
 
-</style>
+	</div>
+</div>
+
+
+
+<?php
+endwhile; 
+?>
+</form>
