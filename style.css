@@ -19,7 +19,7 @@
 }
 /*menu*/
 .head{
-  background: #000000e7;
+  background: #161616ea;
   width: 100%;
   padding: 20px 5px; 
   font-size: 16px;
@@ -61,15 +61,227 @@ transition: 400ms;
 ul{
   margin-bottom: 0 !important;
 }
-/*section 1 - control*/
+/*section_1 slider*/
+.section-slide{
+  margin-top: 100px;
+}
+.slick-slide{
+  height: 200px !important ;
+}
+.slick-dots{
+  display: none !important;
+}
+.slick-prev::before, .slick-next::before{
+  color: #181818 !important;
+  height: 100px !important;
+}
+/*section 1 - control: log in filter */
+/*login*/
 .section-control{
-  height: 350px;
-  margin-top: 100px; 
+  margin-top: 60px; 
   width: 100%;
 }
-.form-log{
+.section-control .form-log{
   width: 250px;
+  height: 350px;
 }
-.email, .password{
+.section-control .panel{
+  border-color: #181818 !important; 
+
+}
+.section-control .panel-body{
+  height: 240px;
+  background: #fffdf9cb;
+}
+.section-control .email,
+ .section-control .password,
+  .section-control .login-btn,
+   .section-control .register-link{
   width: 180px;
+  position: absolute;
+  left:14%;
+  top: 30px;
+  font-size: 15px !important;
 }
+.section-control .email:focus, .section-control .password:focus{
+  border-color: #ffbbbb9d !important;
+  box-shadow: 0 0 0 .2rem rgba(253, 202, 202, 0.39) !important;
+}
+.section-control .password{
+  top: 83px;
+}
+.section-control .login-btn{
+  width: 80px;
+  top: 150px;
+}
+.section-control .register-link{
+  left: 55%;
+  top: 200px;
+}
+.section-control .register-link a{
+  color: #ff3333 !important;
+}
+.section-control .register-link:hover a:hover{
+  color: #ff6b6b !important;
+  transition: 1000ms;
+}
+.section-control .panel-heading{
+  text-align: center;
+  color: #ffffff !important;
+  font-size: 19px;
+  font-weight: 600 !important;
+  background: #353535 !important;
+}
+
+/*filter*/
+.filter-name{
+  text-align: center;
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 600; 
+}
+.search{
+  margin-top: 39px;
+  margin-left: 35px;
+  height: 250px;
+}
+.age-from,
+ .age-to,
+  .gender,
+   .state{
+  width: 150px !important;
+  font-size: 14px !important;
+  margin-bottom: 10px;
+}
+.gender,
+   .state{
+  margin-bottom: 19px !important;
+}
+ .age-to{
+  margin-left: 20px;
+ }
+.search-btn{
+  font-size: 14px;
+  width: 80px;
+  position: absolute;
+  left: 240px;
+}
+.age-from:focus,
+ .age-to:focus,
+  .gender:focus,
+   .state:focus{
+  border-color: #ffbbbb9d !important;
+  box-shadow: 0 0 0 .2rem rgba(253, 202, 202, 0.39) !important;
+}
+
+/*section-pages users-card  */
+
+@keyframes move {
+  from {
+    bottom: -60px; 
+  }
+  to { 
+    bottom: 0;
+  }
+  }
+.section-pages{
+  padding-bottom:  50px;
+}
+.clearfix{
+  max-width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+}
+.card-container{
+  margin-bottom: 30px; 
+}
+.card{
+  width: 150px;
+  height: 200px;
+  overflow: hidden;
+  margin: 0 auto;
+
+  animation-play-state: paused;
+}
+
+.card-photo{
+  width: 150px;
+  height: 200px;
+  border-radius: 5px; 
+  z-index: 1000;
+}
+.card:hover{
+  border: 1px  solid rgba(151, 151, 151, 0.5);
+  border-radius: 5px;
+  box-shadow: 0 0 0 .2rem rgba(151, 151, 151, 0.5) !important;
+}
+.card:hover .small-info{
+  display: block;
+  transition: 2000ms;
+  animation: move  0.6s  ease-out;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+.small-info{
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  right: 0;
+  background:#161616cc; 
+  color: #ffffff;
+  overflow: hidden;
+  font-size: 16px;
+  text-align: left;
+  padding: 10px 15px;
+}
+#card-country{
+  font-size: 10px;
+}
+.pagination_main{
+  margin-top:  50px;
+}
+.pagination{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 100px; 
+}
+@media (max-width: 990px){
+  .card-photo, .card{
+    width: 190px;
+    height: 230px;
+  }
+}
+@media (max-width: 860px){
+  .card-photo, .card{
+    width: 170px;
+    height: 190px;
+  }
+}
+@media (max-width: 767px){
+  .card-photo, .card{
+    width: 200px;
+    height: 200px;
+  }
+}
+@media (max-width: 680px){
+  .card-photo, .card{
+    width: 170px;
+    height: 170px;
+  }
+  .small-info{
+    display: block;
+  }
+}
+@media (max-width: 575px){
+  .card-photo, .card{
+    width: 250px;
+    height: 250px;
+  }
+}
+
