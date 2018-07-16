@@ -14,6 +14,7 @@ $rs_result = mysqli_query($conn, $sql);
 <?php  
 while ($row = mysqli_fetch_assoc($rs_result)) :
 ?>  
+<div>
 <div class="rel card">
     <a href="personal_page.php?user_id=<?php echo $row['user_id'];?>" >
 		<img src="<?php echo $row['profile_foto']; ?>" class="card-photo">
@@ -23,6 +24,7 @@ while ($row = mysqli_fetch_assoc($rs_result)) :
 				  <p id="card-country"><?php echo $row['country']?></p>
 		</div>
 	</a>
+</div>
 </div>
    <?php
 endwhile; 
