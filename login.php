@@ -31,7 +31,7 @@ if(isset($_POST["login"]))
 					$user_name=$_SESSION['user_name'];
 
 
-					header("location:personal_page_edit.php?user_activation_code=$user_activation_code");
+					header("location:index.php");
 				}
 				else
 				{
