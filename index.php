@@ -92,7 +92,7 @@ $_SESSION['state'] = $_POST['state'];
 </section>
 
 
-<!--
+
 <div id="target-content" class="clearfix">
 
 
@@ -129,7 +129,7 @@ jQuery("#pagination li").on('click',function(e){
 </script>
       
 
-
+<!--
 <style>
 
 .header_main
