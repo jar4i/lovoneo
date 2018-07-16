@@ -30,12 +30,30 @@ if(isset($_GET['activation_code']))
 				SET user_email_status = 'verified' 
 				WHERE register_user_id = '".$row['register_user_id']."'
 				";
+				
 				$statement = $connect->prepare($update_query);
 				$statement->execute();
 				$sub_result = $statement->fetchAll();
+				$register_user_id = $row['register_user_id'];
 				if(isset($sub_result))
 				{
-					$message = '<label class="text-success">Your Email Address Successfully Verified <br />You can login here - <a href="login.php">Login</a></label>';
+				$select_query = "SELECT * FROM register_user WHERE register_user_id = ".$register_user_id."";
+                                $stmt = $connect->prepare($select_query);
+                                $stmt->execute();
+                                $sel_result = $stmt->fetchAll();
+				foreach($sel_result as $row);
+				if(isset($register_user_id)){
+				session_start();
+				$_SESSION['user_id'] = $row['register_user_id'];
+                                        $_SESSION['user_name'] = $row['user_name'];
+                                        $_SESSION['user_activation_code'] = $row['user_activation_code'];
+				
+                                        header("location:index.php");}
+									
+
+
+				
+					
 				}
 			}
 			else

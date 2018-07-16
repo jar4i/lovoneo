@@ -9,7 +9,7 @@ $sthandler->execute();
 <?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
 
 <div class="clearfix_card">
-<?php echo $row ['profile_foto']?><br>
+<img src="<?php echo $row ['profile_foto']?>" width= "300" height= "300" "<br>
 <?php echo $row ['first_name']?><br>
 <?php echo $row ['last_name']?><br>
 <?php endwhile;?>
