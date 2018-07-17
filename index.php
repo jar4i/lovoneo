@@ -48,6 +48,7 @@ $_SESSION['age1'] = $_POST['amount'];
 </header>
 <div class="wrap">
     <section class="section-control inline-block  rel">
+        <div class="logo"></div>
         <div class="container">
             <div class="row">
                 <div class="form-signin col-md-12"  method="POST">

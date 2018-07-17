@@ -106,6 +106,15 @@ ul{
   margin: 0 auto;
 }
 /*section 1 - control: log in filter */
+
+/*logo*/
+.logo{
+  background: url('logo.png') no-repeat;
+  background-size: cover; 
+  width: 290px;
+  height: 100px;
+  margin-bottom: 30px;
+}
 /*login*/
 .section-control{
   float: left;
@@ -353,9 +362,9 @@ padding-bottom: 4px;
   z-index: 1000;
 }
 .card:hover{
-  border: 1px  solid rgba(151, 151, 151, 0.5);
+  border: 1px  solid rgba(250, 177, 255, 0.5);
   border-radius: 5px;
-  box-shadow: 0 0 0 .2rem rgba(151, 151, 151, 0.5) !important;
+  box-shadow: 0 0 0 .2rem rgba(255, 193, 239, 0.5) !important;
 }
 .card:hover .small-info{
   display: block;
@@ -371,8 +380,9 @@ padding-bottom: 4px;
   left: 0;
   height: 60px;
   right: 0;
-  background:#161616cc; 
-  color: #ffffff;
+  font-weight: 500;
+  background:#fe98ddcc; 
+  color: #111010;
   overflow: hidden;
   font-size: 16px;
   text-align: left;
