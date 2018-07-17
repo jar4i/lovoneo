@@ -64,7 +64,6 @@ if(isset($_POST["login"]))
 	<body>
 		<div class=" form-log">
 			<div class="panel panel-default">
-				<div class="panel-heading">Log in</div>
 				<div class="panel-body rel">
 					<form method="post">
 						<?php echo $message; ?>

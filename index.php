@@ -70,39 +70,38 @@ $_SESSION['state'] = $_POST['state'];
                 </div>
                 <div class=" form-log col-md-7">
 			    <div class="panel panel-2 panel-default">
-				    <div class="panel-heading">Filter</div>
 				        <div class="panel-body">
                             <form class="search rel" action="search_form.php" method="post">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-md-6 col-sm-12 rel">
-                                            <h4 class="center-i">I'm</h4>
-                                            <div class="form-check inline-block rel">
-                                              <input class="form-check-input radio1" type="radio" name="Radios1" id="r1-m" value="male" >
-                                              <label class="form-check-label" for="r1-m">
-                                                Man
-                                              </label>
-                                            </div>
-                                            <div class="form-check inline-block rel">
-                                              <input class="form-check-input radio1" type="radio" name="Radios1" id="r1-f" value="female">
-                                              <label class="form-check-label" for="r1-f">
-                                                Woman
-                                              </label>
+                                        <div class="col-md-12 rel">
+                                            <h4 class="center search-text">I'm</h4>
+                                            <div class="labeles-div">
+                                                <label class="labeles">
+                                                    <input class="radio radio1" type="radio" name="Radios1" id="r1-m" value="male" >
+                                                    <span class="radio-custom"></span>
+                                                    <span class="label">M</span>
+                                                </label>
+                                                <label class="labeles">
+                                                    <input class="radio radio1" type="radio" name="Radios1" id="r1-f" value="female" >
+                                                    <span class="radio-custom"></span>
+                                                    <span class="label">W</span>
+                                                </label>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 col-sm-12 rel">
-                                            <h4 class="center-i">I'm looking for</h4>
-                                            <div class="form-check inline-block rel">
-                                              <input class="form-check-input radio2" type="radio" name="Radios2" id="r2-m" value="male" >
-                                              <label class="form-check-label" for="r2-m">
-                                                Man
-                                              </label>
-                                            </div>
-                                            <div class="form-check inline-block rel">
-                                              <input class="form-check-input radio2" type="radio" name="Radios2" id="r2-f" value="female">
-                                              <label class="form-check-label" for="r2-f">
-                                                Woman
-                                              </label>
+                                        <div class="col-md-12 rel">
+                                            <h4 class="center  search-text">I'm looking for</h4>
+                                            <div class="labeles-div">
+                                                <label class="labeles">
+                                                    <input class="radio radio2" type="radio" name="Radios2" id="r2-m" value="male" >
+                                                    <span class="radio-custom"></span>
+                                                    <span class="label">M</span>
+                                                </label>
+                                                <label class="labeles">
+                                                    <input class="radio radio2" type="radio" name="Radios2" id="r2-f" value="female" >
+                                                    <span class="radio-custom"></span>
+                                                    <span class="label">W</span>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
@@ -151,7 +150,6 @@ $_SESSION['state'] = $_POST['state'];
         </div>
     </div>
 </section>
-             
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -178,12 +176,12 @@ $( function() {
       max: 70,
       values: [ 18, 45 ],
       slide: function( event, ui ) {
-        $( "#amount" ).val(  "From " + ui.values[ 0 ]  );
-        $( "#amount-2" ).val( "To " +   ui.values[ 1 ] );
+        $( "#amount" ).val( ui.values[ 0 ]  );
+        $( "#amount-2" ).val( ui.values[ 1 ] );
       }
     });
-    $( "#amount" ).val(  "From " + $( "#slider-range" ).slider( "values", 0 ) );
-	$( "#amount-2" ).val( "To " + $( "#slider-range" ).slider( "values", 1 ) );
+    $( "#amount" ).val($( "#slider-range" ).slider( "values", 0 ) );
+	$( "#amount-2" ).val(  $( "#slider-range" ).slider( "values", 1 ) );
   } );
   </script>
 <script type="text/javascript">
