@@ -41,7 +41,7 @@ $rs_result = mysqli_query($conn, $sql);
      infinite: false,
      autoplay: true,
      speed: 300,
-     slidesToShow: 6,
+     slidesToShow: 4,
      slidesToScroll: 4,
      responsive: [
        {

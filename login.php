@@ -74,7 +74,7 @@ if(isset($_POST["login"]))
 							<input type="password" name="user_password" class="form-control password" autocomplete="off" required  placeholder="Password"/>
 						</div>
 						<div class="form-group ">
-							<input type="submit" name="login" value="Log in" class="btn btn-dark login-btn" />
+							<input type="submit" name="login" value="Log in" class="btn btn-danger login-btn" />
 						</div>
 					</form>
 					<div class="register-link"><a href="register.php" >or Register</a></div>

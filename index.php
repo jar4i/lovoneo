@@ -18,6 +18,7 @@ $_SESSION['state'] = $_POST['state'];
 <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.js"></script>
 </head>
 <body>
+   <!-- <div class="bg"></div>-->
 <header class="head fixed">
     <div class="wrap">
         <nav class="pull_left">
@@ -46,17 +47,11 @@ $_SESSION['state'] = $_POST['state'];
         </div>
     </div>
 </header>
-<section class="section-slide">
-    <div class="wrap">
-        <div id="_slick-icons">
-        </div>
-    </div>
-</section>
-<section class="section-control rel">
-    <div class="wrap">
+<div class="wrap">
+    <section class="section-control inline-block  rel">
         <div class="container">
             <div class="row">
-                <div class="form-signin col-md-5"  method="POST">
+                <div class="form-signin col-md-12"  method="POST">
                         <?php
                         if(isset($_SESSION['user_name']))
                         {
@@ -68,9 +63,9 @@ $_SESSION['state'] = $_POST['state'];
                         }
                         ?>
                 </div>
-                <div class=" form-log col-md-7">
-			    <div class="panel panel-2 panel-default">
-				        <div class="panel-body">
+                <div class=" form-log col-md-12">
+    		    <div class="panel panel-2 panel-default">
+    			        <div class="panel-body">
                             <form class="search rel" action="search_form.php" method="post">
                                 <div class="container">
                                     <div class="row">
@@ -80,12 +75,12 @@ $_SESSION['state'] = $_POST['state'];
                                                 <label class="labeles">
                                                     <input class="radio radio1" type="radio" name="Radios1" id="r1-m" value="male" >
                                                     <span class="radio-custom"></span>
-                                                    <span class="label">M</span>
+                                                    <div class="label">Man</div>
                                                 </label>
                                                 <label class="labeles">
                                                     <input class="radio radio1" type="radio" name="Radios1" id="r1-f" value="female" >
                                                     <span class="radio-custom"></span>
-                                                    <span class="label">W</span>
+                                                    <div class="label">Woman</div>
                                                 </label>
                                             </div>
                                         </div>
@@ -95,12 +90,12 @@ $_SESSION['state'] = $_POST['state'];
                                                 <label class="labeles">
                                                     <input class="radio radio2" type="radio" name="Radios2" id="r2-m" value="male" >
                                                     <span class="radio-custom"></span>
-                                                    <span class="label">M</span>
+                                                    <div class="label">Man</div>
                                                 </label>
                                                 <label class="labeles">
                                                     <input class="radio radio2" type="radio" name="Radios2" id="r2-f" value="female" >
                                                     <span class="radio-custom"></span>
-                                                    <span class="label">W</span>
+                                                    <div class="label">Woman</div>
                                                 </label>
                                             </div>
                                         </div>
@@ -115,41 +110,47 @@ $_SESSION['state'] = $_POST['state'];
                                     <div id="slider-range"></div>
                                 </div>
                                 <div class="form-group search-btn-block">
-                                    <input class="search-btn btn btn-lg btn-dark" id="search" onclick="location.href = 'search_form.php';" type="submit" name="search" value="Search">
+                                    <input class="search-btn btn btn-lg btn-danger" id="search" onclick="location.href = 'search_form.php';" type="submit" name="search" value="Search">
                                 </div>
                             </form>
-				        </div>
-			        </div>
-		        </div>
-                
+    			        </div>
+    		        </div>
+    	        </div>
             </div>
         </div>
+    </section>
+    <div class="inline-block right-side">
+        <section class="section-slide">
+            <div id="_slick-icons">
+            </div>
+        </section>
+
+        <section class="section-pages rel">
+            <div id="target-content" class="clearfix"></div>
+            <?php
+                include('connection.php');
+                $countSql = "SELECT COUNT(register_user_id) FROM register_user";
+                $tot_result = mysqli_query($conn, $countSql);
+                $row = mysqli_fetch_row($tot_result);
+                $total_records = $row[0];
+                $total_pages = ceil($total_records / $limit);
+            ?>
+            <div class="pagination_main rel">
+                <ul class='pagination' id="pagination">
+                    <?php if(!empty($total_pages)):for($i=1; $i<=$total_pages; $i++):  
+                    if($i == 1):?>
+                    <li class='page-item active'  id="<?php echo $i;?>"><a href='user_icon.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li> 
+                    <?php else:?>
+                    <li id="<?php echo $i;?>" class="page-item"><a href='user_icon.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li>
+                    <?php endif;?>
+                    <?php endfor;endif;?>
+                </ul>
+            </div>
+        </section>
     </div>
-</section>
-<section class="section-pages rel">
-    <div class="wrap">
-        <div id="target-content" class="clearfix"></div>
-        <?php
-            include('connection.php');
-            $countSql = "SELECT COUNT(register_user_id) FROM register_user";
-            $tot_result = mysqli_query($conn, $countSql);
-            $row = mysqli_fetch_row($tot_result);
-            $total_records = $row[0];
-            $total_pages = ceil($total_records / $limit);
-        ?>
-        <div class="pagination_main rel">
-            <ul class='pagination' id="pagination">
-                <?php if(!empty($total_pages)):for($i=1; $i<=$total_pages; $i++):  
-                if($i == 1):?>
-                <li class='page-item active'  id="<?php echo $i;?>"><a href='user_icon.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li> 
-                <?php else:?>
-                <li id="<?php echo $i;?>" class="page-item"><a href='user_icon.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li>
-                <?php endif;?>
-                <?php endfor;endif;?>
-            </ul>
-        </div>
-    </div>
-</section>
+</div>
+
+
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

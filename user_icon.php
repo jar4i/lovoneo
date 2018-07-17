@@ -16,7 +16,7 @@ $rs_result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($rs_result)) :
 ?>  
 
-<div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 card-container">
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 card-container">
 	<div class="rel card">
 		<a href="personal_page.php?user_id=<?php echo $row['user_id'];?>" >
 			<img src="<?php echo $row['profile_foto']; ?>" class="card-photo">
