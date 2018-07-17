@@ -166,6 +166,12 @@
     });
 </script>
 <script>
+var php_amount = <?php echo json_encode($_SESSION['age1']); ?>;
+var php_amount_2 = <?php echo json_encode($_SESSION['age2']); ?>;
+document.getElementById("amount").value = php_amount; 
+document.getElementById("amount-2").value = php_amount_2;
+</script>
+<script>
 $( function() {
     $( "#slider-range" ).slider({
       range: true,
@@ -192,6 +198,7 @@ $(document).ready(function(){
         });
     });
   </script>
+
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="slick/slick.min.js"></script>
     <script type="text/javascript">
