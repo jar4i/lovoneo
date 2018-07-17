@@ -84,7 +84,7 @@ if(isset($_POST["register"]))
 			$mail->Password = 'jar4ik3591';					
 			$mail->SMTPSecure = 'tls';							
 						
-			$mail->setFrom('jaroslaw.vinnichuck@gmail.com', 'Your Name');
+			$mail->setFrom('jaroslaw.vinnichuck@gmail.com', 'LOVONEO');
 					
 			$mail->AddAddress($_POST['user_email'], $_POST['user_name']);		
 			$mail->WordWrap = 50;							
@@ -93,7 +93,7 @@ if(isset($_POST["register"]))
 			$mail->Body = $mail_body;							
 			if($mail->Send())								
 			{
-				$message = '<label class="text-success">Register Done, Please check your mail.</label>';
+				header("location:register_done.php");
 			}
 		}
 	}
