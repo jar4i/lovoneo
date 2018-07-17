@@ -1,10 +1,9 @@
 <?php
 session_start();
 if (isset($_POST['search'])) { 
-$_SESSION['age1'] = $_POST['age1'];
-$_SESSION['age2'] = $_POST['age2'];
-$_SESSION['gender'] = $_POST['gender'];
-$_SESSION['state'] = $_POST['state'];
+$_SESSION['age1'] = $_POST['amount'];
+            $_SESSION['age2'] = $_POST['amount-2'];
+            $_SESSION['gender'] = $_POST['Radios2'];
 } 
 ?>
 <head>
@@ -78,12 +77,12 @@ $_SESSION['state'] = $_POST['state'];
                                             <h4 class="center search-text">I'm</h4>
                                             <div class="labeles-div">
                                                 <label class="labeles">
-                                                    <input class="radio radio1" type="radio" name="Radios1" id="r1-m" value="male" >
+                                                    <input class="radio radio1" type="radio" name="Radios1" id="r1-m" value="male" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='male' ){echo ' checked="checked"';}?>>
                                                     <span class="radio-custom"></span>
                                                     <span class="label">M</span>
                                                 </label>
                                                 <label class="labeles">
-                                                    <input class="radio radio1" type="radio" name="Radios1" id="r1-f" value="female" >
+                                                    <input class="radio radio1" type="radio" name="Radios1" id="r1-f" value="female" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='female' ){echo ' checked="checked"';}?>>
                                                     <span class="radio-custom"></span>
                                                     <span class="label">W</span>
                                                 </label>
@@ -93,12 +92,12 @@ $_SESSION['state'] = $_POST['state'];
                                             <h4 class="center  search-text">I'm looking for</h4>
                                             <div class="labeles-div">
                                                 <label class="labeles">
-                                                    <input class="radio radio2" type="radio" name="Radios2" id="r2-m" value="male" >
+                                                    <input class="radio radio2" type="radio" name="Radios2" id="r2-m" value="male" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='male' ){echo ' checked="checked"';}?>>
                                                     <span class="radio-custom"></span>
                                                     <span class="label">M</span>
                                                 </label>
                                                 <label class="labeles">
-                                                    <input class="radio radio2" type="radio" name="Radios2" id="r2-f" value="female" >
+                                                    <input class="radio radio2" type="radio" name="Radios2" id="r2-f" value="female" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='female' ){echo ' checked="checked"';}?>>
                                                     <span class="radio-custom"></span>
                                                     <span class="label">W</span>
                                                 </label>
@@ -109,8 +108,8 @@ $_SESSION['state'] = $_POST['state'];
                                 <div class="slider">
                                     <p class="center slider-age">Choose age</p>
                                     <div class="rel">
-                                      <input type="text" class="inputs-age" id="amount" readonly>
-                                      <input type="text" class="inputs-age" id="amount-2" readonly>
+                                      <input type="text" class="inputs-age" name ="amount" id="amount" value="<?php echo isset($_POST['amount']) ? $_POST['amount'] : '' ?>" readonly>
+                                      <input type="text" class="inputs-age" name ="amount-2" id="amount-2" value="<?php echo isset($_POST['amount-2']) ? $_POST['amount-2'] : '' ?>" readonly>
                                     </div>
                                     <div id="slider-range"></div>
                                 </div>
@@ -169,20 +168,35 @@ $_SESSION['state'] = $_POST['state'];
     });
 </script>
 <script>
+document.getElementById("amount").defaultValue = 18; 
+document.getElementById("amount-2").defaultValue = 45;
+</script>
+<script>
 $( function() {
     $( "#slider-range" ).slider({
       range: true,
       min: 18,
       max: 70,
-      values: [ 18, 45 ],
+      values: [ $("#amount").val(), $("#amount-2").val() ],
       slide: function( event, ui ) {
-        $( "#amount" ).val( ui.values[ 0 ]  );
-        $( "#amount-2" ).val( ui.values[ 1 ] );
+        $( "#amount" ).val(ui.values[ 0 ]  );
+        $( "#amount-2" ).val(ui.values[ 1 ] );
+        $( "#amount" ).value = ui.values[ 0 ];
+        $( "#amount-2" ).value = ui.values[ 1 ];
       }
     });
     $( "#amount" ).val($( "#slider-range" ).slider( "values", 0 ) );
-	$( "#amount-2" ).val(  $( "#slider-range" ).slider( "values", 1 ) );
+	$( "#amount-2" ).val($( "#slider-range" ).slider( "values", 1 ) );
   } );
+$(document).ready(function(){
+    	$("#amount").change(function(){
+           $( "#amount" ).value = ui.values[ 0 ];
+        });
+   
+        $("#amount-2").change(function(){
+           $( "#amount-2" ).value = ui.values[ 1 ];
+        });
+    });
   </script>
 <script type="text/javascript">
 $(document).ready(function(){
