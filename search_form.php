@@ -1,4 +1,4 @@
-<?php session_start();?>
+
 <head>
 <title>LOVONEO | FIND YOUR LOVE</title>
 
@@ -49,30 +49,30 @@
     <div class="wrap">
         
         <div class="filter-name">Filter</div>
-        <?php 
-            if (isset($_POST['search'])) {
+        <?php
+		session_start();
+            if (isset($_POST['search'])){
             $_SESSION['age1'] = $_POST['amount'];
             $_SESSION['age2'] = $_POST['amount-2'];
-            $_SESSION['gender'] = 
-            $_SESSION['state'] = $_POST['state'];
+            $_SESSION['gender'] = $_POST['Radios2'];
             }
             ?>
         <div class="panel panel-2 panel-default">
 				    <div class="panel-heading">Filter</div>
 				        <div class="panel-body">
-                            <form class="search rel" action="search_form.php" method="post">
+                            <form class="search rel" action="" method="post">
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-6 col-sm-12 rel">
                                             <h4 class="center-i">I'm</h4>
                                             <div class="form-check inline-block rel">
-                                              <input class="form-check-input radio1" type="radio" name="Radios1" id="r1-m" value="male" >
+                                              <input class="form-check-input radio1" type="radio" name="Radios1" id="r1-m" value="male" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='male' ){echo ' checked="checked"';}?>>
                                               <label class="form-check-label" for="r1-m">
                                                 Man
                                               </label>
                                             </div>
                                             <div class="form-check inline-block rel">
-                                              <input class="form-check-input radio1" type="radio" name="Radios1" id="r1-f" value="female">
+                                              <input class="form-check-input radio1" type="radio" name="Radios1" id="r1-f" value="female" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='female' ){echo ' checked="checked"';}?>>
                                               <label class="form-check-label" for="r1-f">
                                                 Woman
                                               </label>
@@ -81,13 +81,13 @@
                                         <div class="col-md-6 col-sm-12 rel">
                                             <h4 class="center-i">I'm looking for</h4>
                                             <div class="form-check inline-block rel">
-                                              <input class="form-check-input radio2" type="radio" name="Radios2" id="r2-m" value="male" >
+                                              <input class="form-check-input radio2" type="radio" name="Radios2" id="r2-m" value="male" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='male' ){echo ' checked="checked"';}?>>
                                               <label class="form-check-label" for="r2-m">
                                                 Man
                                               </label>
                                             </div>
                                             <div class="form-check inline-block rel">
-                                              <input class="form-check-input radio2" type="radio" name="Radios2" id="r2-f" value="female">
+                                              <input class="form-check-input radio2" type="radio" name="Radios2" id="r2-f" value="female" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='female' ){echo ' checked="checked"';}?>>
                                               <label class="form-check-label" for="r2-f">
                                                 Woman
                                               </label>
@@ -98,13 +98,13 @@
                                 <div class="slider">
                                     <p class="center slider-age">Choose age</p>
                                     <div class="rel">
-                                      <input type="text" class="inputs-age" id="amount" readonly>
-                                      <input type="text" class="inputs-age" id="amount-2" readonly>
+                                      <input type="text" class="inputs-age" value="<?php echo isset($_POST['amount']) ? $_POST['amount'] : '' ?>" name="amount" id="amount" readonly>
+                                      <input type="text" class="inputs-age" value="<?php echo isset($_POST['amount']) ? $_POST['amount-2'] : '' ?>" name="amount-2" id="amount-2" readonly>
                                     </div>
                                     <div id="slider-range"></div>
                                 </div>
                                 <div class="form-group search-btn-block">
-                                    <input class="search-btn btn btn-lg btn-dark" id="search" onclick="location.href = 'search_form.php';" type="submit" name="search" value="Search">
+                                    <input class="search-btn btn btn-lg btn-dark" id="search" type="submit" name="search" value="Search">
                                 </div>
                             </form>
 				        </div>
@@ -147,7 +147,7 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="slick/slick.min.js"></script>
 <script>
-    $(function(){
+     $(function(){
         var gender = "";
         $('.radio1').change(function(){
              if($(this).val() == "female"){
@@ -156,8 +156,7 @@
              }
             else {
                 $( "#r2-f" ).prop( "checked", true );
-                gender = "female"
-            }
+                gender = "female";}
         });
         $('.radio2').change(function(){
             gender = $(this).val();
@@ -173,15 +172,26 @@ $( function() {
       range: true,
       min: 18,
       max: 70,
-      values: [ 18, 45 ],
+      values: [ $("#amount").val(), $("#amount-2").val() ],
       slide: function( event, ui ) {
-        $( "#amount" ).val(  "From " + ui.values[ 0 ]  );
-        $( "#amount-2" ).val( "To " +   ui.values[ 1 ] );
+        $( "#amount" ).val(ui.values[ 0 ]  );
+        $( "#amount-2" ).val(ui.values[ 1 ] );
+        $( "#amount" ).value = ui.values[ 0 ];
+        $( "#amount-2" ).value = ui.values[ 1 ];
       }
     });
-    $( "#amount" ).val(  "From " + $( "#slider-range" ).slider( "values", 0 ) );
-	$( "#amount-2" ).val( "To " + $( "#slider-range" ).slider( "values", 1 ) );
+    $( "#amount" ).val($( "#slider-range" ).slider( "values", 0 ) );
+	$( "#amount-2" ).val($( "#slider-range" ).slider( "values", 1 ) );
   } );
+$(document).ready(function(){
+    	$("#amount").change(function(){
+           $( "#amount" ).value = ui.values[ 0 ];
+        });
+   
+        $("#amount-2").change(function(){
+           $( "#amount-2" ).value = ui.values[ 1 ];
+        });
+    });
   </script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="slick/slick.min.js"></script>
