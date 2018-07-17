@@ -6,7 +6,7 @@ include('connection.php');
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
 $start_from = ($page-1) * $limit;  
   
-$sql = "SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , first_name, user_id, last_name, details, country, city,  profile_foto FROM register_user ORDER BY rand(register_user_id)   ASC LIMIT $start_from, $limit";  
+$sql = "SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , first_name, user_id, last_name, details, country, city,  profile_foto FROM register_user ORDER BY rand()   ASC LIMIT $start_from, $limit";  
 $rs_result = mysqli_query($conn, $sql);
  
 ?>
@@ -26,7 +26,6 @@ while ($row = mysqli_fetch_assoc($rs_result)) :
 					  <p id="card-country"><?php echo $row['country']?></p>
 			</div>
 		</a>
-
 	</div>
 </div>
 

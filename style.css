@@ -11,6 +11,9 @@
 .fixed{
   position: fixed;
 }
+.center{
+text-align: center;
+}
 .wrap{
   max-width: 1400px;
   padding-left: 20px;
@@ -75,13 +78,20 @@ ul{
   color: #181818 !important;
   height: 100px !important;
 }
+.slick-prev::before{
+  margin-left: 15px !important;
+}
+.slick-card-box{
+  max-width: 1200px;
+  margin: 0 auto;
+}
 /*section 1 - control: log in filter */
 /*login*/
 .section-control{
   margin-top: 60px; 
   width: 100%;
 }
-.section-control .form-log{
+.form-signin .form-log{
   width: 250px;
   height: 350px;
 }
@@ -118,6 +128,9 @@ ul{
   left: 55%;
   top: 200px;
 }
+.form-signin .form-group{
+  margin-top: 30px;
+}
 .section-control .register-link a{
   color: #ff3333 !important;
 }
@@ -132,48 +145,75 @@ ul{
   font-weight: 600 !important;
   background: #353535 !important;
 }
+.panel-2 .form-check {
+margin-right: 50px;
+padding-top: 50px; 
+}
+.form-check .form-check-label{
+  position: absolute;
+  top: 54px;
+  left: 40px;
+  font-size: 14px;
+  font-weight: 400;
+}
 
 /*filter*/
-.filter-name{
-  text-align: center;
-  margin-top: 10px;
-  font-size: 22px;
-  font-weight: 600; 
+.center-i{
+  position: absolute;
+  left: 20%;
+  margin-bottom: 10px; 
+  font-size: 16px;
+  font-weight: 600;
+}
+.slider-age{
+  font-size: 16px;
+  font-weight: 600;
+}
+#amount, #amount-2{
+  position: absolute;
+  font-size: 14px;
+  color:#d63434;
+}
+.search-btn-block{
+  position: absolute;
+  top: 220px;
+  left: 42%;
+}
+#slider-range{
+  margin-top: 45px; 
+}
+#amount{
+  left: 0;
+}
+#amount-2{
+  right: 0;
+  text-align: right;
+}
+.inputs-age{
+  border:0;
+  font-weight:bold;
+}
+.slider{
+  position: absolute;
+  top: 120px;
+  left: 0;
+  right: 0;
 }
 .search{
-  margin-top: 39px;
   margin-left: 35px;
-  height: 250px;
+  margin-right: 35px;
 }
-.age-from,
- .age-to,
-  .gender,
-   .state{
-  width: 150px !important;
-  font-size: 14px !important;
-  margin-bottom: 10px;
+.panel-2{
+  height: 330px;
+
 }
-.gender,
-   .state{
-  margin-bottom: 19px !important;
+.panel-2 label{
+  cursor: pointer;
 }
- .age-to{
-  margin-left: 20px;
- }
 .search-btn{
   font-size: 14px;
   width: 80px;
-  position: absolute;
-  left: 240px;
 }
-.age-from:focus,
- .age-to:focus,
-  .gender:focus,
-   .state:focus{
-  border-color: #ffbbbb9d !important;
-  box-shadow: 0 0 0 .2rem rgba(253, 202, 202, 0.39) !important;
-}
-
 /*section-pages users-card  */
 
 @keyframes move {
@@ -284,4 +324,3 @@ ul{
     height: 250px;
   }
 }
-

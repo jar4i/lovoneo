@@ -4,6 +4,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -46,32 +47,70 @@
 </section>
 <section class="section-control">
     <div class="wrap">
+        
         <div class="filter-name">Filter</div>
         <?php 
             if (isset($_POST['search'])) {
-            $_SESSION['age1'] = $_POST['age1'];
-            $_SESSION['age2'] = $_POST['age2'];
-            $_SESSION['gender'] = $_POST['gender'];
+            $_SESSION['age1'] = $_POST['amount'];
+            $_SESSION['age2'] = $_POST['amount-2'];
+            $_SESSION['gender'] = 
             $_SESSION['state'] = $_POST['state'];
             }
             ?>
-        <form class="search rel" action="search_form.php" method="post">
-            <div class="form-group inline-block">
-                <input class="form-control age-from" list="age" autocomplete="off" id="age1" type="text" name="age1" value="<?php echo isset($_SESSION['age1']) ? $_SESSION['age1'] : '' ?>" placeholder="Age from, years">
-            </div>
-            <div class="form-group inline-block">
-                <input class="form-control age-to" list="age" autocomplete="off" id="age2" type="text" name="age2" value="<?php echo isset($_SESSION['age2']) ? $_SESSION['age2'] : '' ?>" placeholder="Age to, years">
-            </div>
-            <div class="form-group">
-                <input class="form-control gender" id="gender" type="text" name="gender"  value="<?php echo isset($_SESSION['gender']) ? $_SESSION['gender'] : '' ?>" placeholder="Gender">
-            </div>
-            <div class="form-group">
-                <input class="form-control state" list="state1" autocomplete="off" id="state" type="text" name="state" value="<?php echo isset($_SESSION['state']) ? $_SESSION['state'] : '' ?>" placeholder="State">
-            </div>
-            <div class="form-group">
-                <input class="search-btn btn btn-lg btn-dark" id="search" type="submit" name="search" value="search">
-            </div>
-        </form>
+        <div class="panel panel-2 panel-default">
+				    <div class="panel-heading">Filter</div>
+				        <div class="panel-body">
+                            <form class="search rel" action="search_form.php" method="post">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12 rel">
+                                            <h4 class="center-i">I'm</h4>
+                                            <div class="form-check inline-block rel">
+                                              <input class="form-check-input radio1" type="radio" name="Radios1" id="r1-m" value="male" >
+                                              <label class="form-check-label" for="r1-m">
+                                                Man
+                                              </label>
+                                            </div>
+                                            <div class="form-check inline-block rel">
+                                              <input class="form-check-input radio1" type="radio" name="Radios1" id="r1-f" value="female">
+                                              <label class="form-check-label" for="r1-f">
+                                                Woman
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12 rel">
+                                            <h4 class="center-i">I'm looking for</h4>
+                                            <div class="form-check inline-block rel">
+                                              <input class="form-check-input radio2" type="radio" name="Radios2" id="r2-m" value="male" >
+                                              <label class="form-check-label" for="r2-m">
+                                                Man
+                                              </label>
+                                            </div>
+                                            <div class="form-check inline-block rel">
+                                              <input class="form-check-input radio2" type="radio" name="Radios2" id="r2-f" value="female">
+                                              <label class="form-check-label" for="r2-f">
+                                                Woman
+                                              </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slider">
+                                    <p class="center slider-age">Choose age</p>
+                                    <div class="rel">
+                                      <input type="text" class="inputs-age" id="amount" readonly>
+                                      <input type="text" class="inputs-age" id="amount-2" readonly>
+                                    </div>
+                                    <div id="slider-range"></div>
+                                </div>
+                                <div class="form-group search-btn-block">
+                                    <input class="search-btn btn btn-lg btn-dark" id="search" onclick="location.href = 'search_form.php';" type="submit" name="search" value="Search">
+                                </div>
+                            </form>
+				        </div>
+			        </div>
+		        </div>
+                
     </div>
 </section>
 <section class="section-pages rel">
@@ -102,7 +141,47 @@
         </div>
     </div>
 </section>
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script>
+    $(function(){
+        var gender = "";
+        $('.radio1').change(function(){
+             if($(this).val() == "female"){
+                $( "#r2-m" ).prop( "checked", true );
+                gender = "male";
+             }
+            else {
+                $( "#r2-f" ).prop( "checked", true );
+                gender = "female"
+            }
+        });
+        $('.radio2').change(function(){
+            gender = $(this).val();
+            if($(this).val() == "female")
+                $( "#r1-m" ).prop( "checked", true );
+            else $( "#r1-f" ).prop( "checked", true );
+        });
+    });
+</script>
+<script>
+$( function() {
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 18,
+      max: 70,
+      values: [ 18, 45 ],
+      slide: function( event, ui ) {
+        $( "#amount" ).val(  "From " + ui.values[ 0 ]  );
+        $( "#amount-2" ).val( "To " +   ui.values[ 1 ] );
+      }
+    });
+    $( "#amount" ).val(  "From " + $( "#slider-range" ).slider( "values", 0 ) );
+	$( "#amount-2" ).val( "To " + $( "#slider-range" ).slider( "values", 1 ) );
+  } );
+  </script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="slick/slick.min.js"></script>
     <script type="text/javascript">
