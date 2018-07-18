@@ -68,7 +68,11 @@
       color: #ffafaf !important;
       transition: 400ms;
     }
-  
+    ul{
+        margin-bottom: 0 !important;
+      } ul{
+        margin-bottom: 0 !important;
+      }
   ul{
     margin-bottom: 0 !important;
   }
