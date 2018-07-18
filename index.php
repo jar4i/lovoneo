@@ -153,8 +153,10 @@ $_SESSION['age1'] = $_POST['amount'];
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="jquery.ui.touch-punch.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="slick/slick.min.js"></script>
+<script>$('#slider-range').draggable();</script>
 <script>
     $(function(){
         $('.radio1').change(function(){
