@@ -1,0 +1,131 @@
+/*helpers*/
+.inline-block{
+    display: inline-block;
+  }
+  .inline{
+      display: inline;
+  }
+  .block{
+    display: block;
+  }
+  .rel{
+   position: relative;
+  }
+  .abs{
+    position: absolute;
+   }
+  .fixed{
+    position: fixed;
+  }
+  .center{
+  text-align: center;
+  }
+  .wrap{
+    max-width: 1400px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+  }
+
+/*menu*/
+.head{
+    background: linear-gradient(to top left,#8918ce, #3d5de4);
+    opacity: 0.94 ; 
+    width: 100%;
+    padding: 20px 5px; 
+    font-size: 16px;
+    top:0;
+    z-index: 1000;
+  
+  }
+  nav{
+    width: 400px;
+    display: inline-block !important;
+  }
+  .pull-right{
+    display: inline-block;
+  }
+  .li-item{
+    margin-left: 10px;
+    padding-right: 5px; 
+    color: #ffffff;
+  }
+  .li-item::after{
+    content: "|";
+    padding-left: 10px; 
+  }
+  .li-item:hover{
+  color: #ffafaf;
+  transition: 400ms;
+  }
+  .head a{
+    color: #ffffff !important;
+  }
+  .head a:hover,
+  .head a:focus,
+  .head a:active {
+      text-decoration: none !important;
+      color: #ffafaf !important;
+      transition: 400ms;
+    }
+  
+  ul{
+    margin-bottom: 0 !important;
+  }
+  
+  /* filter*/
+
+.search-container{
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: #fffcf5 !important;
+    overflow: hidden;
+    border: 1px solid #210d793b;
+    box-shadow:  0 0 0 .2rem #210d792c !important;
+    border-radius: 8px;
+    color: #1b1b1b;
+}
+.search-text{
+    vertical-align: middle;
+}
+.radio {
+	display: none !important;
+}
+
+.radio-custom {
+	width: 20px;
+	height: 20px;
+	border: 2px solid #4b0a50;
+  border-radius: 3px;
+  background: #f8eefc;
+	position: relative;
+}
+
+.radio-custom,
+.label-r {
+	display: inline-block;
+  vertical-align: middle;
+  color: #181818;
+  font-size: 14px;
+  font-weight: 400;
+}
+.photo{
+  width: 15px;
+  height: 30px;
+}
+.radio:checked + .radio-custom::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 3px;
+	right: 3px;
+	bottom: 3px;
+	left: 3px;
+	background: #5f2563e6;
+	border-radius: 2px;
+}
+.radio-custom,
+.radio:checked + .radio-custom::before {
+	border-radius: 50%;
+}
