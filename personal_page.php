@@ -3,7 +3,7 @@
 $user_id=$_GET["user_id"];
 include("config.php");
 $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-$sthandler = $con->prepare("SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , first_name, last_name, profile_foto FROM register_user WHERE user_id = '$user_id'");
+$sthandler = $con->prepare("SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , first_name, last_name, country, city, details, profile_foto FROM register_user WHERE user_id = '$user_id'");
 $sthandler->execute();
 ?>
 <head>
@@ -44,15 +44,22 @@ $sthandler->execute();
     </header>
     <section class="section-photo">
         <div class="wrap">
+
             <?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
             <div class="photo-box inline-block">
                 <img src="<?php echo $row ['profile_foto']?>" class="photo">
             </div>
-            <div class="info inline-block">
-                <?php echo $row ['first_name'] ?>
-                <?php echo $row ['last_name'] ?>
-                <?php endwhile;?>
+            <div class="inline-block rel">
+                <div class="info">
+                    <div class="info-info"><span class="key">First name: </span><?php echo $row ['first_name'] ?></div>
+                    <div class="info-info"><span class="key">Last name: </span><?php echo $row ['last_name'] ?></div>
+                    <div class="info-info"><span class="key">Age: </span><?php echo $row ['age'] ?> y.o</div>
+                    <div class="info-info"><span class="key">City: </span><?php echo $row ['city'] ?></div>
+                    <div class="info-info"><span class="key">Country: </span><?php echo $row ['country'] ?></div>
+                </div>
+            <?php endwhile;?>
             </div>
+            
             <div class="album">
                 <?php
                 include("fotos/view.php");
@@ -61,8 +68,3 @@ $sthandler->execute();
         </div>
     </section>
 </body>
-
-
-
-
-

@@ -85,13 +85,25 @@
     width: 250px;
     height: 300px;
     overflow: hidden;
+    border: 3px solid #cfcfcfcc;
+border-radius: 15px;
 }
 .photo{
     width: 250px;
     height: 300px;
 }
 .info{
-
+    position: absolute;
+    top: -290px;
+    left: 30px;
+    width: 500px;
+    font-size: 18px;
+}
+.key{
+    font-weight: 600;
+}
+.info-info{
+    padding: 5px;
 }
 .album{
 
