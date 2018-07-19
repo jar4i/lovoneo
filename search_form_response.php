@@ -7,16 +7,19 @@ include('connection.php');
 
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
 $start_from = ($page-1) * $limit;  
-  
+
 $sql = "SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , gender,  user_id, country, first_name, last_name, details, profile_foto FROM register_user WHERE gender LIKE '%".$_SESSION['gender']."%' AND TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) BETWEEN ".$_SESSION['age1']." AND ".$_SESSION['age2']." ORDER BY user_id ASC LIMIT $start_from, $limit";  
 $rs_result = mysqli_query($conn, $sql); 
+
+
 ?>
-
-
 <form class= "main_form">
 <?php  
 
 while ($row = mysqli_fetch_assoc($rs_result)) :
+
+
+
 ?>  
 
 <div class="card-container inline-block">

@@ -114,7 +114,10 @@
 
              include('connection.php');
              //for total count data
-             $countSql = "SELECT COUNT(u_id) FROM pers_data";  
+	
+             $countSql = "SELECT COUNT(register_user_id) FROM register_user WHERE gender LIKE '%".$_SESSION['gender']."%' AND TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) BETWEEN ".$_SESSION['age1']." AND ".$_SESSION['age2']."";  
+  
+             
              $tot_result = mysqli_query($conn, $countSql);  
              $row = mysqli_fetch_row($tot_result);  
              $total_records = $row[0];  
