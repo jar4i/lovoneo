@@ -263,10 +263,12 @@
 .section-pages{
   padding-bottom:  50px;
 }
+.main_form{
+  margin-left: 60px;
+}
 .clearfix{
   margin-bottom: 80px !important;
   max-width: 900px;
-  text-align: center;
   margin: 50 auto;
 }
 .card-container{
