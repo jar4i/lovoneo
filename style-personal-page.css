@@ -1,0 +1,98 @@
+/*helpers*/
+.inline-block{
+    display: inline-block;
+  }
+  .inline{
+      display: inline;
+  }
+  .block{
+    display: block;
+  }
+  .rel{
+   position: relative;
+  }
+  .abs{
+    position: absolute;
+   }
+  .fixed{
+    position: fixed;
+  }
+  .center{
+  text-align: center;
+  }
+  .wrap{
+    max-width: 1400px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+  }
+
+/*menu*/
+.head{
+    background: linear-gradient(to top left,#8918ce, #3d5de4);
+    opacity: 0.94 ; 
+    width: 100%;
+    padding: 20px 5px; 
+    font-size: 16px;
+    top:0;
+    z-index: 1000;
+  
+  }
+  nav{
+    width: 400px;
+    display: inline-block !important;
+  }
+  .pull-right{
+    display: inline-block;
+  }
+  .li-item{
+    margin-left: 10px;
+    padding-right: 5px; 
+    color: #ffffff;
+  }
+  .li-item::after{
+    content: "|";
+    padding-left: 10px; 
+  }
+  .li-item:hover{
+  color: #ffafaf;
+  transition: 400ms;
+  }
+  .head a{
+    color: #ffffff !important;
+  }
+  .head a:hover,
+  .head a:focus,
+  .head a:active {
+      text-decoration: none !important;
+      color: #ffafaf !important;
+      transition: 400ms;
+    }
+    ul{
+        margin-bottom: 0 !important;
+      } ul{
+        margin-bottom: 0 !important;
+      }
+  ul{
+    margin-bottom: 0 !important;
+  }
+/* photo & small-info*/
+.section-photo{
+    margin-top: 90px;
+    padding-left: 50px;
+}
+.photo-box{
+    width: 250px;
+    height: 300px;
+    overflow: hidden;
+}
+.photo{
+    width: 250px;
+    height: 300px;
+}
+.info{
+
+}
+.album{
+
+}
