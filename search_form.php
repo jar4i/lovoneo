@@ -3,11 +3,10 @@
 <title>LOVONEO | FIND YOUR LOVE</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <link rel="stylesheet" href="style-search.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-<script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.js"></script>
 </head>
 <body>
 <header class="head fixed">
@@ -38,20 +37,17 @@
         </div>
     </div>
 </header>
-<!--
+
 <section class="section-slide">
     <div class="wrap">
         <div id="_slick-icons">
         </div>
     </div>
-</section>-->
+</section>
 <section class="section-control">
     <div class="wrap">
-        <br>
-        <br>
-        <br>
         <?php
-		    session_start();
+        session_start();
             if (isset($_POST['search'])){
             $_SESSION['age1'] = $_POST['amount'];
             $_SESSION['age2'] = $_POST['amount-2'];
@@ -60,60 +56,55 @@
         ?>
         <div class="search-container">
             <form class="search rel" action="search_form.php" method="post">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <p class="inline search-text">I'm</p>
-                            <div class="inline-block labeles-container">
-                                <label class="labeles block">
-                                    <input class="radio radio1" type="radio" name="Radios1" id="r1-m" value="male" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='male' ){echo ' checked="checked"';}?>>
-                                    <span class="inline-block radio-custom"></span>
-                                    <div class="inline-block label-r">Man</div>
-                                </label>
-                                <label class="labeles block">
-                                    <input class="radio d radio1" type="radio" name="Radios1" id="r1-f" value="female" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='female' ){echo ' checked="checked"';}?>>
-                                    <span class="inline-block radio-custom"></span>
-                                    <div class="inline-block label-r">Woman</div>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <p class="inline search-text">I'm looking for</p>
-                            <div class="inline-block labeles-container">
-                                <label class="labeles block">
-                                    <input class="radio radio2" type="radio" name="Radios2" id="r2-m" value="male" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='male' ){echo ' checked="checked"';}?>>
-                                    <span class="inline-block radio-custom"></span>
-                                    <div class="inline-block label-r">Man</div>
-                                </label>
-                                <label class="labeles block">
-                                    <input class="radio radio2" type="radio" name="Radios2" id="r2-f" value="female" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='female' ){echo ' checked="checked"';}?>>
-                                    <span class="inline-block radio-custom"></span>
-                                    <div class="inline-block label">Woman</div>
-                                </label>
-                            </div> 
-                        </div>
-                        <div class="col-md-3">
-                            <div class="inline-block">Age</div>
-                            <div class="inline-block">
-                                <div class="rel">
-                                  <input type="text" class="inputs-age" name ="amount" id="amount" value="<?php echo isset($_POST['amount']) ? $_POST['amount'] : '' ?>" readonly>
-                                  <input type="text" class="inputs-age" name ="amount-2" id="amount-2" value="<?php echo isset($_POST['amount-2']) ? $_POST['amount-2'] : '' ?>" readonly>
-                                </div>
-                                <div id="slider-range"></div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group search-btn-block">
-                                <input class="search-btn btn btn-lg btn-danger" id="search" type="submit" name="search" value="Search">
-                            </div>
-                        </div>
+                <div class="inline-block conter rel">
+                    <div class="inline-block search-text">I'm</div>
+                    <div class="inline-block labeles-container">
+                        <label class="labeles block">
+                            <input class="radio radio1" type="radio" name="Radios1" id="r1-m" value="male" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='male' ){echo ' checked="checked"';}?>>
+                            <span class="inline-block radio-custom"></span>
+                            <div class="inline-block label-r">Man</div>
+                        </label>
+                        <label class="labeles block">
+                            <input class="radio radio1" type="radio" name="Radios1" id="r1-f" value="female" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='female' ){echo ' checked="checked"';}?>>
+                            <span class="inline-block radio-custom"></span>
+                            <div class="inline-block label-r">Woman</div>
+                        </label>
+                    </div>
+                </div>
+                <div class="inline-block conter conter-2 rel">
+                    <div class="inline-block search-text" >I'm looking for</div>
+                    <div class="inline-block labeles-container" id="labeles-container">
+                        <label class="labeles block">
+                            <input class="radio radio2" type="radio" name="Radios2" id="r2-m" value="male" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='male' ){echo ' checked="checked"';}?>>
+                            <span class="inline-block radio-custom"></span>
+                            <div class="inline-block label-r">Man</div>
+                        </label>
+                        <label class="labeles block">
+                            <input class="radio radio2" type="radio" name="Radios2" id="r2-f" value="female" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='female' ){echo ' checked="checked"';}?>>
+                            <span class="inline-block radio-custom"></span>
+                            <div class="inline-block label-r">Woman</div>
+                        </label>
+                    </div> 
+                </div>
+                
+                <div class="inline-block rel conter conter-3">
+                    <div class="inline-block search-text">Age</div>
+                    <div class="inline-block slider">
+                        <input type="text" class="inputs-age" name ="amount" id="amount" value="<?php echo isset($_POST['amount']) ? $_POST['amount'] : '' ?>" readonly>
+                        <input type="text" class="inputs-age" name ="amount-2" id="amount-2" value="<?php echo isset($_POST['amount-2']) ? $_POST['amount-2'] : '' ?>" readonly>
+                        <div id="slider-range"></div>
+                    </div>
+                </div>
+                <div class="inline-block conter rel">
+                    <div class="inline-block search-btn-container">
+                        <input class="btn btn-lg btn-danger" id="search" type="submit" name="search" value="Search">
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </section>
-<!--<section class="section-pages rel">
+<section class="section-pages rel">
     <div class="wrap">
         <div id="target-content" class="clearfix"></div>
         <div class="pagination_main rel">
@@ -140,7 +131,7 @@
             </ul>
         </div>
     </div>
-</section>-->
+</section>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -207,7 +198,7 @@ $(document).ready(function(){
     <script type="text/javascript">
     $(document).ready(function(){
     	jQuery("#target-content").load("search_form_response.php?page=1");
-        jQuery("#_slick-icons").load("user_icon_1.php");
+        jQuery("#_slick-icons").load("user-icon-1-search.php");
     })
     </script>
 
