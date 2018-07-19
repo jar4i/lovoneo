@@ -2,10 +2,10 @@
 -- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jul 16, 2018 at 10:05 AM
--- Server version: 5.7.22-0ubuntu0.16.04.1
--- PHP Version: 7.0.30-0ubuntu0.16.04.1
+-- Хост: localhost
+-- Час створення: Лип 19 2018 р., 12:57
+-- Версія сервера: 5.7.22-0ubuntu0.16.04.1
+-- Версія PHP: 7.0.30-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `projekt`
+-- База даних: `projekt`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `city`
+-- Структура таблиці `city`
 --
 
 CREATE TABLE `city` (
@@ -34,7 +34,7 @@ CREATE TABLE `city` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `country`
+-- Структура таблиці `country`
 --
 
 CREATE TABLE `country` (
@@ -45,7 +45,7 @@ CREATE TABLE `country` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pers_data`
+-- Структура таблиці `pers_data`
 --
 
 CREATE TABLE `pers_data` (
@@ -64,7 +64,7 @@ CREATE TABLE `pers_data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pers_data`
+-- Дамп даних таблиці `pers_data`
 --
 
 INSERT INTO `pers_data` (`u_id`, `username`, `last_name`, `birth_date`, `country_id`, `city_id`, `profile_foto`, `e_mail`, `password`, `gender`, `details`, `more_info`) VALUES
@@ -86,7 +86,7 @@ INSERT INTO `pers_data` (`u_id`, `username`, `last_name`, `birth_date`, `country
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Структура таблиці `products`
 --
 
 CREATE TABLE `products` (
@@ -102,7 +102,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `products`
+-- Дамп даних таблиці `products`
 --
 
 INSERT INTO `products` (`productCode`, `productName`, `productLine`, `productScale`, `productVendor`, `productDescription`, `quantityInStock`, `buyPrice`, `MSRP`) VALUES
@@ -116,7 +116,7 @@ INSERT INTO `products` (`productCode`, `productName`, `productLine`, `productSca
 -- --------------------------------------------------------
 
 --
--- Table structure for table `register_user`
+-- Структура таблиці `register_user`
 --
 
 CREATE TABLE `register_user` (
@@ -138,31 +138,31 @@ CREATE TABLE `register_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `register_user`
+-- Дамп даних таблиці `register_user`
 --
 
 INSERT INTO `register_user` (`register_user_id`, `user_name`, `user_email`, `user_password`, `user_activation_code`, `user_id`, `user_email_status`, `first_name`, `last_name`, `country`, `city`, `birth_date`, `profile_foto`, `details`, `gender`) VALUES
-(2, 'anneta43565', 'adsasd@dasaas.com', '$2y$10$2caFu9z3YRo9oGY.A3a.S.4AIGeUzE1GWVXWfgFYhzP//QzE1.bxi', 'e5a2b453706cb51e47f768848d7c5bb7', '', 'verified', 'Annet', 'Kardi', 'Germany', 'Leipzig', '1976-06-28', 'uploads/9.jpeg', 'info', 'female'),
-(12, 'maria', 'vinni95@ukr.net', '$2y$10$ZBymn2PDvJcom5Jjcxj5e.5u.JCJCDZpm9hx2v0Lpk/BHQHpyhoGq', '9940ebdb87bf4d0a5f29d984de83c91c', '', 'verified', 'Anne', 'Lisa', 'Germany', 'Aachen', '1984-06-05', 'uploads/20.jpg', '', 'female'),
-(14, 'kate', 'jaroslaw.vinnichuck@gmail.com', '$2y$10$dWgfuggqP60JEmxCN.6zFegjm4HWP1OSaZaz7X/1feREJEhu1Smxq', '34c81e116b3e95162917f0e54849d3aa', '', 'verified', 'Kate', 'Martin', 'Germany', 'Frankfurth', '1985-06-20', 'uploads/1.png', '', 'female'),
-(15, 'lothar', 'werbung2010@me.com', '$2y$10$kRbYBOIgjGRRMnjFG/uHIeGp/QtiwoXtqVo6mL6q71YvSng7vIa9K', 'e5a221fef499fcd0d0707a8d4bfd94ef', '', 'verified', 'Lothar', 'Marunich', 'Germany', 'Berlin', '1977-07-17', 'uploads/8.jpg', '', ''),
-(16, 'Alla', 'allakerekesa31@gmail.com', '$2y$10$VSxyjN8z/5TqvfTK5C8y4euybbRdCo1kn5y/OgqvqG1ZZH..XtjD2', '175e9349f3794703818a599b13dd4c56', '', 'verified', 'Katya', 'Dovgal', 'Ukraine', 'Kiev', '1978-07-09', 'uploads/21.jpg', '', ''),
-(17, 'amoni', 'lituanortusr@gmail.com', '$2y$10$BgHjHaU1wbNYdNd0NzvQmuImZobO4Ia9dy5hvaurd7V7NFv0Lcm7.', 'e4c6ae58026c0e66d124d3ea0aa0fb6a', '', 'verified', 'Helen', 'Parshin', 'Ukraine', 'Kiev', '1979-07-26', 'uploads/13.jpg', '', ''),
-(18, 'putin', 'upasha1996@mail.ru', '$2y$10$cneEf7nbgG.yS2P33ahAFegrsh5.8bgi7sr8otkgtnpRk5VjZUBHK', 'bddb4a1513ed10537173f42aaaeea0dc', '', 'verified', 'Olga', 'Kotlir', 'Ukraine', 'Kiev', '1980-07-26', 'uploads/18.jpg', '', ''),
-(19, 'Irishka', 'more.turov.kr.86@gmail.com', '$2y$10$DOMcgEAiU8YCg6/qH7QA2OclraioKFT7lJKYEkBoxzVleNQyI0u4e', '857221df6e987cad538e12c891a27c49', '', 'verified', 'Irina', 'Shevchenko', 'Ukraine ', 'Krivoy Rog ', '1970-07-10', 'uploads/15.jpg', 'I hope soon have happy family.  \r\nI like so much travel. I have small daughter she is 4.5 years old.  \r\nO work in travel company. ', ''),
-(20, 'ks ', 'Ks@gamil.com', '$2y$10$aAWph/UdhmB0Z8HlCiAdNuGsIpP.Wn9y0pRM3TfMqXjBY0XrgxAde', 'c07ceb729e8b3ad1243b892385a083a5', '', 'verified', 'Nadya', 'Shemdinov', 'Ukraine', 'Chernigiv', '1969-07-26', 'uploads/16.jpg', '', ''),
-(21, 'test_user', 'test_mail@ukr.net', '$2y$10$ZBymn2PDvJcom5Jjcxj5e.5u.JCJCDZpm9hx2v0Lpk/BHQHpyhoGq', 'ccc597d3b7230aca3c5875c069c387f9', 'f2ac92673ae90e179ffb00b513cc053f', 'verified', 'Nastya', 'Zaya', 'Ukraine', 'Chernigiv', '1976-07-01', 'uploads/images.jpeg', '', ''),
-(22, 'Kristine123', 'krist@gmail.com', 'qwerty', 'ghekfu7si8eyfuk', 'fjkse48975t89yhtulsi', 'verified', 'Kristine', 'Love', 'Ukraine', 'Kiev', '1979-10-17', 'uploads/17.jpg', 'Cute', 'Female'),
-(23, 'Lin123', 'Lin123@gmail.com', 'ddftgesr5324', 'fgew45ry435', '', 'verified', 'Kseshik', 'Jenita', 'Germany', 'Berlin', '1972-07-17', 'uploads/14.jpg', 'super-puper', 'female'),
-(24, 'Lin123', 'Lin123@gmail.com', 'ddftgesr5324', 'fgew45ry435', '', 'verified', 'Kseshik', 'Jenita', 'Germany', 'Berlin', '1972-07-17', 'uploads/10.jpg', 'super-puper', 'female'),
-(25, 'Lisdf123', 'Lisdf23@gmail.com', 'ddftsdf5324', 'fgewas5ry435', '', 'verified', 'Lena', 'Omelchendina', 'Germany', 'Berlin', '1982-07-17', 'uploads/11.jpg', 'super-puper', 'female'),
-(26, 'Licgukn123', 'Lin123@gmail.com', 'ddftgesr53rfte24', 'fgewserte5y45ry435', '', 'verified', 'Irina', 'Linchuk', 'Ukraine', 'Luck', '1972-07-17', 'uploads/12.jpg', 'super-puper', 'female'),
-(27, 'Ligygyn123', 'Lin12wer3@gmail.com', 'ddtyuiuytiftgesr5324', 'fgedtyweyuyfw45ry435', '', 'verified', 'Lesya', 'Leckaluk', 'Germany', 'Brno', '1977-07-17', 'uploads/19.jpg', 'super-puper', 'female');
+(2, 'anneta43565', 'adsasd@dasaas.com', '$2y$10$2caFu9z3YRo9oGY.A3a.S.4AIGeUzE1GWVXWfgFYhzP//QzE1.bxi', 'e5a2b453706cb51e47f768848d7c5bb7', 'fdssdffsddsf', 'verified', 'Annet', 'Kardi', 'Germany', 'Leipzig', '1976-06-28', 'uploads/9.jpeg', 'info', 'female'),
+(12, 'maria', 'vinni94@ukr.net', '$2y$10$ZBymn2PDvJcom5Jjcxj5e.5u.JCJCDZpm9hx2v0Lpk/BHQHpyhoGq', '9940ebdb87bf4d0a5f29d984de83c91c', 'rfwdcvxsdfsdf', 'verified', 'Anne', 'Lisa', 'Germany', 'Aachen', '1984-06-05', 'uploads/20.jpg', '', 'female'),
+(14, 'kate', 'jaroslaw.vinnichuck@gmail.com', '$2y$10$dWgfuggqP60JEmxCN.6zFegjm4HWP1OSaZaz7X/1feREJEhu1Smxq', '34c81e116b3e95162917f0e54849d3aa', 'qewqweeqweqw', 'verified', 'Kate', 'Martin', 'Germany', 'Frankfurth', '1985-06-20', 'uploads/1.png', '', 'female'),
+(15, 'Nadya', 'werbung2010@me.com', '$2y$10$kRbYBOIgjGRRMnjFG/uHIeGp/QtiwoXtqVo6mL6q71YvSng7vIa9K', 'e5a221fef499fcd0d0707a8d4bfd94ef', 'qweweqqwe', 'verified', 'Nadya', 'Marunich', 'Germany', 'Berlin', '1977-07-17', 'uploads/8.jpg', '', 'female'),
+(16, 'Alla', 'allakerekesa31@gmail.com', '$2y$10$VSxyjN8z/5TqvfTK5C8y4euybbRdCo1kn5y/OgqvqG1ZZH..XtjD2', '175e9349f3794703818a599b13dd4c56', 'dsfsdffdsdsfdsf', 'verified', 'Katya', 'Dovgal', 'Ukraine', 'Kiev', '1978-07-09', 'uploads/21.jpg', '', 'female'),
+(17, 'amoni', 'lituanortusr@gmail.com', '$2y$10$BgHjHaU1wbNYdNd0NzvQmuImZobO4Ia9dy5hvaurd7V7NFv0Lcm7.', 'e4c6ae58026c0e66d124d3ea0aa0fb6a', 'sdfdsfsdfdsgdfssdf', 'verified', 'Helen', 'Parshin', 'Ukraine', 'Kiev', '1979-07-26', 'uploads/13.jpg', '', 'female'),
+(18, 'putin', 'upasha1996@mail.ru', '$2y$10$cneEf7nbgG.yS2P33ahAFegrsh5.8bgi7sr8otkgtnpRk5VjZUBHK', 'bddb4a1513ed10537173f42aaaeea0dc', 'fdssfdfsdsfdsdfdsf', 'verified', 'Olga', 'Kotlir', 'Ukraine', 'Kiev', '1980-07-26', 'uploads/18.jpg', '', 'female'),
+(19, 'Irishka', 'more.turov.kr.86@gmail.com', '$2y$10$DOMcgEAiU8YCg6/qH7QA2OclraioKFT7lJKYEkBoxzVleNQyI0u4e', '857221df6e987cad538e12c891a27c49', 'sdffdssdfsdfsdfsdffds', 'verified', 'Irina', 'Shevchenko', 'Ukraine ', 'Krivoy Rog ', '1970-07-10', 'uploads/15.jpg', 'I hope soon have happy family.  \r\nI like so much travel. I have small daughter she is 4.5 years old.  \r\nO work in travel company. ', 'female'),
+(20, 'ks ', 'Ks@gamil.com', '$2y$10$aAWph/UdhmB0Z8HlCiAdNuGsIpP.Wn9y0pRM3TfMqXjBY0XrgxAde', 'c07ceb729e8b3ad1243b892385a083a5', 'sdfsdfsdfdfssdfsdf', 'verified', 'Nadya', 'Shemdinov', 'Ukraine', 'Chernigiv', '1969-07-26', 'uploads/16.jpg', '', 'female'),
+(21, 'test_user', 'test_mail@ukr.net', '$2y$10$ZBymn2PDvJcom5Jjcxj5e.5u.JCJCDZpm9hx2v0Lpk/BHQHpyhoGq', 'ccc597d3b7230aca3c5875c069c387f9', 'f2ac92673ae90e179ffb00b513cc053f', 'verified', 'Nastya', 'Zaya', 'Ukraine', 'Chernigiv', '1976-07-01', 'uploads/5.png', '', 'female'),
+(22, 'Kristine123', 'krist@gmail.com', 'qwerty', 'ghekfu7si8eyfuk', 'fjkse48975t89yhtulsi', 'verified', 'Kristine', 'Love', 'Ukraine', 'Kiev', '1979-10-17', 'uploads/17.jpg', 'Cute', 'female'),
+(23, 'Lin123', 'Lin123@gmail.com', 'ddftgesr5324', 'fgew45ry435', 'sdfsdfsdfsfdsfd', 'verified', 'Kseshik', 'Jenita', 'Germany', 'Berlin', '1972-07-17', 'uploads/14.jpg', 'super-puper', 'female'),
+(24, 'Lin123', 'Lin123@gmail.com', 'ddftgesr5324', 'fgew45ry435', 'dsfsdfsfdsdfsdf', 'verified', 'Kseshik', 'Jenita', 'Germany', 'Berlin', '1972-07-17', 'uploads/10.jpg', 'super-puper', 'female'),
+(25, 'Lisdf123', 'Lisdf23@gmail.com', 'ddftsdf5324', 'fgewas5ry435', 'dsffsdsdfsfddsf', 'verified', 'Lena', 'Omelchendina', 'Germany', 'Berlin', '1982-07-17', 'uploads/11.jpg', 'super-puper', 'female'),
+(26, 'Licgukn123', 'Lin123@gmail.com', 'ddftgesr53rfte24', 'fgewserte5y45ry435', 'fdssfdsfsdfsd', 'verified', 'Irina', 'Linchuk', 'Ukraine', 'Luck', '1972-07-17', 'uploads/12.jpg', 'super-puper', 'female'),
+(27, 'Ligygyn123', 'Lin12wer3@gmail.com', 'ddtyuiuytiftgesr5324', 'fgedtyweyuyfw45ry435', 'sdffdssdfsdffds', 'verified', 'Lesya', 'Leckaluk', 'Germany', 'Brno', '1977-07-17', 'uploads/19.jpg', 'super-puper', 'female');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Структура таблиці `user`
 --
 
 CREATE TABLE `user` (
@@ -172,7 +172,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Дамп даних таблиці `user`
 --
 
 INSERT INTO `user` (`uuu_id`, `username`, `password`) VALUES
@@ -181,7 +181,7 @@ INSERT INTO `user` (`uuu_id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userfiles`
+-- Структура таблиці `userfiles`
 --
 
 CREATE TABLE `userfiles` (
@@ -192,7 +192,7 @@ CREATE TABLE `userfiles` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `userfiles`
+-- Дамп даних таблиці `userfiles`
 --
 
 INSERT INTO `userfiles` (`FilePath`, `FileName`, `ID`, `user_user_id`) VALUES
@@ -212,43 +212,43 @@ INSERT INTO `userfiles` (`FilePath`, `FileName`, `ID`, `user_user_id`) VALUES
 ('Upload', '11111111111111111.jpeg', 14, 'f2ac92673ae90e179ffb00b513cc053f');
 
 --
--- Indexes for dumped tables
+-- Індекси збережених таблиць
 --
 
 --
--- Indexes for table `pers_data`
+-- Індекси таблиці `pers_data`
 --
 ALTER TABLE `pers_data`
   ADD PRIMARY KEY (`u_id`);
 
 --
--- Indexes for table `register_user`
+-- Індекси таблиці `register_user`
 --
 ALTER TABLE `register_user`
   ADD PRIMARY KEY (`register_user_id`);
 
 --
--- Indexes for table `userfiles`
+-- Індекси таблиці `userfiles`
 --
 ALTER TABLE `userfiles`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT для збережених таблиць
 --
 
 --
--- AUTO_INCREMENT for table `pers_data`
+-- AUTO_INCREMENT для таблиці `pers_data`
 --
 ALTER TABLE `pers_data`
   MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
--- AUTO_INCREMENT for table `register_user`
+-- AUTO_INCREMENT для таблиці `register_user`
 --
 ALTER TABLE `register_user`
-  MODIFY `register_user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `register_user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
--- AUTO_INCREMENT for table `userfiles`
+-- AUTO_INCREMENT для таблиці `userfiles`
 --
 ALTER TABLE `userfiles`
   MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;

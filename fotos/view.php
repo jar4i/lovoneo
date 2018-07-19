@@ -32,7 +32,7 @@
 					<h3>Uploaded Files:</h3>
 					<br/>
 					<?php 
-						$conn = mysqli_connect("localhost","root","jvaac2283591","projekt");
+						$conn = mysqli_connect("localhost","lovoneo","ZMaLPF2-unV-ch","projekt");
 						
 						$query = "SELECT * FROM userfiles WHERE user_user_id= '$user_id'";
 						
