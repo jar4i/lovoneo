@@ -82,7 +82,7 @@ $sthandler->execute();
                     <div class="info-info"><span class="key">Height: </span><?php echo $row ['height'] ?></div>
                     <div class="info-info"><span class="key">Weight: </span><?php echo $row ['weight'] ?></div>
                     <div class="info-info"><span class="key">About me: </span><?php echo $row ['details'] ?></div>
-                </div>
+</div>
             <?php endwhile;?>
             </div>
 		<form class ="like" action="" method="post" value="like">
@@ -101,7 +101,7 @@ $ins->execute();
 echo "Like was given!";
 }
 
-$select_query="SELECT COUNT(like_id) FROM likes WHERE like_to = '$like_to')";
+$select_query="SELECT COUNT(like_id) FROM likes WHERE like_to = '$like_to'";
 $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
 $con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 $sel = $con->prepare($insert_query);
@@ -112,7 +112,6 @@ echo $row[0];
 endwhile;
 ?>
 	</form>
-            
             <div class="album">
                 <?php
                 include("fotos/view.php");
