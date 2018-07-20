@@ -81,6 +81,33 @@ Change your profile foto:
 <input type="file" name="fileToUpload" id="fileToUpload">
 <input type="submit" value="Upload Image" name="submit">
 </form>
+  <script src="croppie.js"></script>
+  <link rel="stylesheet" href="croppie.css" />
+   </head>
+<div class="demo"></div>
+	
+	<script>
+var el = document.getElementById('fileToUpload');
+var vanilla = new Croppie(el, {
+    viewport: {
+        width: 150,
+        height: 200
+    },
+    boundary: { width: 300, height: 300 },
+    showZoomer: false,
+    enableOrientation: true
+});
+
+vanilla.bind({
+    url: document.getElementById('fileToUpload'), 
+    points: [77,469,280,739]
+});
+vanilla.result('blob').then(function(blob) {
+    // do something with cropped blob
+});
+</script>
+
+
 <form action="" method="post" enctype="multipart/form-data">
 <textarea name="details"><?php echo $row ['details']?></textarea>
 <div class="input_block"><label for="first_name">First name: </label><input type="text" name="first_name" id="first_name"  value="<?php echo $row ['first_name']?>"><br>

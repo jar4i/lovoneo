@@ -59,6 +59,33 @@ $sthandler->execute();
                 </div>
             <?php endwhile;?>
             </div>
+		<form class ="like" action="" method="post" value="like">
+		<input class="like" id="like" type="submit" name="like">
+	<?php
+include("config.php");
+session_start();
+if(isset($_POST["like"])) {
+$like_to= $_GET["user_id"];
+$like_from = $_SESSION['us_id'];
+$insert_query="INSERT INTO likes (like_from, like_to) VALUES ('$like_from', '$like_to')";
+$con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+$con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+$ins = $con->prepare($insert_query);
+$ins->execute();
+echo "Like was given!";
+}
+
+$select_query="SELECT COUNT(like_id) FROM likes WHERE like_to = '$like_to')";
+$con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+$con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+$sel = $con->prepare($insert_query);
+$sel->execute();
+
+while($row = $sel->fetch(PDO::FETCH_ASSOC)) : 
+echo $row[0];
+endwhile;
+?>
+	</form>
             
             <div class="album">
                 <?php
