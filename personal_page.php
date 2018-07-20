@@ -21,7 +21,7 @@ $sthandler->execute();
         <div class="wrap">
             <nav class="pull_left">
                 <ul class="list-unstyled ">
-                <a class="active" href="#home"><li class="li-item inline-block">Home</li></a>
+                <a class="active" href="index.php"><li class="li-item inline-block">Home</li></a>
                 <a href="#news"><li class="li-item inline-block">News</li></a>
                 <a href="#contact"><li class="li-item inline-block">Contact</li></a>
                 <a href="#about"><li class="li-item inline-block">About</li></a>
@@ -104,7 +104,7 @@ echo "Like was given!";
 $select_query="SELECT COUNT(like_id) FROM likes WHERE like_to = '$like_to'";
 $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
 $con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-$sel = $con->prepare($insert_query);
+$sel = $con->prepare($select_query);
 $sel->execute();
 
 while($row = $sel->fetch(PDO::FETCH_ASSOC)) : 
