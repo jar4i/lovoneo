@@ -1,0 +1,59 @@
+/*login*/
+.section-control{
+    float: left;
+    margin-top: 80px; 
+    width: 310px;
+    height: 100%;
+    clear: bottom;
+  }
+  .section-control .form-log{
+    width: 260px;
+    height: 350px;
+  }
+  .section-control .panel{
+    background: #fffdf9cb;
+    border-color: #181818 !important; 
+  }
+  .form-signin .panel-body{
+    height: 280px;}
+  .section-control .panel-body{
+    padding: 0 !important;
+  }
+
+  .section-control .email,
+   .section-control .password,
+    .section-control .login-btn,
+     .section-control .register-link{
+    width: 180px;
+    position: absolute;
+    left:14%;
+    top: 30px;
+    font-size: 15px !important;
+  }
+  .section-control .email:focus, .section-control .password:focus{
+    border-color: #ffbbbb9d !important;
+    box-shadow: 0 0 0 .2rem rgba(253, 202, 202, 0.39) !important;
+  }
+  .section-control .password{
+    top: 83px;
+  }
+  .section-control .login-btn{
+    width: 80px;
+    top: 150px;
+  }
+  .section-control .register-link{
+    left: 55%;
+    top: 200px;
+  }
+  .form-signin .form-group{
+    margin-top: 30px;
+  }
+  .section-control .register-link a{
+    color: #ff3333 !important;
+  }
+  .section-control .register-link:hover a:hover{
+    color: #ff6b6b !important;
+    transition: 1000ms;
+  }
+  
+  

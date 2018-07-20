@@ -28,7 +28,6 @@
 			
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<a href="index.php" class="btn btn-info">Go Back</a>
 					<h3>Uploaded Files:</h3>
 					<br/>
 					<?php 
