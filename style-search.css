@@ -140,7 +140,7 @@
 .label-r {
 	display: inline-block;
   vertical-align: middle;
-  color: #181818;
+  color: #181818 !important;
   font-size: 14px;
   font-weight: 400;
 }
