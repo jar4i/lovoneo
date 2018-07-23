@@ -23,7 +23,8 @@ if(isset($_POST["register"]))
 	$statement = $connect->prepare($query);
 	$statement->execute(
 		array(
-			':user_email'	=>	$_POST['user_email']
+			':user_email'	=>	$_POST['user_email'],
+			':user_password' =>	$_POST['user_password'] 
 		)
 	);
 	$no_of_row = $statement->rowCount();
@@ -126,6 +127,10 @@ if(isset($_POST["register"]))
 						<div class="form-group">
 							<label>User Email</label>
 							<input type="email" name="user_email" class="form-control" required />
+						</div>
+						<div class="form-group">
+							<label>Your Password</label>
+							<input type="email" name="user_password" class="form-control" required />
 						</div>
 						<div class="form-group">
 							<input type="submit" name="register" id="register" value="Register" class="btn btn-info" />

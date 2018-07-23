@@ -19,7 +19,7 @@
 <body>
     <center>
         <br>
-        <strong>Welcome <?php echo $_SESSION['user_name']; ?>  <a href="logout.php">logout</a></strong>
+        <strong>Welcome <?php echo $_SESSION['user_name']; ?>  <a href="../logout.php">logout</a></strong>
     </center>
     <div class="message-body">
         <div class="message-left">
@@ -27,10 +27,10 @@
                 <?php
                     //show all the users expect me
 			
-                    $q = mysqli_query($con, "SELECT * FROM `register_user` WHERE user_id = '$user_id'");
+                    $q = mysqli_query($con, "SELECT * FROM `register_user` WHERE user_id!='$user_id'");
                     //display all the results
                     while($row = mysqli_fetch_assoc($q)){
-                        echo "<a href='message.php?user_id={$row['user_id']}'><li><img src='{$row['profile_foto']}'> {$row['user_name']}</li></a>";
+                        echo "<a href='message.php?user_id={$row['user_id']}'><li><img src='../{$row['profile_foto']}'> {$row['user_name']}</li></a>";
                     }
 
                 ?>
@@ -44,7 +44,7 @@
                 if(isset($_GET['user_id'])){
                     $user_two = trim(mysqli_real_escape_string($con, $_GET['user_id']));
                     //check $user_two is valid
-                    $q = mysqli_query($con, "SELECT `user_id` FROM `register_user` WHERE user_id='$user_two' AND user_id='$user_id'");
+                    $q = mysqli_query($con, "SELECT `user_id` FROM `register_user` WHERE user_id='$user_two' AND user_id!='$user_id'");
                     //valid $user_two
                     if(mysqli_num_rows($q) == 1){
                         //check $user_id and $user_two has conversation or not if no start one
