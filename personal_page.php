@@ -37,14 +37,12 @@ $sthandler->execute();
                 }
                 ?>
             </a>
-                <a href="#" class="log-in-out">
-                <?php 
-                    if (isset($_SESSION['user_name'])) {
-                    echo 'Log out';
-                    }
-                    else echo 'Log in';
-                    ?>
-                </a>
+            <?php 
+                if (isset($_SESSION['user_name'])) {
+                    echo'<a href="logout.php">Log out</a>';
+                }
+                else echo '<a href="login.php">Log in</a>';
+                ?>
             </div>
         </div>
     </header>

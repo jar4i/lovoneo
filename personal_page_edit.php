@@ -23,14 +23,12 @@
                 }
                 ?>
             </a>
-            <a href="#" class="log-in-out">
             <?php 
                 if (isset($_SESSION['user_name'])) {
-                   echo 'Log out';
+                    echo'<a href="logout.php">Log out</a>';
                 }
-                else echo 'Log in';
+                else echo '<a href="login.php">Log in</a>';
                 ?>
-            </a>
         </div>
     </div>
 </header>

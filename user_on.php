@@ -102,7 +102,7 @@ while ($row = mysqli_fetch_assoc($mysql_result)) :
                               <i class="fa fa-chevron-down" aria-hidden="true"></i>
                             </div>
                             <ul class="submenuItems submenuItems_5">
-                              <li><a href="#">Log out</a></li>
+                              <li><a href="logout.php">Log out</a></li>
                             </ul>
                           </li>
                         </ul>
