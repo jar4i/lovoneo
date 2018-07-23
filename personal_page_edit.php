@@ -16,9 +16,10 @@
 
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
-
+if(empty($_GET["user_activation_code"])){
+header('location:logout.php');
+}
 include("config.php");
-
 $user_activation_code= $_GET["user_activation_code"];
 $folder = "uploads/";
 $upload_image = $folder . basename($_FILES["fileToUpload"]["name"]);
