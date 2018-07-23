@@ -24,7 +24,9 @@ if(isset($_POST["login"]))
 				if(password_verify($_POST["user_password"], $row["user_password"]))
 				
 				{	$_SESSION['us_id'] = $row['user_id'];
-					$_SESSION['user_id'] = $row['register_user_id'];
+					$_SESSION['user_id'] = $row['register_user_id']; 
+					$_SESSION['profile_foto'] = $row['profile_foto']; 
+					$_SESSION['first_name'] = $row['first_name']; 
 					$_SESSION['user_name'] = $row['user_name'];
 					$_SESSION['user_activation_code'] = $row['user_activation_code'];
 					$user_activation_code=$_SESSION['user_activation_code'];

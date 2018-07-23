@@ -70,7 +70,7 @@ while ($row = mysqli_fetch_assoc($mysql_result)) :
                               <i class="fa fa-chevron-down" aria-hidden="true"></i>
                             </div>
                             <ul class="submenuItems submenuItems_1">
-                              <li><a href="#">Profile</a></li>
+                              <li><a href="view_profile.php">Profile</a></li>
                             </ul>
                           </li>
                           <li>
@@ -78,7 +78,7 @@ while ($row = mysqli_fetch_assoc($mysql_result)) :
                               <i class="fa fa-chevron-down" aria-hidden="true"></i>
                             </div>
                             <ul class="submenuItems submenuItems_2">
-                              <li><a href="https://lovoneo.com/message1/message.php">Mеssages</a></li>
+                              <li><a href="message1/message.php">Mеssages</a></li>
                             </ul>
                           </li>
                           <li>

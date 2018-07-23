@@ -27,10 +27,13 @@ $_SESSION['age1'] = $_POST['amount'];
               <a href="#about"><li class="li-item inline-block">About</li></a>
             </ul>
         </nav>
-        <div class="pull-right">
-            <a class="welcom" > <?php 
+        <div class="pull-right rel">
+            <a class="welcom" href="view_profile.php"> <?php 
                 if (isset($_SESSION['user_name'])) {
-                   echo 'Welcome, '.$_SESSION['user_name'];
+                    echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
+                   echo ''.$_SESSION['first_name'];
+                   echo '  |';
+                
                 }
                 ?>
             </a>

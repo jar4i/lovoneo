@@ -1,15 +1,39 @@
 
 <head>
-
+<link rel="stylesheet" href="style.css">
 </head>
 
-<ul>
-  <li><a class="active" href="index.php">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
-</ul>
-
+<header class="head fixed">
+    <div class="wrap">
+        <nav class="pull_left">
+            <ul class="list-unstyled ">
+            <a class="active" href="index.php"><li class="li-item inline-block">Home</li></a>
+              <a href="#news"><li class="li-item inline-block">News</li></a>
+              <a href="#contact"><li class="li-item inline-block">Contact</li></a>
+              <a href="#about"><li class="li-item inline-block">About</li></a>
+            </ul>
+        </nav>
+        <div class="pull-right rel">
+            <a class="welcom" href="view_profile.php"> <?php 
+                if (isset($_SESSION['user_name'])) {
+                    echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
+                   echo ''.$_SESSION['first_name'];
+                   echo '  |';
+                
+                }
+                ?>
+            </a>
+            <a href="#" class="log-in-out">
+            <?php 
+                if (isset($_SESSION['user_name'])) {
+                   echo 'Log out';
+                }
+                else echo 'Log in';
+                ?>
+            </a>
+        </div>
+    </div>
+</header>
 
 
 <?php

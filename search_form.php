@@ -1,4 +1,11 @@
-
+<?php
+session_start();
+$user_id=$_GET["user_id"];
+include("config.php");
+$con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+$sthandler = $con->prepare("SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , first_name, last_name, country, city, details, height, weight, profile_foto FROM register_user WHERE user_id = '$user_id'");
+$sthandler->execute();
+?>
 <head>
 <title>LOVONEO | FIND YOUR LOVE</title>
 <link rel="stylesheet" href="style-search.css">
@@ -18,10 +25,13 @@
               <a href="#about"><li class="li-item inline-block">About</li></a>
             </ul>
         </nav>
-        <div class="pull-right">
-            <a class="welcom" > <?php 
+        <div class="pull-right rel">
+            <a class="welcom" href="view_profile.php"> <?php 
                 if (isset($_SESSION['user_name'])) {
-                   echo 'Welcome, '.$_SESSION['user_name'];
+                    echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
+                   echo ''.$_SESSION['first_name'];
+                   echo '  |';
+                
                 }
                 ?>
             </a>
