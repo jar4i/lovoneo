@@ -2,10 +2,10 @@
 -- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jul 20, 2018 at 01:24 PM
--- Server version: 5.7.22-0ubuntu0.16.04.1
--- PHP Version: 7.0.30-0ubuntu0.16.04.1
+-- Хост: localhost
+-- Час створення: Лип 23 2018 р., 12:59
+-- Версія сервера: 5.7.22-0ubuntu0.16.04.1
+-- Версія PHP: 7.0.30-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `projekt`
+-- База даних: `projekt`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `city`
+-- Структура таблиці `city`
 --
 
 CREATE TABLE `city` (
@@ -34,7 +34,42 @@ CREATE TABLE `city` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `country`
+-- Структура таблиці `conversation`
+--
+
+CREATE TABLE `conversation` (
+  `id` int(11) NOT NULL,
+  `user_one` varchar(255) NOT NULL,
+  `user_two` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп даних таблиці `conversation`
+--
+
+INSERT INTO `conversation` (`id`, `user_one`, `user_two`) VALUES
+(16, '2', '1'),
+(17, '2', '3'),
+(18, '2', '4'),
+(19, '2', '5'),
+(20, '2', '6'),
+(21, 'f2ac92673ae90e179ffb00b513cc053f', 'f2ac92673ae90e179ffb00b513cc053f'),
+(22, 'f2ac92673ae90e179ffb00b513cc053f', 'rfwdcvxsdfsdf'),
+(23, 'f2ac92673ae90e179ffb00b513cc053f', 'qewqweeqweqw'),
+(24, 'f2ac92673ae90e179ffb00b513cc053f', 'qweweqqwe'),
+(25, 'f2ac92673ae90e179ffb00b513cc053f', 'fjkse48975t89yhtulsi'),
+(26, 'f2ac92673ae90e179ffb00b513cc053f', 'sdfsdfsdfdfssdfsdf'),
+(27, 'f2ac92673ae90e179ffb00b513cc053f', 'sdffdssdfsdfsdfsdffds'),
+(28, 'f2ac92673ae90e179ffb00b513cc053f', 'fdssfdfsdsfdsdfdsf'),
+(29, 'f2ac92673ae90e179ffb00b513cc053f', 'sdfdsfsdfdsgdfssdf'),
+(30, 'f2ac92673ae90e179ffb00b513cc053f', 'dsfsdffdsdsfdsf'),
+(31, 'f2ac92673ae90e179ffb00b513cc053f', 'dsffsdsdfsfddsf'),
+(32, 'f2ac92673ae90e179ffb00b513cc053f', 'sdfsdfsdfsfdsfd');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `country`
 --
 
 CREATE TABLE `country` (
@@ -45,7 +80,61 @@ CREATE TABLE `country` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pers_data`
+-- Структура таблиці `likes`
+--
+
+CREATE TABLE `likes` (
+  `like_id` int(11) NOT NULL,
+  `like_from` varchar(255) NOT NULL,
+  `like_to` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп даних таблиці `likes`
+--
+
+INSERT INTO `likes` (`like_id`, `like_from`, `like_to`) VALUES
+(12, 'f2ac92673ae90e179ffb00b513cc053f', 'dsfsdffdsdsfdsf'),
+(13, 'f2ac92673ae90e179ffb00b513cc053f', 'dsfsdffdsdsfdsf'),
+(14, 'f2ac92673ae90e179ffb00b513cc053f', 'dsffsdsdfsfddsf'),
+(15, 'f2ac92673ae90e179ffb00b513cc053f', 'dsffsdsdfsfddsf'),
+(16, 'f2ac92673ae90e179ffb00b513cc053f', 'fdssfdfsdsfdsdfdsf'),
+(17, 'f2ac92673ae90e179ffb00b513cc053f', 'qewqweeqweqw'),
+(18, 'f2ac92673ae90e179ffb00b513cc053f', 'qweweqqwe');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL,
+  `conversation_id` int(11) NOT NULL,
+  `user_from` varchar(255) NOT NULL,
+  `user_to` varchar(255) NOT NULL,
+  `message` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп даних таблиці `messages`
+--
+
+INSERT INTO `messages` (`id`, `conversation_id`, `user_from`, `user_to`, `message`) VALUES
+(17, 16, '2', '1', 'hello'),
+(18, 16, '2', '1', 'my name is...'),
+(19, 17, '2', '3', 'hello'),
+(20, 16, '2', '1', 'hjhjkjhkj\n'),
+(21, 21, 'f2ac92673ae90e179ffb00b513cc053f', 'f2ac92673ae90e179ffb00b513cc053f', 'adsads'),
+(22, 22, 'f2ac92673ae90e179ffb00b513cc053f', 'rfwdcvxsdfsdf', 'hello\n'),
+(23, 24, 'f2ac92673ae90e179ffb00b513cc053f', 'qweweqqwe', 'hello\n'),
+(24, 24, 'f2ac92673ae90e179ffb00b513cc053f', 'qweweqqwe', 'my name is jar'),
+(25, 24, 'f2ac92673ae90e179ffb00b513cc053f', 'qweweqqwe', 'what r u doing?');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `pers_data`
 --
 
 CREATE TABLE `pers_data` (
@@ -64,7 +153,7 @@ CREATE TABLE `pers_data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pers_data`
+-- Дамп даних таблиці `pers_data`
 --
 
 INSERT INTO `pers_data` (`u_id`, `username`, `last_name`, `birth_date`, `country_id`, `city_id`, `profile_foto`, `e_mail`, `password`, `gender`, `details`, `more_info`) VALUES
@@ -86,7 +175,7 @@ INSERT INTO `pers_data` (`u_id`, `username`, `last_name`, `birth_date`, `country
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Структура таблиці `products`
 --
 
 CREATE TABLE `products` (
@@ -102,7 +191,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `products`
+-- Дамп даних таблиці `products`
 --
 
 INSERT INTO `products` (`productCode`, `productName`, `productLine`, `productScale`, `productVendor`, `productDescription`, `quantityInStock`, `buyPrice`, `MSRP`) VALUES
@@ -116,7 +205,7 @@ INSERT INTO `products` (`productCode`, `productName`, `productLine`, `productSca
 -- --------------------------------------------------------
 
 --
--- Table structure for table `register_user`
+-- Структура таблиці `register_user`
 --
 
 CREATE TABLE `register_user` (
@@ -140,7 +229,7 @@ CREATE TABLE `register_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `register_user`
+-- Дамп даних таблиці `register_user`
 --
 
 INSERT INTO `register_user` (`register_user_id`, `user_name`, `user_email`, `user_password`, `user_activation_code`, `user_id`, `user_email_status`, `first_name`, `last_name`, `country`, `city`, `birth_date`, `profile_foto`, `details`, `gender`, `weight`, `height`) VALUES
@@ -164,7 +253,7 @@ INSERT INTO `register_user` (`register_user_id`, `user_name`, `user_email`, `use
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Структура таблиці `user`
 --
 
 CREATE TABLE `user` (
@@ -174,7 +263,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Дамп даних таблиці `user`
 --
 
 INSERT INTO `user` (`uuu_id`, `username`, `password`) VALUES
@@ -183,7 +272,7 @@ INSERT INTO `user` (`uuu_id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userfiles`
+-- Структура таблиці `userfiles`
 --
 
 CREATE TABLE `userfiles` (
@@ -194,7 +283,7 @@ CREATE TABLE `userfiles` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `userfiles`
+-- Дамп даних таблиці `userfiles`
 --
 
 INSERT INTO `userfiles` (`FilePath`, `FileName`, `ID`, `user_user_id`) VALUES
@@ -214,43 +303,76 @@ INSERT INTO `userfiles` (`FilePath`, `FileName`, `ID`, `user_user_id`) VALUES
 ('Upload', '11111111111111111.jpeg', 14, 'f2ac92673ae90e179ffb00b513cc053f');
 
 --
--- Indexes for dumped tables
+-- Індекси збережених таблиць
 --
 
 --
--- Indexes for table `pers_data`
+-- Індекси таблиці `conversation`
+--
+ALTER TABLE `conversation`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Індекси таблиці `likes`
+--
+ALTER TABLE `likes`
+  ADD PRIMARY KEY (`like_id`);
+
+--
+-- Індекси таблиці `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Індекси таблиці `pers_data`
 --
 ALTER TABLE `pers_data`
   ADD PRIMARY KEY (`u_id`);
 
 --
--- Indexes for table `register_user`
+-- Індекси таблиці `register_user`
 --
 ALTER TABLE `register_user`
   ADD PRIMARY KEY (`register_user_id`);
 
 --
--- Indexes for table `userfiles`
+-- Індекси таблиці `userfiles`
 --
 ALTER TABLE `userfiles`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT для збережених таблиць
 --
 
 --
--- AUTO_INCREMENT for table `pers_data`
+-- AUTO_INCREMENT для таблиці `conversation`
+--
+ALTER TABLE `conversation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+--
+-- AUTO_INCREMENT для таблиці `likes`
+--
+ALTER TABLE `likes`
+  MODIFY `like_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+--
+-- AUTO_INCREMENT для таблиці `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
+-- AUTO_INCREMENT для таблиці `pers_data`
 --
 ALTER TABLE `pers_data`
   MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
--- AUTO_INCREMENT for table `register_user`
+-- AUTO_INCREMENT для таблиці `register_user`
 --
 ALTER TABLE `register_user`
   MODIFY `register_user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
--- AUTO_INCREMENT for table `userfiles`
+-- AUTO_INCREMENT для таблиці `userfiles`
 --
 ALTER TABLE `userfiles`
   MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;

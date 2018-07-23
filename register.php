@@ -23,8 +23,8 @@ if(isset($_POST["register"]))
 	$statement = $connect->prepare($query);
 	$statement->execute(
 		array(
-			':user_email'	=>	$_POST['user_email'],
-			':user_password' =>	$_POST['user_password'] 
+			':user_email'	=>	$_POST['user_email']
+			 
 		)
 	);
 	$no_of_row = $statement->rowCount();
