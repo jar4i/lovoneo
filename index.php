@@ -21,7 +21,7 @@ $_SESSION['age1'] = $_POST['amount'];
     <div class="wrap">
         <nav class="pull_left">
             <ul class="list-unstyled ">
-            <a class="active" href="#home"><li class="li-item inline-block">Home</li></a>
+            <a class="active" href="index.php"><li class="li-item inline-block">Home</li></a>
               <a href="#news"><li class="li-item inline-block">News</li></a>
               <a href="#contact"><li class="li-item inline-block">Contact</li></a>
               <a href="#about"><li class="li-item inline-block">About</li></a>
