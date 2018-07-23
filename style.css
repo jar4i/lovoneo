@@ -111,7 +111,7 @@ ul{
 .logo{
   background: url('logo.png') no-repeat;
   background-size: cover; 
-  width: 290px;
+  width: 263px;
   height: 100px;
   margin-bottom: 30px;
 }
@@ -128,7 +128,6 @@ ul{
 }
 .section-control .form-log{
   width: 260px;
-  height: 350px;
 }
 
 .section-control .panel-body{
