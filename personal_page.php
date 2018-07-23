@@ -88,28 +88,28 @@ $sthandler->execute();
 		<form class ="like" action="" method="post" value="like">
 		<input class="like" id="like" type="submit" name="like">
 	<?php
-if(isset($_POST["like"])) {
-$like_to= $_GET["user_id"];
+if(isset($_POST['like'])){
+$like_to= $_GET['user_id'];
 $like_from = $_SESSION['us_id'];
-$insert_query="INSERT INTO likes (like_from, like_to) VALUES ('$like_from', '$like_to')";
+$pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
+$nRows = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
+if($nRows == 0){
 $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-$con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-$ins = $con->prepare($insert_query);
+$ins = $con->prepare("INSERT INTO likes (like_from, like_to) VALUES ('$like_from', '$like_to')");
 $ins->execute();
 echo "Like was given!";
 }
-$like_to= $_GET["user_id"];
-$select_query="SELECT COUNT(like_id) FROM likes WHERE like_to = '$like_to'";
-$con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-$con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-$sel = $con->prepare($select_query);
-$sel->execute();
-
-while($row = $sel->fetch(PDO::FETCH_ASSOC)) : 
-echo $row [0];
-endwhile;
+}
 ?>
 	</form>
+<div class="likes_amount">
+<?php
+$like_to= $_GET['user_id'];
+$pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
+$nLikes = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
+echo $nLikes; 
+?>
+</div>
             <div class="album">
                 <?php
                 include("fotos/view.php");

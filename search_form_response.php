@@ -10,18 +10,11 @@ $start_from = ($page-1) * $limit;
 
 $sql = "SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , gender,  user_id, country, first_name, last_name, details, profile_foto FROM register_user WHERE gender LIKE '%".$_SESSION['gender']."%' AND TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) BETWEEN ".$_SESSION['age1']." AND ".$_SESSION['age2']." ORDER BY user_id ASC LIMIT $start_from, $limit";  
 $rs_result = mysqli_query($conn, $sql); 
-
-
 ?>
 <form class= "main_form">
 <?php  
-
 while ($row = mysqli_fetch_assoc($rs_result)) :
-
-
-
 ?>  
-
 <div class="card-container inline-block">
 	<div class="rel card">
 		<a href="personal_page.php?user_id=<?php echo $row['user_id'];?>" >
@@ -34,9 +27,6 @@ while ($row = mysqli_fetch_assoc($rs_result)) :
 		</a>
 	</div>
 </div>
-
-
-
 <?php
 endwhile; 
 ?>
