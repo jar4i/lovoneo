@@ -14,10 +14,10 @@
                 $message = $m['message'];
  
                 //get name and image of $user_form from `user` table
-                $user = mysqli_query($con, "SELECT user_name,profile_foto FROM `register_user` WHERE user_id='$user_from'");
+                $user = mysqli_query($con, "SELECT username,img FROM `user` WHERE id='$user_from'");
                 $user_fetch = mysqli_fetch_assoc($user);
-                $user_from_username = $user_fetch['user_name'];
-                $user_from_img = $user_fetch['profile_foto'];
+                $user_from_username = $user_fetch['username'];
+                $user_from_img = $user_fetch['img'];
  
                 //display the message
                 echo "
