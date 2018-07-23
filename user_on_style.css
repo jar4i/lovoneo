@@ -1,0 +1,245 @@
+
+  .inline-block{
+      display: inline-block;
+  }
+  .section-control .form-log{
+    width: 260px;
+  }
+  .section-control .panel{
+    background: #fffdf9cb;
+    border-color: #181818 !important; 
+  }
+
+  .section-control .panel-body{
+    padding: 0 !important;
+  }
+  .photo-user-box{
+    overflow: hidden;
+    height: 240px;
+    margin-top: 1px;
+    margin-left:1px;
+    width: 180px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px rgba(255, 221, 221, 0.39) !important;
+
+}
+.photo-user{
+    height: 240px;
+    width: 180px;
+}
+.buttons{
+    width: 78px;
+    height: 240px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    font-size: 22px;
+}
+.user-name-txt{
+
+    font-size: 26px;
+    padding: 10px;
+    text-align: center;
+    overflow: hidden;
+    font-family: 'Parisienne', cursive;
+    font-weight: 600;
+}
+ul {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none !important;
+  }
+  .accordion-menu{
+    padding: 0 !important;
+  }
+  .accordion-menu a {
+    text-decoration: none !important;
+    color: #181818 !important;
+    font-weight: 600;
+  }
+  .accordion-menu li.open .dropdownlink .fa-chevron-down {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+      padding-left: 6px !important;
+
+  }
+  
+  .dropdownlink {
+    cursor: pointer;
+    display: block;
+    margin-top: 8px !important;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    width: 70px;
+    margin: 0 auto;
+  }
+  .dropdownlink .fa-chevron-down {
+      position: relative;
+    top: -2px;
+    left: 6px;
+    font-size: 14px !important;
+
+  }
+  
+  .submenuItems {
+    display: none;
+    padding: 0 !important;
+    font-size: 14px;
+    text-align: center;
+    
+    border-radius: -8px;
+    margin: 0 auto;
+  }
+  .submenuItems_1{
+      border-bottom: 2px solid #005d18;
+  }
+  .submenuItems_2{
+      border-bottom: 2px solid #9c8400;
+  }
+  .submenuItems_3{
+      border-bottom: 2px solid #006261;
+  }
+  .submenuItems_4{
+      border-bottom: 2px solid #250063;
+  }
+  .submenuItems_5{
+      border-bottom: 2px solid #630000;
+  }
+  .dropdownlink_1{
+      background: #00bc52;
+    border: 2px solid #005d18;
+  }
+  .accordion-menu li.open .dropdownlink_1 {
+    background: #005d18;
+}
+  .dropdownlink_2{
+    background: #d8b700;
+    border: 2px solid #9c8400;
+  }
+  .accordion-menu li.open .dropdownlink_2 {
+    background: #9c8400;
+}
+  .dropdownlink_3{
+    background: #00bfc6;
+    border: 2px solid #006261;
+  }
+  .accordion-menu li.open .dropdownlink_3 {
+    background: #006261;
+}
+  .dropdownlink_4{
+    background: #6112c2;
+    border: 2px solid #250063;
+  }
+  .accordion-menu li.open .dropdownlink_4 {
+    background: #250063;
+}
+  .dropdownlink_5{
+    background: #c21212;
+    border: 2px solid #630000;
+  }
+  .accordion-menu li.open .dropdownlink_5 {
+    background: #630000;
+}
+/*
+.my-btns{
+    padding: 5px;
+    border-radius: 5px;
+    width: 60px;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;    
+    right: 0;
+}
+.button-1{
+    position: absolute;    
+    background: #00bc52;
+    border: 2px solid #005d18;
+    top: 10px;
+}
+.button-1:hover{
+    background: #005d18;
+    transition: 500ms;
+}
+.button-2{
+    position: absolute;
+    background: #d8b700;
+    border: 2px solid #9c8400;
+    top: 55px;
+}
+.button-2:hover{
+    background: #9c8400;
+    transition: 500ms;
+}
+.button-3{
+    position: absolute;
+    background: #00bfc6;
+    border: 2px solid #006261;
+    top: 100px;
+    right: 0;
+}
+.button-3:hover{
+    background: #006261;
+    transition: 500ms;
+}
+.button-4{
+    position: absolute;
+    background: #6112c2;
+    border: 2px solid #250063;
+    top: 146px;
+    right: 0;
+}
+.button-4:hover{
+    background: #250063;
+    transition: 500ms;
+}
+.button-5{
+    position: absolute;
+    background: #c21212;
+    border: 2px solid #630000;
+    top: 192px;
+    right: 0;
+}
+.button-5:hover{
+    background: #630000;
+    transition: 500ms;
+}
+
+.tooltip{
+    color: #005d18;
+}
+.tolltip-1{
+    position: absolute;
+    z-index: 200;
+    top: 10px;
+    right: -10px;
+}
+.tolltip-2{
+    position: absolute;
+    z-index: 200;
+    top: 10px;
+    right: -10px;
+}
+.tolltip-3{
+    position: absolute;
+    z-index: 200;
+    top: 10px;
+    right: -10px;
+}
+.tolltip-4{
+    position: absolute;
+    z-index: 200;
+    top: 10px;
+    right: -10px;
+}
+.tolltip-5{
+    position: absolute;
+    z-index: 200;
+    top: 10px;
+    right: -10px;
+}
