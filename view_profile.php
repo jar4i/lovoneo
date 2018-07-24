@@ -24,8 +24,7 @@ $sthandler->execute();
         <div class="wrap">
             <nav class="pull_left">
                 <ul class="list-unstyled ">
-                <a class="active" href="#home"><li class="li-item inline-block">Home</li></a>
-                <a href="#news"><li class="li-item inline-block">News</li></a>
+                <a class="active" href="index.php"><li class="li-item inline-block">Home</li></a>
                 <a href="#contact"><li class="li-item inline-block">Contact</li></a>
                 <a href="#about"><li class="li-item inline-block">About</li></a>
                 </ul>
@@ -40,14 +39,12 @@ $sthandler->execute();
                 }
                 ?>
             </a>
-                <a href="#" class="log-in-out">
-                <?php 
-                    if (isset($_SESSION['user_name'])) {
-                    echo 'Log out';
-                    }
-                    else echo 'Log in';
-                    ?>
-                </a>
+            <?php 
+                if (isset($_SESSION['user_name'])) {
+                    echo'<a href="logout.php">Log out</a>';
+                }
+                else echo '<a href="login.php">Log in</a>';
+                ?>
             </div>
         </div>
     </header>

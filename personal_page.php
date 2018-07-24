@@ -13,6 +13,7 @@ $sthandler->execute();
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.js"></script>
 </head>
@@ -37,14 +38,12 @@ $sthandler->execute();
                 }
                 ?>
             </a>
-                <a href="#" class="log-in-out">
-                <?php 
-                    if (isset($_SESSION['user_name'])) {
-                    echo 'Log out';
-                    }
-                    else echo 'Log in';
-                    ?>
-                </a>
+            <?php 
+                if (isset($_SESSION['user_name'])) {
+                    echo'<a href="logout.php">Log out</a>';
+                }
+                else echo '<a href="login.php">Log in</a>';
+                ?>
             </div>
         </div>
     </header>
@@ -85,99 +84,62 @@ $sthandler->execute();
                     <div class="info-info"><span class="key">Height: </span><?php echo $row ['height'] ?></div>
                     <div class="info-info"><span class="key">Weight: </span><?php echo $row ['weight'] ?></div>
                     <div class="info-info"><span class="key">About me: </span><?php echo $row ['details'] ?></div>
-</div>
+                </div>
             <?php endwhile;?>
             </div>
-		<form class ="like" action="" method="post" value="like">
-		<input class="like" id="like" type="submit" name="like">
-	<?php
-if(isset($_POST['like'])){
-$like_to= $_GET['user_id'];
-$like_from = $_SESSION['us_id'];
-$pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
-$nRows = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
-if($nRows == 0){
-$con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-$ins = $con->prepare("INSERT INTO likes (like_from, like_to) VALUES ('$like_from', '$like_to')");
-$ins->execute();
-echo "Like was given!";
-}
-}
-?>
-	</form>
-<div class="likes_amount">
-<?php
-$like_to= $_GET['user_id'];
-$pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
-$nLikes = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
-echo $nLikes; 
-?>
-</div>
+            <form action="" method="post" value="like">
+                <input class="like_none"  type="submit" name="like">
+                <div class="likes_amount inline-block">
+            <?php
+            $like_to= $_GET['user_id'];
+            $pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
+            $nLikes = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
+            echo $nLikes; 
+            ?>
+            </div>
+                <label for="like" id="like" class="like inline-block"><i class="fas fa-heart"></i></label>
+                <?php
+                    if(isset($_POST['like'])){
+                    $like_to= $_GET['user_id'];
+                    $like_from = $_SESSION['us_id'];
+                    $pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
+                    $nRows = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
+                    if($nRows == 0){
+                    $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+                    $ins = $con->prepare("INSERT INTO likes (like_from, like_to) VALUES ('$like_from', '$like_to')");
+                    $ins->execute();
+                    echo "Like was given!";
+                    }
+                    }
+                ?>
+            </form>
+           
             <div class="album">
                 <?php
                 include("fotos/view.php");
                 ?>
             </div>
         </section>
+        <h3 class="center">See also</h3>
+
+        <section class="section-slide">
+            <div id="_slick-icons">
+            </div>
+        </section>
     </div>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="slick/slick.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
    
     <script src="jquery.ui.touch-punch.min.js"></script>
-<script>$('.ui-slider-handle').draggable();</script>
-<script>
-    $(function(){
-        $('.radio1').change(function(){
-             if($(this).val() == "female")
-                $( "#r2-m" ).prop( "checked", true );
-            else $( "#r2-f" ).prop( "checked", true );
-        });
-        $('.radio2').change(function(){
-            if($(this).val() == "female")
-                $( "#r1-m" ).prop( "checked", true );
-            else $( "#r1-f" ).prop( "checked", true );
-        });
-    });
-</script>
-<script>
-document.getElementById("amount").defaultValue = 18; 
-document.getElementById("amount-2").defaultValue = 45;
-</script>
-<script>
-$( function() {
-    $( "#slider-range" ).slider({
-      range: true,
-      min: 18,
-      max: 70,
-      values: [ $("#amount").val(), $("#amount-2").val() ],
-      slide: function( event, ui ) {
-        $( "#amount" ).val(ui.values[ 0 ]  );
-        $( "#amount-2" ).val(ui.values[ 1 ] );
-        $( "#amount" ).value = ui.values[ 0 ];
-        $( "#amount-2" ).value = ui.values[ 1 ];
-      }
-    });
-    $( "#amount" ).val($( "#slider-range" ).slider( "values", 0 ) );
-	$( "#amount-2" ).val($( "#slider-range" ).slider( "values", 1 ) );
-  } );
-$(document).ready(function(){
-    	$("#amount").change(function(){
-           $( "#amount" ).value = ui.values[ 0 ];
-        });
-   
-        $("#amount-2").change(function(){
-           $( "#amount-2" ).value = ui.values[ 1 ];
-        });
-    });
-  </script>
 
 <script type="text/javascript">
 $(document).ready(function(){
         jQuery("#_slick-icons").load("user_icon_1.php");
 })
 </script>
+
+
+
 
 </body>

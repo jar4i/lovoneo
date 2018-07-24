@@ -104,7 +104,7 @@
   }
   /*section_1 slider*/
   .section-slide{
-    margin-top: 100px;
+    margin-top: 50px;
   }
   .slick-slide{
     height: 200px !important ;
@@ -293,4 +293,21 @@ border-radius: 15px;
 }
 .info-info{
     padding: 5px;
+}
+/*like*/
+.like{
+  font-size: 35px;
+  color: #cf0909;
+  cursor: pointer;
+}
+.like:hover{
+  color: #640000;
+  transition: 500ms;
+}
+.like_none{
+  display: none;
+}
+.likes_amount{
+  font-size: 18px;
+  padding: 0 8px; 
 }
