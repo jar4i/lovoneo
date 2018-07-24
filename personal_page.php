@@ -87,17 +87,7 @@ $sthandler->execute();
                 </div>
             <?php endwhile;?>
             </div>
-            <form action="" method="post" value="like">
-                <input class="like_none"  type="submit" name="like">
-                <div class="likes_amount inline-block">
-            <?php
-            $like_to= $_GET['user_id'];
-            $pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
-            $nLikes = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
-            echo $nLikes; 
-            ?>
-            </div>
-                <label for="like" id="like" class="like inline-block"><i class="fas fa-heart"></i></label>
+            <form method="post" value="like">
                 <?php
                     if(isset($_POST['like'])){
                     $like_to= $_GET['user_id'];
@@ -108,10 +98,19 @@ $sthandler->execute();
                     $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
                     $ins = $con->prepare("INSERT INTO likes (like_from, like_to) VALUES ('$like_from', '$like_to')");
                     $ins->execute();
-                    echo "Like was given!";
                     }
                     }
                 ?>
+                <div class="likes_amount inline-block">
+                    <?php
+                    $like_to= $_GET['user_id'];
+                    $pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
+                    $nLikes = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
+                    echo $nLikes; 
+                    ?>
+                </div>
+                <input class="like_none"  type="submit"  id="likek" name="like">
+                <label for="likek" name="like" id="like" class="like inline-block"><i class="fas fa-heart"></i></label>
             </form>
            
             <div class="album">

@@ -1,0 +1,104 @@
+/*helpers*/
+.inline-block{
+    display: inline-block;
+  }
+  .rel{
+   position: relative;
+  }
+  .abs{
+    position: absolute;
+   }
+  .fixed{
+    position: fixed;
+  }
+  .center{
+  text-align: center;
+  }
+  .wrap{
+    max-width: 1400px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+  }
+  .mt-8{
+    margin-top: 80px;
+  }
+  /*menu*/
+.welcom{
+    cursor: pointer;
+    position: absolute;
+    left: -90px;
+  }
+  .profile_photo_menu_box{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    left: -47px;
+    top: -10px;
+  }
+  .profile_photo_menu{
+    width: 40px;
+    height: 50px;
+  }
+  .head{
+    background: linear-gradient(to top left,#8918ce, #3d5de4);
+    opacity: 0.94 ; 
+    width: 100%;
+    padding: 20px 5px; 
+    font-size: 16px;
+    top:0;
+    z-index: 1000;
+  
+  }
+  nav{
+    width: 400px;
+    display: inline-block !important;
+  }
+  .pull-right{
+    display: inline-block;
+  }
+  .li-item{
+    margin-left: 10px;
+    padding-right: 5px; 
+    color: #ffffff;
+  }
+  .li-item::after{
+    content: "|";
+    padding-left: 10px; 
+  }
+  .li-item:hover{
+  color: #ffafaf;
+  transition: 400ms;
+  }
+  .head a{
+    color: #ffffff !important;
+  }
+  .head a:hover,
+  .head a:focus,
+  .head a:active {
+      text-decoration: none !important;
+      color: #ffafaf !important;
+      transition: 400ms;
+    }
+  
+  ul{
+    margin-bottom: 0 !important;
+  }
+  /*prof photo*/
+  .prof_photo_box{
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid #ffafaf;
+    box-shadow: 0 0 0 .2rem #ffafaf !important;
+    border-radius: 5px;
+    position: relative;
+    width: 150px;
+    height: 200px;
+    }
+    .prof_photo{
+        width: 150px;
+        height: 200px;
+        }
+        
