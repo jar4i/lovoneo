@@ -76,8 +76,10 @@ if(isset($_POST["login"]))
 						<div class="form-group ">
 							<input type="submit" name="login" value="Log in" class="btn btn-danger login-btn" />
 						</div>
+
 					</form>
-					<div class="register-link"><a href="register.php" >or Register</a></div>
+					<div class="register-link"><a href="register.php" >or Register</a></div><br>
+					
 				</div>
 			</div>
 		</div>

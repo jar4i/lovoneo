@@ -34,14 +34,14 @@ if(isset($_POST["register"]))
 	}
 	else
 	{
-		$user_password = rand(100000,999999);
+		$user_password = $_POST['user_password'];
 		$user_encrypted_password = password_hash($user_password, PASSWORD_DEFAULT);
 		$user_activation_code = md5(rand());
 		$user_id = md5(rand());
 		$insert_query = "
 		INSERT INTO register_user 
-		(user_name, user_email, user_password, user_activation_code, user_id, user_email_status, first_name, last_name, country, city,  profile_foto, details, gender) 
-		VALUES (:user_name, :user_email, :user_password, :user_activation_code, :user_id, :user_email_status, :first_name, :last_name, :country, :city, :profile_foto, :details, :gender)
+		(user_name, user_email, user_password, user_activation_code, user_id, user_email_status, first_name, last_name, country, city,  profile_foto, details, gender, weight, height) 
+		VALUES (:user_name, :user_email, :user_password, :user_activation_code, :user_id, :user_email_status, :first_name, :last_name, :country, :city, :profile_foto, :details, :gender, :weight, :height)
 		";
 		$statement = $connect->prepare($insert_query);
 		$statement->execute(
@@ -49,17 +49,18 @@ if(isset($_POST["register"]))
 				':user_name'			=>	$_POST['user_name'],
 				':user_email'			=>	$_POST['user_email'],
 				':user_password'		=>	$user_encrypted_password,
-				':user_activation_code'	=>	$user_activation_code,
-				':user_id'	=>	$user_id,
-				':user_email_status'	=>	'not verified',
-				':first_name'    =>      '',
-				':last_name'    =>      '',
-				':country'    =>      '',
-				':city'    =>      '',
-				
-				':profile_foto'    =>      '',
-                                ':details'   =>      '',
-				 ':gender'   =>      ''
+				':user_activation_code'		=>	$user_activation_code,
+				':user_id'			=>	$user_id,
+				':user_email_status'		=>	'not verified',
+				':first_name'    		=>      '',
+				':last_name'    		=>      '',
+				':country'    			=>      '',
+				':city'    			=>      '',
+				':profile_foto'    		=>      '',
+                                ':details'   			=>      '',
+				':gender'   			=>      '',
+				':weight'   			=>      '',
+				':height'   			=>      ''
 
 
 			)
@@ -74,7 +75,6 @@ if(isset($_POST["register"]))
 			<p>Please Open this link to verified your email address - ".$base_url."email_verification.php?activation_code=".$user_activation_code."
 			<p>Best Regards,<br />Lovoneo</p>
 			";
-			
 			$mail = new PHPMailer;
 			$mail->SMTPDebug = 0;
 			$mail->IsSMTP();								
@@ -82,7 +82,7 @@ if(isset($_POST["register"]))
 			$mail->Port = '587';								
 			$mail->SMTPAuth = true;							
 			$mail->Username = 'jaroslaw.vinnichuck@gmail.com';					
-			$mail->Password = 'jar4ik3591';					
+			$mail->Password = 'Jvaac2283591';					
 			$mail->SMTPSecure = 'tls';							
 						
 			$mail->setFrom('jaroslaw.vinnichuck@gmail.com', 'LOVONEO');
@@ -130,7 +130,7 @@ if(isset($_POST["register"]))
 						</div>
 						<div class="form-group">
 							<label>Your Password</label>
-							<input type="email" name="user_password" class="form-control" required />
+							<input type="text" name="user_password" class="form-control" required />
 						</div>
 						<div class="form-group">
 							<input type="submit" name="register" id="register" value="Register" class="btn btn-info" />
