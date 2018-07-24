@@ -2,26 +2,17 @@
 include("database_connection.php");
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
-if(isset($_POST['restore'])){
 session_start();
-	$query = "
-	SELECT * FROM register_user 
-	WHERE user_email = :user_email
-	";
+if(isset($_POST['restore'])){
+	
+	$user_password = $_POST['user_password'];
+	$user_email = $_SESSION['mail'];
+	$user_encrypted_password = password_hash($user_password, PASSWORD_DEFAULT);
+	$query = "UPDATE register_user SET user_password = '$user_encrypted_password' WHERE user_email = '$user_email'";
 	$statement = $connect->prepare($query);
-	$statement->execute(
-		array(
-			':user_email'	=>	$_POST['user_email']
-		)
-	);
-	$no_of_row = $statement->rowCount();
-	if($no_of_row > 0){$mail = $_POST['user_email']; $_SESSION['mail'] = $mail; header("location:np.php");}
-else
-{
-echo "Email not found, try again";
-}
-}?>	
-		
+	$statement->execute();
+	echo "Password was succesfully changed! <a href=login.php>login</a>";}?>
+
 
 <!DOCTYPE html>
 <html>
@@ -39,10 +30,10 @@ echo "Email not found, try again";
 			<div class="panel panel-default">
 				<div class="panel-heading"><h4>Restore password</h4></div>
 				<div class="panel-body">
-					<form method="post" id="register_form" >
+					<form method="post" id="register_form">
 						<div class="form-group">
-							<label>Please specify your Email</label>
-							<input type="email" name="user_email" class="form-control" required />
+							<label>Please specify your new password
+							<input type="password" name="user_password" class="form-control" required />
 						</div>
 						
 						<div class="form-group">
@@ -56,4 +47,3 @@ echo "Email not found, try again";
 		</div>
 	</body>
 </html>
-
