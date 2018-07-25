@@ -87,18 +87,46 @@
     margin-bottom: 0 !important;
   }
   /*prof photo*/
-  .prof_photo_box{
-    margin: 0 auto;
-    overflow: hidden;
-    border: 1px solid #ffafaf;
-    box-shadow: 0 0 0 .2rem #ffafaf !important;
-    border-radius: 5px;
-    position: relative;
+  .clearfix_card{
     width: 150px;
     height: 200px;
+    margin: 0 auto;
+
+  }
+  .prof_photo_box{
+    border: 1px solid #ffafaf;
+    overflow: hidden;
+    box-shadow: 0 0 0 .2rem #ffafaf !important;
+    border-radius: 5px;
+    width: 150px;
+    height: 200px;
+
     }
     .prof_photo{
         width: 150px;
         height: 200px;
+        transform: scaleX(2);
+        background-position: right bottom;
         }
-        
+    .btn-add-photo{
+        position: absolute;
+        bottom: -15px;
+        right: -15px;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        color: #ffffff;
+        background: #8918ce;
+        border-radius: 50%;
+        padding-top: 9px;
+        text-align: center;
+        z-index: 200;
+        cursor: pointer;
+        border: 1px solid #360057;
+
+    }
+    .btn-add-photo:hover {
+        background: #360057;
+        transition: 500ms;
+        transform: scaleX(2);
+    }

@@ -2,6 +2,7 @@
 <head>
     <link rel="stylesheet" href="personal_page_edit.css">
     <link rel="stylesheet" href="croppie.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <script src="croppie.js"></script>
 </head>
 <?php
@@ -84,7 +85,12 @@ $sthandler->execute();
     <section class="section_profile_photo mt-8">
         <div class="wrap">
             <?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
-            <div class="clearfix_card prof_photo_box"><img src = "<?php echo $row ['profile_foto']?>" class="prof_photo"></div>
+            <div class="clearfix_card rel">
+                <div class="prof_photo_box">
+                    <img src = "<?php echo $row ['profile_foto']?>" class="prof_photo">
+                </div>
+                <div class="btn-add-photo"><i class="fas fa-plus"></i></div>
+            </div>
             <form class ="button_foto" action="" method="post" enctype="multipart/form-data">
                 <input type="file" name="fileToUpload" id="fileToUpload">
                 <input type="submit" value="Upload Image" name="submit">
