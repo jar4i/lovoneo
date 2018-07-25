@@ -105,7 +105,7 @@
     .prof_photo{
         width: 150px;
         height: 200px;
-        transform: scaleX(2);
+       /* transform: scaleX(2);*/
         background-position: right bottom;
         }
     .btn-add-photo{
@@ -128,5 +128,5 @@
     .btn-add-photo:hover {
         background: #360057;
         transition: 500ms;
-        transform: scaleX(2);
+        /*transform: scaleX(2);*/
     }
