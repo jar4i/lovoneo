@@ -78,7 +78,8 @@ if(isset($_POST["login"]))
 						</div>
 
 					</form>
-					<div class="register-link"><a href="register.php" >or Register</a></div><br>
+					<div class="register-link"><a href="register.php" > Register</a></div><br>
+					<div class="fg-pass"><a href="np.php" >Forgot your password?</a></div><br>
 					
 				</div>
 			</div>
