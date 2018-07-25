@@ -105,7 +105,7 @@ $sthandler->execute();
 
 
 	
-<!-- 
+
 <div class="demo"></div>
 
 <form action="" method="post" enctype="multipart/form-data">
@@ -118,11 +118,11 @@ $sthandler->execute();
 <input type="submit" value="save info" name="save" id="save">
 </form>
 </div>
+
 <?php endwhile;?>
 
-<div class = "album">
-<?php include('fotos/index.php');
-	include('fotos/upload.php');?>
+<div>
+<?php include('albums/index.php');?>
 </div>
 <div class = "view">
 
@@ -130,7 +130,9 @@ $sthandler->execute();
 $user_id=$_GET["user_id"];
 include('fotos/view.php');?>
 </div>
--->
+
+
+
 
 
 
