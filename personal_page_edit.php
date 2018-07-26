@@ -246,12 +246,6 @@ $sthandler->execute();
 </body>
 
 
-<<<<<<< HEAD
-=======
-	
-
-<div class="demo"></div>
->>>>>>> 6f891795eb827d17960b4779786c1bbc5465dbc5
 
 <!--
 <form action="" method="post" enctype="multipart/form-data">
@@ -264,11 +258,6 @@ $sthandler->execute();
 <input type="submit" value="save info" name="save" id="save">
 </form>
 </div>
-<<<<<<< HEAD
-=======
-
-<?php endwhile;?>
->>>>>>> 6f891795eb827d17960b4779786c1bbc5465dbc5
 
 <div>
 <?php include('albums/index.php');?>
@@ -279,13 +268,6 @@ $sthandler->execute();
 $user_id=$_GET["user_id"];
 include('fotos/view.php');?>
 </div>
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 6f891795eb827d17960b4779786c1bbc5465dbc5
 
 -->
 
