@@ -52,11 +52,11 @@ if(isset($_POST["register"]))
 				':user_activation_code'		=>	$user_activation_code,
 				':user_id'			=>	$user_id,
 				':user_email_status'		=>	'not verified',
-				':first_name'    		=>      '',
+				':first_name'    		=>      'User',
 				':last_name'    		=>      '',
 				':country'    			=>      '',
 				':city'    			=>      '',
-				':profile_foto'    		=>      '',
+				':profile_foto'    		=>      'uploads/default.png',
                                 ':details'   			=>      '',
 				':gender'   			=>      '',
 				':weight'   			=>      '',
@@ -65,6 +65,8 @@ if(isset($_POST["register"]))
 
 			)
 		);
+		session_start();
+		$_SESSION['profile_foto'] = "uploads/default.png";
 		$result = $statement->fetchAll();
 		if(isset($result))
 		{
@@ -122,15 +124,15 @@ if(isset($_POST["register"]))
 						<?php echo $message; ?>
 						<div class="form-group">
 							<label>User Name</label>
-							<input type="text" name="user_name" class="form-control" pattern="[a-zA-Z ]+" required />
+							<input type="text" name="user_name" class="form-control" value="<?php echo isset($_POST['user_name']) ? $_POST['user_name'] : '' ?>" pattern="[a-zA-Z ]+" required />
 						</div>
 						<div class="form-group">
 							<label>User Email</label>
-							<input type="email" name="user_email" class="form-control" required />
+							<input type="email" name="user_email" class="form-control" value="<?php echo isset($_POST['user_email']) ? $_POST['user_email'] : '' ?>" required />
 						</div>
 						<div class="form-group">
 							<label>Your Password</label>
-							<input type="text" name="user_password" class="form-control" required />
+							<input type="text" name="user_password" class="form-control" value="<?php echo isset($_POST['user_password']) ? $_POST['user_password'] : '' ?>" required />
 						</div>
 						<div class="form-group">
 							<input type="submit" name="register" id="register" value="Register" class="btn btn-info" />

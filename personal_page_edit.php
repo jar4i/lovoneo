@@ -13,27 +13,44 @@ if(empty($_GET["user_activation_code"])){
 header('location:logout.php');
 }
 include("config.php");
-$user_activation_code= $_GET["user_activation_code"];
-$folder = "uploads/";
-$image_src = imagecreatefrompng($_FILES['uploads/1.png']['1.png']);
-$im2 = imagecrop($image_src, ['x' => 0, 'y' => 0, 'width' => 400, 'height' => 200]);
-imagedestroy($_FILES["fileToUpload"]["name"]);
-$im2 = $folder . basename($_FILES["fileToUpload"]["name"]);
-echo $_COOKIE["x"];
-echo $_COOKIE["y"];
-echo $_COOKIE["width"];
-echo $_COOKIE["height"];
 
 if(isset($_POST["submit"])) {
-if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $im2)) {
-$insert_query="UPDATE register_user SET profile_foto = '$im2' WHERE user_activation_code = '$user_activation_code'";
-$_SESSION['profile_foto'] = $im2;
+$user_activation_code = $_GET["user_activation_code"];
+$folder = "uploads/";
+$upload_image = $folder . basename($_FILES["fileToUpload"]["name"]);
+move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $upload_image);
+$temp_img = imagecreatefromjpeg($upload_image);
+$to_crop_array = array('x' =>$_COOKIE["x"], 'y' => $_COOKIE["y"], 'width' => $_COOKIE["width"], 'height'=> $_COOKIE["height"]);
+$im2 = imagecrop($temp_img, $to_crop_array);
+imagejpeg($im2, $folder . basename($_FILES["fileToUpload"]["name"]));
+$update_img = ($folder . basename($_FILES["fileToUpload"]["name"]));
 $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-$con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+$insert_query="UPDATE register_user SET profile_foto = '$update_img' WHERE user_activation_code = '$user_activation_code'";
 $stmt = $con->prepare($insert_query);
 $stmt->execute();
+$_SESSION['profile_foto'] = $update_img;
 }
-}
+
+/*
+$_SESSION['profile_foto'] = $upload_image;s
+$folder = "123/";
+$upload_image = $folder . basename($_FILES["fileToUpload"]["name"]);
+move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $upload_image);
+$temp_img = imagecreatefromjpeg($upload_image);
+$to_crop_array = array('x' =>$_COOKIE["x"], 'y' => $_COOKIE["y"], 'width' => $_COOKIE["width"], 'height'=> $_COOKIE["height"]);
+$im2 = imagecrop($temp_img, $to_crop_array);
+imagejpeg($im2, '123/new1.jpeg');
+*/
+
+/*$to_crop_array = array('x' =>$_COOKIE["x"], 'y' => $_COOKIE["y"], 'width' => $_COOKIE["width"], 'height'=> $_COOKIE["height"]);
+$im2 = imagecrop($upload_image, $to_crop_array);
+imagejpeg($im2, '123/new.jpeg');
+*/
+
+echo $update_img;
+
+
+
 ?>
 <?php
 $user_activation_code= $_GET["user_activation_code"];
@@ -246,12 +263,6 @@ $sthandler->execute();
 </body>
 
 
-<<<<<<< HEAD
-=======
-	
-
-<div class="demo"></div>
->>>>>>> 6f891795eb827d17960b4779786c1bbc5465dbc5
 
 <!--
 <form action="" method="post" enctype="multipart/form-data">
@@ -264,11 +275,9 @@ $sthandler->execute();
 <input type="submit" value="save info" name="save" id="save">
 </form>
 </div>
-<<<<<<< HEAD
-=======
 
-<?php endwhile;?>
->>>>>>> 6f891795eb827d17960b4779786c1bbc5465dbc5
+
+
 
 <div>
 <?php include('albums/index.php');?>
@@ -279,13 +288,7 @@ $sthandler->execute();
 $user_id=$_GET["user_id"];
 include('fotos/view.php');?>
 </div>
-<<<<<<< HEAD
-=======
 
-
-
-
->>>>>>> 6f891795eb827d17960b4779786c1bbc5465dbc5
 
 -->
 

@@ -2,9 +2,9 @@
 session_start();
 if (isset($_POST['search'])) { 
 $_SESSION['age1'] = $_POST['amount'];
-            $_SESSION['age2'] = $_POST['amount-2'];
-            $_SESSION['gender'] = $_POST['Radios2'];
-} 
+        $_SESSION['age2'] = $_POST['amount-2'];
+        $_SESSION['gender'] = $_POST['Radios2'];
+}
 ?>
 <head>
 <title>LOVONEO | FIND YOUR LOVE</title>
