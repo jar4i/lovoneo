@@ -28,10 +28,11 @@
 			
 			<div class="panel panel-default">
 				<div class="panel-body">
+					<a href="index.php" class="btn btn-info">Go Back</a>
 					<h3>Uploaded Files:</h3>
 					<br/>
 					<?php 
-						$conn = mysqli_connect("localhost","lovoneo","ZMaLPF2-unV-ch","projekt");
+						$conn = mysqli_connect("localhost","root","jvaac2283591","projekt");
 						
 						$query = "SELECT * FROM userfiles WHERE user_user_id= '$user_id'";
 						

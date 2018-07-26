@@ -79,7 +79,7 @@ if(isset($_POST["login"]))
 
 					</form>
 					<div class="register-link"><a href="register.php" > Register</a></div><br>
-					<div class="fg-pass"><a href="np.php" >Forgot your password?</a></div><br>
+					<div class="fg-pass"><a href="password_restore.php" >Forgot your password?</a></div><br>
 					
 				</div>
 			</div>
