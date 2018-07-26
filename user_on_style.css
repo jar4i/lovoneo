@@ -15,7 +15,7 @@
   }
   .photo-user-box{
     overflow: hidden;
-    height: 220px;
+    height: 200px;
     margin-top: 1px;
     margin-left:1px;
     width: 160px;
@@ -23,9 +23,9 @@
     box-shadow: 0 0 0 1px rgba(255, 221, 221, 0.39) !important;
 
 }
-.photo-user{
-    height: 240px;
-    width: 180px;
+.photo-user{  
+  height: 200px;
+    width: 160px;
 }
 .buttons{
     width: 97px;

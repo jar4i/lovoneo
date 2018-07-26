@@ -13,27 +13,44 @@ if(empty($_GET["user_activation_code"])){
 header('location:logout.php');
 }
 include("config.php");
-$user_activation_code= $_GET["user_activation_code"];
-$folder = "uploads/";
-$image_src = imagecreatefrompng($_FILES['uploads/1.png']['1.png']);
-$im2 = imagecrop($image_src, ['x' => 0, 'y' => 0, 'width' => 400, 'height' => 200]);
-imagedestroy($_FILES["fileToUpload"]["name"]);
-$im2 = $folder . basename($_FILES["fileToUpload"]["name"]);
-echo $_COOKIE["x"];
-echo $_COOKIE["y"];
-echo $_COOKIE["width"];
-echo $_COOKIE["height"];
 
 if(isset($_POST["submit"])) {
-if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $im2)) {
-$insert_query="UPDATE register_user SET profile_foto = '$im2' WHERE user_activation_code = '$user_activation_code'";
-$_SESSION['profile_foto'] = $im2;
+$user_activation_code = $_GET["user_activation_code"];
+$folder = "uploads/";
+$upload_image = $folder . basename($_FILES["fileToUpload"]["name"]);
+move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $upload_image);
+$temp_img = imagecreatefromjpeg($upload_image);
+$to_crop_array = array('x' =>$_COOKIE["x"], 'y' => $_COOKIE["y"], 'width' => $_COOKIE["width"], 'height'=> $_COOKIE["height"]);
+$im2 = imagecrop($temp_img, $to_crop_array);
+imagejpeg($im2, $folder . basename($_FILES["fileToUpload"]["name"]));
+$update_img = ($folder . basename($_FILES["fileToUpload"]["name"]));
 $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-$con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+$insert_query="UPDATE register_user SET profile_foto = '$update_img' WHERE user_activation_code = '$user_activation_code'";
 $stmt = $con->prepare($insert_query);
 $stmt->execute();
+$_SESSION['profile_foto'] = $update_img;
 }
-}
+
+/*
+$_SESSION['profile_foto'] = $upload_image;s
+$folder = "123/";
+$upload_image = $folder . basename($_FILES["fileToUpload"]["name"]);
+move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $upload_image);
+$temp_img = imagecreatefromjpeg($upload_image);
+$to_crop_array = array('x' =>$_COOKIE["x"], 'y' => $_COOKIE["y"], 'width' => $_COOKIE["width"], 'height'=> $_COOKIE["height"]);
+$im2 = imagecrop($temp_img, $to_crop_array);
+imagejpeg($im2, '123/new1.jpeg');
+*/
+
+/*$to_crop_array = array('x' =>$_COOKIE["x"], 'y' => $_COOKIE["y"], 'width' => $_COOKIE["width"], 'height'=> $_COOKIE["height"]);
+$im2 = imagecrop($upload_image, $to_crop_array);
+imagejpeg($im2, '123/new.jpeg');
+*/
+
+echo $update_img;
+
+
+
 ?>
 <?php
 $user_activation_code= $_GET["user_activation_code"];
@@ -63,7 +80,7 @@ $sthandler = $con->prepare("SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) 
 $sthandler->execute();
 ?>
 <body>
-   <!-- <header class="head fixed">
+   <header class="head fixed">
         <div class="wrap">
             <nav class="pull_left">
                 <ul class="list-unstyled ">
@@ -89,57 +106,73 @@ $sthandler->execute();
                     ?>
             </div>
         </div>
-    </header>-->
+    </header>
     <?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
 
     <section class="section_profile_photo mt-8">
         <div class="wrap">
-            <div class="clearfix_card rel">
-                <div class="prof_photo_box">
-                    <img src = "<?php echo $row ['profile_foto']?>" class="prof_photo">
-                </div>
-                <div class="btn-add-photo"><i class="fas fa-plus"></i></div>
-            </div>
-        </div>
-    </section>
-    <section>
+        
         <div class="container">
-            <h1>Upload cropped image to server</h1>
-            <img class="rounded" id="avatar" src="image_crop/default.jpg" alt="avatar">
-
-            <label class="label" data-toggle="tooltip" title="Change your avatar">
             <form class ="button_foto" action="" method="post" enctype="multipart/form-data">
+                <div class="clearfix_card rel">
+                    <div class="prof_photo_box">
+                        <img class="rounded prof_photo" id="avatar" src = "<?php echo $row ['profile_foto']?>" alt="avatar">
+                    </div>
+                        <input type="file"  id="input" name="fileToUpload" >
+                        <label for="input" class="btn-add-photo"><i class="fas fa-plus"></i></label>
 
-                <input type="file"  id="input" name="fileToUpload" >
-                <input type="submit" value="Upload Image" name="submit">
-            </form>
-            </label>
-            <div class="alert" role="alert"></div>
-            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalLabel">Crop the image</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
-                <div class="modal-body">
-                    <div class="img-container">
-                    <img id="image" src="image_crop/default.jpg">
+                <div class="alert" role="alert"></div>
+                <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="img-container">
+                        <img id="image" src="image_crop/default.jpg">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="notablock" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" >Crop</button>
+                        <input type="submit" value="Upload Image" id="crop" class="btn btn-primary" name="submit">
+
+                    </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" id="crop">Crop</button>
-                </div>
-                </div>
-            </div>
+            </form>
         </div>
         <?php endwhile;?>
-
-    <p><strong>Data: </strong><span id="data"></span></p>
-    <p><strong>Crop Box Data: </strong><span id="cropBoxData"></span></p>
+        </div>
+        </div>
+    </section>
+    <section class="section_question">
+        <div class="wrap">
+            <form action="" method="post" enctype="multipart/form-data" class="form_1">
+                <!--<textarea name="details"><?php echo $row ['details']?></textarea>-->
+                <div class="input_block">
+                    <div class="block_name inline-block">
+                        <label for="first_name">First name: </label><input type="text" name="first_name" id="first_name"  value="<?php echo $row ['first_name']?>"><br>
+                        <label for="last_name">Last name: </label><input type="text" name="last_name" id="last_name"  value="<?php echo $row ['last_name']?>"><br>
+                    </div>
+                    <div class="block_state inline-block">
+                        <label for="country">State: </label><input type="text" name="country" id="country"  value="<?php echo $row ['country']?>"><br>
+                        <label for="city">City: </label><input type="text" name="city" id="city"  value="<?php echo $row ['city']?>"><br>
+                    </div>
+                </div>
+                <input type="submit" value="save info" name="save" id="save">
+            </form>
+            <?php include('albums/index.php');?>
+            <div class = "view">
+                <?php
+                $user_id=$_GET["user_id"];
+                include('fotos/view.php');?>
+            </div>
         </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -247,29 +280,10 @@ $sthandler->execute();
 
 
 
-<!--
-<form action="" method="post" enctype="multipart/form-data">
-<textarea name="details"><?php echo $row ['details']?></textarea>
-<div class="input_block"><label for="first_name">First name: </label><input type="text" name="first_name" id="first_name"  value="<?php echo $row ['first_name']?>"><br>
-<label for="last_name">Last name: </label><input type="text" name="last_name" id="last_name"  value="<?php echo $row ['last_name']?>"><br>
-<label for="country">State: </label><input type="text" name="country" id="country"  value="<?php echo $row ['country']?>"><br>
-<label for="city">City: </label><input type="text" name="city" id="city"  value="<?php echo $row ['city']?>"><br>
-</div>
-<input type="submit" value="save info" name="save" id="save">
-</form>
-</div>
 
-<div>
-<?php include('albums/index.php');?>
-</div>
-<div class = "view">
 
-<?php
-$user_id=$_GET["user_id"];
-include('fotos/view.php');?>
-</div>
 
--->
+
 
 
 

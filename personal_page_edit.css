@@ -103,7 +103,7 @@
 
     }
     .prof_photo{
-        width: 150px;
+        width: 160px;
         height: 200px;
        /* transform: scaleX(2);*/
         background-position: right bottom;
@@ -156,6 +156,23 @@
       width: 400px;
       height: 350px;
     }
+    #input, .notablock{
+      display: none;
+    }
+/*section_question*/
+.form_1{
+  margin: 0 auto;
+}
+.input_block{
+  text-align: center;
+
+}
+.block_name{
+
+}
+.block_state{
+  
+}
     /*!
  * Cropper.js v1.4.1
  * https://fengyuanchen.github.io/cropperjs
