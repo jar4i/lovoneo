@@ -47,7 +47,7 @@ $_SESSION['age1'] = $_POST['amount'];
     </div>
 </header>
 <div class="wrap">
-    <section class="section-control inline-block  rel">
+    <section class="section-control rel">
         <div class="logo"></div>
                 <div class="form-signin "  method="POST">
                         <?php
@@ -67,12 +67,12 @@ $_SESSION['age1'] = $_POST['amount'];
                         ?>         
                </div>
     </section>
-    <div class="inline-block right-side">
+    <div class="right-side">
         <section class="section-slide">
             <div id="_slick-icons">
             </div>
         </section>
-
+        
         <section class="section-pages rel">
             <div id="target-content" class="clearfix"></div>
             <?php

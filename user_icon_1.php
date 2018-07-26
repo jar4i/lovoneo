@@ -45,26 +45,26 @@ $rs_result = mysqli_query($conn, $sql);
      slidesToScroll: 4,
      responsive: [
        {
-         breakpoint: 990,
+         breakpoint: 1240,
          settings: {
-           slidesToShow: 4,
+           slidesToShow: 3,
            slidesToScroll: 2,
            infinite: true,
            dots: true
          }
        },
        {
-         breakpoint: 767,
+         breakpoint: 1010,
          settings: {
-           slidesToShow: 3,
+           slidesToShow: 2,
            slidesToScroll: 2
          }
        },
        {
-         breakpoint: 576,
+         breakpoint: 815,
          settings: {
-           slidesToShow: 1,
-           slidesToScroll: 1
+           slidesToShow: 2,
+           slidesToScroll: 2
          }
        }
        // You can unslick at a given breakpoint now by adding:

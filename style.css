@@ -105,9 +105,11 @@ ul{
 /*section_1 slider*/
 .section-slide{
   margin-top: 100px;
+  max-width: 800px;
+  margin-left: 48px;
 }
 .slick-slide{
-  height: 200px !important ;
+  height: 212px !important ;
 }
 .slick-dots{
   display: none !important;
@@ -116,9 +118,7 @@ ul{
   color: #181818 !important;
   height: 100px !important;
 }
-.slick-prev::before{
-  margin-left: 15px !important;
-}
+
 .slick-card-box{
   max-width: 1200px;
   margin: 0 auto;
@@ -135,6 +135,7 @@ ul{
 }
 /*login*/
 .section-control{
+  display: inline-block;
   float: left;
   margin-top: 80px; 
   width: 310px;
@@ -143,6 +144,7 @@ ul{
 }
 .right-side{
   max-width: 890px;
+  display: inline-block;
 }
 .section-control .form-log{
   width: 260px;
@@ -157,8 +159,7 @@ ul{
 }
 
 
-
-/*section-pages users-card  */
+/* users-card  */
 
 @keyframes move {
   from {
@@ -171,17 +172,21 @@ ul{
 .section-pages{
   padding-bottom:  50px;
 }
+.main_form{
+  margin-left: 60px;
+}
 .clearfix{
-  max-width: 1200px;
-  text-align: center;
-  margin: 0 auto;
+  margin-bottom: 80px !important;
+  max-width: 900px;
+  margin: 50 auto;
 }
 .card-container{
-  margin-bottom: 30px; 
+  margin: 10px; 
+  
 }
 .card{
-  width: 140px;
-  height: 150px;
+  width: 170px;
+  height: 212px;
   overflow: hidden;
   margin: 0 auto;
 
@@ -189,8 +194,8 @@ ul{
 }
 
 .card-photo{
-  width: 140px;
-  height: 150px;
+  width: 170px;
+  height: 212px;
   border-radius: 5px; 
   z-index: 1000;
 }
@@ -236,19 +241,47 @@ ul{
   text-align: center;
   margin-bottom: 100px; 
 }
-@media (max-width: 767px){
-  .card-photo, .card{
-    width: 200px;
-    height: 200px;
+@media(max-width: 1240px){
+  .section-slide{
+    max-width: 600px;
+    margin-left: 24px;
   }
+  .clearfix{
+    max-width: 650px;
+    margin: 0 auto !important;
+  }
+  .main_form {
+    margin-left: 35px;
 }
-@media (max-width: 680px){
-  .card-photo, .card{
-    width: 170px;
-    height: 170px;
+}
+@media (max-width: 1010px){
+  .section-slide{
+    max-width: 400px;
+    margin-left: 24px;
   }
-  .small-info{
+  .clearfix{
+    max-width: 450px;
+    margin: 0 auto !important;
+  }
+  .main_form {
+    margin-left: 35px;
+}
+}
+@media (max-width: 815px){
+  .right-side{
     display: block;
+  }
+  .section-control{
+    display: block;
+    float: none !important;
+    width: 100% !important;
+  }
+  .logo{
+    margin: 0 auto;
+    margin-bottom: 30px !important;
+  }
+  .form-signin {
+    margin: 0 auto;
   }
 }
 @media (max-width: 575px){

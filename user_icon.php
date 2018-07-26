@@ -16,14 +16,14 @@ $rs_result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($rs_result)) :
 ?>  
 
-<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 card-container">
+<div class="card-container inline-block">
 	<div class="rel card">
 		<a href="personal_page.php?user_id=<?php echo $row['user_id'];?>" >
 			<img src="<?php echo $row['profile_foto']; ?>" class="card-photo">
 			<div class="small-info" >
-				  	<?php echo $row['first_name']?>,
-					  <?php echo $row['age']?>
-					  <p id="card-country"><?php echo $row['country']?></p>
+		  		<?php echo $row['first_name']?>,
+				<?php echo $row['age']?>
+		    	<p id="card-country"><?php echo $row['country']?></p>
 			</div>
 		</a>
 	</div>
