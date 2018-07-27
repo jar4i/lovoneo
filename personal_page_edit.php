@@ -128,61 +128,56 @@ $sthandler->execute();
                 <div class="modal" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalLabel">Crop the image</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="img-container">
-                        <img id="image" src="image_crop/default.jpg">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-
-
-        <div class="btn-group">
-          <button type="button" class="btn btn-primary" data-method="zoom" data-option="0.1" title="Zoom In">
-            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.zoom(0.1)">
-              <span class="fa fa-search-plus"></span>
-            </span>
-          </button>
-          <button type="button" class="btn btn-primary" data-method="zoom" data-option="-0.1" title="Zoom Out">
-            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.zoom(-0.1)">
-              <span class="fa fa-search-minus"></span>
-            </span>
-          </button>
-        </div>
-
-        <div class="btn-group">
-          <button type="button" class="btn btn-primary" data-method="move" data-option="-10" data-second-option="0" title="Move Left">
-            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.move(-10, 0)">
-              <span class="fa fa-arrow-left"></span>
-            </span>
-          </button>
-          <button type="button" class="btn btn-primary" data-method="move" data-option="10" data-second-option="0" title="Move Right">
-            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.move(10, 0)">
-              <span class="fa fa-arrow-right"></span>
-            </span>
-          </button>
-          <button type="button" class="btn btn-primary" data-method="move" data-option="0" data-second-option="-10" title="Move Up">
-            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.move(0, -10)">
-              <span class="fa fa-arrow-up"></span>
-            </span>
-          </button>
-          <button type="button" class="btn btn-primary" data-method="move" data-option="0" data-second-option="10" title="Move Down">
-            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.move(0, 10)">
-              <span class="fa fa-arrow-down"></span>
-            </span>
-          </button>
-        </div>
-
-                        <button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button>
-                        <button type="button" class="notablock" >Crop</button>
-                        <input type="submit" value="Upload Image" id="crop" class="btn btn-primary" name="submit">
-
-                    </div>
+                        <div class="modal-body">
+                            <div class="img-container">
+                            <img id="image" src="image_crop/default.jpg">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary" id="zoom-in" title="Zoom In">
+                                    <span class="docs-tooltip" data-toggle="tooltip" >
+                                    <span class="fa fa-search-plus"></span>
+                                    </span>
+                                </button>
+                                <button type="button" class="btn btn-primary" id="zoom-out" title="Zoom Out">
+                                    <span class="docs-tooltip" data-toggle="tooltip" >
+                                    <span class="fa fa-search-minus"></span>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="btn-group btn-group-footer">
+                                <button type="button" class="btn btn-primary" id="move-left" title="Move Left">
+                                    <span class="docs-tooltip" data-toggle="tooltip" >
+                                    <span class="fa fa-arrow-left"></span>
+                                    </span>
+                                </button>
+                                <button type="button" class="btn btn-primary" id="move-right" title="Move Right">
+                                    <span class="docs-tooltip" data-toggle="tooltip" >
+                                    <span class="fa fa-arrow-right"></span>
+                                    </span>
+                                </button>
+                                <button type="button" class="btn btn-primary" id="move-up" title="Move Up">
+                                    <span class="docs-tooltip" data-toggle="tooltip">
+                                    <span class="fa fa-arrow-up"></span>
+                                    </span>
+                                </button>
+                                <button type="button" class="btn btn-primary" id="move-down" title="Move Down">
+                                    <span class="docs-tooltip" data-toggle="tooltip" s>
+                                    <span class="fa fa-arrow-down"></span>
+                                    </span>
+                                </button>
+                            </div>
+                            <button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button>
+                            <button type="button" class="notablock" >Crop</button>
+                            <input type="submit" value="Upload Image" id="crop" class="btn btn-primary" name="submit">
+                        </div>
                     </div>
                 </div>
             </form>
@@ -221,16 +216,40 @@ $sthandler->execute();
   <script src="cropper.js"></script>
   
   <script>
+      
     window.addEventListener('DOMContentLoaded', function () {
       var avatar = document.getElementById('avatar');
       var image = document.getElementById('image');
       var input = document.getElementById('input');
+      var moveLeft = document.getElementById('move-left');
+      var moveRight = document.getElementById('move-right');
+      var moveUp = document.getElementById('move-up');
+      var moveDown = document.getElementById('move-down');
+      var zoomIn = document.getElementById('zoom-in');
+      var zoomOut = document.getElementById('zoom-out');
       var $alert = $('.alert');
       var $modal = $('#modal');
       var cropper;
-
       $('[data-toggle="tooltip"]').tooltip();
-
+      
+      moveLeft.addEventListener('click', function(){
+        cropper.move(4, 0);
+      })
+      moveRight.addEventListener('click', function(){
+        cropper.move(-4, 0);
+      })
+      moveUp.addEventListener('click', function(){
+        cropper.move(0, 4);
+      })
+      moveDown.addEventListener('click', function(){
+        cropper.move(0, -4);
+      })
+      zoomIn.addEventListener('click', function(){
+        cropper.zoom(0.1);
+      })
+      zoomOut.addEventListener('click', function(){
+        cropper.zoom(-0.1);
+      })
       input.addEventListener('change', function (e) {
         var files = e.target.files;
         var done = function (url) {
@@ -257,7 +276,7 @@ $sthandler->execute();
           }
         }
       }); 
-
+     
         var cook = function createCookie(x, y, w, h) {
             document.cookie = "y=" + escape(y) 
               + "; path=/";
@@ -278,7 +297,6 @@ $sthandler->execute();
         },
 
         crop: function (event) {
-            console.log(cropper.getData());
             cook(cropper.getData().x, cropper.getData().y, cropper.getData().width, cropper.getData().height);
         },
 
@@ -312,7 +330,6 @@ $sthandler->execute();
           });
           initialAvatarURL = avatar.src;
           avatar.src = canvas.toDataURL();
-          console.log(avatar.src);
         }
       });
     });

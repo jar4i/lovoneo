@@ -177,6 +177,9 @@ right: -20px;
     #input, .notablock{
       display: none;
     }
+    .btn-group-footer {
+    margin-right: 40px !important;
+}
 /*section_question*/
 .section_question{
   margin-top: 40px;
