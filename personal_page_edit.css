@@ -185,10 +185,10 @@ right: -20px;
   margin-top: 40px;
 }
 .section_question label{
-  margin-right: 8px;
-}
-.section_question label, .section_question label input{
-  margin-bottom: 30px;
+  margin-bottom: 14px;
+    display: block;
+    font-size: 18px;
+
 }
 .form_1{
   margin: 0 auto;
@@ -200,8 +200,32 @@ right: -20px;
 .block_name{
 margin-right: 150px;
 }
+.input_box{
+  border-bottom: 1px solid #f98989 !important;
+  margin-bottom: 20px;
+
+}
+.input_info{
+  border: none !important;
+  font-size: 16px;
+  text-align: center;
+  color: #b33ef9;
+}
+.input_info:focus{
+  box-shadow:  0 7px 7px -5px #f98989 !important;
+}
+.input_info:hover + .icon_box, .input_info:focus + .icon_box {
+  display: block !important;
+  transition: 200ms;
+}
+.icon_box{
+  display: none;
+position: absolute;
+top: 0;
+right: -20px;
+}
 .block_state{
-  
+  margin-right: 15px;
 }
     /*!
  * Cropper.js v1.4.1

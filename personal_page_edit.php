@@ -193,12 +193,28 @@ $sthandler->execute();
                 <!--<textarea name="details"><?php echo $row ['details']?></textarea>-->
                 <div class="input_block">
                     <div class="block_name inline-block">
-                        <label for="first_name">First name: </label><input type="text" name="first_name" id="first_name"  value="<?php echo $row ['first_name']?>"><br>
-                        <label for="last_name">Last name: </label><input type="text" name="last_name" id="last_name"  value="<?php echo $row ['last_name']?>"><br>
+                        <label for="first_name">First name: </label>
+                        <div class="input_box rel">
+                            <input class="input_info" type="text" name="first_name" id="first_name"  value="<?php echo $row ['first_name']?>">
+                            <div class="icon_box"><i class="fas fa-pen"></i></div>
+                        </div>
+                        <label for="last_name">Last name: </label>
+                        <div class="input_box rel">
+                            <input type="text" class="input_info" name="last_name" id="last_name"  value="<?php echo $row ['last_name']?>">
+                            <div class="icon_box"><i class="fas fa-pen"></i></div>
+                        </div>
                     </div>
                     <div class="block_state inline-block">
-                        <label for="country">State: </label><input type="text" name="country" id="country"  value="<?php echo $row ['country']?>"><br>
-                        <label for="city">City: </label><input type="text" name="city" id="city"  value="<?php echo $row ['city']?>"><br>
+                        <label for="country">State: </label>
+                        <div class="input_box rel">
+                            <input type="text" class="input_info" name="country" id="country"  value="<?php echo $row ['country']?>">
+                            <div class="icon_box"><i class="fas fa-pen"></i></div>
+                        </div>
+                        <label for="city">City: </label>
+                        <div class="input_box rel">
+                            <input type="text" class="input_info" name="city" id="city"  value="<?php echo $row ['city']?>">
+                            <div class="icon_box"><i class="fas fa-pen"></i></div>
+                        </div>
 			<?php endwhile;?>
                     </div>
                 </div>
