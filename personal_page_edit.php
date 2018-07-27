@@ -45,9 +45,10 @@ imagejpeg($im2, '123/new1.jpeg');
 /*$to_crop_array = array('x' =>$_COOKIE["x"], 'y' => $_COOKIE["y"], 'width' => $_COOKIE["width"], 'height'=> $_COOKIE["height"]);
 $im2 = imagecrop($upload_image, $to_crop_array);
 imagejpeg($im2, '123/new.jpeg');
+echo $update_img;
 */
 
-echo $update_img;
+
 
 
 
@@ -70,13 +71,14 @@ $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
 $con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 $stmt = $con->prepare($insert_query);
 $stmt->execute();
+$_SESSION['first_name'] = $first_name;
 }
 ?>
 <?php 
 $user_activation_code=$_GET["user_activation_code"];
 $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
 $con= new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
-$sthandler = $con->prepare("SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age, city, country,  details, first_name, last_name, profile_foto FROM register_user  WHERE user_activation_code = '$user_activation_code'");
+$sthandler = $con->prepare("SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age, birth_date, city, weight, height,  country,  details, first_name, last_name, profile_foto FROM register_user  WHERE user_activation_code = '$user_activation_code'");
 $sthandler->execute();
 ?>
 <body>
@@ -215,6 +217,27 @@ $sthandler->execute();
                             <input type="text" class="input_info" name="city" id="city"  value="<?php echo $row ['city']?>">
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
+			 <label for="city">Details: </label>
+                        <div class="input_box rel">
+                            <input type="text" class="input_info" name="city" id="city"  value="<?php echo $row ['details']?>">
+                            <div class="icon_box"><i class="fas fa-pen"></i></div>
+                        </div>
+			 <label for="city">Birth Date: </label>
+                        <div class="input_box rel">
+                            <input type="text" class="input_info" name="city" id="city"  value="<?php echo $row ['birth_date']?>">
+                            <div class="icon_box"><i class="fas fa-pen"></i></div>
+                        </div>
+			 <label for="city">Weight: </label>
+                        <div class="input_box rel">
+                            <input type="text" class="input_info" name="city" id="city"  value="<?php echo $row ['weight']?>">
+                            <div class="icon_box"><i class="fas fa-pen"></i></div>
+                        </div>
+			 <label for="city">Height: </label>
+                        <div class="input_box rel">
+                            <input type="text" class="input_info" name="city" id="city"  value="<?php echo $row ['height']?>">
+                            <div class="icon_box"><i class="fas fa-pen"></i></div>
+                        </div>
+
 			<?php endwhile;?>
                     </div>
                 </div>
