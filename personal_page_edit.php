@@ -219,11 +219,7 @@ $sthandler->execute();
                     <div class="block_center">
                         <label for="birth_date">Birth Date: </label>
                         <div class="input_box rel">
-<<<<<<< HEAD
                             <input type="text" class="input_info" name="birth_date" id="birth_date"  value="<?php echo $row ['birth_date']?>">
-=======
-                            <input type="text" class="input_info" name="details" id="details"  value="<?php echo $row ['details']?>">
->>>>>>> 89f551b26526cbeea17254d8993d30ad2a5f104b
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
                     </div>
@@ -232,22 +228,14 @@ $sthandler->execute();
                     <div class="block_name inline-block">
 			            <label for="weight">Weight: </label>
                         <div class="input_box rel">
-<<<<<<< HEAD
                             <input type="text" class="input_info" name="weight" id="weight"  value="<?php echo $row ['weight']?>">
-=======
-                            <input type="type="datetime-local" class="input_info" name="birth_date" id="birth_date"  value="<?php echo $row ['birth_date']?>">
->>>>>>> 89f551b26526cbeea17254d8993d30ad2a5f104b
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
                     </div>
                     <div class="block_state inline-block">
 			            <label for="height">Height: </label>
                         <div class="input_box rel">
-<<<<<<< HEAD
                             <input type="text" class="input_info" name="height" id="height"  value="<?php echo $row ['height']?>">
-=======
-                            <input type="text" class="input_info" name="weight" id="weight"  value="<?php echo $row ['weight']?>">
->>>>>>> 89f551b26526cbeea17254d8993d30ad2a5f104b
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
                     </div>
@@ -255,11 +243,7 @@ $sthandler->execute();
                     <div class="block_center">
                         <label for="details">Details: </label>
                         <div class="input_box rel">
-<<<<<<< HEAD
                             <input type="text" class="input_info" name="details" id="details"  value="<?php echo $row ['details']?>">
-=======
-                            <input type="text" class="input_info" name="height" id="height"  value="<?php echo $row ['height']?>">
->>>>>>> 89f551b26526cbeea17254d8993d30ad2a5f104b
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
                     </div>
