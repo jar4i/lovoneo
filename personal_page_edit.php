@@ -190,7 +190,7 @@ $sthandler->execute();
     <section class="section_question">
         <div class="wrap">
             <form action="" method="post" enctype="multipart/form-data" class="form_1">
-                <!--<textarea name="details"><?php echo $row ['details']?></textarea>-->
+            <div class="header_question">*** Required fields ***</div>
                 <div class="input_block">
                     <div class="block_name inline-block">
                         <label for="first_name">First name: </label>
@@ -224,6 +224,7 @@ $sthandler->execute();
                         </div>
                     </div>
                 </div>
+                <div class="header_question">*** Personal information ***</div>
                 <div class="input_block">
                     <div class="block_name inline-block">
 			            <label for="weight">Weight: </label>
@@ -241,9 +242,9 @@ $sthandler->execute();
                     </div>
 
                     <div class="block_center">
-                        <label for="details">Details: </label>
-                        <div class="input_box rel">
-                            <input type="text" class="input_info" name="details" id="details"  value="<?php echo $row ['details']?>">
+                        <label for="details">About me: </label>
+                        <div class=" rel">
+                            <textarea placeholder="Write something about yourself..." class="input_info_textarea" name="details" id="details" ><?php echo $row ['details']?></textarea>
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
                     </div>
@@ -251,6 +252,10 @@ $sthandler->execute();
 			<?php endwhile;?>
                 <input type="submit" value="save info" name="save" id="save">
             </form>
+        </div>
+    </section>
+    <section class="section_drop_me">
+        <div class="wrap">
             <?php include('albums/index.php');?>
             <div class = "view">
                 <?php
