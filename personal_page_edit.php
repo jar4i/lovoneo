@@ -56,17 +56,15 @@ echo $update_img;
 <?php
 $user_activation_code= $_GET["user_activation_code"];
 if(isset($_POST["save"])) {
-$_POST['details'];
-$_POST['first_name'];
-$_POST['last_name'];
-$_POST['country'];
-$_POST['city']; 
+$birth_date = $_POST['birth_date'];
+$weight = $_POST['weight'];
+$height = $_POST['height'];
 $details = $_POST['details'];
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
 $country = $_POST['country'];
 $city = $_POST['city'];
-$insert_query="UPDATE register_user SET details = '$details', first_name = '$first_name', last_name = '$last_name', country = '$country', city ='$city'  WHERE user_activation_code = '$user_activation_code' ";
+$insert_query="UPDATE register_user SET details = '$details', first_name = '$first_name', last_name = '$last_name', country = '$country', city ='$city', weight = '$weight', height = '$height', birth_date = '$birth_date' WHERE user_activation_code = '$user_activation_code' ";
 $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
 $con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 $stmt = $con->prepare($insert_query);
@@ -221,7 +219,11 @@ $sthandler->execute();
                     <div class="block_center">
                         <label for="birth_date">Birth Date: </label>
                         <div class="input_box rel">
+<<<<<<< HEAD
                             <input type="text" class="input_info" name="birth_date" id="birth_date"  value="<?php echo $row ['birth_date']?>">
+=======
+                            <input type="text" class="input_info" name="details" id="details"  value="<?php echo $row ['details']?>">
+>>>>>>> 89f551b26526cbeea17254d8993d30ad2a5f104b
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
                     </div>
@@ -230,14 +232,22 @@ $sthandler->execute();
                     <div class="block_name inline-block">
 			            <label for="weight">Weight: </label>
                         <div class="input_box rel">
+<<<<<<< HEAD
                             <input type="text" class="input_info" name="weight" id="weight"  value="<?php echo $row ['weight']?>">
+=======
+                            <input type="type="datetime-local" class="input_info" name="birth_date" id="birth_date"  value="<?php echo $row ['birth_date']?>">
+>>>>>>> 89f551b26526cbeea17254d8993d30ad2a5f104b
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
                     </div>
                     <div class="block_state inline-block">
 			            <label for="height">Height: </label>
                         <div class="input_box rel">
+<<<<<<< HEAD
                             <input type="text" class="input_info" name="height" id="height"  value="<?php echo $row ['height']?>">
+=======
+                            <input type="text" class="input_info" name="weight" id="weight"  value="<?php echo $row ['weight']?>">
+>>>>>>> 89f551b26526cbeea17254d8993d30ad2a5f104b
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
                     </div>
@@ -245,7 +255,11 @@ $sthandler->execute();
                     <div class="block_center">
                         <label for="details">Details: </label>
                         <div class="input_box rel">
+<<<<<<< HEAD
                             <input type="text" class="input_info" name="details" id="details"  value="<?php echo $row ['details']?>">
+=======
+                            <input type="text" class="input_info" name="height" id="height"  value="<?php echo $row ['height']?>">
+>>>>>>> 89f551b26526cbeea17254d8993d30ad2a5f104b
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
                     </div>
