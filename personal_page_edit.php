@@ -215,30 +215,40 @@ $sthandler->execute();
                             <input type="text" class="input_info" name="city" id="city"  value="<?php echo $row ['city']?>">
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
-			 <label for="city">Details: </label>
+                    </div>
+                    <div class="block_center">
+                        <label for="birth_date">Birth Date: </label>
                         <div class="input_box rel">
-                            <input type="text" class="input_info" name="details" id="details"  value="<?php echo $row ['details']?>">
+                            <input type="text" class="input_info" name="birth_date" id="birth_date"  value="<?php echo $row ['birth_date']?>">
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
-			 <label for="city">Birth Date: </label>
-                        <div class="input_box rel">
-                            <input type="type="datetime-local" class="input_info" name="birth_date" id="birth_date"  value="<?php echo $row ['birth_date']?>">
-                            <div class="icon_box"><i class="fas fa-pen"></i></div>
-                        </div>
-			 <label for="city">Weight: </label>
+                    </div>
+                </div>
+                <div class="input_block">
+                    <div class="block_name inline-block">
+			            <label for="weight">Weight: </label>
                         <div class="input_box rel">
                             <input type="text" class="input_info" name="weight" id="weight"  value="<?php echo $row ['weight']?>">
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
-			 <label for="city">Height: </label>
+                    </div>
+                    <div class="block_state inline-block">
+			            <label for="height">Height: </label>
                         <div class="input_box rel">
                             <input type="text" class="input_info" name="height" id="height"  value="<?php echo $row ['height']?>">
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
+                    </div>
 
-			<?php endwhile;?>
+                    <div class="block_center">
+                        <label for="details">Details: </label>
+                        <div class="input_box rel">
+                            <input type="text" class="input_info" name="details" id="details"  value="<?php echo $row ['details']?>">
+                            <div class="icon_box"><i class="fas fa-pen"></i></div>
+                        </div>
                     </div>
                 </div>
+			<?php endwhile;?>
                 <input type="submit" value="save info" name="save" id="save">
             </form>
             <?php include('albums/index.php');?>
