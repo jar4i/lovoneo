@@ -200,10 +200,15 @@ right: -20px;
 .block_name{
 margin-right: 150px;
 }
+.block_center{
+  margin: 0 auto;
+  text-align: center;
+}
 .input_box{
   border-bottom: 1px solid #f98989 !important;
   margin-bottom: 20px;
-
+  margin: 0 auto;
+  width: 200px;
 }
 .input_info{
   border: none !important;
