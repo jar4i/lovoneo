@@ -87,9 +87,12 @@
     margin-bottom: 0 !important;
   }
   /*prof photo*/
+  .button_foto{
+    height: 270px;
+  }
   .clearfix_card{
-    width: 160px;
-    height: 200px;
+    width: 180px;
+    height: 280px;
     margin: 0 auto;
 
   }
@@ -98,20 +101,35 @@
     overflow: hidden;
     box-shadow: 0 0 0 .2rem #ffafaf !important;
     border-radius: 5px;
-    width: 160px;
-    height: 200px;
-
+    background: #fbe9f180;
+    width: 180px;
+    height: 275px;
     }
-    .prof_photo{
-        width: 160px;
-        height: 200px;
+    .text_edit_box{
+      cursor: pointer;
+     
+    }
+    .text_edit{
+    width: 140px;
+margin: 0 auto;
+right: 18px;
+      text-align: center;
+font-size: 15px;
+position: absolute;
+bottom: 0;
+cursor: pointer;
+height: 50px;
+z-index: 200;
+    }
+    .prof_photo{    width: 180px;
+      height: 225px;
        /* transform: scaleX(2);*/
         background-position: right bottom;
         }
     .btn-add-photo{
         position: absolute;
-        bottom: -15px;
-        right: -15px;
+        bottom: 35px;
+right: -20px;
         width: 40px;
         height: 40px;
         font-size: 20px;
@@ -160,6 +178,15 @@
       display: none;
     }
 /*section_question*/
+.section_question{
+  margin-top: 40px;
+}
+.section_question label{
+  margin-right: 8px;
+}
+.section_question label, .section_question label input{
+  margin-bottom: 30px;
+}
 .form_1{
   margin: 0 auto;
 }
@@ -168,7 +195,7 @@
 
 }
 .block_name{
-
+margin-right: 150px;
 }
 .block_state{
   

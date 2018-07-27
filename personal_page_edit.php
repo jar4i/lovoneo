@@ -107,10 +107,10 @@ $sthandler->execute();
             </div>
         </div>
     </header>
-    <?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
 
     <section class="section_profile_photo mt-8">
         <div class="wrap">
+    <?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
         
         <div class="container">
             <form class ="button_foto" action="" method="post" enctype="multipart/form-data">
@@ -119,11 +119,13 @@ $sthandler->execute();
                         <img class="rounded prof_photo" id="avatar" src = "<?php echo $row ['profile_foto']?>" alt="avatar">
                     </div>
                         <input type="file"  id="input" name="fileToUpload" >
-                        <label for="input" class="btn-add-photo"><i class="fas fa-plus"></i></label>
-
+                        <label for="input"  class="text_edit_box"> 
+                            <div class="btn-add-photo"><i class="fas fa-camera"></i></div>
+                            <div class="text_edit"> Edit your profile photo</div>
+                        </label>
                 </div>
                 <div class="alert" role="alert"></div>
-                <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -138,8 +140,46 @@ $sthandler->execute();
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="notablock" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary" >Crop</button>
+
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary" data-method="zoom" data-option="0.1" title="Zoom In">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.zoom(0.1)">
+              <span class="fa fa-search-plus"></span>
+            </span>
+          </button>
+          <button type="button" class="btn btn-primary" data-method="zoom" data-option="-0.1" title="Zoom Out">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.zoom(-0.1)">
+              <span class="fa fa-search-minus"></span>
+            </span>
+          </button>
+        </div>
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary" data-method="move" data-option="-10" data-second-option="0" title="Move Left">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.move(-10, 0)">
+              <span class="fa fa-arrow-left"></span>
+            </span>
+          </button>
+          <button type="button" class="btn btn-primary" data-method="move" data-option="10" data-second-option="0" title="Move Right">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.move(10, 0)">
+              <span class="fa fa-arrow-right"></span>
+            </span>
+          </button>
+          <button type="button" class="btn btn-primary" data-method="move" data-option="0" data-second-option="-10" title="Move Up">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.move(0, -10)">
+              <span class="fa fa-arrow-up"></span>
+            </span>
+          </button>
+          <button type="button" class="btn btn-primary" data-method="move" data-option="0" data-second-option="10" title="Move Down">
+            <span class="docs-tooltip" data-toggle="tooltip" title="cropper.move(0, 10)">
+              <span class="fa fa-arrow-down"></span>
+            </span>
+          </button>
+        </div>
+
+                        <button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button>
+                        <button type="button" class="notablock" >Crop</button>
                         <input type="submit" value="Upload Image" id="crop" class="btn btn-primary" name="submit">
 
                     </div>
@@ -147,8 +187,9 @@ $sthandler->execute();
                 </div>
             </form>
         </div>
-        <?php endwhile;?>
         </div>
+        <?php endwhile;?>
+
         </div>
     </section>
     <section class="section_question">
