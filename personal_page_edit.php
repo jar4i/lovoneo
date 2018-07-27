@@ -183,7 +183,7 @@ $sthandler->execute();
             </form>
         </div>
         </div>
-        <?php endwhile;?>
+        
 
         </div>
     </section>
@@ -199,6 +199,7 @@ $sthandler->execute();
                     <div class="block_state inline-block">
                         <label for="country">State: </label><input type="text" name="country" id="country"  value="<?php echo $row ['country']?>"><br>
                         <label for="city">City: </label><input type="text" name="city" id="city"  value="<?php echo $row ['city']?>"><br>
+			<?php endwhile;?>
                     </div>
                 </div>
                 <input type="submit" value="save info" name="save" id="save">
