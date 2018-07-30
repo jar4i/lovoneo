@@ -45,14 +45,16 @@ text-align: center;
 .btn_delete{
     color: #56105f !important;
 font-size: 14px !important;
-background: #fff;
+width: 25px;
+height: 25px;
+background: url("ico_close_2.png") no-repeat;
+background-size: cover;
 padding: 5px;
 border-radius: 5px;
 cursor: pointer !important;
 float: right;
 }
 .btn_delete:hover{
-color: #fff !important;
-background: #56105f;
-transition: 400ms;
+background: url("ico_close_hover.png") no-repeat;
+background-size: cover;
 }

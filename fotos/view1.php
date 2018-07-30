@@ -34,9 +34,7 @@
 							<form class ="delete inline-block" action="" method="post">
 								<div class="img_box rel" style="background:  url('<?php echo $url.$row['file_name']; ?>') no-repeat">
 									<input type="text" class="not_a_block" name="delete" id="delete" value="<?php echo $row['id'];?>">
-
-									<a href="#view"><label for="delete_conf" class="btn_delete" ><i class="fas fa-times"></i></label></a>
-									<input type="submit" class="not_a_block" name="delete_conf" id="delete_conf" value="">	
+									<input type="submit" class="btn_delete" name="delete_conf" id="delete_conf" value="">	
 								</div>
 								
 							</form>
