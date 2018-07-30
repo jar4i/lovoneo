@@ -260,7 +260,8 @@ $sthandler->execute();
             <div class = "view">
                 <?php
                 $user_id=$_GET["user_id"];
-                include('fotos/view.php');?>
+                include('fotos/view1.php');?>
+
             </div>
         </div>
     </section>

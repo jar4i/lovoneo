@@ -30,6 +30,8 @@
 				<div class="panel-body">
 					<h3>Uploaded Fotos:</h3>
 					<br/>
+	
+
 					<?php 
 						$conn = mysqli_connect("localhost","lovoneo","ZMaLPF2-unV-ch","projekt");
 						
@@ -42,8 +44,11 @@
 							while($row = mysqli_fetch_assoc($result))
 							{
 								$url = "albums/uploads/";
+						
 					?>
+							
 								<image src="<?php echo $url.$row['file_name']; ?>" class="images" />
+								
 					<?php
 							}
 						}
