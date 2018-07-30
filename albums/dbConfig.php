@@ -1,8 +1,8 @@
 <?php
 // Database configuration
 $dbHost     = "localhost";
-$dbUsername = "root";
-$dbPassword = "jvaac2283591";
+$dbUsername = "lovoneo";
+$dbPassword = "ZMaLPF2-unV-ch";
 $dbName     = "projekt";
 
 // Create database connection

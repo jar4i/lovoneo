@@ -59,7 +59,6 @@ if(isset($_POST["login"]))
 	<head>
 				
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<link rel="stylesheet" href="login.css">
 	</head>
 	<body>
 		<div class=" form-log">
@@ -68,7 +67,7 @@ if(isset($_POST["login"]))
 					<form method="post">
 						<?php echo $message; ?>
 						<div class="form-group ">
-							<input type="email" name="user_email" class="form-control email" required autocomplete="off" placeholder="Username"/>
+							<input type="email" name="user_email" class="form-control email" required autocomplete="off" placeholder="Username (E-mail)"/>
 						</div>
 						<div class="form-group ">
 							<input type="password" name="user_password" class="form-control password" autocomplete="off" required  placeholder="Password"/>

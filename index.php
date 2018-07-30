@@ -9,6 +9,7 @@ $_SESSION['age1'] = $_POST['amount'];
 <head>
 <title>LOVONEO | FIND YOUR LOVE</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="login.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
@@ -41,7 +42,7 @@ $_SESSION['age1'] = $_POST['amount'];
                 if (isset($_SESSION['user_name'])) {
                     echo'<a href="logout.php">Log out</a>';
                 }
-                else echo '<a href="login.php">Log in</a>';
+                else echo '<a href="login_page.php">Log in</a>';
                 ?>
         </div>
     </div>

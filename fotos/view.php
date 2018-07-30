@@ -31,7 +31,7 @@
 					<h3>Uploaded Fotos:</h3>
 					<br/>
 					<?php 
-						$conn = mysqli_connect("localhost","root","jvaac2283591","projekt");
+						$conn = mysqli_connect("localhost","lovoneo","ZMaLPF2-unV-ch","projekt");
 						
 						$query = "SELECT * FROM files WHERE us_us_id= '$user_id'";
 						

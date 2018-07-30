@@ -43,7 +43,7 @@ $sthandler->execute();
                 if (isset($_SESSION['user_name'])) {
                     echo'<a href="logout.php">Log out</a>';
                 }
-                else echo '<a href="login.php">Log in</a>';
+                else echo '<a href="login_page.php">Log in</a>';
                 ?>
             </div>
         </div>

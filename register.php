@@ -138,7 +138,7 @@ if(isset($_POST["register"]))
 							<input type="submit" name="register" id="register" value="Register" class="btn btn-info" />
 						</div>
 					</form>
-					<p align="right"><a href="login.php">Login</a></p>
+					<p align="right"><a href="login_page.php">Login</a></p>
 				</div>
 			</div>
 		</div>
