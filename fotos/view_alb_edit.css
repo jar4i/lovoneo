@@ -1,0 +1,58 @@
+/*helpers*/
+.inline-block{
+  display: inline-block;
+}
+.rel{
+ position: relative;
+}
+.abs{
+  position: absolute;
+ }
+.fixed{
+  position: fixed;
+}
+.center{
+text-align: center;
+}
+.wrap{
+  max-width: 1400px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+.not_a_block{
+    display: none;
+}
+/* section view  */
+.section_view{
+}
+.img_box{
+    width: 150px;
+    height: 160px;
+    overflow: hidden;
+    border: 1px solid #56105f;
+    box-shadow: 0 0 0 .2rem #b12b8f56 !important;
+    border-radius: 5px;
+    background-size: cover !important; 
+    background-position: center center !important;
+}
+.images{
+    width: 200px;
+}
+.delete{
+    margin: 8px;
+}
+.btn_delete{
+    color: #56105f !important;
+font-size: 14px !important;
+background: #fff;
+padding: 5px;
+border-radius: 5px;
+cursor: pointer !important;
+float: right;
+}
+.btn_delete:hover{
+color: #fff !important;
+background: #56105f;
+transition: 400ms;
+}
