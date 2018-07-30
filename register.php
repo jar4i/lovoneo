@@ -107,40 +107,69 @@ if(isset($_POST["register"]))
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Register </title>		
+		<title> Register </title>	
+		<link rel="stylesheet" href="register.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<br />
-		<div class="container" style="width:100%; max-width:600px">
-			<h2 align="center">Register</h2>
-			<br />
-			<div class="panel panel-default">
-				<div class="panel-heading"><h4>Register</h4></div>
-				<div class="panel-body">
-					<form method="post" id="register_form">
-						<?php echo $message; ?>
-						<div class="form-group">
-							<label>User Name</label>
-							<input type="text" name="user_name" class="form-control" value="<?php echo isset($_POST['user_name']) ? $_POST['user_name'] : '' ?>" pattern="[a-zA-Z ]+" required />
-						</div>
-						<div class="form-group">
-							<label>User Email</label>
-							<input type="email" name="user_email" class="form-control" value="<?php echo isset($_POST['user_email']) ? $_POST['user_email'] : '' ?>" required />
-						</div>
-						<div class="form-group">
-							<label>Your Password</label>
-							<input type="text" name="user_password" class="form-control" value="<?php echo isset($_POST['user_password']) ? $_POST['user_password'] : '' ?>" required />
-						</div>
-						<div class="form-group">
-							<input type="submit" name="register" id="register" value="Register" class="btn btn-info" />
-						</div>
-					</form>
-					<p align="right"><a href="login_page.php">Login</a></p>
+		<header class="head fixed">
+			<div class="wrap">
+				<nav class="pull_left">
+					<ul class="list-unstyled ">
+					<a class="active" href="index.php"><li class="li-item inline-block">Home</li></a>
+					<a href="#news"><li class="li-item inline-block">News</li></a>
+					<a href="#contact"><li class="li-item inline-block">Contact</li></a>
+					<a href="#about"><li class="li-item inline-block">About</li></a>
+					</ul>
+				</nav>
+				<div class="pull-right rel">
+					<a class="welcom" href="view_profile.php"> <?php 
+						if (isset($_SESSION['user_name'])) {
+							echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
+						echo ''.$_SESSION['first_name'];
+						echo '  |';
+						
+						}
+						?>
+					</a>
+					<?php 
+						if (isset($_SESSION['user_name'])) {
+							echo'<a href="logout.php">Log out</a>';
+						}
+						else echo '<a href="login_page.php">Log in</a>';
+					?>
 				</div>
 			</div>
-		</div>
+		</header>
+		<section class="section_register rel">
+			<div class="wrap" >
+            	<div class="logo"></div>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form method="post" id="register_form">
+							<?php echo $message; ?>
+							<div class="form-group">
+								<label for="user_name">User Name</label>
+								<input type="text" name="user_name" id="user_name" class="form-control email" value="<?php echo isset($_POST['user_name']) ? $_POST['user_name'] : '' ?>" pattern="[a-zA-Z ]+" required />
+							</div>
+							<div class="form-group">
+								<label for="user_email">User Email</label>
+								<input type="email" name="user_email" id="user_email" class="form-control email" value="<?php echo isset($_POST['user_email']) ? $_POST['user_email'] : '' ?>" required />
+							</div>
+							<div class="form-group">
+								<label for="user_password">Your Password</label>
+								<input type="text" name="user_password" id="user_password" class="form-control password" value="<?php echo isset($_POST['user_password']) ? $_POST['user_password'] : '' ?>" required />
+							</div>
+							<div class="form-group">
+								<input type="submit" name="register" id="register" value="Register" class="btn btn-danger register-btn" />
+							</div>
+						</form>
+						<div class="login-link"><a href="login_page.php" >or Log in</a></div>
+					</div>
+				</div>
+			</div>
+		</section>
 	</body>
 </html>

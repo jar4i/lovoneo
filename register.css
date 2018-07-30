@@ -1,0 +1,143 @@
+/*helpers*/
+.inline-block{
+    display: inline-block;
+  }
+  .rel{
+   position: relative;
+  }
+  .abs{
+    position: absolute;
+   }
+  .fixed{
+    position: fixed;
+  }
+  .center{
+  text-align: center;
+  }
+  .wrap{
+    max-width: 1400px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+  }
+/*menu*/
+.welcom{
+    cursor: pointer;
+    position: absolute;
+    left: -90px;
+  }
+  .profile_photo_menu_box{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    left: -47px;
+    top: -10px;
+  }
+  .profile_photo_menu{
+    width: 40px;
+    height: 50px;
+  }
+  .head{
+    background: linear-gradient(to top left,#8918ce, #3d5de4);
+    opacity: 0.94 ; 
+    width: 100%;
+    padding: 20px 5px; 
+    font-size: 16px;
+    top:0;
+    z-index: 1000;
+  
+  }
+  nav{
+    width: 400px;
+    display: inline-block !important;
+  }
+  .pull-right{
+    display: inline-block;
+  }
+  .li-item{
+    margin-left: 10px;
+    padding-right: 5px; 
+    color: #ffffff;
+    display: inline-block;
+  }
+  .li-item::after{
+    content: "|";
+    padding-left: 10px; 
+  }
+  .li-item:hover{
+  color: #ffafaf;
+  transition: 400ms;
+  }
+  .head a{
+    color: #ffffff !important;
+  }
+  .head a:hover,
+  .head a:focus,
+  .head a:active {
+      text-decoration: none !important;
+      color: #ffafaf !important;
+      transition: 400ms;
+    }
+  
+  ul{
+    margin-bottom: 0 !important;
+  }
+
+/*logo*/
+.logo{
+    background: url('logo.png') no-repeat;
+    background-size: cover; 
+    width: 263px;
+    height: 100px;
+    margin: 0 auto;
+    margin-bottom: 30px !important;
+    margin-top: 70px !important;
+
+  }
+  /*register*/
+  .section_register{
+    margin: 0 auto;
+    max-width: 500px;
+    height: 100%;
+  }
+   .panel{
+    background: #fffdf9cb;
+    border-color: #b12b8fc2 !important; 
+  }
+    .email,
+     .password,
+      .register-btn,
+       .login-link{
+    font-size: 15px !important;
+  }
+    .email:focus,   .password:focus{
+    border-color: #b12b8f6b !important;
+    box-shadow: 0 0 0 .2rem #b12b8f56 !important;
+  }
+    .register-btn{
+    width: 80px;
+    margin-top: 16px;
+  }
+    .login-link{
+        position: absolute;
+    right: 70px;
+    top: 440px;
+  }
+    
+  .form-signin .form-group{
+    margin-top: 30px;
+  }
+    .login-link a,   .fg-pass a{
+    color: #ff3333 !important;
+  }
+    .login-link:hover a:hover{
+    color: #ff6b6b !important;
+    transition: 1000ms;
+  }
+ .panel-body{
+    height: 350px;
+  }
+
+  
