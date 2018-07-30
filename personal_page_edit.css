@@ -251,6 +251,14 @@ right: -20px;
   padding: 8px;
   margin: 0 20px;
 }
+.btn_save_inf{
+ margin: 35px auto;
+ text-align: center;
+}
+/*dropzone*/
+.dropzone {
+    border: 1px solid rgba(255, 0, 0, 0.55) !important;
+}
     /*!
  * Cropper.js v1.4.1
  * https://fengyuanchen.github.io/cropperjs

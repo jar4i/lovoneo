@@ -25,6 +25,7 @@ text-align: center;
 }
 /* section view  */
 .section_view{
+    margin: 50px 0;
 }
 .img_box{
     width: 150px;
@@ -57,4 +58,13 @@ float: right;
 .btn_delete:hover{
 background: url("ico_close_hover.png") no-repeat;
 background-size: cover;
+}
+.panel-default {
+    border-color: #ff000080 !important;
+}
+.panel{
+    padding: 20px 20px !important;
+ border-radius: 0px !important; 
+ max-width: 800px !important;
+ margin: 0 auto !important;
 }

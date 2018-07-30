@@ -10,7 +10,6 @@
 				<div class="container">			
 					<div class="panel panel-default">
 						<div class="panel-body">
-							<h3>Uploaded Fotos:</h3>
 							<?php
 								if(isset($_POST['delete_conf'])){
 									$del_id = $_POST['delete'];

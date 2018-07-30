@@ -249,20 +249,32 @@ $sthandler->execute();
                         </div>
                     </div>
                 </div>
-			<?php endwhile;?>
-                <input type="submit" value="save info" name="save" id="save">
+            <?php endwhile;?>
+                <div class="btn_save_inf">
+                    <input type="submit" value="SAVE INFORMATION" class="btn btn-danger " name="save" id="save">
+                </div>
             </form>
         </div>
     </section>
     <section class="section_drop_me">
         <div class="wrap">
+            <div class="header_question">*** Upload photos in your albom ***</div>
+
             <?php include('albums/index.php');?>
+            <div class="btn_save_inf">
+                    <input type="submit" value="SAVE INFORMATION" class="btn btn-danger " onClick="history.go(0)"  name="save" id="save">
+                </div>
+            <div class="header_question">*** Delete photos from your albom ***</div>
+
             <div class = "view">
                 <?php
                 $user_id=$_GET["user_id"];
                 include('fotos/view1.php');?>
 
             </div>
+            <div class="btn_save_inf">
+                    <input type="submit" value="SAVE INFORMATION" class="btn btn-danger " name="save"  onClick="history.go(0)"  id="save">
+                </div>
         </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
