@@ -122,8 +122,10 @@
   }
     .register-link{
         position: absolute;
-    right: 100px;
-    top: 230px;
+        left: 115px;
+        top: 173px;
+    text-decoration: none;
+
   }
     .fg-pass{
         position: absolute;
@@ -134,13 +136,14 @@
   .form-signin .form-group{
     margin-top: 30px;
   }
-    .register-link a,   .fg-pass a{
+     .fg-pass a{
     color: #ff3333 !important;
   }
-    .register-link:hover a:hover{
-    color: #ff6b6b !important;
-    transition: 1000ms;
+  .register-link a{
+    color: #ffffff !important;
+    text-decoration: none !important;
   }
+    
   .form-signin .panel-body{
     height: 300px;
   }

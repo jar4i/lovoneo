@@ -42,18 +42,24 @@
     top: 150px;
   }
   .section-control .register-link{
-    left: 55%;
-    top: 200px;
+    left: 51%;
+    width: 80px;
+
+    top: 151px;
   }
   .section-control .fg-pass{
-    left: 35%;
-    top: 230px;
+    left: 15%;
+top: 220px;
   }
   .form-signin .form-group{
     margin-top: 30px;
   }
-  .section-control .register-link a, .section-control .fg-pass a{
+  .section-control .fg-pass a{
     color: #ff3333 !important;
+  }
+  .section-control .register-link a{
+    text-decoration: none;
+    color: #ffffff !important;
   }
   .section-control .register-link:hover a:hover{
     color: #ff6b6b !important;
