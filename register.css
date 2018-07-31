@@ -122,22 +122,17 @@
   }
     .login-link{
         position: absolute;
-    right: 70px;
-    top: 440px;
+        right: 300px;
+        top: 507px;
   }
     
   .form-signin .form-group{
     margin-top: 30px;
   }
-    .login-link a,   .fg-pass a{
-    color: #ff3333 !important;
+    .login-link a{
+    color: #ffffff !important;
   }
-    .login-link:hover a:hover{
-    color: #ff6b6b !important;
-    transition: 1000ms;
-  }
- .panel-body{
-    height: 350px;
-  }
+  
+
 
   

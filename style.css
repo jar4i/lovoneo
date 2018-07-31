@@ -283,10 +283,23 @@ ul{
   .form-signin {
     margin: 0 auto;
   }
+  .section-slide{
+    margin: 0 auto;
+  }
+  .section-control .form-log{
+    margin: 0 auto;
+    width: 352px;
+  }
+  .panel-2{
+    width: 352px !important;
+  }
+  .labeles{
+    margin-left: 63px !important;
+  }
 }
 @media (max-width: 575px){
   .card-photo, .card{
-    width: 250px;
-    height: 250px;
+    height: 266px;
+    width: 200px;
   }
 }

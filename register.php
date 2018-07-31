@@ -187,16 +187,15 @@ if(isset($_POST["register"]))
 								<label for="user_password">Your Password</label>
 								<input type="text" name="user_password" id="user_password" class="form-control password" value="<?php echo isset($_POST['user_password']) ? $_POST['user_password'] : '' ?>" required />
 							</div>
-														<div class="form-group">
-								<label for="gender">Gender</label>
-							 <select name="gender">
-  <option value="male">male</option>
-  <option value="female">female</option>
-</select> 
-</div>
-
 							<div class="form-group">
-								<label for="birth_date">User Email</label>
+								<label for="gender">Gender</label>
+								<select name="gender">
+									<option value="male">male</option>
+									<option value="female">female</option>
+								</select> 
+							</div>
+							<div class="form-group">
+								<label for="birth_date">Birthday</label>
 								<input type="date" name="birth_date" id="birth_date" class="form-control email" value="<?php echo isset($_POST['birth_date']) ? $_POST['birth_date'] : '' ?>" required />
 							</div>
 
@@ -206,7 +205,7 @@ if(isset($_POST["register"]))
 
 							
 						</form>
-						<div class="login-link"><a href="login_page.php" >or Log in</a></div>
+						<div class="login-link btn btn-danger "><a href="login_page.php" >Log in</a></div>
 					</div>
 				</div>
 			</div>
