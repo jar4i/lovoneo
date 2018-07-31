@@ -25,7 +25,7 @@ $_SESSION['age1'] = $_POST['amount'];
         <nav class="pull_left">
         
             <ul class="list-unstyled ">
-            <a class="active" href="index.php"><li class="li-item inline-block">Home</li></a>
+            <a class="active" href="index.php">Home |</a>
             <a class="active" href="view_profile.php"> <?php 
             if (isset($_SESSION['user_name'])) {
                 echo "Profile";
@@ -72,6 +72,7 @@ $_SESSION['age1'] = $_POST['amount'];
 
     </div>
 </header>
+
 
 <div class="wrap">
     <section class="section-control rel">
