@@ -34,6 +34,8 @@ box-shadow: 0 0 0 .2rem #7a7a7a4d !important;
       background-size: cover !important; 
       background-position: center center !important;
       cursor: pointer;
+      display: inline-block;
+margin: 10px;
   }
   .images{
       width: 200px;
@@ -60,4 +62,7 @@ box-shadow: 0 0 0 .2rem #7a7a7a4d !important;
 }
 .slick-card-box{
     z-index: 1000000;
+}
+.txt_alb{
+
 }

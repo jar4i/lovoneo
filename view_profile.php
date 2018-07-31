@@ -108,9 +108,7 @@ $sthandler->execute();
 </div>
             <?php endwhile;?>
             </div>
-<div class="changes">
-<a href ="personal_page_edit.php?user_id=<?php echo $_SESSION['us_id']?>&&user_activation_code=<?php echo $_SESSION['user_activation_code']?>>">Edit your page</a>
-</div>
+
 
 <div class="likes_amount">
 <?php
