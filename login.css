@@ -2,22 +2,20 @@
 .section-control{
     float: left;
     margin-top: 80px; 
-    width: 310px;
     height: 100%;
     clear: bottom;
   }
-  .section-control .form-log{
+  .section-control #form-log{
     width: 260px;
-    height: 350px;
   }
   .section-control .panel{
     background: #fffdf9cb;
     border-color: #181818 !important; 
   }
-  .form-signin .panel-body{
+  .form-signin #panel-body{
     height: 280px;
   }
-  .section-control .panel-body{
+  .section-control #panel-body{
     padding: 0 !important;
   }
 

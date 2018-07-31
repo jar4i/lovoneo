@@ -296,17 +296,16 @@
 }
 .card{
   width: 170px;
-  height: 180px;
+  height: 212px;
   overflow: hidden;
   margin: 0 auto;
-
   animation-play-state: paused;
 }
 
 .card-photo{
   width: 170px;
-  height: 180px;
-  border-radius: 5px; 
+  height: 212px;
+  border-radius: 5px;
   z-index: 1000;
 }
 .card:hover{

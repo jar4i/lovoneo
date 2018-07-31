@@ -1,0 +1,63 @@
+/*helpers*/
+.inline-block{
+    display: inline-block;
+  }
+  .rel{
+   position: relative;
+  }
+  .abs{
+    position: absolute;
+   }
+  .fixed{
+    position: fixed;
+  }
+  .center{
+  text-align: center;
+  }
+  .wrap{
+    max-width: 1400px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+  }
+  /* section view  */
+  .section_view{
+      margin: 30px 0;
+  }
+  .img_box{
+      width: 150px;
+      height: 160px;
+      overflow: hidden;
+      border: 1px solid #cbcbcb80;
+box-shadow: 0 0 0 .2rem #7a7a7a4d !important;
+      border-radius: 5px;
+      background-size: cover !important; 
+      background-position: center center !important;
+      cursor: pointer;
+  }
+  .images{
+      width: 200px;
+  }
+ .section_view .panel-default {
+    border-radius: 5px !important;
+      border-color: #cccccc80 !important;
+  }
+  .section_view .container{
+      padding: 0 !important;
+  }
+ .section_view .panel{
+      padding: 20px 20px !important;
+   max-width: 800px !important;
+  }
+  
+.img_box:hover{
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+.slick-card-box{
+    z-index: 1000000;
+}

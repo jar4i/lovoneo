@@ -3,7 +3,7 @@ session_start();
 $user_id=$_GET["user_id"];
 include("config.php");
 $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-$sthandler = $con->prepare("SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , first_name, last_name, country, city, details, height, weight, profile_foto FROM register_user WHERE user_id = '$user_id'");
+$sthandler = $con->prepare("SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , user_id, first_name, last_name, country, city, details, height, weight, profile_foto FROM register_user WHERE user_id = '$user_id'");
 $sthandler->execute();
 ?>
 
@@ -19,14 +19,34 @@ $sthandler->execute();
 <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.js"></script>
 </head>
 <body>
+<?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
+
     <header class="head fixed">
         <div class="wrap">
             <nav class="pull_left">
+            
                 <ul class="list-unstyled ">
                 <a class="active" href="index.php"><li class="li-item inline-block">Home</li></a>
-                <a href="#news"><li class="li-item inline-block">News</li></a>
-                <a href="#contact"><li class="li-item inline-block">Contact</li></a>
-                <a href="#about"><li class="li-item inline-block">About</li></a>
+                <a class="active" href="view_profile.php"> <?php 
+                if (isset($_SESSION['user_name'])) {
+                    echo "Profile";
+                    echo '  |';} 
+                ?>
+                </a>
+                <a class="active" href="message1/message.php"> <?php 
+                if (isset($_SESSION['user_name'])) {
+                    echo "Massage";
+                    echo '  |';
+                }
+                ?>
+                </a>
+                <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $row['user_activation_code'];?>&&user_id=<?php echo $row['user_id'];?>"> <?php 
+                if (isset($_SESSION['user_name'])) {
+                    echo "Edit profile";
+                    echo '  |';
+                }
+                ?>
+                </a>
                 </ul>
             </nav>
             <div class="pull-right rel">
@@ -53,11 +73,7 @@ $sthandler->execute();
         <div class="logo"></div>
             <div class="form-signin"  method="POST">
                     <?php
-                    if(isset($_SESSION['user_name']))
-                    {
-                    include("user_on.php");
-                    }
-                    else 
+                    if(!isset($_SESSION['user_name']))
                     {
                     include("login.php");
                     }
@@ -71,7 +87,6 @@ $sthandler->execute();
     </section>
     <div class="inline-block right-side">
         <section class="section-photo">
-            <?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
             <div class="photo-box inline-block">
                 <img src="<?php echo $row ['profile_foto']?>" class="photo-person">
             </div>
@@ -121,7 +136,6 @@ $sthandler->execute();
             </div>
         </section>
         <h3 class="center">See also</h3>
-
         <section class="section-slide">
             <div id="_slick-icons">
             </div>
@@ -134,6 +148,7 @@ $sthandler->execute();
     <script src="jquery.ui.touch-punch.min.js"></script>
 
 <script type="text/javascript">
+
 $(document).ready(function(){
         jQuery("#_slick-icons").load("user_icon_1.php");
 })

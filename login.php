@@ -61,9 +61,9 @@ if(isset($_POST["login"]))
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	</head>
 	<body>
-		<div class=" form-log">
+		<div class="form-log" id="form-log">
 			<div class="panel panel-default">
-				<div class="panel-body rel">
+				<div class="panel-body rel" id="panel-body">
 					<form method="post">
 						<?php echo $message; ?>
 						<div class="form-group ">

@@ -1,71 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-	<header>
-		
-		
-		
-		<!-- Bootstrap -->
+	<head>
+		<link rel="stylesheet" href="fotos/view_alb.css">
 		<link href="fotos/css/bootstrap.min.css" rel="stylesheet">
-		<style>
-			.images{
-				width:150px;
-				height:150px;
-				cursor:pointer;
-				margin:10px;
-			}
-			.images:hover{
-				-webkit-transform: scale(1.2);
-				-moz-transform: scale(1.2);
-				-o-transform: scale(1.2);
-				transform: scale(1.2);
-				transition: all 0.3s;
-				-webkit-transition: all 0.3s;
-			}
-		</style>
-	</header>
+	</head>
 	<body>
-		<div class="container">			
-			
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<h3>Uploaded Fotos:</h3>
-					<br/>
-	
+		<section class="section_view" id="view">
+				<div class="container">			
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<?php 
+								$conn = mysqli_connect("localhost","lovoneo","ZMaLPF2-unV-ch","projekt");
+								$query = "SELECT * FROM files WHERE us_us_id= '$user_id'";
+								$result = mysqli_query($conn, $query);
+								if(mysqli_num_rows($result) > 0)
+								{
+									while($row = mysqli_fetch_assoc($result))
+									{
+										$url = "albums/uploads/";
+							?>
+							<div class="fade slick-card-box">
+								<div>
+									<img src="<?php echo $url.$row['file_name']; ?>">
+								</div>
+							</div>
+							<div class="img_box rel" onclick="sli()" style="background:  url('<?php echo $url.$row['file_name']; ?>') no-repeat"></div>
 
-					<?php 
-						$conn = mysqli_connect("localhost","lovoneo","ZMaLPF2-unV-ch","projekt");
-						
-						$query = "SELECT * FROM files WHERE us_us_id= '$user_id'";
-						
-						$result = mysqli_query($conn, $query);
-						
-						if(mysqli_num_rows($result) > 0)
-						{
-							while($row = mysqli_fetch_assoc($result))
-							{
-								$url = "albums/uploads/";
-						
-					?>
-							
-								<image src="<?php echo $url.$row['file_name']; ?>" class="images" />
-								
-					<?php
-							}
-						}
-						else
-						{
-					?>
-						<p>There are no images uploaded to display.</p>
-					<?php
-						}
-					?>					
+							<?php
+								}}
+								else{
+							?>
+							<p>There are no images uploaded to display.</p>
+							<?php
+								}
+							?>						
+					</div>
 				</div>
 			</div>
-		</div>
-		
+		</section>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="fotos/js/jQuery.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="fotos/js/bootstrap.min.js"></script>		
+		<script src="fotos/js/bootstrap.min.js"></script>	
+		<script>
+   $(document).ready(function(){
+		$('.fade').slick({
+			dots: true,
+			infinite: true,
+			speed: 500,
+			fade: true,
+			cssEase: 'linear'
+			});});
+		function sli(){
+$(".fade").css("display", "none");
+
+}
+function slisli(){
+    $(".section-slide").css("display", "block");
+
+}
+</script>		
 	</body>
 </html>
