@@ -144,7 +144,7 @@ $sthandler->execute();
             </div>
         </section>
         <h3 class="center">See also</h3>
-        <section class="section-slide">
+        <section class="section-slide" id="section-slide">
             <div id="_slick-icons">
             </div>
         </section>

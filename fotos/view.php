@@ -7,8 +7,28 @@
 	<body>
 		<section class="section_view" id="view">
 		<h3 class="txt_alb">Albom:</h3>
-
-				<div class="container">			
+		
+		<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	  <div class="alert">
+			<img class="img" src="" />
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+		<div class="container">			
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<?php 
@@ -21,12 +41,8 @@
 									{
 										$url = "albums/uploads/";
 							?>
-							<!--<div class="fade slick-card-box">
-								<div>
-									<img src="<?php// echo $url.$row['file_name']; ?>">
-								</div>
-							</div>-->
-							<div class="img_box rel" onclick="sli()" style="background:  url('<?php echo $url.$row['file_name']; ?>') no-repeat"></div>
+							
+							<div class="img_box rel" onclick="zoom('<?php echo $url.$row['file_name']; ?>')" data-toggle="modal" data-target="#exampleModalCenter" style="background:  url('<?php echo $url.$row['file_name']; ?>') no-repeat"></div>
 
 							<?php
 								}}
@@ -45,22 +61,9 @@
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="fotos/js/bootstrap.min.js"></script>	
 		<script>
-   $(document).ready(function(){
-		$('.fade').slick({
-			dots: true,
-			infinite: true,
-			speed: 500,
-			fade: true,
-			cssEase: 'linear'
-			});});
-		function sli(){
-$(".fade").css("display", "none");
-
-}
-function slisli(){
-    $(".section-slide").css("display", "block");
-
-}
+			function zoom(file){
+				$('.img').attr("src",file);
+			}
 </script>		
 	</body>
 </html>
