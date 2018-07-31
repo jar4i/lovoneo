@@ -40,12 +40,13 @@ if(isset($_POST["register"]))
 		$user_id = md5(rand());
 		$insert_query = "
 		INSERT INTO register_user 
-		(user_name, user_email, user_password, user_activation_code, user_id, user_email_status, first_name, last_name, country, city,  profile_foto, details, gender, weight, height) 
-		VALUES (:user_name, :user_email, :user_password, :user_activation_code, :user_id, :user_email_status, :first_name, :last_name, :country, :city, :profile_foto, :details, :gender, :weight, :height)
+		(birth_date, user_name, user_email, user_password, user_activation_code, user_id, user_email_status, first_name, last_name, country, city,  profile_foto, details, gender, weight, height) 
+		VALUES (:birth_date, :user_name, :user_email, :user_password, :user_activation_code, :user_id, :user_email_status, :first_name, :last_name, :country, :city, :profile_foto, :details, :gender, :weight, :height)
 		";
 		$statement = $connect->prepare($insert_query);
 		$statement->execute(
 			array(
+				':birth_date'   		=>      $_POST['birth_date'],
 				':user_name'			=>	$_POST['user_name'],
 				':user_email'			=>	$_POST['user_email'],
 				':user_password'		=>	$user_encrypted_password,
@@ -57,7 +58,7 @@ if(isset($_POST["register"]))
 				':country'    			=>      '',
 				':city'    			=>      '',
 				':profile_foto'    		=>      'uploads/default.png',
-                                ':details'   			=>      '',
+                                ':details'   			=>      $_POST['gender'],
 				':gender'   			=>      '',
 				':weight'   			=>      '',
 				':height'   			=>      ''
@@ -74,7 +75,7 @@ if(isset($_POST["register"]))
 			$mail_body = "
 			<p>Hi ".$_POST['user_name'].",</p>
 			<p>Thanks for Registration. Your password is ".$user_password.", This password will work only after your email verification.</p>
-			<p>Please Open this link to verified your email address - ".$base_url."email_verification.php?activation_code=".$user_activation_code."
+			<p>Please Open this link to verified your email address - ".$base_url."email_verification.php?user_activation_code=".$user_activation_code."
 			<p>Best Regards,<br />Lovoneo</p>
 			";
 			$mail = new PHPMailer;
@@ -87,7 +88,7 @@ if(isset($_POST["register"]))
 			$mail->Password = 'Jvaac2283591';					
 			$mail->SMTPSecure = 'tls';							
 						
-			$mail->setFrom('jaroslaw.vinnichuck@gmail.com', 'LOVONEO');
+			$mail->setFrom('confirm@lovoneo.com', 'LOVONEO');
 					
 			$mail->AddAddress($_POST['user_email'], $_POST['user_name']);		
 			$mail->WordWrap = 50;							
@@ -186,9 +187,24 @@ if(isset($_POST["register"]))
 								<label for="user_password">Your Password</label>
 								<input type="text" name="user_password" id="user_password" class="form-control password" value="<?php echo isset($_POST['user_password']) ? $_POST['user_password'] : '' ?>" required />
 							</div>
+														<div class="form-group">
+								<label for="gender">Gender</label>
+							 <select name="gender">
+  <option value="male">male</option>
+  <option value="female">female</option>
+</select> 
+</div>
+
+							<div class="form-group">
+								<label for="birth_date">User Email</label>
+								<input type="date" name="birth_date" id="birth_date" class="form-control email" value="<?php echo isset($_POST['birth_date']) ? $_POST['birth_date'] : '' ?>" required />
+							</div>
+
 							<div class="form-group">
 								<input type="submit" name="register" id="register" value="Register" class="btn btn-danger register-btn" />
 							</div>
+
+							
 						</form>
 						<div class="login-link"><a href="login_page.php" >or Log in</a></div>
 					</div>
