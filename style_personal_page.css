@@ -105,6 +105,7 @@
   /*section_1 slider*/
   .section-slide{
     margin-top: 50px;
+    margin-bottom: 50px;
   }
   .slick-slide{
     height: 200px !important ;
@@ -186,8 +187,8 @@
     margin-bottom: 30px; 
   }
   .card{
-    width: 140px;
-    height: 150px;
+    width: 170px;
+    height: 212px;
     overflow: hidden;
     margin: 0 auto;
   
@@ -195,8 +196,8 @@
   }
   
   .card-photo{
-    width: 140px;
-    height: 150px;
+    width: 170px;
+    height: 212px;
     border-radius: 5px; 
     z-index: 1000;
   }

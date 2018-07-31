@@ -6,6 +6,8 @@
 	</head>
 	<body>
 		<section class="section_view" id="view">
+		<h3 class="txt_alb">Albom:</h3>
+
 				<div class="container">			
 					<div class="panel panel-default">
 						<div class="panel-body">
@@ -19,11 +21,11 @@
 									{
 										$url = "albums/uploads/";
 							?>
-							<div class="fade slick-card-box">
+							<!--<div class="fade slick-card-box">
 								<div>
-									<img src="<?php echo $url.$row['file_name']; ?>">
+									<img src="<?php// echo $url.$row['file_name']; ?>">
 								</div>
-							</div>
+							</div>-->
 							<div class="img_box rel" onclick="sli()" style="background:  url('<?php echo $url.$row['file_name']; ?>') no-repeat"></div>
 
 							<?php

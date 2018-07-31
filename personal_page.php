@@ -3,7 +3,7 @@ session_start();
 $user_id=$_GET["user_id"];
 include("config.php");
 $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-$sthandler = $con->prepare("SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , user_id, first_name, last_name, country, city, details, height, weight, profile_foto FROM register_user WHERE user_id = '$user_id'");
+$sthandler = $con->prepare("SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , first_name, last_name, country, city, details, height, weight, profile_foto FROM register_user WHERE user_id = '$user_id'");
 $sthandler->execute();
 ?>
 
@@ -19,55 +19,59 @@ $sthandler->execute();
 <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.js"></script>
 </head>
 <body>
-<?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
 
-    <header class="head fixed">
-        <div class="wrap">
-            <nav class="pull_left">
-            
-                <ul class="list-unstyled ">
-                <a class="active" href="index.php"><li class="li-item inline-block">Home</li></a>
-                <a class="active" href="view_profile.php"> <?php 
-                if (isset($_SESSION['user_name'])) {
-                    echo "Profile";
-                    echo '  |';} 
-                ?>
-                </a>
-                <a class="active" href="message1/message.php"> <?php 
-                if (isset($_SESSION['user_name'])) {
-                    echo "Massage";
-                    echo '  |';
-                }
-                ?>
-                </a>
-                <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $row['user_activation_code'];?>&&user_id=<?php echo $row['user_id'];?>"> <?php 
-                if (isset($_SESSION['user_name'])) {
-                    echo "Edit profile";
-                    echo '  |';
-                }
-                ?>
-                </a>
-                </ul>
-            </nav>
-            <div class="pull-right rel">
-            <a class="welcom" href="view_profile.php"> <?php 
-                if (isset($_SESSION['user_name'])) {
-                    echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
-                   echo ''.$_SESSION['first_name'];
-                   echo '  |';
-                
-                }
-                ?>
+  <header class="head fixed">
+    <div class="wrap">
+        <nav class="pull_left">
+        
+            <ul class="list-unstyled ">
+            <a class="active" href="index.php"><li class="li-item inline-block">Home</li></a>
+            <a class="active" href="view_profile.php"> <?php 
+            if (isset($_SESSION['user_name'])) {
+                echo "Profile";
+                echo '  |';} 
+            ?>
             </a>
-            <?php 
-                if (isset($_SESSION['user_name'])) {
-                    echo'<a href="logout.php">Log out</a>';
-                }
-                else echo '<a href="login_page.php">Log in</a>';
-                ?>
-            </div>
+            <a class="active" href="message1/message.php"> <?php 
+            if (isset($_SESSION['user_name'])) {
+                echo "Massage";
+                echo '  |';
+            }
+            ?>
+            </a>
+   
+
+            <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
+            <?php
+            if (isset($_SESSION['user_name'])) {
+                echo "Edit profile";
+                echo '  |';
+            }
+            ?>
+            </a>
+            
+            </ul>
+        </nav>
+        <div class="pull-right rel">
+        <a class="welcom" href="view_profile.php"> <?php 
+            if (isset($_SESSION['user_name'])) {
+                echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
+               echo ''.$_SESSION['first_name'];
+               echo '  |';
+            
+            }
+            ?>
+        </a>
+        <?php 
+            if (isset($_SESSION['user_name'])) {
+                echo'<a href="logout.php">Log out</a>';
+            }
+            else echo '<a href="login_page.php">Log in</a>';
+            ?>
         </div>
-    </header>
+
+    </div>
+</header>
     <div class="wrap">
     <section class="section-control inline-block  rel">
         <div class="logo"></div>
@@ -85,12 +89,15 @@ $sthandler->execute();
                         ?>         
                </div>
     </section>
+<?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
+
     <div class="inline-block right-side">
         <section class="section-photo">
             <div class="photo-box inline-block">
                 <img src="<?php echo $row ['profile_foto']?>" class="photo-person">
             </div>
             <div class="inline-block rel">
+
                 <div class="info">
                     <div class="info-info"><span class="key">First name: </span><?php echo $row ['first_name'] ?></div>
                     <div class="info-info"><span class="key">Last name: </span><?php echo $row ['last_name'] ?></div>

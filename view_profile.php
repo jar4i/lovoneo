@@ -20,44 +20,64 @@ $sthandler->execute();
 <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.js"></script>
 </head>
 <body>
-    <header class="head fixed">
-        <div class="wrap">
-            <nav class="pull_left">
-                <ul class="list-unstyled ">
-                <a class="active" href="index.php"><li class="li-item inline-block">Home</li></a>
-                <a href="#contact"><li class="li-item inline-block">Contact</li></a>
-                <a href="#about"><li class="li-item inline-block">About</li></a>
-                </ul>
-            </nav>
-            <div class="pull-right rel">
-            <a class="welcom" href="view_profile.php"> <?php 
-                if (isset($_SESSION['user_name'])) {
-                    echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
-                   echo ''.$_SESSION['first_name'];
-                   echo '  |';
-                
-                }
-                ?>
+<header class="head fixed">
+    <div class="wrap">
+        <nav class="pull_left">
+        
+            <ul class="list-unstyled ">
+            <a class="active" href="index.php"><li class="li-item inline-block">Home</li></a>
+            <a class="active" href="view_profile.php"> <?php 
+            if (isset($_SESSION['user_name'])) {
+                echo "Profile";
+                echo '  |';} 
+            ?>
             </a>
-            <?php 
-                if (isset($_SESSION['user_name'])) {
-                    echo'<a href="logout.php">Log out</a>';
-                }
-                else echo '<a href="login_page.php">Log in</a>';
-                ?>
-            </div>
+            <a class="active" href="message1/message.php"> <?php 
+            if (isset($_SESSION['user_name'])) {
+                echo "Massage";
+                echo '  |';
+            }
+            ?>
+            </a>
+   
+
+            <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
+            <?php
+            if (isset($_SESSION['user_name'])) {
+                echo "Edit profile";
+                echo '  |';
+            }
+            ?>
+            </a>
+            
+            </ul>
+        </nav>
+        <div class="pull-right rel">
+        <a class="welcom" href="view_profile.php"> <?php 
+            if (isset($_SESSION['user_name'])) {
+                echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
+               echo ''.$_SESSION['first_name'];
+               echo '  |';
+            
+            }
+            ?>
+        </a>
+        <?php 
+            if (isset($_SESSION['user_name'])) {
+                echo'<a href="logout.php">Log out</a>';
+            }
+            else echo '<a href="login_page.php">Log in</a>';
+            ?>
         </div>
-    </header>
+
+    </div>
+</header>
     <div class="wrap">
     <section class="section-control inline-block  rel">
         <div class="logo"></div>
             <div class="form-signin"  method="POST">
                     <?php
-                    if(isset($_SESSION['user_name']))
-                    {
-                    include("user_on.php");
-                    }
-                    else 
+                    if(!isset($_SESSION['user_name']))
                     {
                     include("login.php");
                     }
