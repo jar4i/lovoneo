@@ -291,15 +291,50 @@ ul{
     width: 352px;
   }
   .panel-2{
-    width: 352px !important;
+    width: 300px !important;
+    margin-left: 30px;
   }
   .labeles{
-    margin-left: 63px !important;
+    margin-left: 50px !important;
   }
 }
 @media (max-width: 575px){
   .card-photo, .card{
-    height: 266px;
+    height: 210px;
     width: 200px;
+  }
+  .main_form {
+    margin-left: 115px;
+    margin-top: 20px;
+  }
+  .section-slide {
+    width: 250px;
+  }
+  .pagination {
+    left: 44%;
+  }
+  
+}
+@media (max-width: 430px) {
+  .main_form {
+    margin-left: 25%;
+  }
+  .pagination {
+    left: 43%;
+  }
+}
+@media (max-width: 370px) {
+  .panel-2 {
+    width: 275px !important;
+    margin-left: 25px;
+  }
+  .main_form {
+    margin-left: 18%;
+  }
+  .pagination {
+    left: 40%;
+  }
+  .labeles{
+    margin-left: 2% !important;
   }
 }
