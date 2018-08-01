@@ -23,69 +23,103 @@
   .mt-8{
     margin-top: 80px;
   }
-  /*menu*/
-.welcom{
-    cursor: pointer;
-    position: absolute;
-    left: -90px;
+ /*menu*/
+.hamburger {
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+display: none;
+position: absolute;
+top: 0;
+left: 0;
+margin-bottom: 15px;
+}
+
+.active{
+  display: inline-block;
+  padding-right: 10px; 
+}
+@media(max-width: 800px){
+  .hero-nav{
+    display: none;
+    padding-top: 26px;
   }
-  .profile_photo_menu_box{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    position: absolute;
-    left: -47px;
-    top: -10px;
+  .hamburger {
+  display: block;
   }
-  .profile_photo_menu{
-    width: 40px;
-    height: 50px;
-  }
-  .head{
-    background: linear-gradient(to top left,#8918ce, #3d5de4);
-    opacity: 0.94 ; 
-    width: 100%;
-    padding: 20px 5px; 
-    font-size: 16px;
-    top:0;
-    z-index: 1000;
-  
+  .active{
+    display: block;
   }
   nav{
-    width: 400px;
-    display: inline-block !important;
+    width: 100px !important;
   }
-  .pull-right{
-    display: inline-block;
+}
+.right_side_menu{
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+.welcom{
+  cursor: pointer;
+  position: absolute;
+  left: -75px;
+}
+.profile_photo_menu_box{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  left: -47px;
+  top: -10px;
+}
+.profile_photo_menu{
+  width: 40px;
+  height: 50px;
+}
+.head{
+  background: linear-gradient(to top left,#8918ce, #3d5de4);
+  opacity: 0.94 ; 
+  width: 100%;
+  padding: 20px 5px; 
+  font-size: 16px;
+  top:0;
+  z-index: 1000;
+  min-height: 60px;
+}
+nav{
+  width: 350px;
+}
+.pull-right{
+  display: inline-block;
+}
+.li-item{
+  margin-left: 10px;
+  padding-right: 5px; 
+  color: #ffffff;
+}
+.li-item::after{
+  content: "|";
+  padding-left: 10px; 
+}
+.li-item:hover{
+color: #ffafaf;
+transition: 400ms;
+}
+.head a{
+  color: #ffffff !important;
+}
+.head a:hover,
+.head a:focus,
+.head a:active {
+    text-decoration: none !important;
+    color: #ffafaf !important;
+    transition: 400ms;
   }
-  .li-item{
-    margin-left: 10px;
-    padding-right: 5px; 
-    color: #ffffff;
-  }
-  .li-item::after{
-    content: "|";
-    padding-left: 10px; 
-  }
-  .li-item:hover{
-  color: #ffafaf;
-  transition: 400ms;
-  }
-  .head a{
-    color: #ffffff !important;
-  }
-  .head a:hover,
-  .head a:focus,
-  .head a:active {
-      text-decoration: none !important;
-      color: #ffafaf !important;
-      transition: 400ms;
-    }
-  
-  ul{
-    margin-bottom: 0 !important;
-  }
+
+ul{
+  margin-bottom: 0 !important;
+}
   /*prof photo*/
   .button_foto{
     height: 270px;

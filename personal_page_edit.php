@@ -80,9 +80,13 @@ $sthandler = $con->prepare("SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) 
 $sthandler->execute();
 ?>
 <body>
+
 <header class="head fixed">
-    <div class="wrap">
-        <nav class="pull_left">
+    <div class="wrap rel">
+    <div class="hamburger pull-left _hamburger">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+</div>
+        <nav class=" hero-nav pull_left _nav">
         
             <ul class="list-unstyled ">
             <a class="active" href="index.php">Home |</a>
@@ -112,7 +116,7 @@ $sthandler->execute();
             
             </ul>
         </nav>
-        <div class="pull-right rel">
+        <div class="right_side_menu">
         <a class="welcom" href="view_profile.php"> <?php 
             if (isset($_SESSION['user_name'])) {
                 echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
@@ -132,6 +136,8 @@ $sthandler->execute();
 
     </div>
 </header>
+
+
 
     <section class="section_profile_photo mt-8">
         <div class="wrap">
@@ -425,6 +431,14 @@ $sthandler->execute();
       });
     });
   </script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('._hamburger').click(function () {
+        $('._nav').slideToggle();
+    });
+});
+</script>
 </body>
 
 
