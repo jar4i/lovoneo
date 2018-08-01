@@ -8,6 +8,7 @@ $_SESSION['age1'] = $_POST['amount'];
 
 ?>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
 <title>LOVONEO | FIND YOUR LOVE</title><!--1-->
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="login.css">

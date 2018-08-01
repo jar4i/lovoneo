@@ -55,7 +55,7 @@ margin-bottom: 15px;
   display: inline-block;
   padding-right: 10px; 
 }
-@media(max-width: 800px){
+@media screen and (max-width: 800px){
   .hero-nav{
     display: none;
     padding-top: 26px;
@@ -101,7 +101,7 @@ margin-bottom: 15px;
   font-size: 16px;
   top:0;
   z-index: 1000;
-  min-height: 60px;
+  min-height: 30px;
 }
 nav{
   width: 350px;
@@ -162,7 +162,7 @@ ul{
 /*logo*/
 .logo{
   background: url('logo.png') no-repeat;
-  background-size: cover; 
+  background-size: 100%; 
   width: 263px;
   height: 100px;
   margin-bottom: 30px;
@@ -178,7 +178,8 @@ ul{
 }
 .right-side{
   max-width: 890px;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;  
 }
 .section-control .form-log{
   width: 260px;
@@ -275,100 +276,34 @@ ul{
   text-align: center;
   margin-bottom: 100px; 
 }
-@media(max-width: 1240px){
-  .section-slide{
-    max-width: 600px;
-    margin-left: 24px;
-  }
-  .clearfix{
-    max-width: 650px;
-    margin: 0 auto !important;
-  }
-  .main_form {
-    margin-left: 35px;
-}
-}
-@media (max-width: 1010px){
-  .section-slide{
-    max-width: 400px;
-    margin-left: 24px;
-  }
-  .clearfix{
-    max-width: 450px;
-    margin: 0 auto !important;
-  }
-  .main_form {
-    margin-left: 35px;
-}
-}
-@media (max-width: 815px){
-  .right-side{
-    display: block;
-  }
-  .section-control{
-    display: block;
-    float: none !important;
-    width: 100% !important;
-  }
-  .logo{
-    margin: 0 auto;
-    margin-bottom: 30px !important;
-  }
-  .form-signin {
-    margin: 0 auto;
-  }
-  .section-slide{
-    margin: 0 auto;
-  }
-  .section-control .form-log{
-    margin: 0 auto;
-    width: 352px;
-  }
-  .panel-2{
-    width: 300px !important;
-    margin-left: 30px;
-  }
-  .labeles{
-    margin-left: 50px !important;
-  }
-}
-@media (max-width: 575px){
-  .card-photo, .card{
-    height: 210px;
-    width: 200px;
-  }
-  .main_form {
-    margin-left: 115px;
-    margin-top: 20px;
-  }
+
+
+  @media (min-width: 1060px) and (max-width: 1237px) {
   .section-slide {
-    width: 250px;
-  }
-  .pagination {
-    left: 44%;
-  }
-  
-}
-@media (max-width: 430px) {
-  .main_form {
-    margin-left: 25%;
-  }
-  .pagination {
-    left: 43%;
-  }
-}
-@media (max-width: 370px) {
-  .panel-2 {
-    width: 275px !important;
-    margin-left: 25px;
+    max-width: 630px;
+    margin-left: 50px;
   }
   .main_form {
-    margin-left: 18%;
+    margin-left: 57px;
   }
-  .pagination {
-    left: 40%;
-  }
-  .labeles{
-    margin-left: 2% !important;
+  .card-container {
+    margin: 10px 23px 10px;
+}
+} 
+  @media  (max-width: 1059px) {
+  .section-slide {
+    max-width: 610px;
+    margin-left: 40px;
   }
 }
+  @media (max-width: 1020px) {
+    .section-slide {
+      max-width: 585px;
+    }
+    .main_form {
+      margin-left: 40px;
+    }
+  }
+  @media (max-width: 1001px) {
+    
+  }
