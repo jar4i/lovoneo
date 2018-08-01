@@ -67,18 +67,18 @@ if(isset($_POST["login"]))
 					<form method="post">
 						<?php echo $message; ?>
 						<div class="form-group ">
-							<input type="email" name="user_email" class="form-control email" required autocomplete="off" placeholder="Username (E-mail)"/>
+							<input type="email" name="user_email" class="form-control email" required autocomplete="off" placeholder="Username (E-mail)"/><!--6-->
 						</div>
 						<div class="form-group ">
-							<input type="password" name="user_password" class="form-control password" autocomplete="off" required  placeholder="Password"/>
+							<input type="password" name="user_password" class="form-control password" autocomplete="off" required  placeholder="Password"/><!--7-->
 						</div>
 						<div class="form-group ">
 							<input type="submit" name="login" value="Log in" class="btn btn-danger login-btn" />
 						</div>
 
 					</form>
-					<div class="btn btn-danger register-link"><a href="register.php" > Register</a></div><br>
-					<div class="fg-pass"><a href="password_restore.php" >Forgot your password?</a></div><br>
+					<div class="btn btn-danger register-link"><a href="register.php" > Register</a></div><br><!--8-->
+					<div class="fg-pass"><a href="password_restore.php" >Forgot your password?</a></div><br><!--9-->
 					
 				</div>
 			</div>

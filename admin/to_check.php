@@ -1,5 +1,4 @@
 <?php
-<?php
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
 include('../connection.php');
@@ -9,7 +8,6 @@ $start_from = ($page-1) * $limit;
   
 $sql = "SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , first_name, user_id, last_name, details, country, city,  profile_foto FROM register_user WHERE activate IS NULL ORDER BY rand() ASC LIMIT $start_from, $limit";  
 $rs_result = mysqli_query($conn, $sql);
- 
 ?>
 <form class= "main_form">
 <?php
@@ -31,6 +29,3 @@ while ($row = mysqli_fetch_assoc($rs_result)) :
 endwhile; 
 ?>
 </form>
-
-
-?>

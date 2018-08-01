@@ -15,22 +15,9 @@ if(isset($_SESSION['user_id']))
 $message = '';
 include("config.php");
 
-if(isset($_POST["submit"])) {
-$user_activation_code = $_GET["user_activation_code"];
-$folder = "uploads/";
-$upload_image = $folder . basename($_FILES["fileToUpload"]["name"]);
-move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $upload_image);
-$temp_img = imagecreatefromjpeg($upload_image);
-$to_crop_array = array('x' =>$_COOKIE["x"], 'y' => $_COOKIE["y"], 'width' => $_COOKIE["width"], 'height'=> $_COOKIE["height"]);
-$im2 = imagecrop($temp_img, $to_crop_array);
-imagejpeg($im2, $folder . basename($_FILES["fileToUpload"]["name"]));
-$update_img = ($folder . basename($_FILES["fileToUpload"]["name"]));
-$con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-$insert_query="UPDATE register_user SET profile_foto = '$update_img' WHERE user_activation_code = '$user_activation_code'";
-$stmt = $con->prepare($insert_query);
-$stmt->execute();
-$_SESSION['profile_foto'] = $update_img;
-}
+
+
+
 if(isset($_POST["register"]))
 {
 	$query = "
@@ -83,6 +70,20 @@ if(isset($_POST["register"]))
 
 			)
 		);
+
+$folder = "uploads/";
+$upload_image = $folder . basename($_FILES["fileToUpload"]["name"]);
+move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $upload_image);
+$temp_img = imagecreatefromjpeg($upload_image);
+$to_crop_array = array('x' =>$_COOKIE["x"], 'y' => $_COOKIE["y"], 'width' => $_COOKIE["width"], 'height'=> $_COOKIE["height"]);
+$im2 = imagecrop($temp_img, $to_crop_array);
+imagejpeg($im2, $folder . basename($_FILES["fileToUpload"]["name"]));
+$update_img = ($folder . basename($_FILES["fileToUpload"]["name"]));
+$con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+$insert_query="UPDATE register_user SET profile_foto = '$update_img' WHERE user_activation_code = '$user_activation_code'";
+$stmt = $con->prepare($insert_query);
+$stmt->execute();
+$_SESSION['profile_foto'] = $update_img;
 		session_start();
 		$_SESSION['profile_foto'] = "uploads/default.png";
 		$result = $statement->fetchAll();
@@ -125,10 +126,13 @@ if(isset($_POST["register"]))
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Register </title>	
+		<title> Register </title>
+ <link rel="stylesheet" href="personal_page_edit.css">	
+		    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.4.1/cropper.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 		<link rel="stylesheet" href="register.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body>
@@ -183,16 +187,16 @@ if(isset($_POST["register"]))
         </div>
 
     </div>
+
 </header>
+<br><br><br><br>
 <section class="section_profile_photo mt-8">
-        <div class="wrap">
-    <?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
-        
+        <div class="wrap">        
         <div class="container">
             <form class ="button_foto" action="" method="post" enctype="multipart/form-data">
                 <div class="clearfix_card rel">
                     <div class="prof_photo_box">
-                        <img class="rounded prof_photo" id="avatar" src = "<?php if(isset($row ['profile_foto'])){echo $row ['profile_foto'];}else{echo "uploads/default""}?>" alt="avatar">
+                        <img class="rounded prof_photo" id="avatar" src ="<?php echo "uploads/default.png";?>" alt="avatar">
                     </div>
                         <input type="file"  id="input" name="fileToUpload" >
                         <label for="input"  class="text_edit_box"> 
@@ -251,15 +255,15 @@ if(isset($_POST["register"]))
                                 </button>
                             </div>
                             <button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button>
-                            <button type="button" class="notablock" >Crop</button>
-                            <input type="submit" value="Upload Image" id="crop" class="btn btn-primary" name="submit">
+                            <button type="button" id="crop" class="btn btn-primary" >Crop</button>
+                            <input type="submit" class="notablock"  value="Upload Image" name="submit">
                         </div>
                     </div>
                 </div>
             </form>
         </div>
         </div>
-		<?php endwhile;?>
+		
         
 
         </div>
@@ -350,6 +354,7 @@ if(isset($_POST["register"]))
         var done = function (url) {
           
           image.src = url;
+
           $alert.hide();
           $modal.modal('show');
         };
@@ -362,6 +367,7 @@ if(isset($_POST["register"]))
 
           if (URL) {
             done(URL.createObjectURL(file));
+console.log(URL.createObjectURL(file));
           } else if (FileReader) {
             reader = new FileReader();
             reader.onload = function (e) {
@@ -381,6 +387,7 @@ if(isset($_POST["register"]))
              "height=" + escape(h)  + "; path=/";
              document.cookie = "x=" + escape(x) 
               + "; path=/";
+console.log(document.cookie);
         }
       var data = document.querySelector('#data');
       $modal.on('shown.bs.modal', function () {
@@ -415,7 +422,6 @@ if(isset($_POST["register"]))
       document.getElementById('crop').addEventListener('click', function () {
         var initialAvatarURL;
         var canvas;
-
         $modal.modal('hide');
 
         if (cropper) {
@@ -425,6 +431,7 @@ if(isset($_POST["register"]))
           });
           initialAvatarURL = avatar.src;
           avatar.src = canvas.toDataURL();
+
         }
       });
     });
