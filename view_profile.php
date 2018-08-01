@@ -16,13 +16,18 @@ $sthandler->execute();
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.js"></script>
 </head>
 <body>
+
 <header class="head fixed">
-    <div class="wrap">
-        <nav class="pull_left">
+    <div class="wrap rel">
+    <div class="hamburger pull-left _hamburger">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+</div>
+        <nav class=" hero-nav pull_left _nav">
         
             <ul class="list-unstyled ">
             <a class="active" href="index.php">Home |</a>
@@ -52,7 +57,7 @@ $sthandler->execute();
             
             </ul>
         </nav>
-        <div class="pull-right rel">
+        <div class="right_side_menu">
         <a class="welcom" href="view_profile.php"> <?php 
             if (isset($_SESSION['user_name'])) {
                 echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
@@ -72,6 +77,7 @@ $sthandler->execute();
 
     </div>
 </header>
+
 
     <div class="wrap">
     <section class="section-control inline-block  rel">
@@ -185,5 +191,11 @@ $(document).ready(function(){
         jQuery("#_slick-icons").load("user_icon_1.php");
 })
 </script>
-
+<script type="text/javascript">
+$(document).ready(function(){
+    $('._hamburger').click(function () {
+        $('._nav').slideToggle();
+    });
+});
+</script>
 </body>

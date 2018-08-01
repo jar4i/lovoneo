@@ -11,13 +11,18 @@ $sthandler->execute();
 <link rel="stylesheet" href="style-search.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 </head>
 <body>
+
 <header class="head fixed">
-    <div class="wrap">
-        <nav class="pull_left">
+    <div class="wrap rel">
+    <div class="hamburger pull-left _hamburger">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+</div>
+        <nav class=" hero-nav pull_left _nav">
         
             <ul class="list-unstyled ">
             <a class="active" href="index.php">Home |</a>
@@ -47,7 +52,7 @@ $sthandler->execute();
             
             </ul>
         </nav>
-        <div class="pull-right rel">
+        <div class="right_side_menu">
         <a class="welcom" href="view_profile.php"> <?php 
             if (isset($_SESSION['user_name'])) {
                 echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
@@ -67,7 +72,6 @@ $sthandler->execute();
 
     </div>
 </header>
-
 <section class="section-slide">
     <div class="wrap">
         <div id="_slick-icons">
@@ -245,5 +249,11 @@ $(document).ready(function(){
             jQuery("#target-content").load("search_form_response.php?page=" + pageNum);
     });
     </script>
-
+<script type="text/javascript">
+$(document).ready(function(){
+    $('._hamburger').click(function () {
+        $('._nav').slideToggle();
+    });
+});
+</script>
 </body>

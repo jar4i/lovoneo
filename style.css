@@ -40,10 +40,45 @@ body{
 */
 
 /*menu*/
+.hamburger {
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+display: none;
+position: absolute;
+top: 0;
+left: 0;
+margin-bottom: 15px;
+}
+
+.active{
+  display: inline-block;
+  padding-right: 10px; 
+}
+@media(max-width: 800px){
+  .hero-nav{
+    display: none;
+    padding-top: 26px;
+  }
+  .hamburger {
+  display: block;
+  }
+  .active{
+    display: block;
+  }
+  nav{
+    width: 100px !important;
+  }
+}
+.right_side_menu{
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
 .welcom{
   cursor: pointer;
   position: absolute;
-  left: -90px;
+  left: -75px;
 }
 .profile_photo_menu_box{
   width: 40px;
@@ -66,11 +101,10 @@ body{
   font-size: 16px;
   top:0;
   z-index: 1000;
-
+  min-height: 60px;
 }
 nav{
-  width: 400px;
-  display: inline-block !important;
+  width: 350px;
 }
 .pull-right{
   display: inline-block;
