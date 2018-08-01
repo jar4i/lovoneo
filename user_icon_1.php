@@ -66,7 +66,14 @@ $rs_result = mysqli_query($conn, $sql);
            slidesToShow: 2,
            slidesToScroll: 2
          }
-       }
+       },
+       {
+         breakpoint: 575,
+         settings: {
+           slidesToShow: 1,
+           slidesToScroll: 2
+          }
+        } 
        // You can unslick at a given breakpoint now by adding:
        // settings: "unslick"
        // instead of a settings object
