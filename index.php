@@ -38,7 +38,7 @@ $_SESSION['age1'] = $_POST['amount'];
             </a>
             <a class="active" href="message1/message.php"> <?php 
             if (isset($_SESSION['user_name'])) {
-                echo "Massage";
+                echo "Message";/*14*/
                 echo '  |';
             }
             ?>

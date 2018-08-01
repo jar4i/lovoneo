@@ -11,7 +11,7 @@ $sthandler->execute();
 ?>
 
 <head>
-<title>LOVONEO | FIND YOUR LOVE</title>
+<title>LOVONEO | FIND YOUR LOVE</title><!--1-->
 <link rel="stylesheet" href="style_personal_page.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
@@ -30,7 +30,7 @@ $sthandler->execute();
         <nav class=" hero-nav pull_left _nav">
         
             <ul class="list-unstyled ">
-            <a class="active" href="index.php">Home |</a>
+            <a class="active" href="index.php">Home |</a><!--2-->
             <a class="active" href="view_profile.php"> <?php 
             if (isset($_SESSION['user_name'])) {
                 echo "Profile";
@@ -39,7 +39,7 @@ $sthandler->execute();
             </a>
             <a class="active" href="message1/message.php"> <?php 
             if (isset($_SESSION['user_name'])) {
-                echo "Massage";
+                echo "Message";/*14*/
                 echo '  |';
             }
             ?>
@@ -49,7 +49,7 @@ $sthandler->execute();
             <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
             <?php
             if (isset($_SESSION['user_name'])) {
-                echo "Edit profile";
+                echo "Edit profile";/*14*/
                 echo '  |';
             }
             ?>

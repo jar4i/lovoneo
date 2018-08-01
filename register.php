@@ -94,7 +94,7 @@ $_SESSION['profile_foto'] = $update_img;
 			<p>Hi ".$_POST['user_name'].",</p>
 			<p>Thanks for Registration. Your password is ".$user_password.", This password will work only after your email verification.</p>
 			<p>Please Open this link to verified your email address - ".$base_url."email_verification.php?user_activation_code=".$user_activation_code."
-			<p>Best Regards,<br />Lovoneo</p>
+			<p>Best Regards,<br />Lovoneo</p><!--32-->
 			";
 			$mail = new PHPMailer;
 			$mail->SMTPDebug = 0;
@@ -126,7 +126,7 @@ $_SESSION['profile_foto'] = $update_img;
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Register </title>
+		<title> Register </title><!--22-->
  <link rel="stylesheet" href="personal_page_edit.css">	
 		    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.4.1/cropper.css">
@@ -141,7 +141,7 @@ $_SESSION['profile_foto'] = $update_img;
         <nav class="pull_left">
         
             <ul class="list-unstyled ">
-            <a class="active" href="index.php">Home |</a>
+            <a class="active" href="index.php">Home |</a><!--2-->
             <a class="active" href="view_profile.php"> <?php 
             if (isset($_SESSION['user_name'])) {
                 echo "Profile";
@@ -150,7 +150,7 @@ $_SESSION['profile_foto'] = $update_img;
             </a>
             <a class="active" href="message1/message.php"> <?php 
             if (isset($_SESSION['user_name'])) {
-                echo "Massage";
+                echo "Message";/*14*/
                 echo '  |';
             }
             ?>
@@ -160,7 +160,7 @@ $_SESSION['profile_foto'] = $update_img;
             <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
             <?php
             if (isset($_SESSION['user_name'])) {
-                echo "Edit profile";
+                echo "Edit profile";/*14*/
                 echo '  |';
             }
             ?>
@@ -201,7 +201,7 @@ $_SESSION['profile_foto'] = $update_img;
                         <input type="file"  id="input" name="fileToUpload" >
                         <label for="input"  class="text_edit_box"> 
                             <div class="btn-add-photo"><i class="fas fa-camera"></i></div>
-                            <div class="text_edit"> Edit your profile photo</div>
+                            <div class="text_edit"> Edit your profile photo</div><!--23-->
                         </label>
                 </div>
                 <div class="alert" role="alert"></div>
@@ -209,7 +209,7 @@ $_SESSION['profile_foto'] = $update_img;
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                            <h5 class="modal-title" id="modalLabel">Crop the image</h5><!--24-->
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
@@ -254,8 +254,8 @@ $_SESSION['profile_foto'] = $update_img;
                                     </span>
                                 </button>
                             </div>
-                            <button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button>
-                            <button type="button" id="crop" class="btn btn-primary" >Crop</button>
+                            <button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button><!--25-->
+                            <button type="button" id="crop" class="btn btn-primary" >Crop</button><!--26-->
                             <input type="submit" class="notablock"  value="Upload Image" name="submit">
                         </div>
                     </div>
@@ -276,26 +276,26 @@ $_SESSION['profile_foto'] = $update_img;
 						<form method="post" id="register_form">
 							<?php echo $message; ?>
 							<div class="form-group">
-								<label for="user_name">User Name</label>
+								<label for="user_name">User Name</label><!--27-->
 								<input type="text" name="user_name" id="user_name" class="form-control email" value="<?php echo isset($_POST['user_name']) ? $_POST['user_name'] : '' ?>" pattern="[a-zA-Z ]+" required />
 							</div>
 							<div class="form-group">
-								<label for="user_email">User Email</label>
+								<label for="user_email">User Email</label><!--28-->
 								<input type="email" name="user_email" id="user_email" class="form-control email" value="<?php echo isset($_POST['user_email']) ? $_POST['user_email'] : '' ?>" required />
 							</div>
 							<div class="form-group">
-								<label for="user_password">Your Password</label>
+								<label for="user_password">Your Password</label><!--29-->
 								<input type="text" name="user_password" id="user_password" class="form-control password" value="<?php echo isset($_POST['user_password']) ? $_POST['user_password'] : '' ?>" required />
 							</div>
 							<div class="form-group">
-								<label for="gender">Gender</label>
+								<label for="gender">Gender</label><!--30-->
 								<select name="gender">
 									<option value="male">male</option>
 									<option value="female">female</option>
 								</select> 
 							</div>
 							<div class="form-group">
-								<label for="birth_date">Birthday</label>
+								<label for="birth_date">Birthday</label><!--31-->
 								<input type="date" name="birth_date" id="birth_date" class="form-control email" value="<?php echo isset($_POST['birth_date']) ? $_POST['birth_date'] : '' ?>" required />
 							</div>
 
@@ -305,7 +305,7 @@ $_SESSION['profile_foto'] = $update_img;
 
 							
 						</form>
-						<div class="login-link btn btn-danger "><a href="login_page.php" >Log in</a></div>
+						<div class="login-link btn btn-danger "><a href="login_page.php" >Log in</a></div><!--31-->
 					</div>
 				</div>
 			</div>

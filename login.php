@@ -37,18 +37,18 @@ if(isset($_POST["login"]))
 				}
 				else
 				{
-					$message = "<label>Wrong Password</label>";
+					$message = "<label>Wrong Password</label>";/*13*/
 				}
 			}
 			else
 			{
-				$message = "<label class='text-danger'>Please First Verify, your email address</label>";
+				$message = "<label class='text-danger'>Please First Verify, your email address</label>";/*12*/
 			}
 		}
 	}
 	else
 	{
-		$message = "<label class='text-danger'>Wrong Email Address</label>";
+		$message = "<label class='text-danger'>Wrong Email Address</label>";/*11*/
 	}
 }
 
@@ -73,7 +73,7 @@ if(isset($_POST["login"]))
 							<input type="password" name="user_password" class="form-control password" autocomplete="off" required  placeholder="Password"/><!--7-->
 						</div>
 						<div class="form-group ">
-							<input type="submit" name="login" value="Log in" class="btn btn-danger login-btn" />
+							<input type="submit" name="login" value="Log in" class="btn btn-danger login-btn" /><!--10-->
 						</div>
 
 					</form>
