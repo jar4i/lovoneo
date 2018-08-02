@@ -37,67 +37,72 @@ $_SESSION['array'] = $array;
 </head>
 <body>
    <!-- <div class="bg"></div>-->
-
 <header class="head fixed">
     <div class="wrap rel">
-        <div class="hamburger pull-left _hamburger">
-            <i class="fa fa-bars" aria-hidden="true"></i>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="hamburger pull-left _hamburger">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </div>
+                    <nav class=" hero-nav pull_left _nav">
+                        <ul class="list-unstyled ">
+                            <a class="active" href="index.php"><?php echo $array[1];?> |</a><!--2-->
+                            <a class="active" href="view_profile.php"> <?php 
+                            if (isset($_SESSION['user_name'])) {
+                                echo "Profile";
+                                echo '  |';} 
+                            ?>
+                            </a>
+                            <a class="active" href="message1/message.php"> <?php 
+                            if (isset($_SESSION['user_name'])) {
+                                echo $array[13];
+                                echo '  |';
+                            }
+                            ?>
+                            </a>
+                
+
+                            <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
+                            <?php
+                            if (isset($_SESSION['user_name'])) {
+                                echo $array[2];
+                                echo '  |';
+                            }
+                            ?>
+                            </a>
+                    
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="right_side_menu">
+                        <form method="post" class="active2">
+                            <input class="active" name="en" value="en"  type="submit">
+                            <input class="active" name="de" value="de"  type="submit">
+                        </form>
+                         <?php 
+                            if (isset($_SESSION['user_name'])) {
+                                echo "<a class='active2' href='view_profile.php'><div class='inlne-block profile_photo_menu_box'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div></a>";
+                                echo "<a class='active2' href='view_profile.php'>";
+                                echo ''.$_SESSION['first_name'];
+                                echo '  |';
+                                echo "</a>";
+                            }
+                            ?>
+                        
+                        <a class="active2" >
+                            <?php 
+                            if (isset($_SESSION['user_name'])) {
+                                echo"<a href='logout.php'>$array[3]</a>";/*4*/
+                            }
+                            else echo "<a href='login_page.php'>$array[4]</a>";/*5*/
+                            ?>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <nav class=" hero-nav pull_left _nav">
-        
-            <ul class="list-unstyled ">
-            <a class="active" href="index.php"><?php echo $array[1];?> |</a><!--2-->
-            <a class="active" href="view_profile.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "Profile";
-                echo '  |';} 
-            ?>
-            </a>
-            <a class="active" href="message1/message.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo $array[13];
-                echo '  |';
-            }
-            ?>
-            </a>
-   
-
-            <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
-            <?php
-            if (isset($_SESSION['user_name'])) {
-                echo $array[2];
-                echo '  |';
-            }
-            ?>
-            </a>
-
-<form method="post">
-            <input class="active" name="en" value="en"  type="submit">
-    <input class="active" name="de" value="de"  type="submit">
-</form>
-
-
-            </ul>
-        </nav>
-        <div class="right_side_menu">
-
-        <a class="welcom" href="view_profile.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
-               echo ''.$_SESSION['first_name'];
-               echo '  |';
-            
-            }
-            ?>
-        </a>
-        <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo"<a href='logout.php'>$array[3]</a>";/*4*/
-            }
-            else echo "<a href='login_page.php'>$array[4]</a>";/*5*/
-            ?>
-        </div>
-
     </div>
 </header>
 <div class="container">

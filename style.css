@@ -40,6 +40,9 @@ body{
 */
 
 /*menu*/
+.active2{
+  display: inline-block;
+  }
 .hamburger {
   color: #ffffff;
   font-size: 2rem;
@@ -399,11 +402,43 @@ top: 220px;
     max-width: 500px;
     margin-left: 13%;
 }
+.form-signin{
+  margin-top: 50px;
+}
+.form-log {
+  margin-bottom: 50px;
+}
+
+.main_form .card-photo, .main_form .card {
+  width: 250px;
+  height: 333px;
+}
 }
 @media (max-width: 660px){
   .section-slide {
     max-width: 300px;
-    margin-left: 26%;
+    margin-left: 20%;
 }
   }
 
+  @media (max-width: 576px){
+    .section-slide {
+      max-width: 250px;
+      margin-left: 15%;
+  }
+  .section-control #form-log {
+    width: 280px;}
+    .section-control .email, .section-control .password {
+      width: 200px !important;
+  }
+  .panel-2 {
+    width: 280px !important;
+}
+.labeles {
+  margin-left: 35px !important;
+}
+.main_form .card-photo, .main_form .card {
+  width: 221px;
+  height: 293px;}
+    }
+  

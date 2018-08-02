@@ -61,7 +61,7 @@ $rs_result = mysqli_query($conn, $sql);
          }
        },
        {
-         breakpoint: 767,
+         breakpoint: 768,
          settings: {
            slidesToShow: 2,
            slidesToScroll: 2
