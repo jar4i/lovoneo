@@ -131,10 +131,7 @@ if(isset($_POST["register"]))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<title><?php echo $array[21];?></title><!--22-->
- <link rel="stylesheet" href="personal_page_edit.css">	
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.4.1/cropper.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link rel="stylesheet" href="register.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
@@ -211,14 +208,14 @@ if(isset($_POST["register"]))
 							<div class="form-group">
 								<label for="user_password">Your Password</label><!--29-->
 								<input type="text" name="user_password" id="user_password" class="form-control password" value="<?php echo isset($_POST['user_password']) ? $_POST['user_password'] : '' ?>" required />
-							</div>
-							<div class="form-group">
-								<label for="gender">Gender</label><!--30-->
-								<select name="gender">
+              </div>
+              <label for="gender">Gender</label><!--30-->
+              <div class="input-group">
+                <select class="custom-select" id="gender" name="gender">
 									<option value="male">male</option>
 									<option value="female">female</option>
-								</select> 
-							</div>
+                </select>
+              </div>
 							<div class="form-group">
 								<label for="birth_date">Birthday</label><!--31-->
 								<input type="date" name="birth_date" id="birth_date" class="form-control email" value="<?php echo isset($_POST['birth_date']) ? $_POST['birth_date'] : '' ?>" required />
@@ -236,253 +233,5 @@ if(isset($_POST["register"]))
 			</div>
 		</section>
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.bundle.min.js"></script>
-  <script src="cropper.js"></script>
-  <script>
-    window.addEventListener('DOMContentLoaded', function () {
-        var avatar = document.getElementById('avatar');
-      var image = document.getElementById('image');
-      var input = document.getElementById('input');
-      var moveLeft = document.getElementById('move-left');
-      var moveRight = document.getElementById('move-right');
-      var moveUp = document.getElementById('move-up');
-      var moveDown = document.getElementById('move-down');
-      var zoomIn = document.getElementById('zoom-in');
-      var zoomOut = document.getElementById('zoom-out');
-      var $alert = $('.alert');
-      var $modal = $('#modal');
-      var cropper;
-
-      $('[data-toggle="tooltip"]').tooltip();
-
-      moveLeft.addEventListener('click', function(){
-        cropper.move(4, 0);
-      })
-      moveRight.addEventListener('click', function(){
-        cropper.move(-4, 0);
-      })
-      moveUp.addEventListener('click', function(){
-        cropper.move(0, 4);
-      })
-      moveDown.addEventListener('click', function(){
-        cropper.move(0, -4);
-      })
-      zoomIn.addEventListener('click', function(){
-        cropper.zoom(0.1);
-      })
-      zoomOut.addEventListener('click', function(){
-        cropper.zoom(-0.1);
-      })
-      input.addEventListener('change', function (e) {
-        var files = e.target.files;
-        var done = function (url) {
-          input.value = '';
-          image.src = url;
-          $alert.hide();
-          $modal.modal('show');
-        };
-        var reader;
-        var file;
-        var url;
-
-        if (files && files.length > 0) {
-          file = files[0];
-          document.cookie = "file=" + escape(file.name) 
-              + "; path=/";
-          console.log(document.cookie);
-
-          if (URL) {
-            done(URL.createObjectURL(file));
-          } else if (FileReader) {
-            reader = new FileReader();
-            reader.onload = function (e) {
-              done(reader.result);
-            };
-            reader.readAsDataURL(file);
-          }
-        }
-      });
-
-        var cook = function createCookie(x, y, w, h) {
-            document.cookie = "y=" + escape(y) 
-              + "; path=/";
-             document.cookie =  "width=" + escape(w) 
-             +  "; path=/";
-             document.cookie = 
-             "height=" + escape(h)  + "; path=/";
-             document.cookie = "x=" + escape(x) 
-              + "; path=/";
-              console.log(document.cookie);
-              
-        }
-      var data = document.querySelector('#data');
-      $modal.on('shown.bs.modal', function () {
-        cropper = new Cropper(image, {
-          
-        ready: function (event) {
-          // Zoom the image to its natural size
-          cropper.zoomTo(1);
-        },
-
-        crop: function (event) {
-            
-            cook(cropper.getData().x, cropper.getData().y, cropper.getData().width, cropper.getData().height);
-        },
-
-          dragMode: 'move',
-        aspectRatio: 200 / 250,
-        autoCropArea: 0.65,
-        restore: false,
-        guides: false,
-        center: false,
-        highlight: false,
-        cropBoxMovable: false,
-        cropBoxResizable: false,
-        toggleDragModeOnDblclick: false,
-        });
-      }).on('hidden.bs.modal', function () {
-        cropper.destroy();
-        cropper = null;
-      });
-
-      document.getElementById('crop').addEventListener('click', function () {
-        var initialAvatarURL;
-        var canvas;
-
-        $modal.modal('hide');
-
-        if (cropper) {
-          canvas = cropper.getCroppedCanvas({
-            width: 160,
-            height: 160,
-          });
-          initialAvatarURL = avatar.src;
-          avatar.src = canvas.toDataURL();
-        }
-      });
-    });
-  </script>
-  <!-- <script>
-      
-    window.addEventListener('DOMContentLoaded', function () {
-      var avatar = document.getElementById('avatar');
-      var image = document.getElementById('image');
-      var input = document.getElementById('input');
-      var moveLeft = document.getElementById('move-left');
-      var moveRight = document.getElementById('move-right');
-      var moveUp = document.getElementById('move-up');
-      var moveDown = document.getElementById('move-down');
-      var zoomIn = document.getElementById('zoom-in');
-      var zoomOut = document.getElementById('zoom-out');
-      var $alert = $('.alert');
-      var $modal = $('#modal');
-      var cropper;
-      $('[data-toggle="tooltip"]').tooltip();
-      
-      moveLeft.addEventListener('click', function(){
-        cropper.move(4, 0);
-      })
-      moveRight.addEventListener('click', function(){
-        cropper.move(-4, 0);
-      })
-      moveUp.addEventListener('click', function(){
-        cropper.move(0, 4);
-      })
-      moveDown.addEventListener('click', function(){
-        cropper.move(0, -4);
-      })
-      zoomIn.addEventListener('click', function(){
-        cropper.zoom(0.1);
-      })
-      zoomOut.addEventListener('click', function(){
-        cropper.zoom(-0.1);
-      })
-      input.addEventListener('change', function (e) {
-        var files = e.target.files;
-        var done = function (url) {
-          
-          image.src = url;
-
-          $alert.hide();
-          $modal.modal('show');
-        };
-        var reader;
-        var file;
-        var url;
-
-        if (files && files.length > 0) {
-          file = files[0];
-
-          if (URL) {
-            done(URL.createObjectURL(file));
-console.log(URL.createObjectURL(file));
-          } else if (FileReader) {
-            reader = new FileReader();
-            reader.onload = function (e) {
-              done(reader.result);
-            };
-            reader.readAsDataURL(file);
-          }
-        }
-      }); 
-     
-        var cook = function createCookie(x, y, w, h) {
-            document.cookie = "y=" + escape(y) 
-              + "; path=/";
-             document.cookie =  "width=" + escape(w) 
-             +  "; path=/";
-             document.cookie = 
-             "height=" + escape(h)  + "; path=/";
-             document.cookie = "x=" + escape(x) 
-              + "; path=/";
-console.log(document.cookie);
-        }
-      var data = document.querySelector('#data');
-      $modal.on('shown.bs.modal', function () {
-        cropper = new Cropper(image, {
-            
-        ready: function (event) {
-          // Zoom the image to its natural size
-          cropper.zoomTo(1);
-        },
-
-        crop: function (event) {
-            cook(cropper.getData().x, cropper.getData().y, cropper.getData().width, cropper.getData().height);
-        },
-
-          dragMode: 'move',
-        aspectRatio: 200 / 250,
-        autoCropArea: 0.65,
-        restore: false,
-        guides: false,
-        center: false,
-        highlight: false,
-        cropBoxMovable: false,
-        cropBoxResizable: false,
-        toggleDragModeOnDblclick: false,
-        });
-        
-      }).on('hidden.bs.modal', function () {
-        cropper.destroy();
-        cropper = null;
-      });
-
-      document.getElementById('crop').addEventListener('click', function () {
-        var initialAvatarURL;
-        var canvas;
-        $modal.modal('hide');
-
-        if (cropper) {
-          canvas = cropper.getCroppedCanvas({
-            width: 160,
-            height: 160,
-          });
-          initialAvatarURL = avatar.src;
-          avatar.src = canvas.toDataURL();
-
-        }
-      });
-    });
-  </script> -->
 	</body>
 </html>
