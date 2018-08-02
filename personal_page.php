@@ -8,13 +8,9 @@ $sthandler->execute();
 ?>
 
 <head>
-<<<<<<< HEAD
 <title>LOVONEO | FIND YOUR LOVE</title><!--1-->
-=======
-<title>LOVONEO | FIND YOUR LOVE</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
->>>>>>> c233af07dc4618025c8cf694cf8e70bc5b274218
 <link rel="stylesheet" href="style_personal_page.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
@@ -32,59 +28,10 @@ $sthandler->execute();
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="hamburger pull-left _hamburger">
                         <i class="fa fa-bars" aria-hidden="true"></i>
-<<<<<<< HEAD
-</div>
-        <nav class=" hero-nav pull_left _nav">
-        
-            <ul class="list-unstyled ">
-            <a class="active" href="index.php">Home |</a><!--2-->
-            <a class="active" href="view_profile.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "Profile";
-                echo '  |';} 
-            ?>
-            </a>
-            <a class="active" href="message1/message.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "Message";/*14*/
-                echo '  |';
-            }
-            ?>
-            </a>
-   
-
-            <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
-            <?php
-            if (isset($_SESSION['user_name'])) {
-                echo "Edit profile";/*3*/
-                echo '  |';
-            }
-            ?>
-            </a>
-            
-            </ul>
-        </nav>
-        <div class="right_side_menu">
-        <a class="welcom" href="view_profile.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
-               echo ''.$_SESSION['first_name'];
-               echo '  |';
-            
-            }
-            ?>
-        </a>
-        <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo'<a href="logout.php">Log out</a>';
-            }
-            else echo '<a href="login_page.php">Log in</a>';
-            ?>
-=======
                     </div>
                     <nav class=" hero-nav pull_left _nav">
                         <ul class="list-unstyled ">
-                        <a class="active" href="index.php">Home |</a>
+                        <a class="active" href="index.php">Home |</a><!--2-->
                         <a class="active" href="view_profile.php"> <?php 
                         if (isset($_SESSION['user_name'])) {
                             echo "Profile";
@@ -93,7 +40,7 @@ $sthandler->execute();
                         </a>
                         <a class="active" href="message1/message.php"> <?php 
                         if (isset($_SESSION['user_name'])) {
-                            echo "Massage";
+                            echo "Massage";/*14*/
                             echo '  |';
                         }
                         ?>
@@ -101,7 +48,7 @@ $sthandler->execute();
                         <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
                         <?php
                         if (isset($_SESSION['user_name'])) {
-                            echo "Edit profile";
+                            echo "Edit profile";/*3*/
                             echo '  |';
                         }
                         ?>
@@ -133,7 +80,6 @@ $sthandler->execute();
                     </div>
                 </div>
             </div>
->>>>>>> c233af07dc4618025c8cf694cf8e70bc5b274218
         </div>
     </div>
 </header>
@@ -203,22 +149,6 @@ $sthandler->execute();
                         <label for="likek" name="like" id="like" class="like inline-block"><i class="fas fa-heart"></i></label>
                     </form> 
                     </div>
-<<<<<<< HEAD
-                    <input class="like_none"  type="submit"  id="likek" name="like">
-                    <label for="likek" name="like" id="like" class="like inline-block"><i class="fas fa-heart"></i></label>
-                </form>
-            
-                <div class="album">
-                    <?php
-                    include("fotos/view.php");
-                    ?>
-                </div>
-            </div> 
-        </section>
-        <h3 class="center">See also</h3><!--21-->
-        <section class="section-slide" id="section-slide">
-            <div id="_slick-icons">
-=======
                     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                         <div class="info">
                             <div class="info-info"><span class="key">First name: </span><?php echo $row ['first_name'] ?></div>
@@ -240,14 +170,13 @@ $sthandler->execute();
                         </div> 
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <h3 class="center">See also</h3>
+                        <h3 class="center">See also</h3><!--21-->
                         <div class="section-slide" id="section-slide">
                             <div id="_slick-icons">
                             </div>
                         </div> 
                     </div>
                 </div> 
->>>>>>> c233af07dc4618025c8cf694cf8e70bc5b274218
             </div>
         </div>
     </div>
