@@ -18,7 +18,7 @@ include("config.php");
 
 
 
-if(isset($_POST["register"]))
+if(isset($_POST["submit"]))
 {
 	$query = "
 	SELECT * FROM register_user 
@@ -61,7 +61,7 @@ if(isset($_POST["register"]))
 				':last_name'    		=>      '',
 				':country'    			=>      '',
 				':city'    			=>      '',
-				':profile_foto'    		=>      'uploads/default.png',
+				':profile_foto'    		=>      '',
                                 ':details'   			=>      $_POST['gender'],
 				':gender'   			=>      '',
 				':weight'   			=>      '',
@@ -71,6 +71,7 @@ if(isset($_POST["register"]))
 			)
 		);
 
+$_POST['fileToUpload'];			
 $folder = "uploads/";
 $upload_image = $folder . basename($_FILES["fileToUpload"]["name"]);
 move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $upload_image);
@@ -84,16 +85,22 @@ $insert_query="UPDATE register_user SET profile_foto = '$update_img' WHERE user_
 $stmt = $con->prepare($insert_query);
 $stmt->execute();
 $_SESSION['profile_foto'] = $update_img;
+
+
 		session_start();
-		$_SESSION['profile_foto'] = "uploads/default.png";
+		
 		$result = $statement->fetchAll();
+			
+
 		if(isset($result))
 		{
+			
+
 			$base_url = "https://lovoneo.com/";  
 			$mail_body = "
 			<p>Hi ".$_POST['user_name'].",</p>
 			<p>Thanks for Registration. Your password is ".$user_password.", This password will work only after your email verification.</p>
-			<p>Please Open this link to verified your email address - ".$base_url."email_verification.php?user_activation_code=".$user_activation_code."
+			<p>Please Open this link to verified your email address - ".$base_url."email_verification.php?activation_code=".$user_activation_code."
 			<p>Best Regards,<br />Lovoneo</p><!--32-->
 			";
 			$mail = new PHPMailer;
@@ -115,13 +122,19 @@ $_SESSION['profile_foto'] = $update_img;
 			$mail->Body = $mail_body;							
 			if($mail->Send())								
 			{
+
 				header("location:register_done.php");
+							
+
 			}
 		}
 	}
 }
 
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -203,6 +216,7 @@ $_SESSION['profile_foto'] = $update_img;
                         <label for="input"  class="text_edit_box"> 
                             <div class="btn-add-photo"><i class="fas fa-camera"></i></div>
                             <div class="text_edit"> Edit your profile photo</div>
+<input type="submit" value="Upload Image"   name="submit">
                         </label>
                 </div> </form>
     <div class="alert" role="alert"></div>
@@ -256,7 +270,7 @@ $_SESSION['profile_foto'] = $update_img;
               </button>
             </div>
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary" id="crop">Crop</button>
+            <button type="button" class="btn btn-primary" name="crop"id="crop">Crop</button>
           </div>
         </div>
       </div>
@@ -271,7 +285,7 @@ $_SESSION['profile_foto'] = $update_img;
                         <input type="file"  id="input" name="fileToUpload" >
                         <label for="input"  class="text_edit_box"> 
                             <div class="btn-add-photo"><i class="fas fa-camera"></i></div>
-                            <div class="text_edit"> Edit your profile photo</div><!--23-->
+                            <div class="text_edit"> Edit your profile photo</div><!--23
                         </label>
                 </div>
                 <div class="alert" role="alert"></div>
@@ -279,7 +293,7 @@ $_SESSION['profile_foto'] = $update_img;
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="modalLabel">Crop the image</h5><!--24-->
+                            <h5 class="modal-title" id="modalLabel">Crop the image</h5><!--24
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
@@ -324,8 +338,8 @@ $_SESSION['profile_foto'] = $update_img;
                                     </span>
                                 </button>
                             </div>
-                            <button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button><!--25-->
-                            <button type="button" id="crop" class="btn btn-primary" >Crop</button><!--26-->
+                            <button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button><!--25
+                            <button type="button" id="crop" class="btn btn-primary" >Crop</button><!--26
                             <input type="submit" class="notablock"  value="Upload Image" name="submit">
                         </div>
                     </div>

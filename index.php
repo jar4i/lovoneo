@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 if (isset($_POST['search'])) { 
@@ -5,8 +6,10 @@ $_SESSION['age1'] = $_POST['amount'];
         $_SESSION['age2'] = $_POST['amount-2'];
         $_SESSION['gender'] = $_POST['Radios2'];
 }
-
 ?>
+
+
+
 <head>
 <title>LOVONEO | FIND YOUR LOVE</title><!--1-->
 <link rel="stylesheet" href="style.css">
@@ -38,7 +41,7 @@ $_SESSION['age1'] = $_POST['amount'];
             </a>
             <a class="active" href="message1/message.php"> <?php 
             if (isset($_SESSION['user_name'])) {
-                echo "Message";/*14*/
+                echo "Massage";
                 echo '  |';
             }
             ?>
@@ -136,9 +139,7 @@ $(document).ready(function(){
         jQuery("#_slick-icons").load("user_icon_1.php");
     $('._hamburger').click(function () {
         $('._nav').slideToggle();
-
     console.log('ham');
-
     });
 });
 </script>
@@ -152,7 +153,6 @@ jQuery("#pagination li").on('click',function(e){
         var pageNum = this.id;
         jQuery("#target-content").load("user_icon.php?page=" + pageNum);
 });
-
 </script>
 
 </body>
