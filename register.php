@@ -18,7 +18,7 @@ include("config.php");
 
 
 
-if(isset($_POST["submit"]))
+if(isset($_POST["register"]))
 {
 	$query = "
 	SELECT * FROM register_user 
@@ -71,20 +71,6 @@ if(isset($_POST["submit"]))
 			)
 		);
 
-$_POST['fileToUpload'];			
-$folder = "uploads/";
-$upload_image = $folder . basename($_FILES["fileToUpload"]["name"]);
-move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $upload_image);
-$temp_img = imagecreatefromjpeg($upload_image);
-$to_crop_array = array('x' =>$_COOKIE["x"], 'y' => $_COOKIE["y"], 'width' => $_COOKIE["width"], 'height'=> $_COOKIE["height"]);
-$im2 = imagecrop($temp_img, $to_crop_array);
-imagejpeg($im2, $folder . basename($_FILES["fileToUpload"]["name"]));
-$update_img = ($folder . basename($_FILES["fileToUpload"]["name"]));
-$con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-$insert_query="UPDATE register_user SET profile_foto = '$update_img' WHERE user_activation_code = '$user_activation_code'";
-$stmt = $con->prepare($insert_query);
-$stmt->execute();
-$_SESSION['profile_foto'] = $update_img;
 
 
 		session_start();
@@ -124,7 +110,7 @@ $_SESSION['profile_foto'] = $update_img;
 			if($mail->Send())								
 			{
 
-				header("location:register_done.php");
+				header("location:register_foto_upload.php?user_activation_code=$user_activation_code");
 							
 
 			}
@@ -204,79 +190,7 @@ $_SESSION['profile_foto'] = $update_img;
 
 </header>
 <br><br><br><br>
-<section class="section_profile_photo mt-8">
-        <div class="wrap">
-            
-        <div class="container">
-        <form class ="button_foto" action="" method="post" enctype="multipart/form-data">
-    <div class="clearfix_card rel">
-                    <div class="prof_photo_box">
-                         <img class="rounded prof_photo" id="avatar" src="uploads/default.png" alt="avatar">
-                    </div>
-                        <input type="file"  id="input" class="sr-only" name="fileToUpload" >
-                        <label for="input"  class="text_edit_box"> 
-                            <div class="btn-add-photo"><i class="fas fa-camera"></i></div>
-                            <div class="text_edit"><?php echo $array[22];?></div>
-<input type="submit" value="Upload Image"   name="submit">
-                        </label>
-                </div> </form>
-    <div class="alert" role="alert"></div>
-    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel"><?php echo $array[23];?></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="img-container">
-              <img id="image" src="https://avatars0.githubusercontent.com/u/3456749">
-            </div>
-          </div>
-          <div class="modal-footer">
-          <div class="btn-group">
-              <button type="button" class="btn btn-primary" id="zoom-in" title="Zoom In">
-                  <span class="docs-tooltip" data-toggle="tooltip" >
-                  <span class="fa fa-search-plus"></span>
-                  </span>
-              </button>
-              <button type="button" class="btn btn-primary" id="zoom-out" title="Zoom Out">
-                  <span class="docs-tooltip" data-toggle="tooltip" >
-                  <span class="fa fa-search-minus"></span>
-                  </span>
-              </button>
-          </div>
-          <div class="btn-group btn-group-footer">
-              <button type="button" class="btn btn-primary" id="move-left" title="Move Left">
-                  <span class="docs-tooltip" data-toggle="tooltip" >
-                  <span class="fa fa-arrow-left"></span>
-                  </span>
-              </button>
-              <button type="button" class="btn btn-primary" id="move-right" title="Move Right">
-                  <span class="docs-tooltip" data-toggle="tooltip" >
-                  <span class="fa fa-arrow-right"></span>
-                  </span>
-              </button>
-              <button type="button" class="btn btn-primary" id="move-up" title="Move Up">
-                  <span class="docs-tooltip" data-toggle="tooltip">
-                  <span class="fa fa-arrow-up"></span>
-                  </span>
-              </button>
-              <button type="button" class="btn btn-primary" id="move-down" title="Move Down">
-                  <span class="docs-tooltip" data-toggle="tooltip" s>
-                  <span class="fa fa-arrow-down"></span>
-                  </span>
-              </button>
-            </div>
-            <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $array[24];?></button>
-            <button type="button" class="btn btn-primary" name="crop"id="crop"><?php echo $array[23];?></button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
         <!-- <div class="container">
             <form class ="button_foto" action="" method="post" enctype="multipart/form-data">
                 <div class="clearfix_card rel">
@@ -347,12 +261,7 @@ $_SESSION['profile_foto'] = $update_img;
                 </div>
             </form>
         </div> -->
-    </div>
-		
-        
 
-        </div>
-    </section>
 		<section class="section_register rel">
 			<div class="wrap" >
             	<div class="logo"></div>
