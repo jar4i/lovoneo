@@ -88,6 +88,7 @@ $_SESSION['profile_foto'] = $update_img;
 
 
 		session_start();
+		$array = $_SESSION['array'];
 		
 		$result = $statement->fetchAll();
 			
@@ -139,7 +140,7 @@ $_SESSION['profile_foto'] = $update_img;
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Register </title><!--22-->
+		<title><?php echo $array[21];?></title><!--22-->
  <link rel="stylesheet" href="personal_page_edit.css">	
 		    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.4.1/cropper.css">
@@ -215,7 +216,7 @@ $_SESSION['profile_foto'] = $update_img;
                         <input type="file"  id="input" class="sr-only" name="fileToUpload" >
                         <label for="input"  class="text_edit_box"> 
                             <div class="btn-add-photo"><i class="fas fa-camera"></i></div>
-                            <div class="text_edit"> Edit your profile photo</div>
+                            <div class="text_edit"><?php echo $array[22];?></div>
 <input type="submit" value="Upload Image"   name="submit">
                         </label>
                 </div> </form>
@@ -224,7 +225,7 @@ $_SESSION['profile_foto'] = $update_img;
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+            <h5 class="modal-title" id="modalLabel"><?php echo $array[23];?></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -269,8 +270,8 @@ $_SESSION['profile_foto'] = $update_img;
                   </span>
               </button>
             </div>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary" name="crop"id="crop">Crop</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $array[24];?></button>
+            <button type="button" class="btn btn-primary" name="crop"id="crop"><?php echo $array[23];?></button>
           </div>
         </div>
       </div>

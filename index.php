@@ -9,19 +9,16 @@ $_SESSION['age1'] = $_POST['amount'];
 ?>
 <?php
 include("connection.php");
-$query = $conn->query("SELECT phrase FROM de");
+if(isset($_POST['en'])){$query = $conn->query("SELECT phrase FROM en");}
+else{$query = $conn->query("SELECT phrase FROM de");}
 $array = Array();
+
 while($result = $query->fetch_assoc()){
     $array[] = $result['phrase'];
 }
- 
-
-
+$_SESSION['array'] = $array;
 ?>
-
-
 <head>
-
 <title><?php echo $array[0];?></title><!--1-->
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="login.css">
@@ -67,8 +64,10 @@ while($result = $query->fetch_assoc()){
             }
             ?>
             </a>
-            <input class="active" name="en" value="en" readonly type="submit">
-    <input class="active" name="de" value="de" readonly type="submit">
+<form method="post">
+            <input class="active" name="en" value="en"  type="submit">
+    <input class="active" name="de" value="de"  type="submit">
+</form>
 
             </ul>
         </nav>

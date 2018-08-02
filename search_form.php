@@ -1,5 +1,6 @@
 <?php
 session_start();
+$array = $_SESSION['array'];
 $user_id=$_GET["user_id"];
 include("config.php");
 $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
@@ -91,38 +92,38 @@ $sthandler->execute();
         <div class="search-container">
             <form class="search rel" action="search_form.php" method="post">
                 <div class="inline-block conter rel">
-                    <div class="inline-block search-text">I'm</div>
+                    <div class="inline-block search-text"><?php echo $array[14];?></div>
                     <div class="inline-block labeles-container">
                         <label class="labeles block">
                             <input class="radio radio1" type="radio" name="Radios1" id="r1-m" value="male" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='male' ){echo ' checked="checked"';}?>>
                             <span class="inline-block radio-custom"></span>
-                            <div class="inline-block label-r">Man</div>
+                            <div class="inline-block label-r"><?php echo $array[15];?></div>
                         </label>
                         <label class="labeles block">
                             <input class="radio radio1" type="radio" name="Radios1" id="r1-f" value="female" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='female' ){echo ' checked="checked"';}?>>
                             <span class="inline-block radio-custom"></span>
-                            <div class="inline-block label-r">Woman</div>
+                            <div class="inline-block label-r"><?php echo $array[16];?></div>
                         </label>
                     </div>
                 </div>
                 <div class="inline-block conter conter-2 rel">
-                    <div class="inline-block search-text" >I'm looking for</div>
+                    <div class="inline-block search-text" ><?php echo $array[17];?></div>
                     <div class="inline-block labeles-container" id="labeles-container">
                         <label class="labeles block">
                             <input class="radio radio2" type="radio" name="Radios2" id="r2-m" value="male" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='male' ){echo ' checked="checked"';}?>>
                             <span class="inline-block radio-custom"></span>
-                            <div class="inline-block label-r">Man</div>
+                            <div class="inline-block label-r"><?php echo $array[15];?></div>
                         </label>
                         <label class="labeles block">
                             <input class="radio radio2" type="radio" name="Radios2" id="r2-f" value="female" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='female' ){echo ' checked="checked"';}?>>
                             <span class="inline-block radio-custom"></span>
-                            <div class="inline-block label-r">Woman</div>
+                            <div class="inline-block label-r"><?php echo $array[16];?></div>
                         </label>
                     </div> 
                 </div>
                 
                 <div class="inline-block rel conter conter-3">
-                    <div class="inline-block search-text">Age</div>
+                    <div class="inline-block search-text"><?php echo $array[18];?></div>
                     <div class="inline-block slider">
                         <input type="text" class="inputs-age" name ="amount" id="amount" value="<?php echo isset($_POST['amount']) ? $_POST['amount'] : '' ?>" readonly>
                         <input type="text" class="inputs-age" name ="amount-2" id="amount-2" value="<?php echo isset($_POST['amount-2']) ? $_POST['amount-2'] : '' ?>" readonly>

@@ -9,37 +9,37 @@
     			        <div class="panel-body">
                             <form class="search rel" action="search_form.php" method="post">
                                         <div class=" rel">
-                                            <h4 class="center search-text">I'm</h4><!--15-->
+                                            <h4 class="center search-text"><?php echo $array[14];?></h4><!--15-->
                                             <div class="labeles-div">
                                                 <label class="labeles">
                                                     <input class="radio radio1" type="radio" name="Radios1" id="r1-m" value="male" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='male' ){echo ' checked="checked"';}?>>
                                                     <span class="radio-custom"></span>
-                                                    <div class="label_r">Man</div><!--16-->
+                                                    <div class="label_r"><?php echo $array[15];?></div><!--16-->
                                                 </label>
                                                 <label class="labeles">
                                                     <input class="radio radio1" type="radio" name="Radios1" id="r1-f" value="female" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='female' ){echo ' checked="checked"';}?>>
                                                     <span class="radio-custom"></span>
-                                                    <div class="label_r">Woman</div><!--17-->
+                                                    <div class="label_r"><?php echo $array[16];?></div><!--17-->
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="rel">
-                                            <h4 class="center  search-text">I'm looking for</h4><!--18-->
+                                            <h4 class="center  search-text"><?php echo $array[17];?></h4><!--18-->
                                             <div class="labeles-div">
                                                 <label class="labeles">
                                                     <input class="radio radio2" type="radio" name="Radios2" id="r2-m" value="male" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='male' ){echo ' checked="checked"';}?>>
                                                     <span class="radio-custom"></span>
-                                                    <div class="label_r">Man</div><!--16-->
+                                                    <div class="label_r"><?php echo $array[15];?></div><!--16-->
                                                 </label>
                                                 <label class="labeles">
                                                     <input class="radio radio2" type="radio" name="Radios2" id="r2-f" value="female" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='female' ){echo ' checked="checked"';}?>>
                                                     <span class="radio-custom"></span>
-                                                    <div class="label_r">Woman</div><!--17-->
+                                                    <div class="label_r"><?php echo $array[16];?></div><!--17-->
                                                 </label>
                                             </div>
                                         </div>
                                 <div class="slider">
-                                    <p class="center slider-age">Choose age</p><!--19-->
+                                    <p class="center slider-age"><?php echo $array[18];?></p><!--19-->
                                     <div class="rel">
                                       <input type="text" class="inputs-age" name ="amount" id="amount" value="<?php echo isset($_POST['amount']) ? $_POST['amount'] : '' ?>" readonly>
                                       <input type="text" class="inputs-age" name ="amount-2" id="amount-2" value="<?php echo isset($_POST['amount-2']) ? $_POST['amount-2'] : '' ?>" readonly>

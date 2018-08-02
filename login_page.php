@@ -1,5 +1,6 @@
 <?php
 session_start();
+$array = $_SESSION['array'];
 ?>
 <head>
 <title>LOVONEO | FIND YOUR LOVE</title>
