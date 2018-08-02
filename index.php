@@ -67,10 +67,13 @@ while($result = $query->fetch_assoc()){
             }
             ?>
             </a>
-            
+            <input class="active" name="en" value="en" readonly type="submit">
+    <input class="active" name="de" value="de" readonly type="submit">
+
             </ul>
         </nav>
         <div class="right_side_menu">
+
         <a class="welcom" href="view_profile.php"> <?php 
             if (isset($_SESSION['user_name'])) {
                 echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";

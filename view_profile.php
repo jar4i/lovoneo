@@ -11,14 +11,13 @@ $sthandler->execute();
 ?>
 
 <head>
-<<<<<<< HEAD
+
 <title>LOVONEO | FIND YOUR LOVE</title><!--1-->
-=======
-<title>LOVONEO | FIND YOUR LOVE</title>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
->>>>>>> 5971ab75ee0a8c6510ea570e0aed34cb2890cc71
+
 <link rel="stylesheet" href="style_personal_page.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
@@ -36,55 +35,7 @@ $sthandler->execute();
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="hamburger pull-left _hamburger">
                         <i class="fa fa-bars" aria-hidden="true"></i>
-<<<<<<< HEAD
-</div>
-        <nav class=" hero-nav pull_left _nav">
-        
-            <ul class="list-unstyled ">
-            <a class="active" href="index.php">Home |</a><!--2-->
-            <a class="active" href="view_profile.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "Profile";
-                echo '  |';} 
-            ?>
-            </a>
-            <a class="active" href="message1/message.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "Message";/*14*/
-                echo '  |';
-            }
-            ?>
-            </a>
-   
 
-            <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
-            <?php
-            if (isset($_SESSION['user_name'])) {
-                echo "Edit profile";/*14*/
-                echo '  |';
-            }
-            ?>
-            </a>
-            
-            </ul>
-        </nav>
-        <div class="right_side_menu">
-        <a class="welcom" href="view_profile.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
-               echo ''.$_SESSION['first_name'];
-               echo '  |';
-            
-            }
-            ?>
-        </a>
-        <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo'<a href="logout.php">Log out</a>';
-            }
-            else echo '<a href="login_page.php">Log in</a>';
-            ?>
-=======
                     </div>
                     <nav class=" hero-nav pull_left _nav">
                         <ul class="list-unstyled ">
@@ -137,7 +88,7 @@ $sthandler->execute();
                     </div>
                 </div>
             </div>
->>>>>>> 5971ab75ee0a8c6510ea570e0aed34cb2890cc71
+
         </div>
     </div>
 </header>
