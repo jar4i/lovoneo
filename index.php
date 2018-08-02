@@ -6,6 +6,7 @@ $_SESSION['age1'] = $_POST['amount'];
         $_SESSION['age2'] = $_POST['amount-2'];
         $_SESSION['gender'] = $_POST['Radios2'];
 }
+
 ?>
 <?php
 include("connection.php");
@@ -14,17 +15,14 @@ $array = Array();
 while($result = $query->fetch_assoc()){
     $array[] = $result['phrase'];
 }
- 
-
-
 ?>
 
 
 <head>
-
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?php echo $array[0];?></title><!--1-->
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="login.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
@@ -37,9 +35,9 @@ while($result = $query->fetch_assoc()){
 
 <header class="head fixed">
     <div class="wrap rel">
-    <div class="hamburger pull-left _hamburger">
-                        <i class="fa fa-bars" aria-hidden="true"></i>
-</div>
+        <div class="hamburger pull-left _hamburger">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
         <nav class=" hero-nav pull_left _nav">
         
             <ul class="list-unstyled ">
@@ -67,10 +65,13 @@ while($result = $query->fetch_assoc()){
             }
             ?>
             </a>
-            
+            <input class="active" name="en" value="en" readonly type="submit">
+            <input class="active" name="de" value="de" readonly type="submit">
+
             </ul>
         </nav>
         <div class="right_side_menu">
+
         <a class="welcom" href="view_profile.php"> <?php 
             if (isset($_SESSION['user_name'])) {
                 echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
@@ -90,53 +91,67 @@ while($result = $query->fetch_assoc()){
 
     </div>
 </header>
-
-
-<div class="wrap">
-    <section class="section-control rel">
-        <div class="logo"></div>
-                <div class="form-signin "  method="POST">
-                        <?php
-                        if(!isset($_SESSION['user_name']))
-                        {
-                        include("login.php");
-                        }
-                        ?>
-                </div>
-                <div class=" form-log ">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-3 col-md-12 col-sm-12">
+                <div class="logo"></div>
+            </div>
+            <div class="col-lg-9 col-md-12 col-sm-12">
+                <section class="section-slide">
+                    <div id="_slick-icons">
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-3  col-md-12 col-sm-12">
+                <section class="section-control rel">
                     <?php
-                        include("filter.php");
-                        ?>         
-               </div>
-    </section>
-    <div class="right-side">
-        <section class="section-slide">
-            <div id="_slick-icons">
+                        if(!isset($_SESSION['user_name']))
+                        {?>
+                    <div class="col-lg-12  col-md-6 col-sm-6  col-xs-12">
+                        <div class="form-signin"  method="POST">
+                            <?php
+                            include("login.php");
+                            ?>
+                        </div>
+                    </div>
+                    <?php } ?>
+                    <div class="col-lg-12 <?php if(isset($_SESSION['user_name'])){ echo "col-md-12";} else { echo "col-md-6";} ?>  col-sm-6  col-xs-12">
+                        <div class=" form-log ">
+                        <?php
+                            include("filter.php");
+                            ?>         
+                         </div>
+                    </div>
+                </section>
             </div>
-        </section>
-        
-        <section class="section-pages rel">
-            <div id="target-content" class="clearfix"></div>
-            <?php
-                include('connection.php');
-                $countSql = "SELECT COUNT(register_user_id) FROM register_user";
-                $tot_result = mysqli_query($conn, $countSql);
-                $row = mysqli_fetch_row($tot_result);
-                $total_records = $row[0];
-                $total_pages = ceil($total_records / $limit);
-            ?>
-            <div class="pagination_main rel">
-                <ul class='pagination' id="pagination">
-                    <?php if(!empty($total_pages)):for($i=1; $i<=$total_pages; $i++):  
-                    if($i == 1):?>
-                    <li class='page-item active'  id="<?php echo $i;?>"><a href='user_icon.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li> 
-                    <?php else:?>
-                    <li id="<?php echo $i;?>" class="page-item"><a href='user_icon.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li>
-                    <?php endif;?>
-                    <?php endfor;endif;?>
-                </ul>
+            <div class="col-lg-9  col-md-12 col-sm-12">
+                <section class="section-pages rel">
+                    <div id="target-content" class="clearfix"></div>
+                    <?php
+                        include('connection.php');
+                        $countSql = "SELECT COUNT(register_user_id) FROM register_user";
+                        $tot_result = mysqli_query($conn, $countSql);
+                        $row = mysqli_fetch_row($tot_result);
+                        $total_records = $row[0];
+                        $total_pages = ceil($total_records / $limit);
+                    ?>
+                    <div class="pagination_main rel">
+                        <ul class='pagination' id="pagination">
+                            <?php if(!empty($total_pages)):for($i=1; $i<=$total_pages; $i++):  
+                            if($i == 1):?>
+                            <li class='page-item active'  id="<?php echo $i;?>"><a href='user_icon.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li> 
+                            <?php else:?>
+                            <li id="<?php echo $i;?>" class="page-item"><a href='user_icon.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li>
+                            <?php endif;?>
+                            <?php endfor;endif;?>
+                        </ul>
+                    </div>
+                </section>
             </div>
-        </section>
+        </div>
     </div>
 </div>
 

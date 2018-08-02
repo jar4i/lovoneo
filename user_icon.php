@@ -11,29 +11,29 @@ $rs_result = mysqli_query($conn, $sql);
  
 ?>
 <form class= "main_form">
+	<div class="row">
 <?php  
-
 while ($row = mysqli_fetch_assoc($rs_result)) :
 ?>  
-
-<div class="card-container inline-block">
-	<div class="rel card">
-		<a href="personal_page.php?user_id=<?php echo $row['user_id'];?>" >
-			<img src="<?php echo $row['profile_foto']; ?>" class="card-photo">
-			<div class="small-info" >
-		  		<?php echo $row['first_name']?>,
-				<?php echo $row['age']?>
-		    	<p id="card-country"><?php echo $row['country']?></p>
+		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+			<div class="card-container ">
+				<div class="rel card">
+					<a href="personal_page.php?user_id=<?php echo $row['user_id'];?>" >
+						<img src="<?php echo $row['profile_foto']; ?>" class="card-photo">
+						<div class="small-info" >
+							<?php echo $row['first_name']?>,
+							<?php echo $row['age']?>
+							<p id="card-country"><?php echo $row['country']?></p>
+						</div>
+					</a>
+				</div>
 			</div>
-		</a>
-	</div>
-</div>
-
-
-
+		</div>
 <?php
 endwhile; 
 ?>
+	</div>
+
 </form>
 <!--<div class="album">
 </div>  -->
