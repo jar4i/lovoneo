@@ -11,12 +11,9 @@ $sthandler->execute();
 ?>
 
 <head>
-
-<title>LOVONEO | FIND YOUR LOVE</title><!--1-->
-
+ <title>LOVONEO | FIND YOUR LOVE</title> <!--1 -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 
 <link rel="stylesheet" href="style_personal_page.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
@@ -35,7 +32,6 @@ $sthandler->execute();
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="hamburger pull-left _hamburger">
                         <i class="fa fa-bars" aria-hidden="true"></i>
-
                     </div>
                     <nav class=" hero-nav pull_left _nav">
                         <ul class="list-unstyled ">
@@ -88,7 +84,6 @@ $sthandler->execute();
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </header>

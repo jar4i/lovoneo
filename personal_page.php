@@ -8,12 +8,9 @@ $sthandler->execute();
 ?>
 
 <head>
-
 <title>LOVONEO | FIND YOUR LOVE</title><!--1-->
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <link rel="stylesheet" href="style_personal_page.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
@@ -31,11 +28,10 @@ $sthandler->execute();
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="hamburger pull-left _hamburger">
                         <i class="fa fa-bars" aria-hidden="true"></i>
-
                     </div>
                     <nav class=" hero-nav pull_left _nav">
                         <ul class="list-unstyled ">
-                        <a class="active" href="index.php">Home |</a>
+                        <a class="active" href="index.php">Home |</a><!--2-->
                         <a class="active" href="view_profile.php"> <?php 
                         if (isset($_SESSION['user_name'])) {
                             echo "Profile";
@@ -44,7 +40,7 @@ $sthandler->execute();
                         </a>
                         <a class="active" href="message1/message.php"> <?php 
                         if (isset($_SESSION['user_name'])) {
-                            echo "Massage";
+                            echo "Massage";/*14*/
                             echo '  |';
                         }
                         ?>
@@ -52,7 +48,7 @@ $sthandler->execute();
                         <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
                         <?php
                         if (isset($_SESSION['user_name'])) {
-                            echo "Edit profile";
+                            echo "Edit profile";/*3*/
                             echo '  |';
                         }
                         ?>
@@ -84,7 +80,6 @@ $sthandler->execute();
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </header>
@@ -154,7 +149,6 @@ $sthandler->execute();
                         <label for="likek" name="like" id="like" class="like inline-block"><i class="fas fa-heart"></i></label>
                     </form> 
                     </div>
-
                     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                         <div class="info">
                             <div class="info-info"><span class="key">First name: </span><?php echo $row ['first_name'] ?></div>
@@ -183,7 +177,6 @@ $sthandler->execute();
                         </div> 
                     </div>
                 </div> 
-
             </div>
         </div>
     </div>
