@@ -234,8 +234,8 @@ $sthandler->execute();
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="album">
-                            <?php /* 
-                            include("fotos/view.php");*/
+                            <?php  
+                            include("fotos/view.php");
                             ?>
                         </div> 
                     </div>

@@ -256,7 +256,7 @@ ul{
   
   /* photo & small-info*/
 .section-photo{
-    margin-top: 90px;
+    margin-top: 190px;
     padding-left: 50px;
 }
 .photo-box{
@@ -359,6 +359,14 @@ display: inline-block;
 }
 /*adaptation*/
 @media (max-width: 1199px){
+  .section-photo{
+    margin-top: 60px;
+    padding-left: 0;
+}
+  #likes2{
+    margin: 0 auto;
+    text-align: center;
+  }
   .logo{
     margin: 0 auto;
     width: 315px;

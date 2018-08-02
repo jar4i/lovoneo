@@ -11,7 +11,14 @@ $sthandler->execute();
 ?>
 
 <head>
+<<<<<<< HEAD
 <title>LOVONEO | FIND YOUR LOVE</title><!--1-->
+=======
+<title>LOVONEO | FIND YOUR LOVE</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+>>>>>>> 5971ab75ee0a8c6510ea570e0aed34cb2890cc71
 <link rel="stylesheet" href="style_personal_page.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
@@ -24,8 +31,12 @@ $sthandler->execute();
 
 <header class="head fixed">
     <div class="wrap rel">
-    <div class="hamburger pull-left _hamburger">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="hamburger pull-left _hamburger">
                         <i class="fa fa-bars" aria-hidden="true"></i>
+<<<<<<< HEAD
 </div>
         <nav class=" hero-nav pull_left _nav">
         
@@ -73,65 +84,127 @@ $sthandler->execute();
             }
             else echo '<a href="login_page.php">Log in</a>';
             ?>
+=======
+                    </div>
+                    <nav class=" hero-nav pull_left _nav">
+                        <ul class="list-unstyled ">
+                        <a class="active" href="index.php">Home |</a>
+                        <a class="active" href="view_profile.php"> <?php 
+                        if (isset($_SESSION['user_name'])) {
+                            echo "Profile";
+                            echo '  |';} 
+                        ?>
+                        </a>
+                        <a class="active" href="message1/message.php"> <?php 
+                        if (isset($_SESSION['user_name'])) {
+                            echo "Massage";
+                            echo '  |';
+                        }
+                        ?>
+                        </a>
+                        <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
+                        <?php
+                        if (isset($_SESSION['user_name'])) {
+                            echo "Edit profile";
+                            echo '  |';
+                        }
+                        ?>
+                        </a>
+                        
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="right_side_menu">
+                         <?php 
+                            if (isset($_SESSION['user_name'])) {
+                                echo "<a class='active2' href='view_profile.php'><div class='inlne-block profile_photo_menu_box'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div></a>";
+                                echo "<a class='active2' href='view_profile.php'>";
+                                echo ''.$_SESSION['first_name'];
+                                echo '  |';
+                                echo "</a>";
+                            }
+                            ?>
+                        
+                        <a class="active2" >
+                            <?php 
+                            if (isset($_SESSION['user_name'])) {
+                                echo'<a href="logout.php">Log out</a>';
+                            }
+                            else echo '<a href="login_page.php">Log in</a>';
+                            ?>
+                        </a>
+                    </div>
+                </div>
+            </div>
+>>>>>>> 5971ab75ee0a8c6510ea570e0aed34cb2890cc71
         </div>
-
     </div>
 </header>
-
-
-    <div class="wrap">
-    <section class="section-control inline-block  rel">
-        <div class="logo"></div>
-            <div class="form-signin"  method="POST">
-                    <?php
-                    if(!isset($_SESSION['user_name']))
-                    {
-                    include("login.php");
-                    }
-                    ?>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-12">
+            <div class="section-control rel">
+                <div class="containeer">
+                    <div class="row">
+                        
+                        <div class="col-lg-12  col-md-12 ">
+                             <div class="logo"></div>
+                        </div>
+                       
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class=" form-log ">
+                            <?php
+                                include("filter.php");
+                                ?>         
+                             </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class=" form-log ">
-                    <?php
-                        include("filter.php");
-                        ?>         
-               </div>
-    </section>
-    <div class="inline-block right-side">
-        <section class="section-photo">
+        </div>
+        <div class="col-lg-8 col-md-12">
             <?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
-            <div class="photo-box inline-block">
-                <img src="<?php echo $row ['profile_foto']?>" class="photo-person">
+            <div class="section-photo">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5  col-sm-5 col-xs-12">
+                        <div class="photo-box ">
+                            <img src="<?php echo $row ['profile_foto']?>" class="photo-person">
+                        </div>
+                        <div class="" id="likes2">
+                        <?php
+                            $like_to = $_SESSION['us_id'];
+                            $pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
+                            $nLikes = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
+                            echo "$nLikes people like your profile."; 
+                            ?>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                        <div class="info">
+                            <div class="info-info"><span class="key">First name: </span><?php echo $row ['first_name'] ?></div>
+                            <div class="info-info"><span class="key">Last name: </span><?php echo $row ['last_name'] ?></div>
+                            <div class="info-info"><span class="key">Age: </span><?php echo $row ['age'] ?> y.o</div>
+                            <div class="info-info"><span class="key">City: </span><?php echo $row ['city'] ?></div>
+                            <div class="info-info"><span class="key">Country: </span><?php echo $row ['country'] ?></div>
+                            <div class="info-info"><span class="key">Height: </span><?php echo $row ['height'] ?></div>
+                            <div class="info-info"><span class="key">Weight: </span><?php echo $row ['weight'] ?></div>
+                            <div class="info-info"><span class="key">About me: </span><?php echo $row ['details'] ?></div>
+                        </div>
+                        <?php endwhile;?>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="album">
+                            <?php 
+                            include("fotos/view.php");
+                            ?>
+                        </div> 
+                    </div>
+                </div> 
             </div>
-            <div class="inline-block rel">
-                <div class="info">
-                    <div class="info-info"><span class="key">First name: </span><?php echo $row ['first_name'] ?></div>
-                    <div class="info-info"><span class="key">Last name: </span><?php echo $row ['last_name'] ?></div>
-                    <div class="info-info"><span class="key">Age: </span><?php echo $row ['age'] ?> y.o</div>
-                    <div class="info-info"><span class="key">City: </span><?php echo $row ['city'] ?></div>
-                    <div class="info-info"><span class="key">Country: </span><?php echo $row ['country'] ?></div>
-                    <div class="info-info"><span class="key">Height: </span><?php echo $row ['height'] ?></div>
-                    <div class="info-info"><span class="key">Weight: </span><?php echo $row ['weight'] ?></div>
-                    <div class="info-info"><span class="key">About me: </span><?php echo $row ['details'] ?></div>
-</div>
-            <?php endwhile;?>
-            </div>
-
-
-<div class="likes_amount">
-<?php
-$like_to = $_SESSION['us_id'];
-$pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
-$nLikes = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
-echo "$nLikes people like your profile."; 
-?>
-</div>
-            <div class="album">
-                <?php
-                include("fotos/view.php");
-                ?>
-            </div>
-        </section>
+        </div>
     </div>
+</div>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="slick/slick.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
