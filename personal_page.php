@@ -8,9 +8,18 @@ $sthandler->execute();
 ?>
 
 <head>
+<<<<<<< HEAD
 <title>LOVONEO | FIND YOUR LOVE</title><!--1-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+=======
+
+<title>LOVONEO | FIND YOUR LOVE</title><!--1-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+>>>>>>> 403897361a9db1e1091611b95229ac4736b17f54
 <link rel="stylesheet" href="style_personal_page.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
@@ -28,6 +37,10 @@ $sthandler->execute();
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="hamburger pull-left _hamburger">
                         <i class="fa fa-bars" aria-hidden="true"></i>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 403897361a9db1e1091611b95229ac4736b17f54
                     </div>
                     <nav class=" hero-nav pull_left _nav">
                         <ul class="list-unstyled ">
@@ -80,6 +93,10 @@ $sthandler->execute();
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 403897361a9db1e1091611b95229ac4736b17f54
         </div>
     </div>
 </header>
@@ -149,6 +166,10 @@ $sthandler->execute();
                         <label for="likek" name="like" id="like" class="like inline-block"><i class="fas fa-heart"></i></label>
                     </form> 
                     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 403897361a9db1e1091611b95229ac4736b17f54
                     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                         <div class="info">
                             <div class="info-info"><span class="key">First name: </span><?php echo $row ['first_name'] ?></div>
@@ -177,6 +198,10 @@ $sthandler->execute();
                         </div> 
                     </div>
                 </div> 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 403897361a9db1e1091611b95229ac4736b17f54
             </div>
         </div>
     </div>
