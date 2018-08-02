@@ -17,17 +17,15 @@ $array = Array();
 while($result = $query->fetch_assoc()){
     $array[] = $result['phrase'];
 }
-<<<<<<< HEAD
+
 $_SESSION['array'] = $array;
-=======
->>>>>>> c1c4e8f282061856373fbcf555c3b57fa9320126
+
 ?>
 <head>
-<<<<<<< HEAD
-=======
+
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
->>>>>>> c1c4e8f282061856373fbcf555c3b57fa9320126
+
 <title><?php echo $array[0];?></title><!--1-->
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
@@ -72,15 +70,12 @@ $_SESSION['array'] = $array;
             }
             ?>
             </a>
-<<<<<<< HEAD
+
 <form method="post">
             <input class="active" name="en" value="en"  type="submit">
     <input class="active" name="de" value="de"  type="submit">
 </form>
-=======
-            <input class="active" name="en" value="en" readonly type="submit">
-            <input class="active" name="de" value="de" readonly type="submit">
->>>>>>> c1c4e8f282061856373fbcf555c3b57fa9320126
+
 
             </ul>
         </nav>
