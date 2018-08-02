@@ -126,14 +126,18 @@ if(isset($_POST["register"]))
 <!DOCTYPE html>
 <html>
 	<head>
+
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 		<title><?php echo $array[21];?></title><!--22-->
  <link rel="stylesheet" href="personal_page_edit.css">	
-		    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.4.1/cropper.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 		<link rel="stylesheet" href="register.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 	</head>
 	<body>
 	<header class="head fixed">
@@ -189,79 +193,6 @@ if(isset($_POST["register"]))
     </div>
 
 </header>
-<br><br><br><br>
-
-        <!-- <div class="container">
-            <form class ="button_foto" action="" method="post" enctype="multipart/form-data">
-                <div class="clearfix_card rel">
-                    <div class="prof_photo_box">
-                        <img class="rounded prof_photo" id="avatar" src ="<?php echo "uploads/default.png";?>" alt="avatar">
-                    </div>
-                        <input type="file"  id="input" name="fileToUpload" >
-                        <label for="input"  class="text_edit_box"> 
-                            <div class="btn-add-photo"><i class="fas fa-camera"></i></div>
-                            <div class="text_edit"> Edit your profile photo</div><!--23
-                        </label>
-                </div>
-                <div class="alert" role="alert"></div>
-                <div class="modal" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalLabel">Crop the image</h5><!--24
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="img-container">
-                            <img id="image" src="image_crop/default.jpg">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-primary" id="zoom-in" title="Zoom In">
-                                    <span class="docs-tooltip" data-toggle="tooltip" >
-                                    <span class="fa fa-search-plus"></span>
-                                    </span>
-                                </button>
-                                <button type="button" class="btn btn-primary" id="zoom-out" title="Zoom Out">
-                                    <span class="docs-tooltip" data-toggle="tooltip" >
-                                    <span class="fa fa-search-minus"></span>
-                                    </span>
-                                </button>
-                            </div>
-                            <div class="btn-group btn-group-footer">
-                                <button type="button" class="btn btn-primary" id="move-left" title="Move Left">
-                                    <span class="docs-tooltip" data-toggle="tooltip" >
-                                    <span class="fa fa-arrow-left"></span>
-                                    </span>
-                                </button>
-                                <button type="button" class="btn btn-primary" id="move-right" title="Move Right">
-                                    <span class="docs-tooltip" data-toggle="tooltip" >
-                                    <span class="fa fa-arrow-right"></span>
-                                    </span>
-                                </button>
-                                <button type="button" class="btn btn-primary" id="move-up" title="Move Up">
-                                    <span class="docs-tooltip" data-toggle="tooltip">
-                                    <span class="fa fa-arrow-up"></span>
-                                    </span>
-                                </button>
-                                <button type="button" class="btn btn-primary" id="move-down" title="Move Down">
-                                    <span class="docs-tooltip" data-toggle="tooltip" s>
-                                    <span class="fa fa-arrow-down"></span>
-                                    </span>
-                                </button>
-                            </div>
-                            <button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button><!--25
-                            <button type="button" id="crop" class="btn btn-primary" >Crop</button><!--26
-                            <input type="submit" class="notablock"  value="Upload Image" name="submit">
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div> -->
-
 		<section class="section_register rel">
 			<div class="wrap" >
             	<div class="logo"></div>
