@@ -2,7 +2,6 @@
 .section-control{
     float: left;
     margin-top: 80px; 
-    height: 100%;
     clear: bottom;
   }
   .section-control #form-log{
