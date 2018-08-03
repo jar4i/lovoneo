@@ -44,7 +44,7 @@
 						{
 							$url = "albums/uploads/";
 				?>
-					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<div class="col-lg-3 col-md-2 col-sm-3 col-xs-4">
 					<div class="img_box rel" onclick="zoom('<?php echo $url.$row['file_name']; ?>')" data-toggle="modal" data-target="#exampleModalCenter" style="background:  url('<?php echo $url.$row['file_name']; ?>') no-repeat"></div>
 
 					</div>

@@ -118,9 +118,8 @@ $_SESSION['array'] = $array;
                 </section>
             </div>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="col-lg-3  col-md-12 col-sm-12">
-                <section class="section-control rel">
+        <div class="col-lg-12 col-md-12 col-sm-12 row">
+            <div class="col-lg-3  col-md-12 col-sm-12 row section-control rel">
                     <?php
                         if(!isset($_SESSION['user_name']))
                         {?>
@@ -139,10 +138,8 @@ $_SESSION['array'] = $array;
                             ?>         
                          </div>
                     </div>
-                </section>
             </div>
-            <div class="col-lg-9  col-md-12 col-sm-12">
-                <section class="section-pages rel">
+            <div class="col-lg-9  col-md-12 col-sm-12 row section-pages rel">
                     <div id="target-content" class="clearfix"></div>
                     <?php
                         include('connection.php');
@@ -163,7 +160,6 @@ $_SESSION['array'] = $array;
                             <?php endfor;endif;?>
                         </ul>
                     </div>
-                </section>
             </div>
         </div>
     </div>
