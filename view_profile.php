@@ -207,7 +207,7 @@ $(document).ready(function(){
 
 <script type="text/javascript">
 $(document).ready(function(){
-        jQuery("#_slick-icons").load("user_icon_1.php");
+        jQuery("#_slick-icons").load("user_icon_2.php");
 })
 </script>
 <script type="text/javascript">

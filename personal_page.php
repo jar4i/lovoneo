@@ -88,7 +88,7 @@ $sthandler->execute();
         <div class="col-lg-3 col-md-12">
             <div class="section-control rel">
                 <div class="containeer">
-                    <div class="row">
+                    <div class="row section-control rel">
                         
                         <div class="col-lg-12  col-md-12 ">
                              <div class="logo"></div>
@@ -96,7 +96,7 @@ $sthandler->execute();
                         <?php
                             if(!isset($_SESSION['user_name']))
                             {?>
-                        <div class="col-lg-12  col-md-6 col-sm-12">
+                        <div class="col-lg-12  col-md-6 col-sm-6  col-xs-12">
                             <div class="form-signin"  method="POST">
                                 <?php
                                 include("login.php");
@@ -104,7 +104,7 @@ $sthandler->execute();
                             </div>
                         </div>
                         <?php } ?>
-                        <div class="col-lg-12 <?php if(isset($_SESSION['user_name'])){ echo "col-md-12";} else { echo "col-md-6";} ?> col-sm-12">
+                        <div class="col-lg-12 <?php if(isset($_SESSION['user_name'])){ echo "col-md-12 col-sm-12";} else { echo "col-md-6 col-sm-6 ";} ?>   col-xs-12">
                             <div class=" form-log ">
                             <?php
                                 include("filter.php");
@@ -175,6 +175,8 @@ $sthandler->execute();
                             <div id="_slick-icons">
                             </div>
                         </div> 
+                        <br>
+                        <br>
                     </div>
                 </div> 
             </div>
@@ -191,7 +193,7 @@ $sthandler->execute();
 <script type="text/javascript">
 
 $(document).ready(function(){
-        jQuery("#_slick-icons").load("user_icon_1.php");
+        jQuery("#_slick-icons").load("user_icon_2.php");
 })
 </script>
 

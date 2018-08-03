@@ -374,6 +374,7 @@ top: 220px;
 @media (max-width: 991px){
   .section-control #form-log {
     margin-top: 20px !important;
+    width: 309px;
 }
 .section-slide {
   max-width: 700px;
@@ -393,6 +394,7 @@ top: 220px;
     width: 100px !important;
   }
   .panel-2{
+    width: 309px !important;
     margin-top: 21px !important;
   }
 }
@@ -408,7 +410,9 @@ top: 220px;
 .form-log {
   margin-bottom: 50px;
 }
-
+.panel-2{
+  margin:0 auto !important;
+}
 .main_form .card-photo, .main_form .card {
   width: 250px;
   height: 333px;
