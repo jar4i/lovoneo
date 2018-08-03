@@ -112,7 +112,7 @@
        .login-link{
     font-size: 15px !important;
   }
-    .email:focus,   .password:focus{
+    .email:focus,   .password:focus, #gender:focus{
     border-color: #b12b8f6b !important;
     box-shadow: 0 0 0 .2rem #b12b8f56 !important;
   }
@@ -122,17 +122,56 @@
   }
     .login-link{
         position: absolute;
-        right: 300px;
-        top: 507px;
+        right: 278px;
+        top: 575px;
+    width: 80px;
+
   }
-    
+  .input-group {
+    margin-bottom: 15px !important;
+}  
   .form-signin .form-group{
     margin-top: 30px;
   }
     .login-link a{
     color: #ffffff !important;
   }
-  
+   .input-group .custom-select {
+    width: 100% !important;
+}
+  /*adaptation*/
+@media (max-width: 625px){
+  .section_register {
+    max-width: 400px;
+}
+.panel-default {
+  border: none !important; 
+}
+.panel {
+   border: none !important; 
+   -webkit-box-shadow: none !important;
+   box-shadow: none !important;
+}
+body{
+  background: #fffdf9cb;
+}
+.login-link {
+  left: 147px;
+}
+}
+@media (max-width: 416px){
+  .section_register {
+    max-width: 300px;
+}
+.logo {
+  width: 244px;
+  height: 87px;}
+.panel-default {
+  border: none !important; 
+}
 
-
+.login-link {
+  top: 562px;
+}
+}
   

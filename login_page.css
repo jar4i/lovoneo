@@ -93,7 +93,7 @@
     height: 100px;
     margin: 0 auto;
     margin-bottom: 30px !important;
-    margin-top: 70px !important;
+    margin-top: 80px !important;
 
   }
   /*login*/
@@ -103,7 +103,7 @@
     height: 100%;
   }
    .panel{
-    background: #fffdf9cb;
+    background: #fffcf5d5 !important; 
     border-color: #b12b8fc2 !important; 
   }
     .email,
@@ -148,4 +148,29 @@
     height: 300px;
   }
 
+    /*adaptation*/
+@media (max-width: 625px){
+ 
+.panel-default {
+  border: none !important; 
+}
+.panel {
+    background: #fffcf5d5 !important; 
+   border: none !important; 
+   -webkit-box-shadow: none !important;
+   box-shadow: none !important;
+}
+body{
+  background: #fffcf5d5 !important; 
+}
+
+}
+@media (max-width: 416px){
+ 
+.logo {
+  width: 244px;
+  height: 87px;
+}
+
+}
   

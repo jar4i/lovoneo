@@ -57,10 +57,6 @@ if(isset($_POST["login"]))
 
 <!DOCTYPE html>
 <html>
-	<head>
-				
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	</head>
 	<body>
 		<div class="form-log" id="form-log">
 			<div class="panel panel-default">

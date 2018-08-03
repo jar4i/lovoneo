@@ -33,12 +33,68 @@ $sthandler->execute();
 ?>
 
 <head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="personal_page_edit.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.4.1/cropper.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 </head>
 <body>
+<header class="head fixed">
+    <div class="wrap">
+        <nav class="pull_left">
+        
+            <ul class="list-unstyled ">
+            <a class="active" href="index.php">Home |</a><!--2-->
+            <a class="active" href="view_profile.php"> <?php 
+            if (isset($_SESSION['user_name'])) {
+                echo "Profile";
+                echo '  |';} 
+            ?>
+            </a>
+            <a class="active" href="message1/message.php"> <?php 
+            if (isset($_SESSION['user_name'])) {
+                echo "Message";/*14*/
+                echo '  |';
+            }
+            ?>
+            </a>
+   
+
+            <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
+            <?php
+            if (isset($_SESSION['user_name'])) {
+                echo "Edit profile";/*14*/
+                echo '  |';
+            }
+            ?>
+            </a>
+            
+            </ul>
+        </nav>
+        <div class="pull-right rel">
+        <a class="welcom" href="view_profile.php"> <?php 
+            if (isset($_SESSION['user_name'])) {
+                echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
+               echo ''.$_SESSION['first_name'];
+               echo '  |';
+            
+            }
+            ?>
+        </a>
+        <?php 
+            if (isset($_SESSION['user_name'])) {
+                echo'<a href="logout.php">Log out</a>';
+            }
+            else echo '<a href="login_page.php">Log in</a>';
+            ?>
+        </div>
+
+    </div>
+
+</header>
     <section class="section_profile_photo mt-8">
         <div class="wrap">
     <?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
