@@ -40,8 +40,8 @@ $_SESSION['array'] = $array;
 <header class="head fixed">
     <div class="wrap rel">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class=" ">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <div class="hamburger pull-left _hamburger">
                         <i class="fa fa-bars" aria-hidden="true"></i>
                     </div>
@@ -75,18 +75,18 @@ $_SESSION['array'] = $array;
                         </ul>
                     </nav>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="right_side_menu">
-                        <form method="post" class="active2">
-                            <input class="active" name="en" value="en"  type="submit">
-                            <input class="active" name="de" value="de"  type="submit">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="right_side_menu rel">
+                        <form method="post" class="active2 language_box ">
+                            <input class="active2 language" name="en" value="en"  type="submit">
+                            /
+                            <input class="active2 language" name="de" value="de"  type="submit">
                         </form>
                          <?php 
                             if (isset($_SESSION['user_name'])) {
-                                echo "<a class='active2' href='view_profile.php'><div class='inlne-block profile_photo_menu_box'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div></a>";
+                                echo "<a class='active2 rel' href='view_profile.php'><div class='inlne-block profile_photo_menu_box'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div></a>";
                                 echo "<a class='active2' href='view_profile.php'>";
                                 echo ''.$_SESSION['first_name'];
-                                echo '  |';
                                 echo "</a>";
                             }
                             ?>
@@ -106,7 +106,7 @@ $_SESSION['array'] = $array;
     </div>
 </header>
 <div class="container">
-    <div class="row">
+    <div class=" ">
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="col-lg-3 col-md-12 col-sm-12">
                 <div class="logo"></div>
@@ -118,8 +118,8 @@ $_SESSION['array'] = $array;
                 </section>
             </div>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 row">
-            <div class="col-lg-3  col-md-12 col-sm-12 row section-control rel">
+        <div class="col-lg-12 col-md-12 col-sm-12  ">
+            <div class="col-lg-3  col-md-12 col-sm-12   section-control rel">
                     <?php
                         if(!isset($_SESSION['user_name']))
                         {?>
@@ -131,7 +131,7 @@ $_SESSION['array'] = $array;
                         </div>
                     </div>
                     <?php } ?>
-                    <div class="col-lg-12 <?php if(isset($_SESSION['user_name'])){ echo "col-md-12";} else { echo "col-md-6";} ?>  col-sm-6  col-xs-12">
+                    <div class="col-lg-12 <?php if(isset($_SESSION['user_name'])){ echo "col-md-12 col-sm-12";} else { echo "col-md-6 col-sm-6 ";} ?>   col-xs-12">
                         <div class=" form-log ">
                         <?php
                             include("filter.php");
@@ -139,7 +139,7 @@ $_SESSION['array'] = $array;
                          </div>
                     </div>
             </div>
-            <div class="col-lg-9  col-md-12 col-sm-12 row section-pages rel">
+            <div class="col-lg-9  col-md-12 col-sm-12   section-pages rel">
                     <div id="target-content" class="clearfix"></div>
                     <?php
                         include('connection.php');
