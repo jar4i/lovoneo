@@ -61,7 +61,7 @@ if(isset($_POST["register"]))
 				':last_name'    		=>      '',
 				':country'    			=>      '',
 				':city'    			=>      '',
-				':profile_foto'    		=>      '',
+				':profile_foto'    		=>      'uploads/default.png',
                                 ':details'   			=>      $_POST['gender'],
 				':gender'   			=>      '',
 				':weight'   			=>      '',

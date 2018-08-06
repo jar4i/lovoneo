@@ -1,7 +1,19 @@
 <?php
 include('database_connection.php');
 session_start();
+include("connection.php");
+if(isset($_POST['en'])){$query = $conn->query("SELECT phrase FROM en");}
+else{$query = $conn->query("SELECT phrase FROM de");}
+$array = Array();
+
+while($result = $query->fetch_assoc()){
+    $array[] = $result['phrase'];
+}
+
+$_SESSION['array'] = $array;
+
 $array = $_SESSION['array'];
+
 if(isset($_POST["login"]))
 {
 	$query = "
