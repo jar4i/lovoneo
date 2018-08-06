@@ -63,15 +63,14 @@ session_start();
 
     </div>
 </header>
-
-    <section class="rel section_login">
-        <div class="wrap">
-            <div class="logo"></div>
-            <div class="form-signin"  method="POST">
-                <?php
-                include("login.php");
-                ?>
-            </div>
+<section class="rel section_login">
+    <div class="wrap">
+        <div class="logo"></div>
+        <div class="form-signin"  method="POST">
+            <?php
+            include("login.php");
+            ?>
         </div>
-    </section>
+    </div>
+</section>
 </body>

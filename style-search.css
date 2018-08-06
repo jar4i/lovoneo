@@ -286,30 +286,50 @@ top: 220px;
   border-radius: 5px;
   box-shadow: 0 0 0 .2rem rgba(255, 193, 239, 0.5) !important;
 }
-.card:hover .small-info{
+@media (min-width: 767px){
+  .card{
+    width: 170px;
+    height: 212px;
+    overflow: hidden;
+    margin: 0 auto;
+  
+    animation-play-state: paused;
+  }
+  .card:hover .small-info{
   display: block;
   transition: 2000ms;
   animation: move  0.6s  ease-out;
   animation-fill-mode: forwards;
   animation-play-state: running;
+  }
+  .small-info{
+    display: none;
+  }
 }
+
 .small-info{
-  display: none;
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 5%;
+  margin-bottom: 5%;
   height: 60px;
-  right: 0;
+  /* right: 0; */
   font-weight: 500;
-  background:#d83ea0b3; 
-  color: #111010;
+  background: #e5b4ff;
+  color: #000000;
   overflow: hidden;
   font-size: 16px;
+  border: 3px solid #000000;
   text-align: left;
   padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: 600;
+
 }
 #card-country{
   font-size: 10px;
+  font-weight: 500;
+
 }
 .pagination_main{
   margin-top:  50px;
@@ -392,7 +412,19 @@ top: 220px;
 .form-signin{
   margin-top: 50px;
 }
-
+.small-info{
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  height: 70px;
+  border: 3px solid #f2c9ff;
+  background: #420797;
+  color: #ffffff;
+}
+#card-country {
+  font-size: 14px;
+  font-weight: 500;
+}
 .panel-2{
   margin:0 auto !important;
 }

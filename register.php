@@ -207,7 +207,7 @@ if(isset($_POST["register"]))
 							</div>
 							<div class="form-group">
 								<label for="user_password">Your Password</label><!--29-->
-								<input type="text" name="user_password" id="user_password" class="form-control password" value="<?php echo isset($_POST['user_password']) ? $_POST['user_password'] : '' ?>" required />
+								<input type="password" name="user_password" id="user_password" class="form-control password" value="<?php echo isset($_POST['user_password']) ? $_POST['user_password'] : '' ?>" required />
               </div>
               <label for="gender">Gender</label><!--30-->
               <div class="input-group">
