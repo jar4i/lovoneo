@@ -22,7 +22,7 @@
 							?>
 							<?php 
 								$con = mysqli_connect("localhost","lovoneo","ZMaLPF2-unV-ch","projekt");
-								$query = "SELECT * FROM files WHERE us_us_id= 'f2ac92673ae90e179ffb00b513cc053f'";
+								$query = "SELECT * FROM files WHERE us_us_id= '".$_SESSION['us_id']."'";
 								$result = mysqli_query($con, $query);
 								if(mysqli_num_rows($result) > 0)
 								{

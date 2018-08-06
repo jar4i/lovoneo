@@ -51,13 +51,13 @@ if(isset($_POST["register"]))
 		$statement->execute(
 			array(
 				':birth_date'   		=>      $_POST['birth_date'],
-				':user_name'			=>	$_POST['user_name'],
+				':user_name'			=>	'',
 				':user_email'			=>	$_POST['user_email'],
 				':user_password'		=>	$user_encrypted_password,
 				':user_activation_code'		=>	$user_activation_code,
 				':user_id'			=>	$user_id,
 				':user_email_status'		=>	'not verified',
-				':first_name'    		=>      'User',
+				':first_name'    		=>      $_POST['user_name'],
 				':last_name'    		=>      '',
 				':country'    			=>      '',
 				':city'    			=>      '',

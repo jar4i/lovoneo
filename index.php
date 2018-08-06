@@ -26,12 +26,12 @@ $_SESSION['age1'] = $_POST['amount'];
 
 include("connection.php");
 if(isset($_POST['de'])){$query1 = $conn->query("SELECT phrase FROM de"); $_SESSION['lang'] = $query1;}
-if(isset($_POST['en'])){$query2 = $conn->query("SELECT phrase FROM en"); $_SESSION['lang'] = $query2;}
-else{$query3 = $conn->query("SELECT phrase FROM en"); $_SESSION['lang'] = $query3;}
+elseif(isset($_POST['en'])){$query2 = $conn->query("SELECT phrase FROM en"); $_SESSION['lang'] = $query2;}
+else{$query3 = $query2; $_SESSION['lang'] = $query3;}
 
 if($_SESSION['lang'] == $query1){$query = $query1;}
 elseif($_SESSION['lang'] == $query2){$query = $query2;}
-else{$query == $query3;}
+else{$query = $query3;}
 
 $array = Array();
 while($result = $query->fetch_assoc()){
