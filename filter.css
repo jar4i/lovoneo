@@ -47,6 +47,7 @@
   .search-btn-block{
     position: absolute;
     top: 225px;
+    margin-left: 0 !important;
     left: 35%;
   }
   #slider-range{

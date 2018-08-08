@@ -220,12 +220,10 @@ if(isset($_POST["register"]))
 							</div>
 
 							<div class="form-group">
-								<input type="submit" name="register" id="register" value="Register" class="btn btn-danger register-btn" />
+								<input type="submit" name="register" id="register" value="Register" class="btn btn-danger inline-block register-btn" />
+								<a  href="login_page.php" class="login-link inline-block btn btn-danger ">Log in</a><!--31-->
 							</div>
-
-							
 						</form>
-						<div class="login-link btn btn-danger "><a href="login_page.php" >Log in</a></div><!--31-->
 					</div>
 				</div>
 			</div>

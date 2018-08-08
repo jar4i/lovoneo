@@ -82,13 +82,11 @@ if(isset($_POST["login"]))
 							<input type="password" name="user_password" class="form-control password" autocomplete="off" required  placeholder="<?php echo $array[6];?>"/>
 						</div>
 						<div class="form-group ">
-							<input type="submit" name="login" value="<?php echo $array[4];?>" class="btn btn-danger login-btn" /><!--10-->
+							<input type="submit" name="login" value="<?php echo $array[4];?>" class="btn btn-danger  inline-block login-btn" /><!--10-->
+							<a href="register.php" class="btn inline-block btn-danger register-link" ><?php echo $array[7];?></a><!--8-->
 						</div>
-
 					</form>
-					<div class="btn btn-danger register-link"><a href="register.php"><?php echo $array[7];?></a></div><br><!--8-->
 					<div class="fg-pass"><a href="password_restore.php"><?php echo $array[8];?></a></div><br><!--9-->
-					
 				</div>
 			</div>
 		</div>

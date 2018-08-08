@@ -116,16 +116,8 @@
     border-color: #b12b8f6b !important;
     box-shadow: 0 0 0 .2rem #b12b8f56 !important;
   }
-    .register-btn{
-    width: 80px;
+    .register-btn, .login-link{
     margin-top: 16px;
-  }
-    .login-link{
-        position: absolute;
-        right: 278px;
-        top: 575px;
-    width: 80px;
-
   }
   .input-group {
     margin-bottom: 15px !important;
@@ -135,6 +127,7 @@
   }
     .login-link a{
     color: #ffffff !important;
+    text-decoration: none;
   }
    .input-group .custom-select {
     width: 100% !important;

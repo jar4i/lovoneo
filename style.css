@@ -200,40 +200,25 @@ ul{
 .form-control {
    width: 153px !important; 
 }
-.btn{
-  padding: 6px 1px !important;
-}
-  .email,
-   .password,
-    .login-btn,
-    .fg-pass,
-     .register-link{
-  width: 180px;
-  position: absolute;
-  left:14%;
-  top: 30px;
+
+  .form-group, .fg-pass{
+      margin-left: 15%;
   font-size: 15px !important;
+  margin-bottom: 20px !important;
+}
+.email{
+  margin-top: 15%;
+}
+.fg-pass{
+  margin-top: 20px;
 }
   .email:focus,   .password:focus{
   border-color: #ffbbbb9d !important;
   box-shadow: 0 0 0 .2rem rgba(253, 202, 202, 0.39) !important;
 }
-  .password{
-  top: 83px;
-}
-.login-btn{
-  max-width: 85px;
-  top: 150px;
-  left: 8%;
-}
-  .register-link{
-  left: 52%;
-  max-width: 85px;
-  top: 150px;
-}
-  .fg-pass{
-  left: 15%;
-top: 220px;
+
+.login-btn, .register-link{
+margin-top: 10px;
 }
 
   .fg-pass a{
@@ -244,8 +229,7 @@ top: 220px;
   color: #ffffff !important;
 }
   .register-link:hover a:hover{
-  color: #ff6b6b !important;
-  transition: 1000ms;
+  text-decoration: none !important;
 }
 
 

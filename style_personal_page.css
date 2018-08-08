@@ -170,7 +170,6 @@ ul{
     border-color: #181818 !important; 
   }
   .btn-lg{
-      padding:  8px  0  !important;
       font-size: 14px !important;
   }
 
@@ -307,38 +306,26 @@ border-radius: 15px;
   padding: 0 !important;
 }
 
-.section-control .email,
- .section-control .password,
-  .section-control .login-btn,
-  .section-control .fg-pass,
-   .section-control .register-link{
-  width: 180px;
-  position: absolute;
-  left:14%;
-  top: 30px;
-  font-size: 15px !important;
+
+.form-group, .fg-pass{
+  margin-left: 15%;
+font-size: 15px !important;
+margin-bottom: 20px !important;
 }
+.email{
+margin-top: 15%;
+}
+.fg-pass{
+margin-top: 20px;}
 .section-control .email:focus, .section-control .password:focus{
   border-color: #ffbbbb9d !important;
   box-shadow: 0 0 0 .2rem rgba(253, 202, 202, 0.39) !important;
 }
-.section-control .password{
-  top: 83px;
+.form-control {
+  width: 200px !important;
 }
-.section-control .login-btn{
-  width: 80px;
-  top: 150px;
-}
-.section-control .register-link{
-  left: 51%;
-  width: 80px;
-
-  top: 151px;
-}
-.section-control .fg-pass{
-  left: 15%;
-top: 220px;
-}
+.login-btn, .register-link{
+  margin-top: 10px;}
 .form-signin .form-group{
   margin-top: 30px;
 }

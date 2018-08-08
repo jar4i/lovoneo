@@ -117,15 +117,10 @@
     border-color: #b12b8f6b !important;
     box-shadow: 0 0 0 .2rem #b12b8f56 !important;
   }
-    .login-btn{
-    width: 80px;
-  }
-    .register-link{
-        position: absolute;
-        left: 115px;
-        top: 173px;
-    text-decoration: none;
 
+  .login-btn, .register-link{
+    text-decoration: none;
+    margin-top: 10px;
   }
     .fg-pass{
         position: absolute;
