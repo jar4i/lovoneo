@@ -23,6 +23,7 @@ $insert_query="UPDATE register_user SET profile_foto = '$update_img' WHERE user_
 $stmt = $con->prepare($insert_query);
 $stmt->execute();
 $_SESSION['profile_foto'] = $update_img;
+echo "<h3>Success! Check your mail in order to activate your account!</h3>";
 }
 
 $user_activation_code=$_GET["user_activation_code"];

@@ -51,6 +51,7 @@ if(isset($_POST["register"]))
 		$statement->execute(
 			array(
 				':birth_date'   		=>      $_POST['birth_date'],
+<<<<<<< HEAD
 				':user_name'			=>   	$_POST['user_name'],
 				':user_email'			=>	    $_POST['user_email'],
 				':user_password'		=>   	$user_encrypted_password,
@@ -64,6 +65,21 @@ if(isset($_POST["register"]))
 				':profile_foto'    		=>      'uploads/default.png',
                 ':details'   			=>      '',
 				':gender'   			=>      $_POST['gender'],
+=======
+				':user_name'			=>	'',
+				':user_email'			=>	$_POST['user_email'],
+				':user_password'		=>	$user_encrypted_password,
+				':user_activation_code'		=>	$user_activation_code,
+				':user_id'			=>	$user_id,
+				':user_email_status'		=>	'not verified',
+				':first_name'    		=>      $_POST['user_name'],
+				':last_name'    		=>      '',
+				':country'    			=>      '',
+				':city'    			=>      '',
+				':profile_foto'    		=>      'uploads/default.png',
+                                ':details'   			=>      $_POST['gender'],
+				':gender'   			=>      '',
+>>>>>>> fd55201fc8acb8943ca3228f37ba8161f8b987d0
 				':weight'   			=>      '',
 				':height'   			=>      ''
 			)

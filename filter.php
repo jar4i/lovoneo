@@ -1,3 +1,17 @@
+<?php
+session_start();
+include("connection.php");
+if(empty($_SESSION['array'])){$query = $conn->query("SELECT phrase FROM en");
+$array = Array();
+while($result = $query->fetch_assoc()){
+    $array[] = $result['phrase'];
+}
+}
+else{
+$array = $_SESSION['array'];
+}
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>

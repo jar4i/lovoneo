@@ -75,8 +75,7 @@ $_SESSION['first_name'] = $first_name;
 <?php 
 $user_activation_code=$_GET["user_activation_code"];
 $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-$con= new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
-$sthandler = $con->prepare("SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age, birth_date, city, weight, height,  country,  details, first_name, last_name, profile_foto FROM register_user  WHERE user_activation_code = '$user_activation_code'");
+$sthandler = $con->prepare("SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age, birth_date, city, weight, height, country, details, first_name, last_name, profile_foto FROM register_user  WHERE user_activation_code = '$user_activation_code'");
 $sthandler->execute();
 ?>
 <body>
@@ -98,14 +97,14 @@ $sthandler->execute();
             </a>
             <a class="active" href="message1/message.php"> <?php 
             if (isset($_SESSION['user_name'])) {
-                echo "Massage";
+                echo "Message";
                 echo '  |';
             }
             ?>
             </a>
    
 
-            <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
+            <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['us_id'];?>">
             <?php
             if (isset($_SESSION['user_name'])) {
                 echo "Edit profile";
@@ -299,7 +298,7 @@ $sthandler->execute();
 
             <div class = "view">
                 <?php
-                $user_id=$_GET["user_id"];
+                $user_id=$_SESSION["us_id"];
                 include('fotos/view1.php');?>
 
             </div>

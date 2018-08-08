@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 </head>
 <body>
-
+<?php echo "vi is the best texxt editor! trust me" ?>
     <p>
         <label for="amount">Price range:</label>
         <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
