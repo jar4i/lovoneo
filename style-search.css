@@ -308,12 +308,11 @@ top: 220px;
 }
 
 .small-info{
-  position: absolute;
+  /* position: absolute;
   bottom: 0;
   left: 5%;
   margin-bottom: 5%;
   height: 60px;
-  /* right: 0; */
   font-weight: 500;
   background: #e5b4ff;
   color: #000000;
@@ -323,8 +322,23 @@ top: 220px;
   text-align: left;
   padding: 10px 15px;
   border-radius: 50px;
+  font-weight: 600; */
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  margin-bottom: 5%;
+  height: 60px;
+  font-weight: 500;
+  background: #ffd4ea;
+  color: #292829;
+  overflow: hidden;
+  font-size: 16px;
+  border: 1px solid #7515a6;
+  text-align: left;
+  padding: 10px 15px;
+  border-radius: 50px;
   font-weight: 600;
-
+  width: 90%;
 }
 #card-country{
   font-size: 10px;

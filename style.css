@@ -54,6 +54,7 @@ body{
     .language_box{
       position: absolute;
       left: -90%;
+      width: 60px;
     }
   .language:hover{
     text-decoration: none !important;
@@ -220,15 +221,15 @@ ul{
   .password{
   top: 83px;
 }
-  .login-btn{
-  width: 70px;
+.login-btn{
+  max-width: 85px;
   top: 150px;
+  left: 8%;
 }
   .register-link{
-  left: 51%;
-  width: 70px;
-
-  top: 151px;
+  left: 52%;
+  max-width: 85px;
+  top: 150px;
 }
   .fg-pass{
   left: 15%;
@@ -330,23 +331,40 @@ top: 220px;
 }
 
 .small-info{
+  /* position: absolute;
+  bottom: 0;
+  height: 60px;
+  font-weight: 500;
+  background: #ffd4ea;
+  color: #292829;
+  overflow: hidden;
+  font-size: 16px;
+  border-top: 1px solid #7515a6;
+  text-align: left;
+  padding: 10px 15px;
+  border-radius: 25px 25px 0 0;
+  font-weight: 600;
+  width: 100%; */
   position: absolute;
   bottom: 0;
   left: 5%;
   margin-bottom: 5%;
   height: 60px;
-  /* right: 0; */
   font-weight: 500;
-  background: #ea76b1;
-    color: #292829;
+  background: #ffd4ea;
+  color: #292829;
   overflow: hidden;
   font-size: 16px;
-  /* border: 3px solid #000000; */
+  border: 1px solid #7515a6;
   text-align: left;
   padding: 10px 15px;
   border-radius: 50px;
   font-weight: 600;
-
+  width: 90%;
+}
+.text-danger{
+  text-align: center;
+  padding: 10px !important;
 }
 #card-country{
   font-size: 10px;
@@ -405,6 +423,9 @@ top: 220px;
 }
 .search-btn-block {
   left: 37% !important;
+}
+.login-btn{
+  left: 14%;
 }
 }
 
