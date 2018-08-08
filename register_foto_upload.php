@@ -36,8 +36,7 @@ $sthandler->execute();
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="personal_page_edit.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.4.1/cropper.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 </head>
 <body>
@@ -160,8 +159,8 @@ $sthandler->execute();
                             </div>
                             <button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button>
                             <button type="button" class="notablock" >Crop</button>
-                            <input type="submit" value="Upload Image" id="crop" class="btn btn-primary" name="cro">
-				            <input type="submit" value="confirm" id="cro" class="btn btn-primary" name="crop">
+                            <input type="submit" value="Upload Image" id="crop" class="notablock" name="cro">
+				            <input type="submit" value="Upload Image" id="cro" class="btn btn-primary" name="crop">
                         </div>
                     </div>
                 </div>
