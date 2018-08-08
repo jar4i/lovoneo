@@ -83,8 +83,8 @@ $sthandler->execute();
 <header class="head fixed">
     <div class="wrap rel">
     <div class="hamburger pull-left _hamburger">
-                        <i class="fa fa-bars" aria-hidden="true"></i>
-</div>
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
         <nav class=" hero-nav pull_left _nav">
         
             <ul class="list-unstyled ">
@@ -135,13 +135,9 @@ $sthandler->execute();
 
     </div>
 </header>
-
-
-
     <section class="section_profile_photo mt-8">
         <div class="wrap">
     <?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
-        
         <div class="container">
             <form class ="button_foto" action="" method="post" enctype="multipart/form-data">
                 <div class="clearfix_card rel">
@@ -213,8 +209,6 @@ $sthandler->execute();
             </form>
         </div>
         </div>
-        
-
         </div>
     </section>
     <section class="section_question">
@@ -300,11 +294,10 @@ $sthandler->execute();
                 <?php
                 $user_id=$_SESSION["us_id"];
                 include('fotos/view1.php');?>
-
             </div>
             <div class="btn_save_inf">
-                    <input type="submit" value="SAVE INFORMATION" class="btn btn-danger " name="save"  onClick="history.go(0)"  id="save">
-                </div>
+                <input type="submit" value="SAVE INFORMATION" class="btn btn-danger " name="save"  onClick="history.go(0)"  id="save">
+            </div>
         </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

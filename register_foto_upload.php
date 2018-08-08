@@ -23,7 +23,6 @@ $insert_query="UPDATE register_user SET profile_foto = '$update_img' WHERE user_
 $stmt = $con->prepare($insert_query);
 $stmt->execute();
 $_SESSION['profile_foto'] = $update_img;
-echo "<h3>Success! Check your mail in order to activate your account!</h3>";
 }
 
 $user_activation_code=$_GET["user_activation_code"];
@@ -36,7 +35,6 @@ $sthandler->execute();
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="personal_page_edit.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.4.1/cropper.css">
@@ -46,7 +44,6 @@ $sthandler->execute();
 <header class="head fixed">
     <div class="wrap">
         <nav class="pull_left">
-        
             <ul class="list-unstyled ">
             <a class="active" href="index.php">Home |</a><!--2-->
             <a class="active" href="view_profile.php"> <?php 
@@ -99,7 +96,6 @@ $sthandler->execute();
     <section class="section_profile_photo mt-8">
         <div class="wrap">
     <?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
-        
         <div class="container">
             <form class ="button_foto" action="" method="post" enctype="multipart/form-data">
                 <div class="clearfix_card rel">
@@ -165,15 +161,25 @@ $sthandler->execute();
                             <button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button>
                             <button type="button" class="notablock" >Crop</button>
                             <input type="submit" value="Upload Image" id="crop" class="btn btn-primary" name="cro">
-				<input type="submit" value="confirm" id="cro" class="btn btn-primary" name="crop">
+				            <input type="submit" value="confirm" id="cro" class="btn btn-primary" name="crop">
                         </div>
                     </div>
                 </div>
-</form>
+            </form>
         </div>
         </div>
-        
-<?php endwhile; ?>
+        <?php endwhile; ?>
+        </div>
+    </section>
+    <section class="section_message">
+        <div class="wrap">
+            <div class="tex_message">
+                <?php 
+                if(isset($_POST["crop"])) {
+                echo "<p>Success!</p><p> Check your mail in order to activate your account!</p>";
+                }
+                ?>
+            </div>
         </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

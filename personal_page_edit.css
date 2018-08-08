@@ -289,6 +289,25 @@ right: -20px;
  margin: 35px auto;
  text-align: center;
 }
+/*register_photo_upload.php*/
+.section_profile_photo{
+margin-top: 60px;
+}
+.section_message{
+  margin: 40px;
+}
+.tex_message{
+  max-width: 400px;
+  margin: 0 auto;
+  border: 2px solid #ffafaf;
+  color: #393333;
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  background: #fdf3f770;
+}
 /*dropzone*/
 .dropzone {
     border: 1px solid rgba(255, 0, 0, 0.55) !important;
