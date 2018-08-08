@@ -23,7 +23,7 @@ $_SESSION['age1'] = $_POST['amount'];
 
 ?>
 <?php
-
+/*
 include("connection.php");
 if(isset($_POST['de'])){$query1 = $conn->query("SELECT phrase FROM de"); $_SESSION['lang'] = $query1;}
 elseif(isset($_POST['en'])){$query2 = $conn->query("SELECT phrase FROM en"); $_SESSION['lang'] = $query2;}
@@ -38,7 +38,7 @@ while($result = $query->fetch_assoc()){
     $array[] = $result['phrase'];
 }
 
-
+*/
 
 ?>
 <head>
