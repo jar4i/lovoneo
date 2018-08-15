@@ -103,6 +103,8 @@ $sthandler->execute();
                                 $_SESSION['age2'] = $_POST['amount-2'];
                                 $_SESSION['gender'] = $_POST['Radios2'];
                                 }
+				
+				
                             ?>
                         <?php
                             include("filter.php");
