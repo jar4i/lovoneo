@@ -47,9 +47,7 @@ margin-bottom: 15px;
   .hamburger {
   display: block;
   }
-  .active{
-    display: block;
-  }
+
   nav{
     width: 100px !important;
   }
@@ -92,6 +90,7 @@ nav{
 }
 .pull-right{
   display: inline-block;
+  float: right;
 }
 .li-item{
   margin-left: 10px;
@@ -234,6 +233,11 @@ right: -20px;
 .block_name{
 margin-right: 280px;
 }
+@media(max-width: 750px){
+  .block_name{
+    margin-right: 10px;
+    }
+}
 .block_center{
   margin: 0 auto;
   text-align: center;
@@ -291,7 +295,7 @@ right: -20px;
 }
 /*register_photo_upload.php*/
 .section_profile_photo{
-margin-top: 60px;
+margin-top: 80px;
 }
 .section_message{
   margin: 40px;
@@ -336,7 +340,6 @@ margin-top: 60px;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  max-height: 500px !important;
 }
 
 .cropper-container img {

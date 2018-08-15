@@ -42,52 +42,8 @@ $sthandler->execute();
 <body>
 <header class="head fixed">
     <div class="wrap">
-        <nav class="pull_left">
-            <ul class="list-unstyled ">
-            <a class="active" href="index.php">Home |</a><!--2-->
-            <a class="active" href="view_profile.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "Profile";
-                echo '  |';} 
-            ?>
-            </a>
-            <a class="active" href="message1/message.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "Message";/*14*/
-                echo '  |';
-            }
-            ?>
-            </a>
-   
-
-            <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
-            <?php
-            if (isset($_SESSION['user_name'])) {
-                echo "Edit profile";/*14*/
-                echo '  |';
-            }
-            ?>
-            </a>
-            
-            </ul>
-        </nav>
-        <div class="pull-right rel">
-        <a class="welcom" href="view_profile.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
-               echo ''.$_SESSION['first_name'];
-               echo '  |';
-            
-            }
-            ?>
-        </a>
-        <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo'<a href="logout.php">Log out</a>';
-            }
-            else echo '<a href="login_page.php">Log in</a>';
-            ?>
-        </div>
+            <a class="active inline-block" href="index.php">Home |</a><!--2-->
+            <a href="login_page.php" class="float-right inline-block">Log in</a>
 
     </div>
 
@@ -172,13 +128,12 @@ $sthandler->execute();
     </section>
     <section class="section_message">
         <div class="wrap">
+        <?php 
+             if(isset($_POST["crop"])) { ?>
             <div class="tex_message">
-                <?php 
-                if(isset($_POST["crop"])) {
-                echo "<p>Success!</p><p> Check your mail in order to activate your account!</p>";
-                }
-                ?>
+                <p>Success!</p><p> Check your mail in order to activate your account!</p>
             </div>
+            <?php  } ?>
         </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

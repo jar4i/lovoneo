@@ -61,34 +61,39 @@ if(isset($_GET['activation_code']))
 			}
 			else
 			{
-				$message = '<label class="text-info">Your Email Address Already Verified</label>';
+				$message = '<label ">Your Email address already verified!</label>';
 			}
 		}
 	}
 	else
 	{
-		$message = '<label class="text-danger">Invalid Link</label>';
+		$message = '<label class="text-danger">Invalid Link!</label>';
 	}
 }
 
 ?>
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Register/Login </title>		
+	<head>	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Register </title>		
+		<link rel="stylesheet" href="style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	</head>
 	<body>
-		
-		<div class="container">
-			<h1 align="center"> Register confirmation</h1>
-		
-			<h3><?php echo $message; ?></h3>
-			
+	<header class="head fixed">
+		<div class="wrap">
+			<a class="active inline-block " href="index.php">Home |</a>
+			<a href="login_page.php" class="float-right inline-block">Log in</a>
 		</div>
-	
+	</header>
+	<div class="section_reg_confirm">
+		<div class="wrap">
+			<p><?php echo $message; ?></p>
+		</div>
+	</div>
+	<div class="logo2"></div>
 	</body>
-	
 </html>
