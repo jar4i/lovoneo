@@ -15,10 +15,14 @@ session_start();
 		)
 	);
 	$no_of_row = $statement->rowCount();
-	if($no_of_row > 0){$mail = $_POST['user_email']; $_SESSION['mail'] = $mail; header("location:np.php");}
+	if($no_of_row > 0){
+        $mail = $_POST['user_email']; $_SESSION['mail'] = $mail; header("location:np.php");
+$message = "";
+    
+    }
 else
 {
-echo "Email not found, try again";
+$message = "Email not found, try again";
 }
 }?>	
 		
@@ -94,6 +98,7 @@ echo "Email not found, try again";
 					<div class="panel-body rel" id="panel-body">
 						<form method="post"  id="register_form">
 							<div class="form-group ">
+                                <h4 class="text-danger"><?php echo $message; ?></h4>
 								<input type="email" name="user_email" class="form-control email" required autocomplete="off" placeholder="Username (E-mail)"/>
 							</div>
 							<div class="form-group ">

@@ -73,10 +73,11 @@ if(isset($_POST['restore'])){
 
 		</div>
 	</header>
-	<?php if(!isset($_POST['restore'])){ ?>
 	<section class="rel section_login">
 		<div class="wrap">
 			<div class="logo"></div>
+	<?php if(!isset($_POST['restore'])){ ?>
+
 			<div class="form-signin"  >
 				<div class="form-log" id="form-log">
 					<div class="panel panel-default">
@@ -95,16 +96,13 @@ if(isset($_POST['restore'])){
 					</div>
 				</div>
 			</div>
-		</div>
-	</section><?php } else { ?>
-	<section class="section_message">
-		<div class="wrap">
+			<?php } else { ?>
 			<div class="mess">
 				<p>Password was succesfully changed!</p>
 				<a href=login_page.php><div class='btn btn-danger btn-lg'>Log in</div></a>
 			</div>
+			<?php } ?>
 		</div>
 	</section>
-	<?php } ?>
 	</body>
 </html>
