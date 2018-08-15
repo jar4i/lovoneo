@@ -395,12 +395,6 @@ $sthandler->execute();
         aspectRatio: 200 / 250,
         autoCropArea: 0.65,
         restore: false,
-        guides: false,
-        center: false,
-        highlight: false,
-        cropBoxMovable: false,
-        cropBoxResizable: false,
-        toggleDragModeOnDblclick: false,
         });
         
       }).on('hidden.bs.modal', function () {

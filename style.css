@@ -2,6 +2,9 @@
 .inline-block{
   display: inline-block;
 }
+.mt-4{
+  margin-top: 40px;
+}
 .rel{
  position: relative;
 }
@@ -503,4 +506,18 @@ margin-bottom: 50px;
   width: 221px;
   height: 293px;}
     }
-  
+  .section_reg_confirm{
+    margin-top: 180px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .logo2{
+    background: url('logo.png') no-repeat;
+    background-size: cover; 
+    width: 315px;
+    height: 128px;
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+  }

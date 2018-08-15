@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(empty($_SESSION['us_id'])){
-header('location:login.php');
+header('location:login_page.php');
 }
 $user_id = $_SESSION['us_id'];
 include("config.php");
