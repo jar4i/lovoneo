@@ -214,84 +214,120 @@ right: -20px;
     margin-right: 40px !important;
 }
 /*section_question*/
-.section_question{
-  margin-top: 40px;
+.form-group label{
+  color: rgb(79, 79, 79);
 }
-.section_question label{
-  margin-bottom: 14px;
-    display: block;
-    font-size: 18px;
-
+.ico_filter1{
+  display: block;
+  padding: 4px;
+}
+.ico_filter2{
+  display: none;
+  padding: 4px;
+}
+#box_1,  #box_2,  #box_3, #box_4,  #box_5 {
+  display: none;
+}
+.btn_violet{
+  color: #fff;
+  background-color: #6e4fd9;
+  border-color: #6c2cc9;
+  font-size: 16px !important;
+}
+.btn_violet:hover, .btn:hover, .btn:focus, .btn.focus {
+  color: #fff !important;
+  background-color: #6c2cc9;
+  border-color: #6c2cc9;
+  transition: 200ms;
+  margin: 0 auto ;
+}
+.btn_save_inf{
+  margin: 10px auto;
+  text-align: center;
 }
 .form_1{
   margin: 0 auto;
+  max-width: 680px;
 }
-.input_block{
-  text-align: center;
-
+.text{
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 600;
 }
-.block_name{
-margin-right: 280px;
+.text, .ico_filter1, .ico_filter2{
+  cursor: pointer;
 }
-@media(max-width: 750px){
-  .block_name{
-    margin-right: 10px;
-    }
+.q_big_box{
+  padding: 10px;
+  border-bottom: 1px solid #000;
 }
-.block_center{
-  margin: 0 auto;
-  text-align: center;
-}
-.input_box{
-  border-bottom: 1px solid #f98989 !important;
-  margin-bottom: 20px !important;
-  margin: 0 auto;
-  width: 200px;
-}
-.input_info{
-  border: none !important;
-  font-size: 16px;
-  text-align: center;
-  color: #b33ef9;
+.q_big_box{
+  margin-top: 10px; 
 }
 .input_info:focus{
-  box-shadow:  0 7px 7px -5px #f98989 !important;
+  border-color: #b12b8f6b !important;
+  box-shadow: 0 0 0 .2rem #b12b8f56 !important;
 }
-.input_info:hover + .icon_box, .input_info:focus + .icon_box {
-  display: block !important;
+.box_fack{
+  border-bottom: 1px solid #000;
+  padding: 10px;
+}
+.section{
+  margin: 70px 0 10px;
+}
+.section_btns{
+  margin: 50px 0;
+}
+.photo-box{
+  max-width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #6e50d9;
+  border-radius: 8px;
+}
+.btn-box{
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.btn_violet{
+  color: #fff;
+  background-color: #6e4fd9;
+  border-color: #6c2cc9;
+  font-size: 16px !important;
+}
+.btn_violet:hover, .btn:hover, .btn:focus, .btn.focus {
+  color: #fff !important;
+  background-color: #6c2cc9;
+  border-color: #6c2cc9;
   transition: 200ms;
+  margin: 0 auto ;
 }
-.icon_box{
-  display: none;
-position: absolute;
-top: 0;
-right: -20px;
+label {
+  margin-bottom: 0 !important;
 }
-.block_state{
-  margin-right: 15px;
+.btn_back_box{
+  max-width: 400px;
+  margin: 0 auto;
 }
-.input_info_textarea{
-  width: 300px;
-  height: 100px;
-  resize: none;
-  border: 1px solid #ff7e7e !important;
-  color: #914ab6;
-  padding: 8px;
+.btn_back{
+  color: #a77cde !important;
 }
-.input_info_textarea:focus{
-  box-shadow: 0 0px 4px 1px #f98989 !important;
+.btn_back::before{
+  content: '←';
+  font-size: 21px;
+  color: #a77cde;
+}
+.section_drop_me{
+  margin-bottom: 70px;
 }
 .header_question{
-  font-size: 22px;
-  color: rgb(2, 2, 2);
-  font-weight: 600;
   text-align: center;
-  padding: 8px;
-  margin: 0 20px;
+  font-size: 16px;
+  font-weight: 600;
 }
-.btn_save_inf{
- margin: 35px auto;
- text-align: center;
+.section_question{
+  margin-top: 40px;
 }
 /*register_photo_upload.php*/
 .section_profile_photo{
@@ -318,7 +354,8 @@ margin-top: 80px;
 
 /*dropzone*/
 .dropzone {
-    border: 1px solid rgba(255, 0, 0, 0.55) !important;
+    border: 1px solid rgb(204, 204, 204) !important;
+    border-radius: 5px;
 }
     /*!
  * Cropper.js v1.4.1
