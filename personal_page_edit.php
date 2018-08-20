@@ -11,6 +11,7 @@
 session_start();
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
+$array = $_SESSION['array'];
 if(empty($_GET["user_activation_code"])){
 header('location:logout.php');
 }
@@ -99,7 +100,7 @@ $sthandler->execute();
             </a>
             <a class="active" href="message1/message.php"> <?php 
             if (isset($_SESSION['user_name'])) {
-                echo "Message";
+                echo $array[13];
                 echo '  |';
             }
             ?>
@@ -109,7 +110,7 @@ $sthandler->execute();
             <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['us_id'];?>">
             <?php
             if (isset($_SESSION['user_name'])) {
-                echo "Edit profile";
+                echo $array[2];
                 echo '  |';
             }
             ?>
@@ -129,9 +130,9 @@ $sthandler->execute();
         </a>
         <?php 
             if (isset($_SESSION['user_name'])) {
-                echo'<a href="logout.php">Log out</a>';
+                echo'<a href="logout.php">'.$array[3].'</a>';
             }
-            else echo '<a href="login_page.php">Log in</a>';
+            else echo '<a href="login_page.php">'.$array[4].'</a>';
             ?>
         </div>
 
@@ -149,7 +150,7 @@ $sthandler->execute();
                         <input type="file"  id="input" name="fileToUpload" >
                         <label for="input"  class="text_edit_box"> 
                             <div class="btn-add-photo"><i class="fas fa-camera"></i></div>
-                            <div class="text_edit"> Edit your profile photo</div>
+                            <div class="text_edit"> <?php echo $array[22];?></div>
                         </label>
                 </div>
                 <div class="alert" role="alert"></div>
@@ -157,7 +158,7 @@ $sthandler->execute();
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                            <h5 class="modal-title" id="modalLabel"><?php echo $array[23];?></h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
@@ -203,8 +204,8 @@ $sthandler->execute();
                                 </button>
                             </div>
                             <button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button>
-                            <button type="button" class="notablock" >Crop</button>
-                            <input type="submit" value="Upload Image" id="crop" class="btn btn-primary" name="submit">
+                            <button type="button" class="notablock" ><?php echo $array[43];?></button>
+                            <input type="submit" value="<?php echo $array[44];?>" id="crop" class="btn btn-primary" name="submit">
                         </div>
                     </div>
                 </div>
@@ -216,41 +217,41 @@ $sthandler->execute();
     <section class="section_question">
         <div class="wrap">
             <form action="" method="post" enctype="multipart/form-data" class="form_1">
-            <div class="header_question">*** Required fields ***</div>
+            <div class="header_question">*** <?php echo $array[32];?>***</title> ***</div>
                 <div class="input_block">
                     <div class="block_name inline-block">
-                        <label for="first_name">First name: </label>
+                        <label for="first_name"><?php echo $array[33];?>: </label>
                         <div class="input_box rel">
                             <input class="input_info" type="text" name="first_name" id="first_name"  value="<?php echo $row ['first_name']?>">
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
-                        <label for="last_name">Last name: </label>
+                        <label for="last_name"><?php echo $array[34];?>: </label>
                         <div class="input_box rel">
                             <input type="text" class="input_info" name="last_name" id="last_name"  value="<?php echo $row ['last_name']?>">
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
                     </div>
                     <div class="block_state inline-block">
-                        <label for="country">State: </label>
+                        <label for="country"><?php echo $array[35];?>: </label>
                         <div class="input_box rel">
                             <input type="text" class="input_info" name="country" id="country"  value="<?php echo $row ['country']?>">
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
-                        <label for="city">City: </label>
+                        <label for="city"><?php echo $array[36];?>: </label>
                         <div class="input_box rel">
                             <input type="text" class="input_info" name="city" id="city"  value="<?php echo $row ['city']?>">
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
                     </div>
                     <div class="block_center">
-                        <label for="birth_date">Birth Date: </label>
+                        <label for="birth_date"><?php echo $array[30];?>: </label>
                         <div class="input_box rel">
                             <input type="text" class="input_info" name="birth_date" id="birth_date"  value="<?php echo $row ['birth_date']?>">
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
                     </div>
                 </div>
-                <div class="header_question">*** Personal information ***</div>
+                <div class="header_question">*** <?php echo $array[37];?> ***</div>
                 <div class="input_block">
                     <div class="block_name inline-block">
 			            <label for="weight">Weight: </label>
@@ -268,29 +269,29 @@ $sthandler->execute();
                     </div>
 
                     <div class="block_center">
-                        <label for="details">About me: </label>
+                        <label for="details"><?php echo $array[38];?>: </label>
                         <div class=" rel">
-                            <textarea placeholder="Write something about yourself..." class="input_info_textarea" name="details" id="details" ><?php echo $row ['details']?></textarea>
+                            <textarea placeholder="<?php echo $array[42];?>..." class="input_info_textarea" name="details" id="details" ><?php echo $row ['details']?></textarea>
                             <div class="icon_box"><i class="fas fa-pen"></i></div>
                         </div>
                     </div>
                 </div>
             <?php endwhile;?>
                 <div class="btn_save_inf">
-                    <input type="submit" value="SAVE INFORMATION" class="btn btn-danger " name="save" id="save">
+                    <input type="submit" value="<?php echo $array[41];?>" class="btn btn-danger " name="save" id="save">
                 </div>
             </form>
         </div>
     </section>
     <section class="section_drop_me">
         <div class="wrap">
-            <div class="header_question">*** Upload photos in your albom ***</div>
+            <div class="header_question">*** <?php echo $array[39];?>  ***</div>
 
             <?php include('albums/index.php');?>
             <div class="btn_save_inf">
-                    <input type="submit" value="SAVE INFORMATION" class="btn btn-danger " onClick="history.go(0)"  name="save" id="save">
+                    <input type="submit" value="<?php echo $array[41];?>" class="btn btn-danger " onClick="history.go(0)"  name="save" id="save">
                 </div>
-            <div class="header_question">*** Delete photos from your albom ***</div>
+            <div class="header_question">*** <?php echo $array[40];?> ***</div>
 
             <div class = "view">
                 <?php
@@ -298,7 +299,7 @@ $sthandler->execute();
                 include('fotos/view1.php');?>
             </div>
             <div class="btn_save_inf">
-                <input type="submit" value="SAVE INFORMATION" class="btn btn-danger " name="save"  onClick="history.go(0)"  id="save">
+                <input type="submit" value="<?php echo $array[41];?>" class="btn btn-danger " name="save"  onClick="history.go(0)"  id="save">
             </div>
         </div>
     </section>

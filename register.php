@@ -96,28 +96,30 @@ if(isset($_POST["register"]))
 				</style>
 			</head>
 			<body style='background-color: aliceblue; margin: 0 !important; padding: 60px 0 60px 0 !important;'>
-				<table border='0' cellspacing='0' cellpadding='0' role='presentation' width='100%'>
-				<tr>
-					<td bgcolor='aliceblue' style='font-size: 0;'>&​nbsp;</td>
-					<td bgcolor='white' width='600' style='border-bottom: 1px solid gainsboro; text-align: center; color: dimgray; font-family: sans-serif; font-size: 18px; line-height: 28px; padding: 20px 40px;'>
-						<img alt='placeholder image' src='https://lovoneo.com/logo.png' height='150' width='250' style='color: white; display: block; font-family: sans-serif; font-size: 18px; font-weight: bold; height: auto; max-width: 100%; text-align: center;'>
-					</td>
-					<td bgcolor='aliceblue' style='font-size: 0;'>&​nbsp;</td>
-				</tr>
-				<tr>
-					<td bgcolor='aliceblue' style='font-size: 0;'>&​nbsp;</td>
-					<td bgcolor='white' width='600' style='border-radius: 4px; color: dimgray; font-family: sans-serif; font-size: 18px; line-height: 28px; padding: 40px 40px;'>
-						<h1 style='color: dimgray; font-size: 32px; font-weight: bold; line-height: 36px; margin: 0 0 30px 0;'>Hi, ".$_POST['user_name']."!</h1>
-						<p style='margin: 30px 0 30px 0;'>Thanks for registration!</p>
-						<p style='margin: 30px 0 30px 0;'> Your password is <span style='font-weight: 600; color: dimgray; '> ".$user_password." </span>. This password will work only after your email verification.</p>
-						<p style='margin: 30px 0 30px 0;'>Please open this link to verified your email address:</p> 
-						<a href='".$base_url."email_verification.php?activation_code=".$user_activation_code."' style='font-weight: bold; color: deeppink !important;'> lovoneo.com</a>
-						<p style='color: dimgray;  line-height: 36px;'>Best Regards,<br />Lovoneo</p><!--32-->
-						<img alt='placeholder image' src='https://m.lovoneo.com/tupo_logo2.png' height='80' width='600' style='color: white; display: block; font-family: sans-serif; font-size: 18px; font-weight: bold; height: auto; max-width: 100%; width: 100%; text-align: center;'>
-					</td>
-					<td bgcolor='aliceblue' style='font-size: 0;'>&​nbsp;</td>
-				</tr>
-				</table>
+rder='0' cellspacing='0' cellpadding='0' role='presentation' width='100%'>
+                                <tr>
+                                        <td bgcolor='aliceblue' style='font-size: 0;'>&<200b>nbsp;</td>
+                                        <td bgcolor='white' width='600' style='border-bottom: 1px solid gainsboro; text-align: center; color: dimgray; font-family: sans-serif; font-size: 18px; line-height: 28px; padding: 20px 40px;'>
+                                                <img alt='placeholder image' src='https://lovoneo.com/logo.png' height='150' width='250' style='color: white; display: block; font-family: sans-serif; font-size: 18px; font-weight: bold; height: auto; max-width: 100%; text-align: center;'>
+                                        </td>
+                                        <td bgcolor='aliceblue' style='font-size: 0;'>&<200b>nbsp;</td>
+                                </tr>
+                                <tr>
+                                        <td bgcolor='aliceblue' style='font-size: 0;'>&<200b>nbsp;</td>
+                                        <td bgcolor='white' width='600' style='border-radius: 4px; color: dimgray; font-family: sans-serif; font-size: 18px; line-height: 28px; padding: 40px 40px;'>
+                                                <h1 style='color: dimgray; font-size: 32px; font-weight: bold; line-height: 36px; margin: 0 0 30px 0;'>Hi, ".$_POST['user_name']."!</h1>
+                                                <p style='margin: 30px 0 30px 0;'>Thanks for registration!</p>
+                                                <p style='margin: 30px 0 30px 0;'> Your password is <span style='font-weight: 600; color: dimgray; '> ".$user_password." </span>. This password will work only after your email verification.</p>
+                                                <p style='margin: 30px 0 30px 0;'>Please open this link to verified your email address:</p> 
+                                                <a href='".$base_url."email_verification.php?activation_code=".$user_activation_code."' style='font-weight: bold; color: deeppink !important;'> lovoneo.com</a>
+                                                <p style='color: dimgray;  line-height: 36px;'>Best Regards,<br />Lovoneo</p><!--32-->
+                                                <img alt='placeholder image' src='https://m.lovoneo.com/tupo_logo2.png' height='80' width='600' style='color: white; display: block; font-family: sans-serif; font-size: 18px; font-weight: bold; height: auto; max-width: 100%; width: 100%; text-align: center;'>
+                                        </td>
+                                        <td bgcolor='aliceblue' style='font-size: 0;'>&<200b>nbsp;</td>
+                                </tr>
+                                </table>
+
+			
 			</body>";
 			$mail = new PHPMailer;
 			$mail->SMTPDebug = 0;

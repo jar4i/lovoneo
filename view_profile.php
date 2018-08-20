@@ -4,6 +4,7 @@ if(empty($_SESSION['us_id'])){
 header('location:login_page.php');
 }
 $user_id = $_SESSION['us_id'];
+$array = $_SESSION['array'];
 include("config.php");
 $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
 $sthandler = $con->prepare("SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , first_name, last_name, country, city, details, height, weight, profile_foto FROM register_user WHERE user_id = '$user_id'");
@@ -44,7 +45,7 @@ $sthandler->execute();
                         </a>
                         <a class="active" href="message1/message.php"> <?php 
                         if (isset($_SESSION['user_name'])) {
-                            echo "Massage";
+                            echo $array[13];
                             echo '  |';
                         }
                         ?>
@@ -52,8 +53,8 @@ $sthandler->execute();
                         <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
                         <?php
                         if (isset($_SESSION['user_name'])) {
-                            echo "Edit profile";
-                            echo '  |';
+                        echo $array[2];    
+			echo '  |';
                         }
                         ?>
                         </a>
@@ -76,9 +77,9 @@ $sthandler->execute();
                         <a class="active2" >
                             <?php 
                             if (isset($_SESSION['user_name'])) {
-                                echo'<a href="logout.php">Log out</a>';
+                                echo'<a href="logout.php">'.$array[3].'</a>';
                             }
-                            else echo '<a href="login_page.php">Log in</a>';
+                            else echo '<a href="login_page.php">'.$array[4].'</a>';
                             ?>
                         </a>
                     </div>
@@ -128,14 +129,14 @@ $sthandler->execute();
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                         <div class="info">
-                            <div class="info-info"><span class="key">First name: </span><?php echo $row ['first_name'] ?></div>
-                            <div class="info-info"><span class="key">Last name: </span><?php echo $row ['last_name'] ?></div>
-                            <div class="info-info"><span class="key">Age: </span><?php echo $row ['age'] ?> y.o</div>
-                            <div class="info-info"><span class="key">City: </span><?php echo $row ['city'] ?></div>
-                            <div class="info-info"><span class="key">Country: </span><?php echo $row ['country'] ?></div>
+                            <div class="info-info"><span class="key"><?php echo $array[33]?>:</span><?php echo $row ['first_name'] ?></div>
+                            <div class="info-info"><span class="key"><?php echo $array[34]?>: </span><?php echo $row ['last_name'] ?></div>
+                            <div class="info-info"><span class="key"><?php echo $array[45]?>: </span><?php echo $row ['age'] ?> y.o</div>
+                            <div class="info-info"><span class="key"><?php echo $array[36]?>: </span><?php echo $row ['city'] ?></div>
+                            <div class="info-info"><span class="key"><?php echo $array[35]?>: </span><?php echo $row ['country'] ?></div>
                             <div class="info-info"><span class="key">Height: </span><?php echo $row ['height'] ?></div>
                             <div class="info-info"><span class="key">Weight: </span><?php echo $row ['weight'] ?></div>
-                            <div class="info-info"><span class="key">About me: </span><?php echo $row ['details'] ?></div>
+                            <div class="info-info"><span class="key"><?php echo $array[38]?>: </span><?php echo $row ['details'] ?></div>
                         </div>
                         <?php endwhile;?>
                     </div>
