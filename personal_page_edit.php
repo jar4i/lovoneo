@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="personal_page_edit.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.4.1/cropper.css">
+    <link rel="stylesheet" href="cropper.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 </head>
 <?php
@@ -216,89 +216,106 @@ $sthandler->execute();
     <section class="section_question">
         <div class="wrap">
             <form action="" method="post" enctype="multipart/form-data" class="form_1">
-            <div class="header_question">*** Required fields ***</div>
-                <div class="input_block">
-                    <div class="block_name inline-block">
-                        <label for="first_name">First name: </label>
-                        <div class="input_box rel">
-                            <input class="input_info" type="text" name="first_name" id="first_name"  value="<?php echo $row ['first_name']?>">
-                            <div class="icon_box"><i class="fas fa-pen"></i></div>
-                        </div>
-                        <label for="last_name">Last name: </label>
-                        <div class="input_box rel">
-                            <input type="text" class="input_info" name="last_name" id="last_name"  value="<?php echo $row ['last_name']?>">
-                            <div class="icon_box"><i class="fas fa-pen"></i></div>
-                        </div>
+                <div class="first_box" >
+                    <div class="box_fack" onclick="Open('1')">
+                        <div class="text">Basic <i class="fas fa-pencil-alt"></i></div>
+                        <div class="float-right ico_filter1" id="ic_11"><i class="fas fa-plus"></i></div>
+                        <div class="float-right ico_filter2" id="ic_21"><i class="fas fa-minus"></i></div>
                     </div>
-                    <div class="block_state inline-block">
-                        <label for="country">State: </label>
-                        <div class="input_box rel">
-                            <input type="text" class="input_info" name="country" id="country"  value="<?php echo $row ['country']?>">
-                            <div class="icon_box"><i class="fas fa-pen"></i></div>
+                    <div id="box_1" class="q_big_box">
+                        <div class="form-group">
+                            <label for="first_name">First name: </label>
+                            <input class="input_info form-control" type="text" name="first_name" id="first_name"  value="<?php echo $row ['first_name']?>">
                         </div>
-                        <label for="city">City: </label>
-                        <div class="input_box rel">
-                            <input type="text" class="input_info" name="city" id="city"  value="<?php echo $row ['city']?>">
-                            <div class="icon_box"><i class="fas fa-pen"></i></div>
+                        <div class="form-group">
+                            <label for="last_name">Last name: </label>
+                            <input type="text" class="input_info form-control" name="last_name" id="last_name"  value="<?php echo $row ['last_name']?>">
                         </div>
-                    </div>
-                    <div class="block_center">
-                        <label for="birth_date">Birth Date: </label>
-                        <div class="input_box rel">
-                            <input type="text" class="input_info" name="birth_date" id="birth_date"  value="<?php echo $row ['birth_date']?>">
-                            <div class="icon_box"><i class="fas fa-pen"></i></div>
+                        <div class="form-group">
+                            <label for="country">State: </label>
+                            <input type="text" class="input_info form-control" name="country" id="country"  value="<?php echo $row ['country']?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City: </label>
+                            <input type="text" class="input_info form-control" name="city" id="city"  value="<?php echo $row ['city']?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="birth_date">Birth Date: </label>
+                            <input type="text" class="input_info form-control" name="birth_date" id="birth_date"  value="<?php echo $row ['birth_date']?>">
                         </div>
                     </div>
                 </div>
-                <div class="header_question">*** Personal information ***</div>
-                <div class="input_block">
-                    <div class="block_name inline-block">
-			            <label for="weight">Weight: </label>
-                        <div class="input_box rel">
-                            <input type="text" class="input_info" name="weight" id="weight"  value="<?php echo $row ['weight']?>">
-                            <div class="icon_box"><i class="fas fa-pen"></i></div>
+                <div class="first_box">
+                    <div class="box_fack" onclick="Open('2')">
+                        <div class="text"  >Body type <i class="fas fa-pencil-alt"></i></div>
+                        <div class="float-right ico_filter1"   id="ic_12"><i class="fas fa-plus"></i></div>
+                        <div class="float-right ico_filter2"   id="ic_22"><i class="fas fa-minus"></i></div>
+                    </div>
+                    <div id="box_2" class="q_big_box">
+                        <div class="form-group">
+                            <label for="weight">Weight: </label>
+                            <input type="text" class="input_info form-control" name="weight" id="weight"  value="<?php echo $row ['weight']?>">
+                        </div>
+                        <div class="form-group">
+                        <label for="height">Height: </label>
+                            <input type="text" class="input_info form-control" name="height" id="height"  value="<?php echo $row ['height']?>">
                         </div>
                     </div>
-                    <div class="block_state inline-block">
-			            <label for="height">Height: </label>
-                        <div class="input_box rel">
-                            <input type="text" class="input_info" name="height" id="height"  value="<?php echo $row ['height']?>">
-                            <div class="icon_box"><i class="fas fa-pen"></i></div>
-                        </div>
+                </div>
+                <div class="first_box" >
+                    <div class="box_fack"  onclick="Open('3')">
+                        <div class="text">More info <i class="fas fa-pencil-alt"></i></div>
+                        <div class="float-right ico_filter1"  id="ic_13"><i class="fas fa-plus"></i></div>
+                        <div class="float-right ico_filter2"  id="ic_23"><i class="fas fa-minus"></i></div>
                     </div>
-
-                    <div class="block_center">
+                    <div id="box_3" class="q_big_box">
+                        <div class="form-group">
                         <label for="details">About me: </label>
-                        <div class=" rel">
-                            <textarea placeholder="Write something about yourself..." class="input_info_textarea" name="details" id="details" ><?php echo $row ['details']?></textarea>
-                            <div class="icon_box"><i class="fas fa-pen"></i></div>
+                            <textarea placeholder="Write something about yourself..." class="form-control input_info" name="details" id="details" ><?php echo $row ['details']?></textarea>
                         </div>
                     </div>
                 </div>
-            <?php endwhile;?>
                 <div class="btn_save_inf">
-                    <input type="submit" value="SAVE INFORMATION" class="btn btn-danger " name="save" id="save">
+                        <input type="submit" value="SAVE" class="btn btn_violet " name="save" id="save">
                 </div>
+                    <?php endwhile;?>
             </form>
         </div>
     </section>
     <section class="section_drop_me">
         <div class="wrap">
-            <div class="header_question">*** Upload photos in your albom ***</div>
-
-            <?php include('albums/index.php');?>
-            <div class="btn_save_inf">
-                    <input type="submit" value="SAVE INFORMATION" class="btn btn-danger " onClick="history.go(0)"  name="save" id="save">
+            <div class="form_1">
+                <div class="first_box" >
+                    <div class="box_fack"  onclick="Open('4')">
+                        <div class="text">Upload photos in your albom <i class="fas fa-file-upload"></i></div>
+                        <div class="float-right ico_filter1"  id="ic_14"><i class="fas fa-plus"></i></div>
+                        <div class="float-right ico_filter2"  id="ic_24"><i class="fas fa-minus"></i></div>
+                    </div>
+                    <div id="box_4" class="q_big_box">
+                        <?php include('albums/index.php');?>
+                        <div class="btn_save_inf">
+                            <input type="submit" value="RELOAD" class="btn btn_violet" onClick="history.go(0)"  name="save" id="save">
+                        </div>
+                    </div>
                 </div>
-            <div class="header_question">*** Delete photos from your albom ***</div>
-
-            <div class = "view">
-                <?php
-                $user_id=$_SESSION["us_id"];
-                include('fotos/view1.php');?>
-            </div>
-            <div class="btn_save_inf">
-                <input type="submit" value="SAVE INFORMATION" class="btn btn-danger " name="save"  onClick="history.go(0)"  id="save">
+                
+                <div class="first_box" >
+                    <div class="box_fack"  onclick="Open('5')">
+                        <div class="text">Delete photos from your albom <i class="fas fa-trash-alt"></i></div>
+                        <div class="float-right ico_filter1"  id="ic_15"><i class="fas fa-plus"></i></div>
+                        <div class="float-right ico_filter2"  id="ic_25"><i class="fas fa-minus"></i></div>
+                    </div>
+                    <div id="box_5" class="q_big_box">
+                        <div class = "view">
+                            <?php
+                            $user_id=$_SESSION["us_id"];
+                            include('fotos/view1.php');?>
+                        </div>
+                        <div class="btn_save_inf">
+                            <input type="submit" value="RELOAD" class="btn btn_violet" name="save"  onClick="history.go(0)"  id="save">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -426,6 +443,23 @@ $(document).ready(function(){
         $('._nav').slideToggle();
     });
 });
+</script>
+<script>
+    function OpCl(numb){
+
+        if($("#ic_1" + numb).css("display") == "none"){
+            $("#ic_1" + numb).css("display", "block");
+            $("#ic_2" + numb).css("display", "none");
+         }
+         else{
+            $("#ic_2" + numb).css("display", "block");
+            $("#ic_1" + numb).css("display", "none");
+         };
+    }
+     function Open(numb){
+         $("#box_" + numb).slideToggle();
+         OpCl(numb);
+};
 </script>
 </body>
 

@@ -5,9 +5,6 @@
 		<link href="fotos/css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
-		<section class="section_view" id="view">
-			<div class="wrap">
-				<div class="container">			
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<?php
@@ -47,9 +44,6 @@
 							?>					
 						</div>
 					</div>
-				</div>
-			</div>
-		</section>
 		
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="fotos/js/jQuery.js"></script>
