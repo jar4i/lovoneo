@@ -9,7 +9,16 @@ if(preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|c
 header('Location: https://m.lovoneo.com/');
 
 ?>
+<?php
+include("connection.php");
+if(isset($_POST['en'])){$query = $conn->query("SELECT phrase FROM en");}
+else{$query = $conn->query("SELECT phrase FROM de");}
+$array = Array();
 
+while($result = $query->fetch_assoc()){
+    $array[] = $result['phrase'];
+}
+?>
 
 <?php
 
@@ -23,22 +32,6 @@ $_SESSION['age1'] = $_POST['amount'];
 
 ?>
 <?php
-/*
-include("connection.php");
-if(isset($_POST['de'])){$query1 = $conn->query("SELECT phrase FROM de"); $_SESSION['lang'] = $query1;}
-elseif(isset($_POST['en'])){$query2 = $conn->query("SELECT phrase FROM en"); $_SESSION['lang'] = $query2;}
-else{$query3 = $query2; $_SESSION['lang'] = $query3;}
-
-if($_SESSION['lang'] == $query1){$query = $query1;}
-elseif($_SESSION['lang'] == $query2){$query = $query2;}
-else{$query = $query3;}
-
-$array = Array();
-while($result = $query->fetch_assoc()){
-    $array[] = $result['phrase'];
-}
-
-*/
 
 ?>
 <head>
