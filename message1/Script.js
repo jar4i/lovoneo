@@ -13,6 +13,9 @@ $(document).ready(function(){
                 error.text(data);
                 $("#message").val("");
             });
+            setTimeout(function(){
+                $("body, html").scrollTop($(".display-message")[0].scrollHeight);    
+            }, 800);
         }
     });
     c_id = $("#conversation_id").val();
@@ -20,5 +23,8 @@ $(document).ready(function(){
         $(".display-message").load("get_message_ajax.php?c_id="+c_id);
     }, 2000);
  
-    $(".display-message").scrollTop($(".display-message")[0].scrollHeight);
+    setTimeout(function(){
+        $("body, html").scrollTop($(".display-message")[0].scrollHeight);    
+    }, 2040);
+
 });

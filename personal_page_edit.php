@@ -302,7 +302,7 @@ $sthandler->execute();
                 
                 <div class="first_box" >
                     <div class="box_fack"  onclick="Open('5')">
-                        <div class="text"><?php echo $array[40];?><i class="fas fa-trash-alt"></i></div>
+                        <div class="text"><?php echo $array[40];?> <i class="fas fa-trash-alt"></i></div>
                         <div class="float-right ico_filter1"  id="ic_15"><i class="fas fa-plus"></i></div>
                         <div class="float-right ico_filter2"  id="ic_25"><i class="fas fa-minus"></i></div>
                     </div>
