@@ -10,20 +10,26 @@ header('Location: https://m.lovoneo.com/');
 
 ?>
 <?php
+
+session_start();
 include("connection.php");
-if(isset($_POST['en'])){$query = $conn->query("SELECT phrase FROM en");}
-else{$query = $conn->query("SELECT phrase FROM de");}
+
+if($_POST['de']){$_SESSION['lang'] = 1;}
+else if($_POST['en']){$_SESSION['lang'] = 2;}
+if($_SESSION['lang'] == 1){$query = $conn->query("SELECT * FROM de");}
+else if($_SESSION['lang'] == 2){$query = $conn->query("SELECT * FROM en");}
+else{$query = $conn->query("SELECT * FROM en");}
 $array = Array();
-$_SESSION['array'] = $array;
 
 while($result = $query->fetch_assoc()){
     $array[] = $result['phrase'];
+
+$_SESSION['array'] = $array;
 }
 ?>
 
 <?php
 
-session_start();
 
 if (isset($_POST['search'])) { 
 $_SESSION['age1'] = $_POST['amount'];

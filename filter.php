@@ -60,7 +60,7 @@ $array = $_SESSION['array'];
                 <div id="slider-range"></div>
             </div>
             <div class="form-group search-btn-block">
-                <input class="search-btn btn btn-lg btn-danger" id="search" onclick="location.href = 'search_form.php';" type="submit" name="search" value="Search"><!--20-->
+	<input class="search-btn btn btn-lg btn-danger" id="search" onclick="location.href = 'search_form.php';" type="submit" name="search" value="<?php echo $array[19];?>"><!--20-->
             </div>
         </form>
     </div>

@@ -3,6 +3,7 @@ include("database_connection.php");
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
 session_start();
+$array = $_SESSION['array'];
 if(isset($_POST['restore'])){
 	
 	$user_password = $_POST['user_password'];
@@ -84,10 +85,10 @@ if(isset($_POST['restore'])){
 						<div class="panel-body rel" id="panel-body">
 							<form method="post"  id="register_form">
 								<div class="form-group ">
-									<input type="password" name="user_password" class="form-control email" required autocomplete="off" placeholder="Enter Your new password"/>
+									<input type="password" name="user_password" class="form-control email" required autocomplete="off" placeholder="<?php echo $array[52];?> "/>
 								</div>
 								<div class="form-group ">
-									<input type="submit" name="restore" id="restore" value="Restore" class="btn btn-danger login-btn" />
+									<input type="submit" name="restore" id="restore" value="<?php echo $array[46]; ?>" class="btn btn-danger login-btn" />
 								</div>
 
 							</form>
@@ -98,7 +99,7 @@ if(isset($_POST['restore'])){
 			</div>
 			<?php } else { ?>
 			<div class="mess">
-				<p>Password was succesfully changed!</p>
+				<p><?php echo $array[53]; ?></p>
 				<a href=login_page.php><div class='btn btn-danger btn-lg'>Log in</div></a>
 			</div>
 			<?php } ?>

@@ -3,7 +3,8 @@
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
 
-
+session_start();
+$array = $_SESSION['array'];
 include("class.phpmailer.php");
 include("class.smtp.php");
 include("database_connection.php");
@@ -60,9 +61,9 @@ if(isset($_POST["register"]))
 				':first_name'    		=>      $_POST['user_name'],
 				':last_name'    		=>      '',
 				':country'    			=>      '',
-				':city'    			    =>      '',
+				':city'    			 =>      '',
 				':profile_foto'    		=>      'uploads/default.png',
-                ':details'   			=>      '',
+                		':details'   			=>      '',
 				':gender'   			=>      $_POST['gender'],
 				':weight'   			=>      '',
 				':height'   			=>      ''
@@ -71,8 +72,6 @@ if(isset($_POST["register"]))
 
 
 
-		session_start();
-		$array = $_SESSION['array'];
 		
 		$result = $statement->fetchAll();
 			
@@ -108,9 +107,9 @@ rder='0' cellspacing='0' cellpadding='0' role='presentation' width='100%'>
                                         <td bgcolor='aliceblue' style='font-size: 0;'>&<200b>nbsp;</td>
                                         <td bgcolor='white' width='600' style='border-radius: 4px; color: dimgray; font-family: sans-serif; font-size: 18px; line-height: 28px; padding: 40px 40px;'>
                                                 <h1 style='color: dimgray; font-size: 32px; font-weight: bold; line-height: 36px; margin: 0 0 30px 0;'>Hi, ".$_POST['user_name']."!</h1>
-                                                <p style='margin: 30px 0 30px 0;'>Thanks for registration!</p>
-                                                <p style='margin: 30px 0 30px 0;'> Your password is <span style='font-weight: 600; color: dimgray; '> ".$user_password." </span>. This password will work only after your email verification.</p>
-                                                <p style='margin: 30px 0 30px 0;'>Please open this link to verified your email address:</p> 
+                                                <p style='margin: 30px 0 30px 0;'>$array[48]</p>
+                                                <p style='margin: 30px 0 30px 0;'> $array[49] <span style='font-weight: 600; color: dimgray; '> ".$user_password." </span>$array[50]</p>
+                                                <p style='margin: 30px 0 30px 0;'>$array[51]:</p> 
                                                 <a href='".$base_url."email_verification.php?activation_code=".$user_activation_code."' style='font-weight: bold; color: deeppink !important;'> lovoneo.com</a>
                                                 <p style='color: dimgray;  line-height: 36px;'>Best Regards,<br />Lovoneo</p><!--32-->
                                                 <img alt='placeholder image' src='https://m.lovoneo.com/tupo_logo2.png' height='80' width='600' style='color: white; display: block; font-family: sans-serif; font-size: 18px; font-weight: bold; height: auto; max-width: 100%; width: 100%; text-align: center;'>
@@ -212,9 +211,9 @@ rder='0' cellspacing='0' cellpadding='0' role='presentation' width='100%'>
         </a>
         <?php 
             if (isset($_SESSION['user_name'])) {
-                echo'<a href="logout.php">Log out</a>';
+                echo'<a href="logout.php">'.$array[3].'</a>';
             }
-            else echo '<a href="login_page.php">Log in</a>';
+            else echo '<a href="login_page.php">'.$array[4].'</a>';
             ?>
         </div>
 
@@ -229,18 +228,18 @@ rder='0' cellspacing='0' cellpadding='0' role='presentation' width='100%'>
 						<form method="post" id="register_form">
 							<?php echo $message; ?>
 							<div class="form-group">
-								<label for="user_name">User Name</label><!--27-->
+								<label for="user_name"><?php echo $array[26]; ?></label><!--27-->
 								<input type="text" name="user_name" id="user_name" class="form-control email" value="<?php echo isset($_POST['user_name']) ? $_POST['user_name'] : '' ?>" pattern="[a-zA-Z ]+" required />
 							</div>
 							<div class="form-group">
-								<label for="user_email">User Email</label><!--28-->
+								<label for="user_email"><?php echo $array[27]; ?></label><!--28-->
 								<input type="email" name="user_email" id="user_email" class="form-control email" value="<?php echo isset($_POST['user_email']) ? $_POST['user_email'] : '' ?>" required />
 							</div>
 							<div class="form-group">
-								<label for="user_password">Your Password</label><!--29-->
+								<label for="user_password"><?php echo $array[28]; ?></label><!--29-->
 								<input type="password" name="user_password" id="user_password" class="form-control password" value="<?php echo isset($_POST['user_password']) ? $_POST['user_password'] : '' ?>" required />
               </div>
-              <label for="gender">Gender</label><!--30-->
+              <label for="gender"><?php echo $array[29]; ?></label><!--30-->
               <div class="input-group">
                 <select class="custom-select" id="gender" name="gender">
 									<option value="male">male</option>
@@ -248,13 +247,13 @@ rder='0' cellspacing='0' cellpadding='0' role='presentation' width='100%'>
                 </select>
               </div>
 							<div class="form-group">
-								<label for="birth_date">Birthday</label><!--31-->
+								<label for="birth_date"><?php echo $array[30] ;?></label><!--31-->
 								<input type="date" name="birth_date" id="birth_date" class="form-control email" value="<?php echo isset($_POST['birth_date']) ? $_POST['birth_date'] : '' ?>" required />
 							</div>
 
 							<div class="form-group">
 								<input type="submit" name="register" id="register" value="Register" class="btn btn-danger inline-block register-btn" />
-								<a  href="login_page.php" class="login-link inline-block btn btn-danger ">Log in</a><!--31-->
+								<a  href="login_page.php" class="login-link inline-block btn btn-danger "><?php echo $array[4]; ?></a><!--31-->
 							</div>
 						</form>
 					</div>

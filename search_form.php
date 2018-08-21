@@ -39,7 +39,7 @@ $sthandler->execute();
             </a>
             <a class="active" href="message1/message.php"> <?php 
             if (isset($_SESSION['user_name'])) {
-                echo "Massage";
+                echo $array[13];
                 echo '  |';
             }
             ?>
@@ -49,7 +49,7 @@ $sthandler->execute();
             <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
             <?php
             if (isset($_SESSION['user_name'])) {
-                echo "Edit profile";
+                echo $array[2];
                 echo '  |';
             }
             ?>
@@ -69,9 +69,9 @@ $sthandler->execute();
         </a>
         <?php 
             if (isset($_SESSION['user_name'])) {
-                echo'<a href="logout.php">Log out</a>';
+                echo'<a href="logout.php">'.$array[3].'</a>';
             }
-            else echo '<a href="login_page.php">Log in</a>';
+            else echo '<a href="login_page.php">'.$array[4].'</a>';
             ?>
         </div>
 
@@ -97,7 +97,7 @@ $sthandler->execute();
                     <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
                         <div class=" form-log ">
                         <?php
-                            session_start();
+                            
                                 if (isset($_POST['search'])){
                                 $_SESSION['age1'] = $_POST['amount'];
                                 $_SESSION['age2'] = $_POST['amount-2'];

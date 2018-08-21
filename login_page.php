@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$array = $_SESSION['array'];
 ?>
 <head>
 <title>LOVONEO | FIND YOUR LOVE</title>
@@ -25,7 +25,7 @@ session_start();
             </a>
             <a class="active" href="message1/message.php"> <?php 
             if (isset($_SESSION['user_name'])) {
-                echo "Massage";
+                echo $array[13];
                 echo '  |';
             }
             ?>
@@ -35,7 +35,7 @@ session_start();
             <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
             <?php
             if (isset($_SESSION['user_name'])) {
-                echo "Edit profile";
+                echo $array[2];
                 echo '  |';
             }
             ?>
@@ -55,9 +55,9 @@ session_start();
         </a>
         <?php 
             if (isset($_SESSION['user_name'])) {
-                echo'<a href="logout.php">Log out</a>';
+                echo'<a href="logout.php">'.$array[3].'</a>';
             }
-            else echo '<a href="login_page.php">Log in</a>';
+            else echo '<a href="login_page.php">'.$array[4].'</a>';
             ?>
         </div>
 

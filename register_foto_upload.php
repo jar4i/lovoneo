@@ -1,6 +1,7 @@
 
 <?php 
 session_start();
+$array = $_SESSION['array'];
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
 if(empty($_GET["user_activation_code"])){
@@ -60,7 +61,7 @@ $sthandler->execute();
                         <input type="file"  id="input" name="fileToUpload" >
                         <label for="input"  class="text_edit_box"> 
                             <div class="btn-add-photo"><i class="fas fa-camera"></i></div>
-                            <div class="text_edit"> Edit your profile photo</div>
+		    <div class="text_edit"><?php echo $array[22];?> </div>
                         </label>
                 </div>
                 <div class="alert" role="alert"></div>
@@ -68,7 +69,7 @@ $sthandler->execute();
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+                            <h5 class="modal-title" id="modalLabel"><?php echo $array[43];?></h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
@@ -113,8 +114,8 @@ $sthandler->execute();
                                     </span>
                                 </button>
                             </div>
-                            <button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button>
-                            <button type="button" class="notablock" >Crop</button>
+                            <button type="button" class="btn btn-default " data-dismiss="modal"><?php $array[24];?></button>
+                            <button type="button" class="notablock" ><?php $array[25];?></button>
                             <input type="submit" value="Upload Image" id="crop" class="notablock" name="cro">
 				            <input type="submit" value="Upload Image" id="cro" class="btn btn-primary" name="crop">
                         </div>
@@ -131,7 +132,7 @@ $sthandler->execute();
         <?php 
              if(isset($_POST["crop"])) { ?>
             <div class="tex_message">
-                <p>Success!</p><p> Check your mail in order to activate your account!</p>
+                <p><?php echo $array[54]; ?></p><p><?php echo $array[55];?></p>
             </div>
             <?php  } ?>
         </div>

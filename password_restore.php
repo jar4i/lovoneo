@@ -1,9 +1,11 @@
 <?php
 include("database_connection.php");
-error_reporting(E_ALL | E_STRICT);
-ini_set('display_errors', 'On');
-if(isset($_POST['restore'])){
+
 session_start();
+
+$array = $_SESSION['array'];
+if(isset($_POST['restore'])){
+
 	$query = "
 	SELECT * FROM register_user 
 	WHERE user_email = :user_email
@@ -22,15 +24,17 @@ $message = "";
     }
 else
 {
-$message = "Email not found, try again";
+$message = $array[47];
 }
-}?>	
+}
+
+?>	
 		
 
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Restore password </title>		
+		<title> <?php echo $array[46] ?>  </title>		
 		<link rel="stylesheet" href="restore_pass.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 <meta charset="UTF-8">
@@ -40,7 +44,6 @@ $message = "Email not found, try again";
 	<header class="head fixed">
     <div class="wrap">
         <nav class="pull_left">
-        
             <ul class="list-unstyled ">
             <a class="active" href="index.php">Home |</a>
             <a class="active" href="view_profile.php"> <?php 
@@ -81,9 +84,9 @@ $message = "Email not found, try again";
         </a>
         <?php 
             if (isset($_SESSION['user_name'])) {
-                echo'<a href="logout.php">Log out</a>';
+                echo'<a href="logout.php">'.$array[3].'</a>';
             }
-            else echo '<a href="login_page.php">Log in</a>';
+            else echo '<a href="login_page.php">'.$array[4].'</a>';
             ?>
         </div>
 
@@ -99,10 +102,10 @@ $message = "Email not found, try again";
 						<form method="post"  id="register_form">
 							<div class="form-group ">
                                 <h4 class="text-danger"><?php echo $message; ?></h4>
-								<input type="email" name="user_email" class="form-control email" required autocomplete="off" placeholder="Username (E-mail)"/>
+								<input type="email" name="user_email" class="form-control email" required autocomplete="off" placeholder="<?php echo $array[26];?> (E-mail)"/>
 							</div>
 							<div class="form-group ">
-								<input type="submit" name="restore" id="restore" value="Restore password" class="btn btn-danger login-btn" />
+								<input type="submit" name="restore" id="restore" value="<?php echo $array[46];?>" class="btn btn-danger login-btn" />
 							</div>
 
 						</form>

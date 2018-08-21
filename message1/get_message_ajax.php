@@ -6,6 +6,7 @@ session_start();
         $conversation_id = $_GET['c_id'];
         //fetch all the messages of $user_id(loggedin user) and $user_two from their conversation
         $q = mysqli_query($con, "SELECT * FROM `messages` WHERE conversation_id='$conversation_id'");
+
         //check their are any messages
         if(mysqli_num_rows($q) > 0){
             while ($m = mysqli_fetch_assoc($q)) {
@@ -19,7 +20,6 @@ session_start();
                 $user_fetch = mysqli_fetch_assoc($user);
                 $user_from_username = $user_fetch['user_name'];
                 $user_from_img = $user_fetch['profile_foto'];
- 
                 //display the message
                 // echo "
                 //    <div class='message'>
@@ -57,6 +57,18 @@ session_start();
                             </div>
 
                     ";
+			 echo '
+       <script type="text/javascript">
+         function hideMsg()
+         {
+            document.getElementById("popup").style.visibility = "hidden";
+         }
+
+         document.getElementById("popup").style.visibility = "visible";
+         window.setTimeout("hideMsg()", 2000);
+       </script>';
+
+
                 }
               echo "</div>";
  
@@ -66,4 +78,37 @@ session_start();
         }
     }
  
+?>
+
+<div id="popup">
+    message
+</div> 
+
+<style>
+
+#popup {
+    visibility: hidden; 
+    background-color: red; 
+    position: absolute;
+    top: 10px;
+    z-index: 100; 
+    height: 100px;
+    width: 300px
+}
+</style>
+
+
+<?php 
+define('COUNT_MESSAGES', '0');
+if(::COUNT_MESSAGES == 0){ 
+$countsql = mysqli_query($con, "SELECT COUNT(user_to) FROM messages WHERE user_to = '$user_to' AND conversation_id = '$conversation_id'");
+while ($count = mysqli_fetch_array($countsql)) {
+$count_mess = $count[0];
+define('COUNT_MESSAGES', $count_mess);
+}
+$count_messages  = mysqli_query($con, "SELECT COUNT(user_to) FROM messages WHERE user_to = '$user_to' AND conversation_id = '$conversation_id'");
+while ($count = mysqli_fetch_array($countsql)) {
+$count_messages = $count[0]; 
+
+}
 ?>
