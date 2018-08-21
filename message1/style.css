@@ -275,7 +275,7 @@ hr{
   
   border: 1px solid #1a1a1a;
   border-radius: 10px;
-  max-width: 250px;
+  max-width: 450px;
   word-wrap: break-word;
 }
 .message_right {
@@ -394,6 +394,8 @@ font-size: 18px !important;
   text-align: center;
   padding-left: 20px;
   color: #1a1a1a;
+  font-size: 20px;
+  font-weight: 600;
 }
 .text_box_1:hover {
   color: #000000;
