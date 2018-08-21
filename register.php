@@ -2,7 +2,15 @@
 //register.php
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
+include("connection.php");
+if(isset($_POST['en'])){$query = $conn->query("SELECT phrase FROM en");}
+else{$query = $conn->query("SELECT phrase FROM de");}
+$array = Array();
+$_SESSION['array'] = $array;
 
+while($result = $query->fetch_assoc()){
+    $array[] = $result['phrase'];
+}
 
 include("class.phpmailer.php");
 include("class.smtp.php");
@@ -72,7 +80,7 @@ if(isset($_POST["register"]))
 
 
 		session_start();
-		$array = $_SESSION['array'];
+		
 		
 		$result = $statement->fetchAll();
 			
@@ -160,6 +168,7 @@ rder='0' cellspacing='0' cellpadding='0' role='presentation' width='100%'>
 
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="menu.css">
 
 		<title><?php echo $array[21];?></title><!--22-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -169,57 +178,69 @@ rder='0' cellspacing='0' cellpadding='0' role='presentation' width='100%'>
 	</head>
 	<body>
 	<header class="head fixed">
-    <div class="wrap">
-        <nav class="pull_left">
-        
-            <ul class="list-unstyled ">
-            <a class="active" href="index.php">Home |</a><!--2-->
-            <a class="active" href="view_profile.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "Profile";
-                echo '  |';} 
-            ?>
-            </a>
-            <a class="active" href="message1/message.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "Message";/*14*/
-                echo '  |';
-            }
-            ?>
-            </a>
-   
-
-            <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
-            <?php
-            if (isset($_SESSION['user_name'])) {
-                echo "Edit profile";/*14*/
-                echo '  |';
-            }
-            ?>
-            </a>
-            
-            </ul>
-        </nav>
-        <div class="pull-right rel">
-        <a class="welcom" href="view_profile.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
-               echo ''.$_SESSION['first_name'];
-               echo '  |';
-            
-            }
-            ?>
-        </a>
-        <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo'<a href="logout.php">Log out</a>';
-            }
-            else echo '<a href="login_page.php">Log in</a>';
-            ?>
+    <div class="wrap rel">
+        <div class="menu">
+            <div class="menu_left">
+                <div class="hamburger pull-left _hamburger">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+                <nav class=" hero-nav pull_left _nav">
+                    <ul class="list-unstyled ">
+                        <a class="active" href="index.php"><?php echo $array[1];?> |</a><!--2-->
+                        <a class="active" href="view_profile.php"> <?php 
+                        if (isset($_SESSION['user_name'])) {
+                            echo "Profile";
+                            echo '  |';} 
+                        ?>
+                        </a>
+                        <a class="active" href="message1/message.php"> <?php 
+                        if (isset($_SESSION['user_name'])) {
+                            echo $array[13];
+                            echo '  |';
+                        }
+                        ?>
+                        </a>
+                        <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
+                        <?php
+                        if (isset($_SESSION['user_name'])) {
+                            echo $array[2];
+                            echo '  |';
+                        }
+                        ?>
+                        </a>
+                
+                    </ul>
+                </nav>
+            </div>
+            <div class="right_side_menu rel">
+                <form method="post" class="active2 language_box ">
+                    <input class="active2 language" name="en" value="en"  type="submit">
+                    /
+                    <input class="active2 language" name="de" value="de"  type="submit">
+                </form>
+                   <?php 
+                    if (isset($_SESSION['user_name'])) {
+                        echo "<a class='active2 rel' href='view_profile.php'>
+                                <div class='inlne-block profile_photo_menu_box'>
+                                    <img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> 
+                                </div>
+                            </a>";
+                        echo "<a class='active2' href='view_profile.php'>";
+                        echo ''.$_SESSION['first_name'];
+                        echo "</a>";
+                    }
+                    ?> 
+                <a class="active2" >
+                    <?php 
+                    if (isset($_SESSION['user_name'])) {
+                        echo"<a href='logout.php'>$array[3]</a>";/*4*/
+                    }
+                    else echo "<a href='login_page.php'>$array[4]</a>";/*5*/
+                    ?>
+                </a>
+            </div>
         </div>
-
     </div>
-
 </header>
 		<section class="section_register rel">
 			<div class="wrap" >
