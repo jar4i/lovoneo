@@ -24,108 +24,6 @@
     margin: 0 auto;
   }
 
-/*menu*/
-.active2{
-    display: inline-block;
-    color: #fff;
-    padding-right: 10px; 
-    }
-    .language{
-      border: none !important;
-      background: none;
-      color: #fff;
-      padding: 0 !important;
-      }
-      .language_box{
-        position: absolute;
-        left: -90%;
-        width: 60px;
-      }
-    .language:hover{
-      text-decoration: none !important;
-      color: #ffafaf !important;
-      transition: 400ms;
-      }
-  .hamburger {
-    color: #ffffff;
-    font-size: 2rem;
-    cursor: pointer;
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-bottom: 15px;
-  }
-  
-  .active{
-    display: inline-block;
-    padding-right: 10px; 
-  }
-  
-  .right_side_menu{
-    position: absolute;
-    top: 0;
-    right: 10px;
-  }
-  .welcom{
-    cursor: pointer;
-    position: absolute;
-    left: -75px;
-  }
-  .profile_photo_menu_box{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    position: absolute;
-    left: -36px;
-    top: -22px;
-  }
-  .profile_photo_menu{
-    width: 40px;
-    height: 50px;
-  }
-  .head{
-    background: linear-gradient(to top left,#8918ce, #3d5de4);
-    opacity: 0.94 ; 
-    width: 100%;
-    padding: 20px 5px; 
-    font-size: 16px;
-    top:0;
-    z-index: 1000;
-    min-height: 60px;
-  }
-  
-  .pull-right{
-    display: inline-block;
-  }
-  .li-item{
-    margin-left: 10px;
-    padding-right: 5px; 
-    color: #ffffff;
-  }
-  .li-item::after{
-    content: "|";
-    padding-left: 10px; 
-  }
-  .li-item:hover{
-  color: #ffafaf;
-  transition: 400ms;
-  }
-  .head a{
-    color: #ffffff !important;
-  }
-  .head a:hover,
-  .head a:focus,
-  .head a:active {
-      text-decoration: none !important;
-      color: #ffafaf !important;
-      transition: 400ms;
-    }
-  
-  ul{
-    margin-bottom: 0 !important;
-  }
 /*message*/
 *login*/
 .login-container{
@@ -275,7 +173,7 @@ hr{
   
   border: 1px solid #1a1a1a;
   border-radius: 10px;
-  max-width: 250px;
+  max-width: 450px;
   word-wrap: break-word;
 }
 .message_right {
@@ -394,6 +292,8 @@ font-size: 18px !important;
   text-align: center;
   padding-left: 20px;
   color: #1a1a1a;
+  font-size: 20px;
+  font-weight: 600;
 }
 .text_box_1:hover {
   color: #000000;
