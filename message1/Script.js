@@ -14,7 +14,7 @@ $(document).ready(function(){
                 $("#message").val("");
             });
             setTimeout(function(){
-                $("body, html").scrollTop($(".display-message")[0].scrollHeight);    
+                $(".display-message").scrollTop($(".display-message")[0].scrollHeight);    
             }, 800);
         }
     });
@@ -24,7 +24,7 @@ $(document).ready(function(){
     }, 2000);
  
     setTimeout(function(){
-        $("body, html").scrollTop($(".display-message")[0].scrollHeight);    
+        $(".display-message").scrollTop($(".display-message")[0].scrollHeight);    
     }, 2040);
 
 });
