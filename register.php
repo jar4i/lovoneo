@@ -203,9 +203,8 @@ rder='0' cellspacing='0' cellpadding='0' role='presentation' width='100%'>
             </div>
             <div class="right_side_menu rel">
                 <form method="post" class="active2 language_box ">
-                    <input class="active2 language" name="en" value="en"  type="submit">
-                    /
-                    <input class="active2 language" name="de" value="de"  type="submit">
+				<input class="language1  language" name="en" value=""  type="submit">
+                    <input class="language2  language" name="de" value=""  type="submit">
                 </form>
                    <?php 
                     if (isset($_SESSION['user_name'])) {
