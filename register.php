@@ -111,7 +111,6 @@ rder='0' cellspacing='0' cellpadding='0' role='presentation' width='100%'>
                                                 <p style='margin: 30px 0 30px 0;'>$array[51]:</p> 
                                                 <a href='".$base_url."email_verification.php?activation_code=".$user_activation_code."' style='font-weight: bold; color: deeppink !important;'> lovoneo.com</a>
                                                 <p style='color: dimgray;  line-height: 36px;'>Best Regards,<br />Lovoneo</p><!--32-->
-                                                <img alt='placeholder image' src='https://m.lovoneo.com/tupo_logo2.png' height='80' width='600' style='color: white; display: block; font-family: sans-serif; font-size: 18px; font-weight: bold; height: auto; max-width: 100%; width: 100%; text-align: center;'>
                                         </td>
                                         <td bgcolor='aliceblue' style='font-size: 0;'>&<200b>nbsp;</td>
                                 </tr>
