@@ -59,15 +59,6 @@ echo $update_img;
 ?>
 <?php
 $user_activation_code= $_GET["user_activation_code"];
-include("connection.php");
-if(isset($_POST['en'])){$query = $conn->query("SELECT phrase FROM en");}
-else{$query = $conn->query("SELECT phrase FROM de");}
-$array = Array();
-$_SESSION['array'] = $array;
-
-while($result = $query->fetch_assoc()){
-    $array[] = $result['phrase'];
-}
 if(isset($_POST["save"])) {
 $birth_date = $_POST['birth_date'];
 $weight = $_POST['weight'];
