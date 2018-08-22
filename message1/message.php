@@ -1,16 +1,8 @@
 <?php
     //connect to the database
     require_once("connect.php");
-    include("../connection.php");
-    if(isset($_POST['en'])){$query = $conn->query("SELECT phrase FROM en");}
-    else{$query = $conn->query("SELECT phrase FROM de");}
-    $array = Array();
-    $_SESSION['array'] = $array;
-    
-    while($result = $query->fetch_assoc()){
-        $array[] = $result['phrase'];
-    }
-    session_start();
+session_start();
+$array = $_SESSION['array'];
     //shop not login  users from entering
     if(isset($_SESSION['us_id'])){
         $user_id = $_SESSION['us_id'];

@@ -2,7 +2,6 @@
 include('database_connection.php');
 session_start();
 include("connection.php");
-$_SESSION['array'] = $array;
 $array = $_SESSION['array'];
 if(isset($_POST["login"]))
 {

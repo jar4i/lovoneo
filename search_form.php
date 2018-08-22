@@ -3,15 +3,6 @@ session_start();
 $array = $_SESSION['array'];
 $user_id=$_GET["user_id"];
 include("config.php");
-include("connection.php");
-if(isset($_POST['en'])){$query = $conn->query("SELECT phrase FROM en");}
-else{$query = $conn->query("SELECT phrase FROM de");}
-$array = Array();
-$_SESSION['array'] = $array;
-
-while($result = $query->fetch_assoc()){
-    $array[] = $result['phrase'];
-}
 $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
 $sthandler = $con->prepare("SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) AS age , first_name, last_name, country, city, details, height, weight, profile_foto FROM register_user WHERE user_id = '$user_id'");
 $sthandler->execute();

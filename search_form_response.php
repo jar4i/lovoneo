@@ -4,7 +4,7 @@ error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
 session_start();
 include('connection.php');
-
+$array = $_SESSION['array'];
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
 $start_from = ($page-1) * $limit;  
 

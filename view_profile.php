@@ -1,14 +1,6 @@
 <?php
 session_start();
-include("connection.php");
-if(isset($_POST['en'])){$query = $conn->query("SELECT phrase FROM en");}
-else{$query = $conn->query("SELECT phrase FROM de");}
-$array = Array();
-$_SESSION['array'] = $array;
-
-while($result = $query->fetch_assoc()){
-    $array[] = $result['phrase'];
-}
+$array = $_SESSION['array'];
 if(empty($_SESSION['us_id'])){
 header('location:login_page.php');
 }

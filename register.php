@@ -2,12 +2,6 @@
 //register.php
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
-include("connection.php");
-if(isset($_POST['en'])){$query = $conn->query("SELECT phrase FROM en");}
-else{$query = $conn->query("SELECT phrase FROM de");}
-$array = Array();
-$_SESSION['array'] = $array;
-
 session_start();
 $array = $_SESSION['array'];
 include("class.phpmailer.php");
