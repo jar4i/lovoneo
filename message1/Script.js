@@ -5,11 +5,12 @@ $(document).ready(function(){
             conversation_id = $("#conversation_id").val(),
             user_from = $("#user_from").val(),
             user_to = $("#user_to").val(),
+		status = $("#status").val(),
             error = $("#error");
  
         if((message != "") && (conversation_id != "") && (user_from != "") && (user_to != "")){
             error.text("Sending...");
-            $.post("post_message_ajax.php",{message:message,conversation_id:conversation_id,user_from:user_from,user_to:user_to}, function(data){
+            $.post("post_message_ajax.php",{message:message,conversation_id:conversation_id,user_from:user_from,user_to:user_to,status:status}, function(data){
                 error.text(data);
                 $("#message").val("");
             });

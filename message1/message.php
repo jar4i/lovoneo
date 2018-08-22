@@ -171,11 +171,12 @@ $array = $_SESSION['array'];
                         
                         <!-- /display message -->
                         <!-- send message -->
-                        <div class="send-message">
+                        <div class="send-message" > <?php $status = 0; ?>
                             <!-- store conversation_id, user_from, user_to so that we can send send this values to post_message_ajax.php -->
                             <input type="hidden" id="conversation_id" value="<?php echo $conversation_id; ?>">
                             <input type="hidden" id="user_from" value="<?php echo $user_id; ?>">
                             <input type="hidden" id="user_to" value="<?php echo $user_two; ?>">
+			    <input type="hidden" id="status" value="0">
                             <div class="form-group">
                                 <textarea class="form-control" id="message" placeholder="Enter Your Message"></textarea>
                                 <div class=" btn_violet" id="reply"><i class="fas fa-arrow-alt-circle-right"></i></div>
