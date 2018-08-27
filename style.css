@@ -138,8 +138,13 @@ margin-top: 10px;
 .panel-2{
   width: 218px !important;
 }
+.labeles-div{
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-around;
+}
 .labeles {
-  margin-left: 16px !important;
+  margin-left: 0 !important;
 }
 #amount, #amount-2{
     top: -12px !important;  
