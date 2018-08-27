@@ -20,6 +20,10 @@
     padding-right: 20px;
     margin: 0 auto;
   }
+  a{
+    text-decoration: none !important;
+    color: #111010 !important;
+  }
   .mt-8{
     margin-top: 80px;
   }
@@ -183,14 +187,14 @@ right: -20px;
   margin: 50px 0;
 }
 .photo-box{
-  max-width: 400px;
+  max-width: 600px;
   margin: 0 auto;
   overflow: hidden;
   border: 1px solid #6e50d9;
   border-radius: 8px;
 }
 .btn-box{
-  max-width: 400px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -211,7 +215,7 @@ label {
   margin-bottom: 0 !important;
 }
 .btn_back_box{
-  max-width: 400px;
+  max-width: 600px;
   margin: 0 auto;
 }
 .btn_back{

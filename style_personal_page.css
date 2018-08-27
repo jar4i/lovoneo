@@ -218,7 +218,10 @@ border-radius: 15px;
   font-size: 18px;
   padding: 0 8px; 
 }
-
+a{
+  text-decoration: none !important;
+  color: #111010 !important;
+}
 #likes{
   display: flex !important;
   flex-direction: row;
