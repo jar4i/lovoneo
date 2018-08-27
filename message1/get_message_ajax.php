@@ -19,6 +19,7 @@ session_start();
                 $user_fetch = mysqli_fetch_assoc($user);
                 $user_from_username = $user_fetch['user_name'];
                 $user_from_img = $user_fetch['profile_foto'];
+ 
                 //display the message
                 // echo "
                 //    <div class='message'>
@@ -51,18 +52,11 @@ session_start();
                                     {$message}
                                 </div>
                                 <div class='sk_l'></div>
+
                             </div>
                             </div>
+
                     ";
-			 echo '
-       <script type="text/javascript">
-         function hideMsg()
-         {
-            document.getElementById("popup").style.visibility = "hidden";
-         }
-         document.getElementById("popup").style.visibility = "visible";
-         window.setTimeout("hideMsg()", 2000);
-       </script>';
                 }
               echo "</div>";
  
@@ -71,36 +65,9 @@ session_start();
             echo "No Messages";
         }
     }
-$user_to1 = $_SESSION['us_id']; 
-        $conversation_id = $_GET['c_id'];
-                $f_num_m = 0;
-$countsql = mysqli_query($con, "SELECT COUNT(*) FROM messages WHERE user_to = '$user_to1' AND conversation_id = '$conversation_id'");
-while ($count = mysqli_fetch_array($countsql)) {
-$count_mess = $count[0]; 
-define('MESS', $count_mess);
-echo MESS; 
-}
-$new_count_mess = MESS;
-$countsql1  = mysqli_query($con, "SELECT COUNT(user_to) FROM messages WHERE user_to = '$user_to1' AND conversation_id = '$conversation_id'");
-while ($count1 = mysqli_fetch_array($countsql1)) {
-$count_messages = $count1[0];
-}
-$diff = $count_messages - $new_count_mess;
+
+$query = mysqli_query($con, "SELECT * FROM `messages` WHERE conversation_id='$conversation_id'");
+        //check their are any messages
+        if(mysqli_num_rows($q) > 0){
  
 ?>
-
-<div id="popup">
-    message
-</div> 
-
-<style>
-#popup {
-    visibility: hidden; 
-    background-color: red; 
-    position: absolute;
-    top: 10px;
-    z-index: 100; 
-    height: 100px;
-    width: 300px
-}
-</style>

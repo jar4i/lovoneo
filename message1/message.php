@@ -1,15 +1,17 @@
 <?php
     //connect to the database
     require_once("connect.php");
-session_start();
-$array = $_SESSION['array'];
+
+    session_start();
     //shop not login  users from entering
     if(isset($_SESSION['us_id'])){
         $user_id = $_SESSION['us_id'];
     }else{
         header("Location: ../login_page.php");
-    }
-?><!DOCTYPE html>
+    } 
+$array = $_SESSION['array'];
+?>
+<!DOCTYPE html>
 <html>
 <head>
     
@@ -59,135 +61,58 @@ $array = $_SESSION['array'];
             <div class="right_side_menu rel">
                 <form method="post" class="active2 language_box ">
                 <input class="language1  language" name="en" value=""  type="submit">
-                    <input class="language2  language" name="de" value=""  type="submit">
-                </form>
-                   <?php 
-                    if (isset($_SESSION['user_name'])) {
-                        echo "<a class='active2 rel' href='../view_profile.php'>
-                                <div class='inlne-block profile_photo_menu_box'>
-                                    <img class='profile_photo_menu' src='../".$_SESSION['profile_foto']."'> 
-                                </div>
-                            </a>";
-                        echo "<a class='active2' href='../view_profile.php'>";
-                        echo ''.$_SESSION['first_name'];
-                        echo "</a>";
-                    }
-                    ?> 
-                <a class="active2" >
-                    <?php 
-                    if (isset($_SESSION['user_name'])) {
-                        echo"<a href='../logout.php'>$array[3]</a>";/*4*/
-                    }
-                    else echo "<a href='../login_page.php'>$array[4]</a>";/*5*/
-                    ?>
-                </a>
-            </div>
-        </div>
+                <input class="language2  language" name="de" value=""  type="submit">
+        </form>
     </div>
 </header>
-<div class="section_dial">
+<div class="section_mes">
     <div class="wrap">
-        <div class="message-body">
-            <div class="message-left">
-                <ul>
-                    <?php
-                        //show all the users expect me
-                
-                        $q = mysqli_query($con, "SELECT * FROM `register_user` WHERE user_id!='$user_id'");
-                        //display all the results
-                        while($row = mysqli_fetch_assoc($q)){
-                            echo "
-                            <a href='message.php?user_id={$row['user_id']}'>
-                                <li class='li'>
-                                    <div class='img_box '>
-                                        <img src='../{$row['profile_foto']}'>
-                                    </div>
-                                    <div class='text_box '>
-                                       {$row['first_name']} {$row['last_name']}
-                                    </div>
-                                    <div><i class='fas fa-pencil-alt'></i></div>
-                                </li>
-                            </a>
-                            ";
-                        }
-                        ?>
-                        </ul>
-                    </div>
-                    <div class="message-right">
-                        <!-- display message -->
-                        <?php
-                        if(isset($_GET['user_id'])){
-                            $user_two1 = trim(mysqli_real_escape_string($con, $_GET['user_id']));
-                        $q2 = mysqli_query($con, "SELECT * FROM `register_user` WHERE user_id ='$user_two1'");
-                                    while($row1 = mysqli_fetch_assoc($q2)){ echo "
-                                        <div class='send-message'>
-                                            <div class='box_b'>
-                                                <a href='../personal_page.php?user_id={$row1['user_id']}'>
-                                                    <div class='img_box '>
-                                                        <img src='../{$row1['profile_foto']}'>
-                                                    </div></a>
-                                                    <a href='../personal_page.php?user_id={$row1['user_id']}'><div class='text_box_1 '>
-                                                    {$row1['first_name']} {$row1['last_name']}
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                            ";}}
-                        ?>
-                        <div class="display-message">
-                       
-
-                        <?php
-                            //check $_GET&#91;'id'&#93; is set
-                            if(isset($_GET['user_id'])){
-                                $user_two = trim(mysqli_real_escape_string($con, $_GET['user_id']));
-                                //check $user_two is valid
-                                $q = mysqli_query($con, "SELECT `user_id` FROM `register_user` WHERE user_id='$user_two' AND user_id!='$user_id'");
-                                //valid $user_two
-                                if(mysqli_num_rows($q) == 1){
-                                    //check $user_id and $user_two has conversation or not if no start one
-                                    $conver = mysqli_query($con, "SELECT * FROM `conversation` WHERE (user_one='$user_id' AND user_two='$user_two') OR (user_one='$user_two' AND user_two='$user_id')");
-                                    //they have a conversation
-                                    if(mysqli_num_rows($conver) == 1){
-                                        //fetch the converstaion id
-                                        $fetch = mysqli_fetch_assoc($conver);
-                                        $conversation_id = $fetch['id'];
-                                    }else{ //they do not have a conversation
-                                        //start a new converstaion and fetch its id
-                                        $q = mysqli_query($con, "INSERT INTO conversation (user_one, user_two) VALUES ('$user_id', '$user_two')");
-                                        $conversation_id = mysqli_insert_id($con);
-                                    }
-                                    
-                                }else{
-                                    die("Invalid $_GET ID.");
-                                }
-                            }else {
-                                die("Click On the Person to start Chating.");
-                            }
-                        ?>
-                        </div>
-                        
-                        <!-- /display message -->
-                        <!-- send message -->
-                        <div class="send-message" > <?php $status = 0; ?>
-                            <!-- store conversation_id, user_from, user_to so that we can send send this values to post_message_ajax.php -->
-                            <input type="hidden" id="conversation_id" value="<?php echo $conversation_id; ?>">
-                            <input type="hidden" id="user_from" value="<?php echo $user_id; ?>">
-                            <input type="hidden" id="user_to" value="<?php echo $user_two; ?>">
-			    <input type="hidden" id="status" value="0">
-                            <div class="form-group">
-                                <textarea class="form-control" id="message" placeholder="Enter Your Message"></textarea>
-                                <div class=" btn_violet" id="reply"><i class="fas fa-arrow-alt-circle-right"></i></div>
+        <div class="mess-box ">
+            <?php
+                $q = mysqli_query($con, "SELECT * FROM `register_user` WHERE user_id!='$user_id'");//show all the users expect me
+                while($row = mysqli_fetch_assoc($q)){ //display all the results ?>
+                <a href="dialog.php?user_id= <?php echo $row['user_id']?>">
+                    <div class="box_us row">
+                        <div class="col-xs-4">
+                            <div class="img_us_box ">
+                                <img class="img_us " src="../<?php echo $row['profile_foto']?>"> 
                             </div>
-                </div>
-                <!-- / send message -->
-            </div>
+                        </div>
+                        <div class="col-xs-8 ">
+                            <div class="name_us rel">
+                                <div class="inline-block"><?php echo $row['first_name']; echo " "; echo $row['last_name'];?></div>
+                                <div class="inline-block pencil"><i class="fas fa-pencil-alt"></i></div>
+                            </div>
+                        </div>
+                    </div>   
+                </a>
+            <?php }?>
         </div>
     </div>
 </div>
-    
+
+<footer class="foot fixed">
+    <div class="wrap">
+        <?php 
+        if (isset($_SESSION['user_name'])) {
+            echo "<a class='linka inline-block linka2' href='message.php'><i class='far fa-comments'></i></a>";
+        }
+        else{
+            echo "<a href='../login_page.php' class='linka inline-block'>Log in</a>";
+        }
+        ?>
+        
+        <a href="../search_form.php" class="linka inline-block">Search</a>
+        <?php 
+        if (isset($_SESSION['user_name'])) {
+            echo "<a class='linka inline-block linka2' href='../view_profile.php'><i class='far fa-user'></i></a>";
+        }
+        else{
+            echo "<a href='../register.php' class='linka inline-block'>Register</a>";
+        }
+        ?>
+    </div>
+</footer>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="Script.js"></script>
 </body>
 </html>

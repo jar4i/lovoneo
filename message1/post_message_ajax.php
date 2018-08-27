@@ -8,11 +8,10 @@ ini_set('display_errors', 'On');
         $conversation_id = mysqli_real_escape_string($con, $_POST['conversation_id']);
         $user_from = mysqli_real_escape_string($con, $_POST['user_from']);
         $user_to = mysqli_real_escape_string($con, $_POST['user_to']);
-	$status = mysqli_real_escape_string($con, $_POST['status']);
  
        
         //insert into `messages`
-        $q = mysqli_query($con, "INSERT INTO messages (conversation_id, user_from, user_to, message, status VALUES ('$conversation_id','$user_from','$user_to','$message', '$status')");
+        $q = mysqli_query($con, "INSERT INTO messages (conversation_id, user_from, user_to, message, message_status) VALUES ('$conversation_id','$user_from','$user_to','$message', 1)");
         if($q){
             echo "Posted";
         }else{
@@ -20,3 +19,4 @@ ini_set('display_errors', 'On');
         }
     }
 ?>
+
