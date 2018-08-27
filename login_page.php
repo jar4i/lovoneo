@@ -24,7 +24,7 @@ $array = $_SESSION['array'];
                         <a class="active" href="index.php"><?php echo $array[1];?> |</a><!--2-->
                         <a class="active" href="view_profile.php"> <?php 
                         if (isset($_SESSION['user_name'])) {
-                            echo "Profile";
+                            echo $array[60];
                             echo '  |';} 
                         ?>
                         </a>

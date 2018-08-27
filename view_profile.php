@@ -39,7 +39,7 @@ $sthandler->execute();
                         <a class="active" href="index.php"><?php echo $array[1];?> |</a><!--2-->
                         <a class="active" href="view_profile.php"> <?php 
                         if (isset($_SESSION['user_name'])) {
-                            echo "Profile";
+                            echo $array[60];
                             echo '  |';} 
                         ?>
                         </a>
@@ -126,7 +126,7 @@ $sthandler->execute();
                             $like_to = $_SESSION['us_id'];
                             $pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
                             $nLikes = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
-                            echo "$nLikes people like your profile."; 
+                            echo "$array[61] $nLikes $array[62]"; 
                             ?>
                         </div>
                     </div>

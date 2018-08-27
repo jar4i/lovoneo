@@ -94,7 +94,7 @@ $sthandler->execute();
                         <a class="active" href="index.php"><?php echo $array[1];?> |</a><!--2-->
                         <a class="active" href="view_profile.php"> <?php 
                         if (isset($_SESSION['user_name'])) {
-                            echo "Profile";
+                            echo $array[60];
                             echo '  |';} 
                         ?>
                         </a>
@@ -227,7 +227,7 @@ $sthandler->execute();
             <form action="" method="post" enctype="multipart/form-data" class="form_1">
                 <div class="first_box" >
                     <div class="box_fack" onclick="Open('1')">
-                        <div class="text">Basic <i class="fas fa-pencil-alt"></i></div>
+                        <div class="text"><?php echo $array[63];?>: <i class="fas fa-pencil-alt"></i></div>
                         <div class="float-right ico_filter1" id="ic_11"><i class="fas fa-plus"></i></div>
                         <div class="float-right ico_filter2" id="ic_21"><i class="fas fa-minus"></i></div>
                     </div>
@@ -256,24 +256,24 @@ $sthandler->execute();
                 </div>
                 <div class="first_box">
                     <div class="box_fack" onclick="Open('2')">
-                        <div class="text"  >Body type <i class="fas fa-pencil-alt"></i></div>
+                        <div class="text"  ><?php echo $array[64];?>:<i class="fas fa-pencil-alt"></i></div>
                         <div class="float-right ico_filter1"   id="ic_12"><i class="fas fa-plus"></i></div>
                         <div class="float-right ico_filter2"   id="ic_22"><i class="fas fa-minus"></i></div>
                     </div>
                     <div id="box_2" class="q_big_box">
                         <div class="form-group">
-                            <label for="weight">Weight: </label>
+                            <label for="weight"><?php echo $array[57];?>: </label>
                             <input type="text" class="input_info form-control" name="weight" id="weight"  value="<?php echo $row ['weight']?>">
                         </div>
                         <div class="form-group">
-                        <label for="height">Height: </label>
+                        <label for="height"><?php echo $array[56];?>: </label>
                             <input type="text" class="input_info form-control" name="height" id="height"  value="<?php echo $row ['height']?>">
                         </div>
                     </div>
                 </div>
                 <div class="first_box" >
                     <div class="box_fack"  onclick="Open('3')">
-                        <div class="text">More info <i class="fas fa-pencil-alt"></i></div>
+                        <div class="text"><?php echo $array[65];?>:<i class="fas fa-pencil-alt"></i></div>
                         <div class="float-right ico_filter1"  id="ic_13"><i class="fas fa-plus"></i></div>
                         <div class="float-right ico_filter2"  id="ic_23"><i class="fas fa-minus"></i></div>
                     </div>

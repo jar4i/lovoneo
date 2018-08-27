@@ -8,7 +8,8 @@
         $user_id = $_SESSION['us_id'];
     }else{
         header("Location: ../login_page.php");
-    }
+    } 
+$array = $_SESSION['array'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,8 +25,41 @@
 <body>
 <header class="head fixed">
     <div class="wrap rel">
-        <div class="logo_box"><a href="../index.php"><div class="logo"></div></a></div> 
-        <form method="post" class="  language_box ">
+        <div class="menu">
+            <div class="menu_left">
+                <div class="hamburger pull-left _hamburger">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+                <nav class=" hero-nav pull_left _nav">
+                    <ul class="list-unstyled ">
+                        <a class="active" href="../index.php"><?php echo $array[1];?> |</a><!--2-->
+                        <a class="active" href="../view_profile.php"> <?php 
+                        if (isset($_SESSION['user_name'])) {
+                            echo $array[60];
+                            echo '  |';} 
+                        ?>
+                        </a>
+                        <a class="active" href="message.php"> <?php 
+                        if (isset($_SESSION['user_name'])) {
+                            echo $array[13];
+                            echo '  |';
+                        }
+                        ?>
+                        </a>
+                        <a class="active" href="../personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
+                        <?php
+                        if (isset($_SESSION['user_name'])) {
+                            echo $array[2];
+                            echo '  |';
+                        }
+                        ?>
+                        </a>
+                
+                    </ul>
+                </nav>
+            </div>
+            <div class="right_side_menu rel">
+                <form method="post" class="active2 language_box ">
                 <input class="language1  language" name="en" value=""  type="submit">
                 <input class="language2  language" name="de" value=""  type="submit">
         </form>

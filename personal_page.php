@@ -34,7 +34,7 @@ $sthandler->execute();
                         <a class="active" href="index.php"><?php echo $array[1];?> |</a><!--2-->
                         <a class="active" href="view_profile.php"> <?php 
                         if (isset($_SESSION['user_name'])) {
-                            echo "Profile";
+                            echo $array[60];
                             echo '  |';} 
                         ?>
                         </a>
@@ -154,14 +154,14 @@ $sthandler->execute();
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                         <div class="info">
-                            <div class="info-info"><span class="key">First name: </span><?php echo $row ['first_name'] ?></div>
-                            <div class="info-info"><span class="key">Last name: </span><?php echo $row ['last_name'] ?></div>
-                            <div class="info-info"><span class="key">Age: </span><?php echo $row ['age'] ?> y.o</div>
-                            <div class="info-info"><span class="key">City: </span><?php echo $row ['city'] ?></div>
-                            <div class="info-info"><span class="key">Country: </span><?php echo $row ['country'] ?></div>
-                            <div class="info-info"><span class="key">Height: </span><?php echo $row ['height'] ?></div>
-                            <div class="info-info"><span class="key">Weight: </span><?php echo $row ['weight'] ?></div>
-                            <div class="info-info"><span class="key">About me: </span><?php echo $row ['details'] ?></div>
+                            <div class="info-info"><span class="key"><?php echo $array[33]; ?>: </span><?php echo $row ['first_name'] ?></div>
+                            <div class="info-info"><span class="key"><?php echo $array[34]; ?>: </span><?php echo $row ['last_name'] ?></div>
+                            <div class="info-info"><span class="key"><?php echo $array[45]; ?>: </span><?php echo $row ['age'] ?> y.o</div>
+                            <div class="info-info"><span class="key"><?php echo $array[36]; ?>: </span><?php echo $row ['city'] ?></div>
+                            <div class="info-info"><span class="key"><?php echo $array[35]; ?>: </span><?php echo $row ['country'] ?></div>
+                            <div class="info-info"><span class="key"><?php echo $array[56]; ?>: </span><?php echo $row ['height'] ?></div>
+                            <div class="info-info"><span class="key"><?php echo $array[57]; ?>: </span><?php echo $row ['weight'] ?></div>
+                            <div class="info-info"><span class="key"><?php echo $array[38]; ?>: </span><?php echo $row ['details'] ?></div>
                         </div>
                         <?php endwhile;?>
                     </div>
@@ -173,7 +173,7 @@ $sthandler->execute();
                         </div> 
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <h3 class="center">See also</h3><!--21-->
+                        <h3 class="center"><?php echo $array[20]; ?></h3><!--21-->
                         <div class="section-slide" id="section-slide">
                             <div id="_slick-icons">
                             </div>
