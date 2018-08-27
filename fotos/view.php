@@ -9,7 +9,7 @@
 	</head>
 <body>
 	<section class="section_view" id="view">
-		<h3 class="txt_alb">Albom:</h3>
+		<h3 class="txt_alb"><?php echo $array[58]; ?></h3>
 				<!-- Modal -->
 		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
@@ -52,7 +52,7 @@
 					}}
 					else{
 				?>
-				<p>There are no images uploaded to display.</p>
+				<p><?php echo $array[59]; ?></p>
 				<?php
 					}
 				?>	
