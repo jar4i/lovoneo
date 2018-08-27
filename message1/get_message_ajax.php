@@ -65,9 +65,13 @@ session_start();
             echo "No Messages";
         }
     }
+$user_id = $_SESSION['us_id'];
+$query = mysqli_query($con, "SELECT * FROM `messages` WHERE user_to='$user_id' AND message_status=1");
+$tot_mess = mysqli_num_rows($query);
+$query_new =  mysqli_query($con, "SELECT COUNT(*) FROM `messages` WHERE user_to='$user_id' AND message_status=1");
+while($new_mess = mysqli_fetch_array($query_new)){
+$displ_mess = $new_mess[0];
+echo $displ_mess;
+}
 
-$query = mysqli_query($con, "SELECT * FROM `messages` WHERE conversation_id='$conversation_id'");
-        //check their are any messages
-        if(mysqli_num_rows($q) > 0){
- 
 ?>
