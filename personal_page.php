@@ -127,29 +127,32 @@ $sthandler->execute();
                             <img src="<?php echo $row ['profile_foto']?>" class="photo-person">
                         </div>
                         <form method="post" value="like" id="likes">
-                        <?php
-                            if(isset($_POST['like'])){
-                            $like_to= $_GET['user_id'];
-                            $like_from = $_SESSION['us_id'];
-                            $pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
-                            $nRows = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
-                            if($nRows == 0){
-                            $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-                            $ins = $con->prepare("INSERT INTO likes (like_from, like_to) VALUES ('$like_from', '$like_to')");
-                            $ins->execute();
-                            }
-                            }
-                        ?>
-                        <div class="likes_amount inline-block">
-                            <?php
-                            $like_to= $_GET['user_id'];
-                            $pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
-                            $nLikes = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
-                            echo $nLikes; 
-                            ?>
-                        </div>
-                        <input class="like_none"  type="submit"  id="likek" name="like">
-                        <label for="likek" name="like" id="like" class="like inline-block"><i class="fas fa-heart"></i></label>
+                            <div class="block">
+                                <?php
+                                    if(isset($_POST['like'])){
+                                    $like_to= $_GET['user_id'];
+                                    $like_from = $_SESSION['us_id'];
+                                    $pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
+                                    $nRows = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
+                                    if($nRows == 0){
+                                    $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+                                    $ins = $con->prepare("INSERT INTO likes (like_from, like_to) VALUES ('$like_from', '$like_to')");
+                                    $ins->execute();
+                                    }
+                                    }
+                                ?>
+                                <div class="likes_amount inline-block">
+                                    <?php
+                                    $like_to= $_GET['user_id'];
+                                    $pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
+                                    $nLikes = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
+                                    echo $nLikes; 
+                                    ?>
+                                </div>
+                                <input class="like_none"  type="submit"  id="likek" name="like">
+                                <label for="likek" name="like" id="like" class="like inline-block"><i class="fas fa-heart"></i></label>
+                            </div>
+                            <a href="message1/message.php?user_id=<?php echo $user_id; ?>" class="btn btn-danger"><?php echo $array[66]; ?></a>
                     </form> 
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">

@@ -219,7 +219,13 @@ border-radius: 15px;
   padding: 0 8px; 
 }
 
-
+#likes{
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 235px !important;
+    align-items: center;
+}
 /*login*/
 
 .form-signin #panel-body{
@@ -228,7 +234,9 @@ border-radius: 15px;
 .section-control #panel-body{
   padding: 0 !important;
 }
-
+.label{
+  margin-bottom: 0 !important;
+}
 
 .form-group, .fg-pass{
   margin-left: 15%;
@@ -352,10 +360,7 @@ margin-top: 20px;}
     margin: 0 auto;
 
   }
-  #likes{
-    margin: 0 auto;
-    text-align: center;
-  }
+
   .info {
     margin-top: 30px;
     margin-left: 20%;
