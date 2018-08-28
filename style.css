@@ -103,16 +103,14 @@ body{
 }
 
   .form-group, .fg-pass{
-      margin-left: 15%;
   font-size: 15px !important;
   margin-bottom: 20px !important;
 }
-.email{
-  margin-top: 15%;
-}
-.fg-pass{
+.email, .fg-pass , .password{
   margin-top: 20px;
-}
+  margin: 0 auto;
+  text-align: center;
+  }
   .email:focus,   .password:focus{
   border-color: #ffbbbb9d !important;
   box-shadow: 0 0 0 .2rem rgba(253, 202, 202, 0.39) !important;
@@ -145,17 +143,6 @@ margin-top: 10px;
 }
 .labeles {
   margin-left: 0 !important;
-}
-#amount, #amount-2{
-    top: -12px !important;  
-
-}
-#slider-range {
-  margin-top: 26px !important;
-}
-.search-btn-block {
-  top: 231px !important;
-  left: 28% !important;
 }
 /* users-card  */
 
@@ -292,9 +279,6 @@ margin-top: 10px;
 .panel-2 {
   width: 335px !important;
   margin: 0 auto !important;
-}
-.labeles {
-  margin-left: 59px !important;
 }
 .section-control .email, .section-control .password {
   width: 236px !important;

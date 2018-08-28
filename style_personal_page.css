@@ -89,7 +89,6 @@
   }
   .section-control .panel{
     background: #fffdf9cb;
-    height: 295px;
     border-color: #181818 !important; 
   }
   .btn-lg{
@@ -175,7 +174,16 @@
     text-align: center;
     margin-bottom: 100px; 
   }
-  
+  .myflex{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .big_box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   /* photo & small-info*/
 .section-photo{
     margin-top: 190px;
@@ -194,6 +202,7 @@ border-radius: 15px;
 }
 .info{
     font-size: 18px;
+    margin-left: 20px;
 }
 .key{
     font-weight: 600;
@@ -220,7 +229,7 @@ border-radius: 15px;
 }
 a{
   text-decoration: none !important;
-  color: #111010 !important;
+  color: #ffffff !important;
 }
 #likes{
   display: flex !important;
@@ -242,15 +251,14 @@ a{
 }
 
 .form-group, .fg-pass{
-  margin-left: 15%;
 font-size: 15px !important;
 margin-bottom: 20px !important;
 }
-.email{
-margin-top: 15%;
+.email, .fg-pass , .password{
+margin-top: 20px;
+margin: 0 auto;
+text-align: center;
 }
-.fg-pass{
-margin-top: 20px;}
 .section-control .email:focus, .section-control .password:focus{
   border-color: #ffbbbb9d !important;
   box-shadow: 0 0 0 .2rem rgba(253, 202, 202, 0.39) !important;
@@ -297,15 +305,16 @@ margin-top: 20px;}
   }
   .section-control #form-log {
     width: 335px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    align-content: center;
     margin: 0 auto;
 }
 .panel-2 {
   width: 335px !important;
   margin: 0 auto !important;
   
-}
-.labeles {
-  margin-left: 59px !important;
 }
 .section-control .email, .section-control .password {
   width: 236px !important;
@@ -320,9 +329,8 @@ margin-top: 20px;}
 .photo-box {
   margin-left: 80px;
 }
-.likes_amount {
-  margin-left: 80px;
-}
+#likes  {
+  margin-left: 80px;}
 .search-btn-block {
   left: 37% !important;
 }
@@ -332,6 +340,9 @@ margin-top: 20px;}
   .section-control #form-log {
     margin-top: 20px !important;
     width: 309px;
+}
+#likes {
+  margin: 0;
 }
 .panel-2{
   width: 309px !important;
@@ -346,7 +357,12 @@ margin-top: 20px;}
 }
 
 @media (max-width: 767px){
-
+  #likes  {
+    margin: 0 auto;
+}
+.block {
+  margin-right: 40px;
+}
 .form-signin{
   margin-top: 50px;
 }
@@ -363,7 +379,11 @@ margin-top: 20px;}
     margin: 0 auto;
 
   }
-
+  .myflex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .info {
     margin-top: 30px;
     margin-left: 20%;
