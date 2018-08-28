@@ -8,7 +8,23 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 </head>
 <?php
+
 session_start();
+include("connection.php");
+if(isset($_POST['de'])){$_SESSION['lang'] = 1;}
+else if(isset($_POST['en'])){$_SESSION['lang'] = 2;}
+if($_SESSION['lang'] == 1){$query = $conn->query("SELECT * FROM de");}
+else if($_SESSION['lang'] == 2){$query = $conn->query("SELECT * FROM en");}
+else{$query = $conn->query("SELECT * FROM de");}
+$array = Array();
+echo $_SESSION['lang'];
+while($result = $query->fetch_assoc()){
+$array[] = $result['phrase'];
+$_SESSION['array'] = $array;
+}
+?>
+
+<?php
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
 $array = $_SESSION['array'];
@@ -70,7 +86,6 @@ $country = $_POST['country'];
 $city = $_POST['city'];
 $insert_query="UPDATE register_user SET details = '$details', first_name = '$first_name', last_name = '$last_name', country = '$country', city ='$city', weight = '$weight', height = '$height', birth_date = '$birth_date' WHERE user_activation_code = '$user_activation_code' ";
 $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-$con->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 $stmt = $con->prepare($insert_query);
 $stmt->execute();
 $_SESSION['first_name'] = $first_name;
