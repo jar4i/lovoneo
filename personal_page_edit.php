@@ -185,7 +185,7 @@ $sthandler->execute();
             <form action="" method="post" enctype="multipart/form-data" class="form_1">
                 <div class="first_box" >
                     <div class="box_fack" onclick="Open('1')">
-                        <div class="text"><?php echo $array[63];?>: <i class="fas fa-pencil-alt"></i></div>
+                        <div class="text"><?php echo $array[63];?> <i class="fas fa-pencil-alt"></i></div>
                         <div class="float-right ico_filter1" id="ic_11"><i class="fas fa-plus"></i></div>
                         <div class="float-right ico_filter2" id="ic_21"><i class="fas fa-minus"></i></div>
                     </div>
@@ -214,7 +214,7 @@ $sthandler->execute();
                 </div>
                 <div class="first_box">
                     <div class="box_fack" onclick="Open('2')">
-                        <div class="text"  ><?php echo $array[64];?>:<i class="fas fa-pencil-alt"></i></div>
+                        <div class="text"  ><?php echo $array[64];?> <i class="fas fa-pencil-alt"></i></div>
                         <div class="float-right ico_filter1"   id="ic_12"><i class="fas fa-plus"></i></div>
                         <div class="float-right ico_filter2"   id="ic_22"><i class="fas fa-minus"></i></div>
                     </div>
@@ -231,7 +231,7 @@ $sthandler->execute();
                 </div>
                 <div class="first_box" >
                     <div class="box_fack"  onclick="Open('3')">
-                        <div class="text"><?php echo $array[65];?>:<i class="fas fa-pencil-alt"></i></div>
+                        <div class="text"><?php echo $array[65];?> <i class="fas fa-pencil-alt"></i></div>
                         <div class="float-right ico_filter1"  id="ic_13"><i class="fas fa-plus"></i></div>
                         <div class="float-right ico_filter2"  id="ic_23"><i class="fas fa-minus"></i></div>
                     </div>

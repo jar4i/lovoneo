@@ -89,14 +89,21 @@
   }
   .section-control .panel{
     background: #fffdf9cb;
-    height: 295px;
     border-color: #181818 !important; 
   }
   .btn-lg{
       font-size: 14px !important;
   }
 
-  
+  .txt_name{
+    font-size: 24px;
+    font-weight: 600;
+
+  }
+
+  .btn_send{
+    font-size: 18px !important;
+  }
   /*section-pages users-card  */
   
   @keyframes move {
@@ -175,7 +182,16 @@
     text-align: center;
     margin-bottom: 100px; 
   }
-  
+  .myflex{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .big_box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   /* photo & small-info*/
 .section-photo{
     margin-top: 190px;
@@ -194,6 +210,8 @@ border-radius: 15px;
 }
 .info{
     font-size: 18px;
+    margin-left: 20px;
+    min-width: 300px;
 }
 .key{
     font-weight: 600;
@@ -220,14 +238,67 @@ border-radius: 15px;
 }
 a{
   text-decoration: none !important;
-  color: #111010 !important;
+  color: #ffffff !important;
 }
 #likes{
+  font-size: 20px;
+  margin-top: 30px;
   display: flex !important;
   flex-direction: row;
   justify-content: space-between;
-  max-width: 235px !important;
+  max-width: 200px !important;
     align-items: center;
+}
+.likes{
+  font-size: 20px;
+  margin: 30px 0;
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+    align-items: center;
+}
+@keyframes stretch {
+  0% {
+    border-top: 3px solid rgba(255, 136, 136, 0.788);
+    border-bottom: 3px solid rgba(255, 150, 150, 0.788);
+    border-left: 3px solid rgba(255, 150, 150, 0.788);
+    border-right: 3px solid rgba(255, 150, 150, 0.788);
+  }
+  30% {
+    border-top: 3px solid rgba(255, 178, 178, 0.788);
+    border-bottom: 3px solid rgba(255, 178, 178, 0.788);
+    border-left: 3px solid rgba(255, 178, 178, 0.788);
+    border-right: 3px solid rgba(252, 142, 142, 0.788);
+
+  }
+  60% {
+    border-top: 3px solid rgba(255, 203, 203, 0.788);
+    border-bottom: 3px solid rgba(252, 142, 142, 0.788);
+    border-left: 3px solid rgba(255, 203, 203, 0.788);
+    border-right: 3px solid rgba(255, 203, 203, 0.788);
+  }
+  100% {
+    border-top: 3px solid rgba(255, 225, 225, 0.788);
+    border-bottom: 3px solid rgba(255, 225, 225, 0.788);
+    border-left: 3px solid rgba(252, 142, 142, 0.788);
+    border-right: 3px solid rgba(255, 225, 225, 0.788);
+
+  }
+}
+.keframe_div{
+  min-width: 450px;
+  padding: 10px;
+  border-radius: 8px 20px;
+  animation-name: stretch;
+  animation-duration: 1.5s; 
+  animation-timing-function: linear; 
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+.about_me_div{
 }
 /*login*/
 
@@ -242,15 +313,14 @@ a{
 }
 
 .form-group, .fg-pass{
-  margin-left: 15%;
 font-size: 15px !important;
 margin-bottom: 20px !important;
 }
-.email{
-margin-top: 15%;
+.email, .fg-pass , .password{
+margin-top: 20px;
+margin: 0 auto;
+text-align: center;
 }
-.fg-pass{
-margin-top: 20px;}
 .section-control .email:focus, .section-control .password:focus{
   border-color: #ffbbbb9d !important;
   box-shadow: 0 0 0 .2rem rgba(253, 202, 202, 0.39) !important;
@@ -280,6 +350,9 @@ margin-top: 20px;}
 }
 /*adaptation*/
 @media (max-width: 1199px){
+  .containeer {
+    display: none;
+  }
   .section-photo{
     margin-top: 60px;
     padding-left: 0;
@@ -297,15 +370,16 @@ margin-top: 20px;}
   }
   .section-control #form-log {
     width: 335px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    align-content: center;
     margin: 0 auto;
 }
 .panel-2 {
   width: 335px !important;
   margin: 0 auto !important;
   
-}
-.labeles {
-  margin-left: 59px !important;
 }
 .section-control .email, .section-control .password {
   width: 236px !important;
@@ -318,9 +392,6 @@ margin-top: 20px;}
   margin: 0 auto;
 }
 .photo-box {
-  margin-left: 80px;
-}
-.likes_amount {
   margin-left: 80px;
 }
 .search-btn-block {
@@ -346,7 +417,12 @@ margin-top: 20px;}
 }
 
 @media (max-width: 767px){
-
+  #likes  {
+    margin: 10px auto;
+}
+.block {
+  margin-right: 40px;
+}
 .form-signin{
   margin-top: 50px;
 }
@@ -363,20 +439,22 @@ margin-top: 20px;}
     margin: 0 auto;
 
   }
-
+  .myflex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .info {
-    margin-top: 30px;
-    margin-left: 20%;
-    margin-bottom: 30px;
+    margin: 20px auto;
+    text-align: center;
   }
   #section-slide {
     max-width: 500px;}
 }
 @media (max-width: 600px){
-  .info {
-    margin-left: 0;
-  }
   #section-slide {
     max-width: 300px;}
+    .keframe_div{
+      min-width: 250px;}
     
 }

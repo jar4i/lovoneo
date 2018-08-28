@@ -138,13 +138,18 @@ $sthandler->execute();
         <div class="col-lg-8 col-md-12">
             <?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
             <div class="section-photo">
-                <div class="row">
-                    <div class="col-lg-5 col-md-5  col-sm-5 col-xs-12">
+                <div class="myflex">
+                    <div class="big_box">
                         <div class="photo-box ">
                             <img src="<?php echo $row ['profile_foto']?>" class="photo-person">
                         </div>
+                    </div>
+                    <div class="info">
+                        <p class="txt_name"><?php echo $row ['first_name'] ?> <?php echo $row ['last_name'] ?>, <?php echo $row ['age'] ?> y.o </p>
+                        <p class="txt_city"><?php echo $row ['city'] ?> <?php echo $row ['country'] ?> </p>
                         <form method="post" value="like" id="likes">
-                            <div class="block">
+                                <a href="message1/message.php?user_id=<?php echo $user_id; ?>" class="btn btn-danger btn_send"><?php echo $array[66]; ?></a>
+                                <div><?php echo $array[67]; ?></div>
                                 <?php
                                     if(isset($_POST['like'])){
                                     $like_to= $_GET['user_id'];
@@ -158,49 +163,30 @@ $sthandler->execute();
                                     }
                                     }
                                 ?>
-                                <div class="likes_amount inline-block">
-                                    <?php
-                                    $like_to= $_GET['user_id'];
-                                    $pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
-                                    $nLikes = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
-                                    echo $nLikes; 
-                                    ?>
-                                </div>
                                 <input class="like_none"  type="submit"  id="likek" name="like">
                                 <label for="likek" name="like" id="like" class="like inline-block"><i class="fas fa-heart"></i></label>
+                        </form> 
+                        <!-- <div class="info-info"><span class="key"><?php echo $array[56]; ?>: </span><?php echo $row ['height'] ?></div>
+                        <div class="info-info"><span class="key"><?php echo $array[57]; ?>: </span><?php echo $row ['weight'] ?></div>
+                        <div class="info-info"><span class="key"><?php echo $array[38]; ?>: </span><?php echo $row ['details'] ?></div> -->
+                        <?php if($row ['details'] != ''){  ?>
+                            <div class="keframe_div">
+                                <?php echo $row ['details'] ?>
                             </div>
-                            <a href="message1/message.php?user_id=<?php echo $user_id; ?>" class="btn btn-danger"><?php echo $array[66]; ?></a>
-                    </form> 
+                        <?php } ?>
                     </div>
-                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-                        <div class="info">
-                            <div class="info-info"><span class="key"><?php echo $array[33]; ?>: </span><?php echo $row ['first_name'] ?></div>
-                            <div class="info-info"><span class="key"><?php echo $array[34]; ?>: </span><?php echo $row ['last_name'] ?></div>
-                            <div class="info-info"><span class="key"><?php echo $array[45]; ?>: </span><?php echo $row ['age'] ?> y.o</div>
-                            <div class="info-info"><span class="key"><?php echo $array[36]; ?>: </span><?php echo $row ['city'] ?></div>
-                            <div class="info-info"><span class="key"><?php echo $array[35]; ?>: </span><?php echo $row ['country'] ?></div>
-                            <div class="info-info"><span class="key"><?php echo $array[56]; ?>: </span><?php echo $row ['height'] ?></div>
-                            <div class="info-info"><span class="key"><?php echo $array[57]; ?>: </span><?php echo $row ['weight'] ?></div>
-                            <div class="info-info"><span class="key"><?php echo $array[38]; ?>: </span><?php echo $row ['details'] ?></div>
-                        </div>
-                        <?php endwhile;?>
+                </div>
+                <?php endwhile;?>
+                <div class="album">
+                    <?php  
+                    include("fotos/view.php");
+                    ?>
+                </div> 
+                <h3 class="center"><?php echo $array[20]; ?></h3><!--21-->
+                <div class="section-slide" id="section-slide">
+                    <div id="_slick-icons">
                     </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="album">
-                            <?php  
-                            include("fotos/view.php");
-                            ?>
-                        </div> 
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <h3 class="center"><?php echo $array[20]; ?></h3><!--21-->
-                        <div class="section-slide" id="section-slide">
-                            <div id="_slick-icons">
-                            </div>
-                        </div> 
-                        <br>
-                        <br>
-                    </div>
+                    <br>
                 </div> 
             </div>
         </div>

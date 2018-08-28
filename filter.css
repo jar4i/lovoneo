@@ -1,4 +1,16 @@
 /*filter*/
+.search{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  z-index: 900;
+}
+.amounts{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .labeles-div{
     margin-bottom: 10px;
     display: flex !important;
@@ -17,7 +29,6 @@
   padding-bottom: 4px; 
   }
   .panel-2{
-    height: 295px;
     width: 260px;
     padding-left: 20px; 
     padding-right: 20px; 
@@ -27,9 +38,6 @@
     padding-top: 50px; 
     }
     .form-check .form-check-label{
-      position: absolute;
-      top: 54px;
-      left: 40px;
       font-size: 14px;
       font-weight: 400;
     }
@@ -39,26 +47,11 @@
     font-weight: 600;
   }
   #amount, #amount-2{
-    position: absolute;
     font-size: 14px;
     color:#d63434;
     width: 50px;
-    top: -20px;
-  }
-  .search-btn-block{
-    position: absolute;
-    top: 225px;
-    margin-left: 0 !important;
-    left: 35%;
-  }
-  #slider-range{
-    margin-top: 15px; 
-  }
-  #amount{
-    left: 0;
   }
   #amount-2{
-    right: 0;
     text-align: right;
   }
   .inputs-age{
@@ -66,18 +59,20 @@
     font-weight:bold;
   }
   .slider{
-    position: absolute;
-    top: 150px;
-    left: 0;
-    right: 0;
   }
   .panel-2 label_r{
     cursor: pointer;
   }
   .search-btn{
-    font-size: 14px;
+    margin: 0 auto;
+    font-size: 16px;
     width: 80px;
   }
+  .form-group {
+    text-align: center !important;
+    margin-bottom: 15px;
+    margin-top: 24px;
+}
   .ui-slider-horizontal{
     height: 15px !important;
   }

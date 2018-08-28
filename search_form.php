@@ -87,7 +87,6 @@ $sthandler->execute();
     </div>
 </header>
 <div class="container">
-    <div class=" ">
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <br>
@@ -101,9 +100,7 @@ $sthandler->execute();
                 <br>
             </div>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 ">
-            <div class="col-lg-12  col-md-12 col-sm-12   section-control rel">
-                    <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12  section-control ">
                         <div class=" form-log ">
                         <?php
                             
@@ -119,11 +116,7 @@ $sthandler->execute();
                             include("filter.php");
                             ?>         
                          </div>
-                <br>
-
-                    </div>
             </div>
-            <div class="col-lg-12  col-md-12 col-sm-12  section-pages rel">
                 <div id="target-content" class="clearfix"></div>
                 <div class="pagination_main rel">
                     <?php
@@ -149,10 +142,7 @@ $sthandler->execute();
                         <?php endif;?>
                         <?php endfor;endif;?>
                     </ul>
-                </div>
-            </div>
         </div>
-    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
