@@ -95,7 +95,15 @@
       font-size: 14px !important;
   }
 
-  
+  .txt_name{
+    font-size: 24px;
+    font-weight: 600;
+
+  }
+
+  .btn_send{
+    font-size: 18px !important;
+  }
   /*section-pages users-card  */
   
   @keyframes move {
@@ -203,6 +211,7 @@ border-radius: 15px;
 .info{
     font-size: 18px;
     margin-left: 20px;
+    min-width: 300px;
 }
 .key{
     font-weight: 600;
@@ -232,11 +241,64 @@ a{
   color: #ffffff !important;
 }
 #likes{
+  font-size: 20px;
+  margin-top: 30px;
   display: flex !important;
   flex-direction: row;
   justify-content: space-between;
-  max-width: 235px !important;
+  max-width: 200px !important;
     align-items: center;
+}
+.likes{
+  font-size: 20px;
+  margin: 30px 0;
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+    align-items: center;
+}
+@keyframes stretch {
+  0% {
+    border-top: 3px solid rgba(255, 136, 136, 0.788);
+    border-bottom: 3px solid rgba(255, 150, 150, 0.788);
+    border-left: 3px solid rgba(255, 150, 150, 0.788);
+    border-right: 3px solid rgba(255, 150, 150, 0.788);
+  }
+  30% {
+    border-top: 3px solid rgba(255, 178, 178, 0.788);
+    border-bottom: 3px solid rgba(255, 178, 178, 0.788);
+    border-left: 3px solid rgba(255, 178, 178, 0.788);
+    border-right: 3px solid rgba(252, 142, 142, 0.788);
+
+  }
+  60% {
+    border-top: 3px solid rgba(255, 203, 203, 0.788);
+    border-bottom: 3px solid rgba(252, 142, 142, 0.788);
+    border-left: 3px solid rgba(255, 203, 203, 0.788);
+    border-right: 3px solid rgba(255, 203, 203, 0.788);
+  }
+  100% {
+    border-top: 3px solid rgba(255, 225, 225, 0.788);
+    border-bottom: 3px solid rgba(255, 225, 225, 0.788);
+    border-left: 3px solid rgba(252, 142, 142, 0.788);
+    border-right: 3px solid rgba(255, 225, 225, 0.788);
+
+  }
+}
+.keframe_div{
+  min-width: 450px;
+  padding: 10px;
+  border-radius: 8px 20px;
+  animation-name: stretch;
+  animation-duration: 1.5s; 
+  animation-timing-function: linear; 
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+.about_me_div{
 }
 /*login*/
 
@@ -288,6 +350,9 @@ text-align: center;
 }
 /*adaptation*/
 @media (max-width: 1199px){
+  .containeer {
+    display: none;
+  }
   .section-photo{
     margin-top: 60px;
     padding-left: 0;
@@ -329,8 +394,6 @@ text-align: center;
 .photo-box {
   margin-left: 80px;
 }
-#likes  {
-  margin-left: 80px;}
 .search-btn-block {
   left: 37% !important;
 }
@@ -340,9 +403,6 @@ text-align: center;
   .section-control #form-log {
     margin-top: 20px !important;
     width: 309px;
-}
-#likes {
-  margin: 0;
 }
 .panel-2{
   width: 309px !important;
@@ -358,7 +418,7 @@ text-align: center;
 
 @media (max-width: 767px){
   #likes  {
-    margin: 0 auto;
+    margin: 10px auto;
 }
 .block {
   margin-right: 40px;
@@ -385,18 +445,16 @@ text-align: center;
     justify-content: center;
   }
   .info {
-    margin-top: 30px;
-    margin-left: 20%;
-    margin-bottom: 30px;
+    margin: 20px auto;
+    text-align: center;
   }
   #section-slide {
     max-width: 500px;}
 }
 @media (max-width: 600px){
-  .info {
-    margin-left: 0;
-  }
   #section-slide {
     max-width: 300px;}
+    .keframe_div{
+      min-width: 250px;}
     
 }

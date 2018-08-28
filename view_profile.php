@@ -116,48 +116,43 @@ $sthandler->execute();
         <div class="col-lg-8 col-md-12">
             <?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
             <div class="section-photo">
-                <div class="row">
-                    <div class="col-lg-5 col-md-5  col-sm-5 col-xs-12">
+                <div class="myflex">
+                    <div class="big_box">
                         <div class="photo-box ">
                             <img src="<?php echo $row ['profile_foto']?>" class="photo-person">
                         </div>
-                        <div class="" id="likes2">
-                        <?php
-                            $like_to = $_SESSION['us_id'];
-                            $pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
-                            $nLikes = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
-                            echo "$array[61] $nLikes $array[62]"; 
-                            ?>
-                        </div>
                     </div>
-                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-                        <div class="info">
-                            <div class="info-info"><span class="key"><?php echo $array[33]; ?>:</span><?php echo $row ['first_name'] ?></div>
-                            <div class="info-info"><span class="key"><?php echo $array[34]; ?>: </span><?php echo $row ['last_name'] ?></div>
-                            <div class="info-info"><span class="key"><?php echo $array[45]; ?>: </span><?php echo $row ['age'] ?> y.o</div>
-                            <div class="info-info"><span class="key"><?php echo $array[36]; ?>: </span><?php echo $row ['city'] ?></div>
-                            <div class="info-info"><span class="key"><?php echo $array[35]; ?>: </span><?php echo $row ['country'] ?></div>
-                            <div class="info-info"><span class="key">Height: </span><?php echo $row ['height'] ?></div>
-                            <div class="info-info"><span class="key">Weight: </span><?php echo $row ['weight'] ?></div>
-                            <div class="info-info"><span class="key"><?php echo $array[38]; ?>: </span><?php echo $row ['details'] ?></div>
-                        </div>
-                        <?php endwhile;?>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="album">
-                            <?php 
-                            include("fotos/view.php");
-                            ?>
+                    <div class="info">
+                        <p class="txt_name"><?php echo $row ['first_name'] ?> <?php echo $row ['last_name'] ?>, <?php echo $row ['age'] ?> y.o </p>
+                        <p class="txt_city"><?php echo $row ['city'] ?> <?php echo $row ['country'] ?> </p>
+                        <div class="likes">
+                                <a href="message1/message.php" class="btn btn-danger btn_send"><?php echo $array[13]; ?></a>
+                                <div><?php echo $array[67]; ?></div>
+                                <a href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>" class="btn btn-danger btn_send"><?php echo $array[2]; ?></a>
                         </div> 
+                        <!-- <div class="info-info"><span class="key"><?php echo $array[56]; ?>: </span><?php echo $row ['height'] ?></div>
+                        <div class="info-info"><span class="key"><?php echo $array[57]; ?>: </span><?php echo $row ['weight'] ?></div>
+                        <div class="info-info"><span class="key"><?php echo $array[38]; ?>: </span><?php echo $row ['details'] ?></div> -->
+                        <?php if($row ['details'] != ''){  ?>
+                            <div class="keframe_div">
+                                <?php echo $row ['details'] ?>
+                            </div>
+                        <?php } ?>
                     </div>
+                </div>
+                <?php endwhile;?>
+                <div class="album">
+                    <?php  
+                    include("fotos/view.php");
+                    ?>
                 </div> 
             </div>
         </div>
     </div>
 </div>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="slick/slick.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
    
@@ -208,12 +203,6 @@ $(document).ready(function(){
         });
     });
   </script>
-
-<script type="text/javascript">
-$(document).ready(function(){
-        jQuery("#_slick-icons").load("user_icon_2.php");
-})
-</script>
 <script type="text/javascript">
 $(document).ready(function(){
     $('._hamburger').click(function () {

@@ -8,9 +8,7 @@
 		<link href="fotos/css/bootstrap.min.css" rel="stylesheet">
 	</head>
 <body>
-	<section class="section_view" id="view">
-		<h3 class="txt_alb"><?php echo $array[58]; ?></h3>
-				<!-- Modal -->
+	<div class="section_view" id="view">
 		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
@@ -30,37 +28,39 @@
 				</div>
 			</div>
 		</div>
-		<div class="panel panel-default">
-			<div class="panel-body">
-			<div class="row">
-
-				<?php 
+			<div class="rowii">
+			<?php 
 					$conn = mysqli_connect("localhost","lovoneo","ZMaLPF2-unV-ch","projekt");
-					$query = "SELECT * FROM files WHERE us_us_id= '$user_id'";
+					$query = "SELECT * FROM  register_user WHERE user_id = '$user_id'";
 					$result = mysqli_query($conn, $query);
-					if(mysqli_num_rows($result) > 0)
-					{
+					
 						while($row = mysqli_fetch_assoc($result))
 						{
-							$url = "albums/uploads/";
 				?>
-					<div class="col-lg-3 col-md-2 col-sm-3 col-xs-4">
-					<div class="img_box rel" onclick="zoom('<?php echo $url.$row['file_name']; ?>')" data-toggle="modal" data-target="#exampleModalCenter" style="background:  url('<?php echo $url.$row['file_name']; ?>') no-repeat"></div>
 
+					<div>
+						<div class="img_box rel" onclick="zoom('<?php echo $row['profile_foto']?>')" data-toggle="modal" data-target="#exampleModalCenter" style="background:  url('<?php echo $row['profile_foto']?>') no-repeat"></div>
 					</div>
 				<?php
-					}}
-					else{
+				}
+					$query2 = "SELECT * FROM files WHERE us_us_id= '$user_id'";
+					$result2 = mysqli_query($conn, $query2);
+					
+						while($row2 = mysqli_fetch_assoc($result2))
+						{
+							if(mysqli_num_rows($result2) > 0)
+					{
+							$url = "albums/uploads/";
 				?>
-				<p><?php echo $array[59]; ?></p>
+					<div>
+						<div class="img_box rel" onclick="zoom('<?php echo $url.$row2['file_name']; ?>')" data-toggle="modal" data-target="#exampleModalCenter" style="background:  url('<?php echo $url.$row2['file_name']; ?>') no-repeat"></div>
+					</div>
 				<?php
-					}
-				?>	
-				</div>
+						}}
+					?>	
 
 			</div>
-		</div>
-	</section>
+	</div>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="fotos/js/jQuery.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -69,6 +69,59 @@
 			function zoom(file){
 				$('.img').attr("src",file);
 			}
-</script>		
+</script>	
+
+
+<script type="text/javascript">
+   
+   $(document).ready(function(){
+       $('.rowii').slick({
+		infinite: true,
+     speed: 300,
+     slidesToShow: 4,
+     slidesToScroll: 4,
+	 dots: true,
+	 arrows: false,
+     responsive: [
+       {
+         breakpoint: 1199,
+         settings: {
+           slidesToShow: 6,
+           slidesToScroll: 6,
+         }
+       },
+       {
+         breakpoint: 991,
+         settings: {
+           slidesToShow: 4,
+           slidesToScroll: 4
+         }
+       },
+       {
+         breakpoint: 768,
+         settings: {
+           slidesToShow: 3,
+           slidesToScroll: 3
+          }
+        } ,
+
+       {
+         breakpoint: 600,
+         settings: {
+           slidesToShow: 4,
+           slidesToScroll: 4,
+          }
+        } 
+       // You can unslick at a given breakpoint now by adding:
+       // settings: "unslick"
+       // instead of a settings object
+     ]
+   });
+   });
+   </script>
+
+
+
+
 	</body>
 </html>
