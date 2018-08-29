@@ -11,7 +11,7 @@ user_from = $("#user_from").val(),
 
 user_to = $("#user_to").val(),
 
-        message_status = $("#message_status").val(),
+message_status = $("#message_status").val(),
 
 
 error = $("#error");
@@ -54,3 +54,4 @@ $(".display-message").scrollTop($(".display-message")[0].scrollHeight);
 
 
 });
+

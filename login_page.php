@@ -1,5 +1,23 @@
 <?php
+
 session_start();
+include("connection.php");
+if(isset($_POST['de'])){$_SESSION['lang'] = 1;}
+else if(isset($_POST['en'])){$_SESSION['lang'] = 2;}
+if($_SESSION['lang'] == 1){$query = $conn->query("SELECT * FROM de");}
+else if($_SESSION['lang'] == 2){$query = $conn->query("SELECT * FROM en");}
+else{$query = $conn->query("SELECT * FROM de");}
+$array = Array();
+echo $_SESSION['lang'];
+while($result = $query->fetch_assoc()){
+$array[] = $result['phrase'];
+$_SESSION['array'] = $array;
+}
+?>
+
+
+
+<?php
 $array = $_SESSION['array'];
 ?>
 <head>

@@ -1,6 +1,25 @@
 <?php
 require_once("connect.php");
+
 session_start();
+
+
+include("../connection.php");
+if(isset($_POST['de'])){$_SESSION['lang'] = 1;}
+else if(isset($_POST['en'])){$_SESSION['lang'] = 2;}
+if($_SESSION['lang'] == 1){$query = $conn->query("SELECT * FROM de");}
+else if($_SESSION['lang'] == 2){$query = $conn->query("SELECT * FROM en");}
+else{$query = $conn->query("SELECT * FROM de");}
+$array = Array();
+echo $_SESSION['lang'];
+while($result = $query->fetch_assoc()){
+$array[] = $result['phrase'];
+$_SESSION['array'] = $array;
+}
+
+
+//shop not login users from entering
+
 if(isset($_SESSION['us_id'])){
     $user_id = $_SESSION['us_id'];
 }else{
@@ -165,5 +184,10 @@ die("Click On the Person to start Chating.");
 </div>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="Script.js"></script>
+
+<script type="text/javascript" src="ajax.js"></script>
+
+
+
 </body>
 </html>
