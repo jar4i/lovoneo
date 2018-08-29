@@ -259,36 +259,26 @@ a{
 }
 @keyframes stretch {
   0% {
-    border-top: 3px solid rgba(255, 136, 136, 0.788);
-    border-bottom: 3px solid rgba(255, 150, 150, 0.788);
-    border-left: 3px solid rgba(255, 150, 150, 0.788);
-    border-right: 3px solid rgba(255, 150, 150, 0.788);
+    border-left: 3px solid rgba(255, 138, 138, 0.788);
   }
-  30% {
-    border-top: 3px solid rgba(255, 178, 178, 0.788);
-    border-bottom: 3px solid rgba(255, 178, 178, 0.788);
-    border-left: 3px solid rgba(255, 178, 178, 0.788);
-    border-right: 3px solid rgba(252, 142, 142, 0.788);
+  25% {
+    border-left: 3px solid rgba(255, 193, 193, 0.788);
 
   }
-  60% {
-    border-top: 3px solid rgba(255, 203, 203, 0.788);
-    border-bottom: 3px solid rgba(252, 142, 142, 0.788);
-    border-left: 3px solid rgba(255, 203, 203, 0.788);
-    border-right: 3px solid rgba(255, 203, 203, 0.788);
+  50%{
+    border-left: 3px solid rgba(255, 248, 248, 0.788);
+  }
+  75% {
+    border-left: 3px solid rgba(243, 203, 255, 0.788);
   }
   100% {
-    border-top: 3px solid rgba(255, 225, 225, 0.788);
-    border-bottom: 3px solid rgba(255, 225, 225, 0.788);
-    border-left: 3px solid rgba(252, 142, 142, 0.788);
-    border-right: 3px solid rgba(255, 225, 225, 0.788);
+    border-left: 3px solid rgba(255, 134, 239, 0.788);
 
   }
 }
 .keframe_div{
   min-width: 450px;
   padding: 10px;
-  border-radius: 8px 20px;
   animation-name: stretch;
   animation-duration: 1.5s; 
   animation-timing-function: linear; 
@@ -298,7 +288,25 @@ a{
   animation-fill-mode: none;
   animation-play-state: running;
 }
-.about_me_div{
+.txt_status{
+  font-weight: 600;
+}
+.more_info{
+  border: 2px solid #d8d8d8a6;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 20px 0;
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.left, .right{
+  width: 50%;
+}
+.txt_bold{
+  font-weight: 600;
+  font-size: 18px;
 }
 /*login*/
 

@@ -124,7 +124,9 @@ $sthandler->execute();
                     </div>
                     <div class="info">
                         <p class="txt_name"><?php echo $row ['first_name'] ?> <?php echo $row ['last_name'] ?>, <?php echo $row ['age'] ?> y.o </p>
-                        <p class="txt_city"><?php echo $row ['city'] ?> <?php echo $row ['country'] ?> </p>
+                        <?php if($row ['city'] != '' || $row ['country'] != ''){  ?>
+                            <p class="txt_city"><?php echo $row ['city'] ?> <?php echo $row ['country'] ?> <i class="fas fa-map-marker-alt"></i> </p>
+                        <?php } ?>
                         <div class="likes">
                                 <a href="message1/message.php" class="btn btn-danger btn_send"><?php echo $array[13]; ?></a>
                                 <div><?php echo $array[67]; ?></div>
@@ -135,6 +137,7 @@ $sthandler->execute();
                         <div class="info-info"><span class="key"><?php echo $array[38]; ?>: </span><?php echo $row ['details'] ?></div> -->
                         <?php if($row ['details'] != ''){  ?>
                             <div class="keframe_div">
+                                <p class="txt_status"><?php echo $array[68]; ?>:</p>
                                 <?php echo $row ['details'] ?>
                             </div>
                         <?php } ?>

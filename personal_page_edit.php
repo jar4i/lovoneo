@@ -222,7 +222,7 @@ $sthandler->execute();
                     </div>
                     <div id="box_3" class="q_big_box">
                         <div class="form-group">
-                        <label for="details"><?php echo $array[38];?>: </label>
+                        <label for="details"><?php echo $array[68];?>: </label>
                             <textarea placeholder="<?php echo $array[42];?>..." class="form-control input_info" name="details" id="details" ><?php echo $row ['details']?></textarea>
                         </div>
                     </div>

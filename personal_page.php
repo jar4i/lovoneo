@@ -129,7 +129,9 @@ $sthandler->execute();
                     </div>
                     <div class="info">
                         <p class="txt_name"><?php echo $row ['first_name'] ?> <?php echo $row ['last_name'] ?>, <?php echo $row ['age'] ?> y.o </p>
-                        <p class="txt_city"><?php echo $row ['city'] ?> <?php echo $row ['country'] ?> </p>
+                        <?php if($row ['city'] != '' || $row ['country'] != ''){  ?>
+                            <p class="txt_city"><?php echo $row ['city'] ?> <?php echo $row ['country'] ?> <i class="fas fa-map-marker-alt"></i> </p>
+                        <?php } ?>
                         <form method="post" value="like" id="likes">
                                 <a href="message1/message.php?user_id=<?php echo $user_id; ?>" class="btn btn-danger btn_send"><?php echo $array[66]; ?></a>
                                 <div><?php echo $array[67]; ?></div>
@@ -154,18 +156,33 @@ $sthandler->execute();
                         <div class="info-info"><span class="key"><?php echo $array[38]; ?>: </span><?php echo $row ['details'] ?></div> -->
                         <?php if($row ['details'] != ''){  ?>
                             <div class="keframe_div">
+                                <p class="txt_status"><?php echo $array[68]; ?>:</p>
                                 <?php echo $row ['details'] ?>
                             </div>
                         <?php } ?>
                     </div>
                 </div>
+                <!-- <div class="more_info">
+                    <div class="left">
+                        <p class="txt_bold"><?php echo $array[38]; ?>:</p>
+                        <p class="txt"><?php echo $row ['details']; ?></p>
+                        <p class="txt_bold">mai interesi:</p>
+                        <p class="txt">Жарю пингвинов (только самок)</p>
+                    </div>
+                    <div class="right">
+                        <p class="txt_bold"><?php echo $array[56]; ?>:</p>
+                        <p class="txt"><?php echo $row ['height']; ?></p>
+                        <p class="txt_bold"><?php echo $array[57]; ?>:</p>
+                        <p class="txt"><?php echo $row ['weight']; ?></p>
+                    </div>
+                </div> -->
                 <?php endwhile;?>
                 <div class="album">
                     <?php  
                     include("fotos/view.php");
                     ?>
                 </div> 
-                <h3 class="center"><?php echo $array[20]; ?></h3><!--21-->
+                <h3 class="center"><?php echo $array[20]; ?>:</h3><!--21-->
                 <div class="section-slide" id="section-slide">
                     <div id="_slick-icons">
                     </div>
