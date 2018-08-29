@@ -76,7 +76,7 @@ body{
   margin-bottom: 20px;
 }
 .slick-slide{
-  height: 212px !important ;
+  height: 135px !important ;
 }
 .slick-dots{
   display: none !important;
@@ -202,35 +202,38 @@ margin-top: 10px;
   margin: 10px; 
   
 }
-
-
-.card-photo{
-  width: 170px;
-  height: 212px;
+.card-photo1{
+  width: 111px;
+  height: 135px;
   border-radius: 5px; 
   z-index: 1000;
 }
-.card:hover{
-  border: 1px  solid rgba(250, 177, 255, 0.5);
-  border-radius: 5px;
-  box-shadow: 0 0 0 .2rem rgba(255, 193, 239, 0.5) !important;
-}
-.card{
-  width: 170px;
-  height: 212px;
+.card1{
+  width: 111px;
+  height: 135px;
   overflow: hidden;
   margin: 0 auto;
 }
-@media (min-width: 767px){
+.card-photo{
+  width: 170px;
+  height: 212px;
+  z-index: 1000;
+}
   .card{
     width: 170px;
     height: 212px;
     overflow: hidden;
     margin: 0 auto;
-  
+    -webkit-box-shadow: 5px 6px 19px 1px rgba(0,0,0,0.67) !important;
+  -moz-box-shadow: 5px 6px 19px 1px rgba(0,0,0,0.67) !important;
+  box-shadow: 5px 6px 19px 1px rgba(0,0,0,0.67) !important;
     animation-play-state: paused;
   }
-  .card:hover .small-info{
+  .card1:hover .card-photo1{
+    transform: scale(1.2);
+    transition: 400ms;
+  }
+  .card:hover .small-info, .card1:hover .small-info{
   display: block;
   transition: 2000ms;
   animation: move  0.6s  ease-out;
@@ -240,23 +243,10 @@ margin-top: 10px;
   .small-info{
     display: none;
   }
-}
-
+  .card1 .small-info{
+    display: none !important;
+  }
 .small-info{
-  /* position: absolute;
-  bottom: 0;
-  height: 60px;
-  font-weight: 500;
-  background: #ffd4ea;
-  color: #292829;
-  overflow: hidden;
-  font-size: 16px;
-  border-top: 1px solid #7515a6;
-  text-align: left;
-  padding: 10px 15px;
-  border-radius: 25px 25px 0 0;
-  font-weight: 600;
-  width: 100%; */
   position: absolute;
   bottom: 0;
   left: 5%;
@@ -388,15 +378,6 @@ margin-top: 10px;
 @media (max-width: 767px){
   .slick-card-box {
     max-width: 450px;
-}
-.small-info{
-  display: block;
-  font-size: 18px;
-  font-weight: 600;
-  height: 70px;
-  /* border: 3px solid #f2c9ff; */
-  background: #420797;
-  color: #ffffff;
 }
 #card-country {
   font-size: 14px;

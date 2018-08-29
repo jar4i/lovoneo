@@ -32,6 +32,7 @@ $sthandler->execute();
                 <nav class=" hero-nav pull_left _nav">
                     <ul class="list-unstyled ">
                         <a class="active" href="index.php"><?php echo $array[1];?> |</a><!--2-->
+                        <a class="active" href="search_form.php"><?php echo $array[19];?> |</a><!--2-->
                         <a class="active" href="view_profile.php"> <?php 
                         if (isset($_SESSION['user_name'])) {
                             echo $array[60];
@@ -90,6 +91,7 @@ $sthandler->execute();
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <br>
+                <br>
                 <div class="logo"></div>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12">
@@ -103,20 +105,19 @@ $sthandler->execute();
         <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12  section-control ">
                         <div class=" form-log ">
                         <?php
-                            
                                 if (isset($_POST['search'])){
                                 $_SESSION['age1'] = $_POST['amount'];
                                 $_SESSION['age2'] = $_POST['amount-2'];
                                 $_SESSION['gender'] = $_POST['Radios2'];
                                 }
-				
-				
                             ?>
                         <?php
                             include("filter.php");
                             ?>         
                          </div>
             </div>
+        <div class=" col-lg-12 col-md-12 col-sm-12  col-xs-12  ">
+            <div class="section-cards">
                 <div id="target-content" class="clearfix"></div>
                 <div class="pagination_main rel">
                     <?php
@@ -142,7 +143,9 @@ $sthandler->execute();
                         <?php endif;?>
                         <?php endfor;endif;?>
                     </ul>
+            </div>
         </div>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
