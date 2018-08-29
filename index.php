@@ -63,6 +63,7 @@ $_SESSION['age1'] = $_POST['amount'];
                 <nav class=" hero-nav pull_left _nav">
                     <ul class="list-unstyled ">
                         <a class="active" href="index.php"><?php echo $array[1];?> |</a><!--2-->
+                        <a class="active" href="search_form.php"><?php echo $array[19];?> |</a><!--2-->
                         <a class="active" href="view_profile.php"> <?php 
                         if (isset($_SESSION['user_name'])) {
                             echo $array[60];
@@ -117,66 +118,70 @@ $_SESSION['age1'] = $_POST['amount'];
         </div>
     </div>
 </header>
-<div class="container">
-    <div class="mt-4">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="col-lg-3 col-md-12 col-sm-12">
-                <div class="logo"></div>
-            </div>
-            <div class="col-lg-9 col-md-12 col-sm-12">
-                <section class="section-slide">
-                    <div id="_slick-icons">
+
+<section class="section_general wrap">
+    <div class="sect_left">
+        <div class="logo_box"><div class="logo"></div></div>
+        <div class="section-control rel">
+                <?php
+                    if(!isset($_SESSION['user_name']))
+                    {?>
+                    <div class="form-signin"  method="POST">
+                        <?php
+                        include("login.php");
+                        ?>
                     </div>
-                </section>
+                <?php } ?>
+                    <div class=" form-log ">
+                    <?php
+                        include("filter.php");
+                        ?>         
+                        </div>
+        </div>
+    </div>
+    <div class="sect_right">
+        <div class="logo_box2"><div class="logo"></div></div>
+        <div class="section-slide">
+            <div id="_slick-icons">
             </div>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12  ">
-            <div class="col-lg-3  col-md-12 col-sm-12   section-control rel">
-                    <?php
-                        if(!isset($_SESSION['user_name']))
-                        {?>
-                    <div class="col-lg-12  col-md-6 col-sm-6  col-xs-12">
-                        <div class="form-signin"  method="POST">
-                            <?php
-                            include("login.php");
-                            ?>
-                        </div>
-                    </div>
-                    <?php } ?>
-                    <div class="col-lg-12 <?php if(isset($_SESSION['user_name'])){ echo "col-md-12 col-sm-12";} else { echo "col-md-6 col-sm-6 ";} ?>   col-xs-12">
-                        <div class=" form-log ">
+        <div class="section-control2 rel">
+                <?php
+                    if(!isset($_SESSION['user_name']))
+                    {?>
+                    <div class="form-signin"  method="POST">
                         <?php
-                            include("filter.php");
-                            ?>         
-                         </div>
+                        include("login.php");
+                        ?>
                     </div>
-            </div>
-            <div class="col-lg-9  col-md-12 col-sm-12   section-pages rel">
-                    <div id="target-content" class="clearfix"></div>
-                    <?php
-                        include('connection.php');
-                        $countSql = "SELECT COUNT(register_user_id) FROM register_user";
-                        $tot_result = mysqli_query($conn, $countSql);
-                        $row = mysqli_fetch_row($tot_result);
-                        $total_records = $row[0];
-                        $total_pages = ceil($total_records / $limit);
-                    ?>
-                    <div class="pagination_main rel">
-                        <ul class='pagination' id="pagination">
-                            <?php if(!empty($total_pages)):for($i=1; $i<=$total_pages; $i++):  
-                            if($i == 1):?>
-                            <li class='page-item active'  id="<?php echo $i;?>"><a href='user_icon.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li> 
-                            <?php else:?>
-                            <li id="<?php echo $i;?>" class="page-item"><a href='user_icon.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li>
-                            <?php endif;?>
-                            <?php endfor;endif;?>
-                        </ul>
-                    </div>
+                <?php } ?>
+        </div>
+        <div class=" section-pages rel">
+            <div id="target-content" class="clearfix"></div>
+            <?php
+                include('connection.php');
+                $countSql = "SELECT COUNT(register_user_id) FROM register_user";
+                $tot_result = mysqli_query($conn, $countSql);
+                $row = mysqli_fetch_row($tot_result);
+                $total_records = $row[0];
+                $total_pages = ceil($total_records / $limit);
+            ?>
+            <div class="pagination_main rel">
+                <ul class='pagination' id="pagination">
+                    <?php if(!empty($total_pages)):for($i=1; $i<=$total_pages; $i++):  
+                    if($i == 1):?>
+                    <li class='page-item active'  id="<?php echo $i;?>"><a href='user_icon.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li> 
+                    <?php else:?>
+                    <li id="<?php echo $i;?>" class="page-item"><a href='user_icon.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li>
+                    <?php endif;?>
+                    <?php endfor;endif;?>
+                </ul>
             </div>
         </div>
     </div>
-</div>
-
+</section>
+           
+          
 
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="slick/slick.min.js"></script>
