@@ -38,11 +38,13 @@
 
   }
   .prof_photo_box{
-    border: 1px solid #ffafaf;
+    background: #fffdf9cb;
+    border-color: #181818 !important; 
+    -webkit-box-shadow: 2px 2px 9px 0px rgba(0,0,0,0.67) !important;
+    -moz-box-shadow: 2px 2px 9px 0px rgba(0,0,0,0.67) !important;
+    box-shadow: 2px 2px 9px 0px rgba(0,0,0,0.67) !important;
     overflow: hidden;
-    box-shadow: 0 0 0 .2rem #ffafaf !important;
     border-radius: 5px;
-    background: #fbe9f180;
     width: 180px;
     height: 275px;
     }
@@ -81,8 +83,9 @@ right: -20px;
         text-align: center;
         z-index: 200;
         cursor: pointer;
-        border: 1px solid #360057;
-
+        -webkit-box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.5) !important;
+        -moz-box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.5) !important;
+        box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.5) !important;
     }
     .btn-add-photo:hover {
         background: #360057;
@@ -153,10 +156,7 @@ right: -20px;
   margin: 10px auto;
   text-align: center;
 }
-.form_1{
-  margin: 0 auto;
-  max-width: 680px;
-}
+
 .text{
   display: inline-block;
   font-size: 18px;
@@ -227,12 +227,26 @@ label {
   color: #a77cde;
 }
 .section_drop_me{
+  margin-top: 40px;
   margin-bottom: 70px;
 }
 .header_question{
   text-align: center;
   font-size: 16px;
   font-weight: 600;
+}
+body{
+  background: #e7e8fa78 !important;
+}
+.form_1{
+  margin: 0 auto;
+  max-width: 800px;
+  overflow: hidden;
+  background: #fffdf9cb;
+  border-color: #181818 !important; 
+  -webkit-box-shadow: 2px 1px 16px 1px rgba(0,0,0,0.5) !important;
+  -moz-box-shadow: 2px 1px 16px 1px rgba(0,0,0,0.5) !important;
+  box-shadow: 2px 1px 16px 1px rgba(0,0,0,0.5) !important;
 }
 .section_question{
   margin-top: 40px;
