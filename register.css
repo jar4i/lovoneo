@@ -20,7 +20,9 @@
     padding-right: 20px;
     margin: 0 auto;
   }
-
+  body{
+    background: #e7e8fa78 !important;
+  }
 /*logo*/
 .logo{
     background: url('logo.png') no-repeat;
@@ -39,8 +41,13 @@
     height: 100%;
   }
    .panel{
+     padding: 15px;
+     border-radius: 5px;
     background: #fffdf9cb;
-    border-color: #b12b8fc2 !important; 
+    border-color: #181818 !important; 
+    -webkit-box-shadow: 2px 1px 16px 1px rgba(0,0,0,0.5) !important;
+    -moz-box-shadow: 2px 1px 16px 1px rgba(0,0,0,0.5) !important;
+    box-shadow: 2px 1px 16px 1px rgba(0,0,0,0.5) !important;
   }
     .email,
      .password,

@@ -21,6 +21,9 @@
     margin: 0 auto;
   }
 /*logo*/
+body{
+  background: #e7e8fa78 !important;
+}
 .logo{
     background: url('logo.png') no-repeat;
     background-size: cover; 
@@ -36,10 +39,6 @@
     margin: 0 auto;
     max-width: 500px;
     height: 100%;
-  }
-   .panel{
-    background: #fffcf5d5 !important; 
-    border-color: #b12b8fc2 !important; 
   }
     .email,
      .password,
@@ -75,6 +74,11 @@
   }
     
   .form-signin .panel-body{
+    background: #fffdf9cb;
+    border-color: #181818 !important; 
+    -webkit-box-shadow: 2px 1px 16px 1px rgba(0,0,0,0.5) !important;
+    -moz-box-shadow: 2px 1px 16px 1px rgba(0,0,0,0.5) !important;
+    box-shadow: 2px 1px 16px 1px rgba(0,0,0,0.5) !important;
     height: 300px;
   }
 
