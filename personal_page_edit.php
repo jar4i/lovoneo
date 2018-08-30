@@ -107,6 +107,7 @@ $sthandler->execute();
                 <nav class=" hero-nav pull_left _nav">
                     <ul class="list-unstyled ">
                         <a class="active" href="index.php"><?php echo $array[1];?> |</a><!--2-->
+                        <a class="active" href="search_form.php"><?php echo $array[19];?> |</a><!--2-->
                         <a class="active" href="view_profile.php"> <?php 
                         if (isset($_SESSION['user_name'])) {
                             echo $array[60];

@@ -23,13 +23,21 @@
   /* section view  */
   .section_view{
       margin: 30px 0;
+      padding: 15px;
+      border-radius: 5px;
+      background: #fffdf9cb;
+      border-color: #181818 !important; 
+      -webkit-box-shadow: 5px 5px 21px 1px rgba(0,0,0,0.67) !important;
+      -moz-box-shadow:5px 5px 21px 1px rgba(0,0,0,0.67) !important;
+      box-shadow: 5px 5px 21px 1px rgba(0,0,0,0.67) !important;
   }
-  .img_box{    
+  .img_box{   
+    -webkit-box-shadow: 2px 4px 10px 0px rgba(0,0,0,0.67)  !important;
+    -moz-box-shadow: 2px 4px 10px 0px rgba(0,0,0,0.67)  !important;
+    box-shadow: 2px 4px 10px 0px rgba(0,0,0,0.67)  !important; 
     width: 125px;
     height: 135px;
       overflow: hidden;
-      border: 1px solid #cbcbcb80;
-box-shadow: 0 0 0 .2rem #7a7a7a4d !important;
       border-radius: 5px;
       background-size: cover !important; 
       background-position: center center !important;

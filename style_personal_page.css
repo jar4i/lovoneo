@@ -35,33 +35,61 @@
     background-size: contain;
   }
   */
- 
+  .section_general{
+    padding-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 auto;
+    align-items: flex-start;
+  }
+  .sect_left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+  }
+  #form-log {
+    width: 300px;
+}
+  .fg-pass a {
+    color: #ff3333 !important;
+}
+  .section-slide{
+    height: 171px;
+    background: #fffdf9cb;
+    border-color: #181818 !important; 
+    -webkit-box-shadow: 1px 1px 6px -1px rgba(0,0,0,0.67) !important;
+    -moz-box-shadow: 1px 1px 6px -1px rgba(0,0,0,0.67) !important;
+    box-shadow: 1px 1px 6px -1px rgba(0,0,0,0.67) !important;
+    border-radius: 5px;
+    padding: 18px;
+    margin-bottom: 20px;
+  }
   /*section_1 slider*/
-  #section-slide {
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
-  #section-slide .slick-slide{
-    height: 212px !important ;
-  }
-  #section-slide .slick-dots{
-    display: none !important;
-  }
-  #section-slide  .slick-prev::before, #section-slide  .slick-next::before{
+  .slick-prev::before, .slick-next::before{
     color: #181818 !important;
     height: 100px !important;
   }
-  #section-slide  .slick-prev::before{
-    margin-left: 15px !important;
-  }
-  #section-slide  .slick-card-box{
-    max-width: 1200px;
+  .slick-card-box{
+    max-width: 830px;
     margin: 0 auto;
   }
   /*section 1 - control: log in filter */
   
   /*section 1 - control: log in filter */
-
+  .logo_box{
+    min-height: 171px;
+    background: #fffdf9cb;
+    border-color: #181818 !important; 
+    -webkit-box-shadow: 1px 1px 6px -1px rgba(0,0,0,0.67) !important;
+    -moz-box-shadow: 1px 1px 6px -1px rgba(0,0,0,0.67) !important;
+    box-shadow: 1px 1px 6px -1px rgba(0,0,0,0.67) !important;
+    border-radius: 5px;
+    padding: 18px;
+    margin-bottom: 20px;
+  
+  }
 /*logo*/
 .logo{
     background: url('logo.png') no-repeat;
@@ -71,25 +99,20 @@
     margin-bottom: 30px;
   }
   /*login*/
-  .section-control{
-    margin-top: 80px; 
-    clear: bottom;
-  }
   .right-side{
     max-width: 890px;
     display: inline-block;
-  }
-  .section-control #form-log{
-    width: 260px;
-    height: 295px;
   }
   
   .section-control .panel-body{
     padding: 0 !important;
   }
-  .section-control .panel{
+  .panel{
     background: #fffdf9cb;
-    border-color: #181818 !important; 
+    border: #181818 !important; 
+    -webkit-box-shadow: 1px 1px 6px -1px rgba(0,0,0,0.67) !important;
+    -moz-box-shadow: 1px 1px 6px -1px rgba(0,0,0,0.67) !important;
+    box-shadow: 1px 1px 6px -1px rgba(0,0,0,0.67) !important;
   }
   .btn-lg{
       font-size: 14px !important;
@@ -125,50 +148,21 @@
   .card-container{
     margin-bottom: 30px; 
   }
-  .card{
-    width: 170px;
-    height: 212px;
-    overflow: hidden;
-    margin: 0 auto;
-  
-    animation-play-state: paused;
-  }
-  
-  .card-photo{
-    width: 170px;
-    height: 212px;
+  .card-photo1{
+    width: 111px;
+    height: 135px;
     border-radius: 5px; 
     z-index: 1000;
   }
-  .card:hover{
-    border: 1px  solid rgba(250, 177, 255, 0.5);
-    border-radius: 5px;
-    box-shadow: 0 0 0 .2rem rgba(255, 193, 239, 0.5) !important;
-  }
-  .card:hover .small-info{
-    display: block;
-    transition: 2000ms;
-    animation: move  0.6s  ease-out;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-  }
-  .small-info{
-    display: none;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 60px;
-    right: 0;
-    font-weight: 500;
-    background:#d83ea0b3; 
-    color: #111010;
+  .card1{
+    width: 111px;
+    height: 135px;
     overflow: hidden;
-    font-size: 16px;
-    text-align: left;
-    padding: 10px 15px;
+    margin: 0 auto;
   }
-  #card-country{
-    font-size: 10px;
+  .card1:hover .card-photo1{
+    transform: scale(1.2);
+    transition: 400ms;
   }
   .pagination_main{
     margin-top:  50px;
@@ -194,14 +188,22 @@
   }
   /* photo & small-info*/
 .section-photo{
-    margin-top: 190px;
-    padding-left: 50px;
+    padding: 40px  40px 10px;
+    width: 940px;
+    border-radius: 5px;
+    background: #fffdf9cb;
+    border-color: #181818 !important; 
+    -webkit-box-shadow: 1px 1px 6px -1px rgba(0,0,0,0.67) !important;
+    -moz-box-shadow: 1px 1px 6px -1px rgba(0,0,0,0.67) !important;
+    box-shadow: 1px 1px 6px -1px rgba(0,0,0,0.67) !important;
 }
 .photo-box{
+  -webkit-box-shadow: 5px 6px 19px 1px rgba(0,0,0,0.67) !important;
+  -moz-box-shadow: 5px 6px 19px 1px rgba(0,0,0,0.67) !important;
+  box-shadow: 5px 6px 19px 1px rgba(0,0,0,0.67) !important;
     width: 240px;
     height: 300px;
     overflow: hidden;
-    border: 3px solid #cfcfcfcc;
 border-radius: 15px;
 }
 .photo-person{
@@ -277,6 +279,7 @@ a{
   }
 }
 .keframe_div{
+ 
   min-width: 450px;
   padding: 10px;
   animation-name: stretch;
@@ -309,9 +312,8 @@ a{
   font-size: 18px;
 }
 /*login*/
-
-.form-signin #panel-body{
-  height: 280px;
+.panel-body {
+  padding: 0 !important;
 }
 .section-control #panel-body{
   padding: 0 !important;
@@ -353,12 +355,33 @@ text-align: center;
   transition: 1000ms;
 }
 
-.panel-2 {
-  margin-top: 20px !important;
+.panel-2{
+  width: 300px !important;
 }
 /*adaptation*/
+@media (max-width: 1310px){
+  .logo{
+    width: 168px;
+    height: 67px;
+  }
+  .form-control {
+    width: 170px !important;
+}
+.radio-custom, .label_r {
+  font-size: 11px !important;
+}
+  #form-log, .panel-2 {
+    width: 200px !important;
+}
+}
 @media (max-width: 1199px){
-  .containeer {
+  .form-control {
+    width: 260px !important;
+}
+#form-log, .panel-2 {
+  width: 290px !important;
+}
+  .sect_left{
     display: none;
   }
   .section-photo{
@@ -369,6 +392,17 @@ text-align: center;
     margin: 0 auto;
     text-align: center;
   }
+  .logo_box2{
+    display: block;
+    margin: 20px auto;
+  }
+    .section-control2{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-content: center;
+      
+    }
   .logo{
     margin: 0 auto;
     width: 315px;
@@ -378,10 +412,7 @@ text-align: center;
   }
   .section-control #form-log {
     width: 335px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center !important;
-    align-content: center;
+
     margin: 0 auto;
 }
 .panel-2 {
@@ -456,12 +487,8 @@ text-align: center;
     margin: 20px auto;
     text-align: center;
   }
-  #section-slide {
-    max-width: 500px;}
 }
 @media (max-width: 600px){
-  #section-slide {
-    max-width: 300px;}
     .keframe_div{
       min-width: 250px;}
     

@@ -16,14 +16,9 @@ $rs_result = mysqli_query($conn, $sql);
 	while ($row = mysqli_fetch_assoc($rs_result)) :
 	?>  
 		<div>
-			<div class="rel card">
-			    <a href="personal_page.php?user_id=<?php echo $row['user_id'];?>" >
-					<img src="<?php echo $row['profile_foto']; ?>" class="card-photo">
-					<div class="small-info" >
-						  	<?php echo $row['first_name']?>,
-							  <?php echo $row['age']?>
-							  <p id="card-country"><?php echo $row['country']?></p>
-					</div>
+			<div class="rel card1">
+        <a href="personal_page.php?user_id=<?php echo $row['user_id'];?>" >
+					<img src="<?php echo $row['profile_foto']; ?>" class="card-photo1">
 				</a>
 			</div>
 		</div>
@@ -37,39 +32,31 @@ $rs_result = mysqli_query($conn, $sql);
 <script type="text/javascript">
    
    $(document).ready(function(){
-       $('.responsive').slick({
-     infinite: false,
+    $('.responsive').slick({
+     infinite: true,
      autoplay: true,
      speed: 300,
-     slidesToShow: 3,
-     slidesToScroll: 3,
+     slidesToShow: 6,
+     slidesToScroll: 5,
      responsive: [
-       {
-         breakpoint: 1199,
-         settings: {
-           slidesToShow: 3,
-           slidesToScroll: 3,
-           infinite: true,
-           dots: true
-         }
-       },
+      
        {
          breakpoint: 991,
          settings: {
-           slidesToShow: 3,
-           slidesToScroll: 2
+           slidesToShow: 4,
+           slidesToScroll: 4
          }
        },
        {
          breakpoint: 768,
          settings: {
-           slidesToShow: 2,
-           slidesToScroll: 2
+           slidesToShow: 3,
+           slidesToScroll: 3
           }
         } ,
 
        {
-         breakpoint: 600,
+         breakpoint: 660,
          settings: {
            slidesToShow: 1,
            slidesToScroll: 1

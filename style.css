@@ -92,6 +92,7 @@ body{
 }
 /*section 1 - control: log in filter */
 .logo_box{
+  min-height: 171px;
   background: #fffdf9cb;
   border-color: #181818 !important; 
   -webkit-box-shadow: 1px 1px 6px -1px rgba(0,0,0,0.67) !important;

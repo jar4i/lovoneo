@@ -49,6 +49,7 @@ $sthandler->execute();
                 <nav class=" hero-nav pull_left _nav">
                     <ul class="list-unstyled ">
                         <a class="active" href="index.php"><?php echo $array[1];?> |</a><!--2-->
+                        <a class="active" href="search_form.php"><?php echo $array[19];?> |</a><!--2-->
                         <a class="active" href="view_profile.php"> <?php 
                         if (isset($_SESSION['user_name'])) {
                             echo $array[60];
@@ -103,109 +104,95 @@ $sthandler->execute();
         </div>
     </div>
 </header>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-3 col-md-12">
-            <div class="section-control rel">
-                <div class="containeer">
-                    <div class="row section-control rel">
-                        
-                        <div class="col-lg-12  col-md-12 ">
-                             <div class="logo"></div>
-                        </div>
-                        <?php
-                            if(!isset($_SESSION['user_name']))
-                            {?>
-                        <div class="col-lg-12  col-md-6 col-sm-6  col-xs-12">
-                            <div class="form-signin"  method="POST">
-                                <?php
-                                include("login.php");
-                                ?>
-                            </div>
-                        </div>
-                        <?php } ?>
-                        <div class="col-lg-12 <?php if(isset($_SESSION['user_name'])){ echo "col-md-12 col-sm-12";} else { echo "col-md-6 col-sm-6 ";} ?>   col-xs-12">
-                            <div class=" form-log ">
+<br>
+<br>
+<section class="section_general wrap">
+    <div class="sect_left">
+        <div class="logo_box"><div class="logo"></div></div>
+        <?php
+            if(!isset($_SESSION['user_name']))
+            {?>
+            <div class="form-signin"  method="POST">
+                <?php
+                include("login.php");
+                ?>
+            </div>
+        <?php } ?>
+            <div class=" form-log ">
+            <?php
+                include("filter.php");
+                ?>         
+                </div>
+    </div>
+    <div class="sect_right">
+        <div class="section-slide" >
+            <div id="_slick-icons">
+            </div>
+            <br>
+        </div> 
+        <?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
+        <div class="section-photo">
+            <div class="myflex">
+                <div class="big_box">
+                    <div class="photo-box ">
+                        <img src="<?php echo $row ['profile_foto']?>" class="photo-person">
+                    </div>
+                </div>
+                <div class="info">
+                    <p class="txt_name"><?php echo $row ['first_name'] ?> <?php echo $row ['last_name'] ?>, <?php echo $row ['age'] ?> y.o </p>
+                    <?php if($row ['city'] != '' || $row ['country'] != ''){  ?>
+                        <p class="txt_city"><?php echo $row ['city'] ?> <?php echo $row ['country'] ?> <i class="fas fa-map-marker-alt"></i> </p>
+                    <?php } ?>
+                    <form method="post" value="like" id="likes">
+                            <a href="message1/message.php?user_id=<?php echo $user_id; ?>" class="btn btn-danger btn_send"><?php echo $array[66]; ?></a>
+                            <div><?php echo $array[67]; ?></div>
                             <?php
-                                include("filter.php");
-                                ?>         
-                             </div>
+                                if(isset($_POST['like'])){
+                                $like_to= $_GET['user_id'];
+                                $like_from = $_SESSION['us_id'];
+                                $pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
+                                $nRows = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
+                                if($nRows == 0){
+                                $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+                                $ins = $con->prepare("INSERT INTO likes (like_from, like_to) VALUES ('$like_from', '$like_to')");
+                                $ins->execute();
+                                }
+                                }
+                            ?>
+                            <input class="like_none"  type="submit"  id="likek" name="like">
+                            <label for="likek" name="like" id="like" class="like inline-block"><i class="fas fa-heart"></i></label>
+                    </form> 
+                    <!-- <div class="info-info"><span class="key"><?php echo $array[56]; ?>: </span><?php echo $row ['height'] ?></div>
+                    <div class="info-info"><span class="key"><?php echo $array[57]; ?>: </span><?php echo $row ['weight'] ?></div>
+                    <div class="info-info"><span class="key"><?php echo $array[38]; ?>: </span><?php echo $row ['details'] ?></div> -->
+                    <?php if($row ['details'] != ''){  ?>
+                        <div class="keframe_div">
+                            <p class="txt_status"><?php echo $array[68]; ?>:</p>
+                            <?php echo $row ['details'] ?>
                         </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-8 col-md-12">
-            <?php while($row = $sthandler->fetch(PDO::FETCH_ASSOC)) : ?>
-            <div class="section-photo">
-                <div class="myflex">
-                    <div class="big_box">
-                        <div class="photo-box ">
-                            <img src="<?php echo $row ['profile_foto']?>" class="photo-person">
-                        </div>
-                    </div>
-                    <div class="info">
-                        <p class="txt_name"><?php echo $row ['first_name'] ?> <?php echo $row ['last_name'] ?>, <?php echo $row ['age'] ?> y.o </p>
-                        <?php if($row ['city'] != '' || $row ['country'] != ''){  ?>
-                            <p class="txt_city"><?php echo $row ['city'] ?> <?php echo $row ['country'] ?> <i class="fas fa-map-marker-alt"></i> </p>
-                        <?php } ?>
-                        <form method="post" value="like" id="likes">
-                                <a href="message1/message.php?user_id=<?php echo $user_id; ?>" class="btn btn-danger btn_send"><?php echo $array[66]; ?></a>
-                                <div><?php echo $array[67]; ?></div>
-                                <?php
-                                    if(isset($_POST['like'])){
-                                    $like_to= $_GET['user_id'];
-                                    $like_from = $_SESSION['us_id'];
-                                    $pdo = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD);
-                                    $nRows = $pdo->query("select count(*) FROM likes WHERE like_to = '$like_to'")->fetchColumn(); 
-                                    if($nRows == 0){
-                                    $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-                                    $ins = $con->prepare("INSERT INTO likes (like_from, like_to) VALUES ('$like_from', '$like_to')");
-                                    $ins->execute();
-                                    }
-                                    }
-                                ?>
-                                <input class="like_none"  type="submit"  id="likek" name="like">
-                                <label for="likek" name="like" id="like" class="like inline-block"><i class="fas fa-heart"></i></label>
-                        </form> 
-                        <!-- <div class="info-info"><span class="key"><?php echo $array[56]; ?>: </span><?php echo $row ['height'] ?></div>
-                        <div class="info-info"><span class="key"><?php echo $array[57]; ?>: </span><?php echo $row ['weight'] ?></div>
-                        <div class="info-info"><span class="key"><?php echo $array[38]; ?>: </span><?php echo $row ['details'] ?></div> -->
-                        <?php if($row ['details'] != ''){  ?>
-                            <div class="keframe_div">
-                                <p class="txt_status"><?php echo $array[68]; ?>:</p>
-                                <?php echo $row ['details'] ?>
-                            </div>
-                        <?php } ?>
-                    </div>
+            <!-- <div class="more_info">
+                <div class="left">
+                    <p class="txt_bold"><?php echo $array[38]; ?>:</p>
+                    <p class="txt"><?php echo $row ['details']; ?></p>
+                    <p class="txt_bold">mai interesi:</p>
+                    <p class="txt">Жарю пингвинов (только самок)</p>
                 </div>
-                <!-- <div class="more_info">
-                    <div class="left">
-                        <p class="txt_bold"><?php echo $array[38]; ?>:</p>
-                        <p class="txt"><?php echo $row ['details']; ?></p>
-                        <p class="txt_bold">mai interesi:</p>
-                        <p class="txt">Жарю пингвинов (только самок)</p>
-                    </div>
-                    <div class="right">
-                        <p class="txt_bold"><?php echo $array[56]; ?>:</p>
-                        <p class="txt"><?php echo $row ['height']; ?></p>
-                        <p class="txt_bold"><?php echo $array[57]; ?>:</p>
-                        <p class="txt"><?php echo $row ['weight']; ?></p>
-                    </div>
-                </div> -->
-                <?php endwhile;?>
-                <div class="album">
-                    <?php  
-                    include("fotos/view.php");
-                    ?>
-                </div> 
-                <h3 class="center"><?php echo $array[20]; ?>:</h3><!--21-->
-                <div class="section-slide" id="section-slide">
-                    <div id="_slick-icons">
-                    </div>
-                    <br>
-                </div> 
-            </div>
+                <div class="right">
+                    <p class="txt_bold"><?php echo $array[56]; ?>:</p>
+                    <p class="txt"><?php echo $row ['height']; ?></p>
+                    <p class="txt_bold"><?php echo $array[57]; ?>:</p>
+                    <p class="txt"><?php echo $row ['weight']; ?></p>
+                </div>
+            </div> -->
+            <?php endwhile;?>
+            <div class="album">
+                <?php  
+                include("fotos/view.php");
+                ?>
+            </div> 
         </div>
     </div>
 </div>

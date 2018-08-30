@@ -28,6 +28,7 @@
 				</div>
 			</div>
 		</div>
+		<h3 class="center"><?php echo $array[58];?></h3>
 			<div class="rowii">
 			<?php 
 					$conn = mysqli_connect("localhost","lovoneo","ZMaLPF2-unV-ch","projekt");
@@ -78,8 +79,8 @@
        $('.rowii').slick({
 		infinite: true,
      speed: 300,
-     slidesToShow: 4,
-     slidesToScroll: 4,
+     slidesToShow: 5,
+     slidesToScroll: 5,
 	 dots: true,
 	 arrows: false,
      responsive: [
