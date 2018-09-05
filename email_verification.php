@@ -80,6 +80,7 @@ if(isset($_GET['activation_code']))
 		<title>Register </title>		
 		<link rel="stylesheet" href="style.css">
 		<link rel="stylesheet" href="menu.css">
+		<link rel="shortcut icon" href="ico.png">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	</head>

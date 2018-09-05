@@ -19,6 +19,7 @@ $sthandler->execute();
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+<link rel="shortcut icon" href="ico.png">
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 </head>
 <body>

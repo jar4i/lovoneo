@@ -37,6 +37,7 @@ $message = $array[47];
 		<link rel="stylesheet" href="restore_pass.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="menu.css">
+<link rel="shortcut icon" href="ico.png">
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>

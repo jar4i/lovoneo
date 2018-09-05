@@ -176,6 +176,7 @@ rder='0' cellspacing='0' cellpadding='0' role='presentation' width='100%'>
 		<title><?php echo $array[21];?></title><!--22-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link rel="stylesheet" href="register.css">
+<link rel="shortcut icon" href="ico.png">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 	</head>
