@@ -1,4 +1,5 @@
 <?php
+session_start();
     require_once("connect.php");
     if(isset($_GET['c_id'])){
         //get the conversation id and
@@ -20,22 +21,50 @@
                 $user_from_img = $user_fetch['profile_foto'];
  
                 //display the message
-                echo "
-                            <div class='message'>
-                                <div class='img-con'>
-                                    <img src='../{$user_from_img}'>
+                // echo "
+                //    <div class='message'>
+                //        <div class='img-con'>
+                //            <img src='../{$user_from_img}'>
+                //        </div>
+                //        <div class='text-con'>
+                //            <a href='#'>{$user_from_username}</a>
+                //            <p>{$message}</p>
+                //        </div>
+                //    </div>
+                //    <hr>";
+                    if($user_from == $_SESSION['us_id']){
+                        echo "
+                        <div class='cont_r'>
+                                <div class='message_right rel'>
+                                    <div class='text-con'>
+                                       {$message}
+                                    </div>
+                                    <div class='sk_r'></div>
                                 </div>
+                                </div>
+                        ";
+                    }
+                else{
+                    echo "
+                        <div class='cont_l'>
+                        <div class='message_left rel'>
                                 <div class='text-con'>
-                                    <a href='#'>{$user_from_username}</a>
-                                    <p>{$message}</p>
+                                    {$message}
                                 </div>
+                                <div class='sk_l'></div>
+
                             </div>
-                            <hr>";
+                            </div>
+
+                    ";
+                }
+              echo "</div>";
  
             }
         }else{
             echo "No Messages";
         }
     }
- 
+
+
 ?>

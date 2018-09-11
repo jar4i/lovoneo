@@ -3,7 +3,21 @@
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
 
+session_start();
+include("connection.php");
+if(isset($_POST['de'])){$_SESSION['lang'] = 1;}
+else if(isset($_POST['en'])){$_SESSION['lang'] = 2;}
+if($_SESSION['lang'] == 1){$query = $conn->query("SELECT * FROM de");}
+else if($_SESSION['lang'] == 2){$query = $conn->query("SELECT * FROM en");}
+else{$query = $conn->query("SELECT * FROM de");}
+$array = Array();
+echo $_SESSION['lang'];
+while($result = $query->fetch_assoc()){
+$array[] = $result['phrase'];
+$_SESSION['array'] = $array;
+}
 
+$array = $_SESSION['array'];
 include("class.phpmailer.php");
 include("class.smtp.php");
 include("database_connection.php");
@@ -51,51 +65,73 @@ if(isset($_POST["register"]))
 		$statement->execute(
 			array(
 				':birth_date'   		=>      $_POST['birth_date'],
-				':user_name'			=>	$_POST['user_name'],
-				':user_email'			=>	$_POST['user_email'],
-				':user_password'		=>	$user_encrypted_password,
-				':user_activation_code'		=>	$user_activation_code,
-				':user_id'			=>	$user_id,
-				':user_email_status'		=>	'not verified',
-				':first_name'    		=>      'User',
+				':user_name'			=>   	$_POST['user_name'],
+				':user_email'			=>	    $_POST['user_email'],
+				':user_password'		=>   	$user_encrypted_password,
+				':user_activation_code'	=>   	$user_activation_code,
+				':user_id'		    	=>	    $user_id,
+				':user_email_status'	=>  	'not verified',
+				':first_name'    		=>      $_POST['user_name'],
 				':last_name'    		=>      '',
 				':country'    			=>      '',
-				':city'    			=>      '',
+				':city'    			 =>      '',
 				':profile_foto'    		=>      'uploads/default.png',
-                                ':details'   			=>      $_POST['gender'],
-				':gender'   			=>      '',
+                		':details'   			=>      '',
+				':gender'   			=>      $_POST['gender'],
 				':weight'   			=>      '',
 				':height'   			=>      ''
-
-
 			)
 		);
 
-$folder = "uploads/";
-$upload_image = $folder . basename($_FILES["fileToUpload"]["name"]);
-move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $upload_image);
-$temp_img = imagecreatefromjpeg($upload_image);
-$to_crop_array = array('x' =>$_COOKIE["x"], 'y' => $_COOKIE["y"], 'width' => $_COOKIE["width"], 'height'=> $_COOKIE["height"]);
-$im2 = imagecrop($temp_img, $to_crop_array);
-imagejpeg($im2, $folder . basename($_FILES["fileToUpload"]["name"]));
-$update_img = ($folder . basename($_FILES["fileToUpload"]["name"]));
-$con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-$insert_query="UPDATE register_user SET profile_foto = '$update_img' WHERE user_activation_code = '$user_activation_code'";
-$stmt = $con->prepare($insert_query);
-$stmt->execute();
-$_SESSION['profile_foto'] = $update_img;
-		session_start();
-		$_SESSION['profile_foto'] = "uploads/default.png";
+
+
+		
 		$result = $statement->fetchAll();
+			
+
 		if(isset($result))
 		{
+			
+
 			$base_url = "https://lovoneo.com/";  
 			$mail_body = "
-			<p>Hi ".$_POST['user_name'].",</p>
-			<p>Thanks for Registration. Your password is ".$user_password.", This password will work only after your email verification.</p>
-			<p>Please Open this link to verified your email address - ".$base_url."email_verification.php?user_activation_code=".$user_activation_code."
-			<p>Best Regards,<br />Lovoneo</p>
-			";
+			<head>
+				<meta charset='UTF-8'>
+				<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+				<style type='text/css'>
+					body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+					table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+					img { -ms-interpolation-mode: bicubic; }
+					img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+					table { border-collapse: collapse !important; }
+					body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; }
+				</style>
+			</head>
+			<body style='background-color: aliceblue; margin: 0 !important; padding: 60px 0 60px 0 !important;'>
+rder='0' cellspacing='0' cellpadding='0' role='presentation' width='100%'>
+                                <tr>
+                                        <td bgcolor='aliceblue' style='font-size: 0;'>&<200b>nbsp;</td>
+                                        <td bgcolor='white' width='600' style='border-bottom: 1px solid gainsboro; text-align: center; color: dimgray; font-family: sans-serif; font-size: 18px; line-height: 28px; padding: 20px 40px;'>
+                                                <img alt='placeholder image' src='https://lovoneo.com/logo.png' height='150' width='250' style='color: white; display: block; font-family: sans-serif; font-size: 18px; font-weight: bold; height: auto; max-width: 100%; text-align: center;'>
+                                        </td>
+                                        <td bgcolor='aliceblue' style='font-size: 0;'>&<200b>nbsp;</td>
+                                </tr>
+                                <tr>
+                                        <td bgcolor='aliceblue' style='font-size: 0;'>&<200b>nbsp;</td>
+                                        <td bgcolor='white' width='600' style='border-radius: 4px; color: dimgray; font-family: sans-serif; font-size: 18px; line-height: 28px; padding: 40px 40px;'>
+                                                <h1 style='color: dimgray; font-size: 32px; font-weight: bold; line-height: 36px; margin: 0 0 30px 0;'>Hi, ".$_POST['user_name']."!</h1>
+                                                <p style='margin: 30px 0 30px 0;'>$array[48]</p>
+                                                <p style='margin: 30px 0 30px 0;'> $array[49] <span style='font-weight: 600; color: dimgray; '> ".$user_password." </span>$array[50]</p>
+                                                <p style='margin: 30px 0 30px 0;'>$array[51]:</p> 
+                                                <a href='".$base_url."email_verification.php?activation_code=".$user_activation_code."' style='font-weight: bold; color: deeppink !important;'> lovoneo.com</a>
+                                                <p style='color: dimgray;  line-height: 36px;'>Best Regards,<br />Lovoneo</p><!--32-->
+                                        </td>
+                                        <td bgcolor='aliceblue' style='font-size: 0;'>&<200b>nbsp;</td>
+                                </tr>
+                                </table>
+
+			
+			</body>";
 			$mail = new PHPMailer;
 			$mail->SMTPDebug = 0;
 			$mail->IsSMTP();								
@@ -115,229 +151,100 @@ $_SESSION['profile_foto'] = $update_img;
 			$mail->Body = $mail_body;							
 			if($mail->Send())								
 			{
-				header("location:register_done.php");
+
+				header("location:register_foto_upload.php?user_activation_code=$user_activation_code");
+							
+
 			}
 		}
 	}
 }
 
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Register </title>
- <link rel="stylesheet" href="personal_page_edit.css">	
-		    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.4.1/cropper.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="menu.css">
+
+		<title><?php echo $array[21];?></title><!--22-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link rel="stylesheet" href="register.css">
+<link rel="shortcut icon" href="ico.png">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 	</head>
 	<body>
 	<header class="head fixed">
-    <div class="wrap">
-        <nav class="pull_left">
-        
-            <ul class="list-unstyled ">
-            <a class="active" href="index.php">Home |</a>
-            <a class="active" href="view_profile.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "Profile";
-                echo '  |';} 
-            ?>
-            </a>
-            <a class="active" href="message1/message.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "Massage";
-                echo '  |';
-            }
-            ?>
-            </a>
-   
-
-            <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
-            <?php
-            if (isset($_SESSION['user_name'])) {
-                echo "Edit profile";
-                echo '  |';
-            }
-            ?>
-            </a>
-            
-            </ul>
-        </nav>
-        <div class="pull-right rel">
-        <a class="welcom" href="view_profile.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
-               echo ''.$_SESSION['first_name'];
-               echo '  |';
-            
-            }
-            ?>
-        </a>
-        <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo'<a href="logout.php">Log out</a>';
-            }
-            else echo '<a href="login_page.php">Log in</a>';
-            ?>
+    <div class="wrap rel">
+        <div class="menu">
+            <div class="menu_left">
+                <div class="hamburger pull-left _hamburger">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+                <nav class=" hero-nav pull_left _nav">
+                    <ul class="list-unstyled ">
+                        <a class="active" href="index.php"><?php echo $array[1];?> |</a><!--2-->
+                        <a class="active" href="view_profile.php"> <?php 
+                        if (isset($_SESSION['user_name'])) {
+                            echo $array[60];
+                            echo '  |';} 
+                        ?>
+                        </a>
+                        <a class="active" href="message1/message.php"> <?php 
+                        if (isset($_SESSION['user_name'])) {
+                            echo $array[13];
+                            echo '  |';
+                        }
+                        ?>
+                        </a>
+                        <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
+                        <?php
+                        if (isset($_SESSION['user_name'])) {
+                            echo $array[2];
+                            echo '  |';
+                        }
+                        ?>
+                        </a>
+                
+                    </ul>
+                </nav>
+            </div>
+            <div class="right_side_menu rel">
+                <form method="post" class="active2 language_box ">
+				<input class="language1  language" name="en" value=""  type="submit">
+                    <input class="language2  language" name="de" value=""  type="submit">
+                </form>
+                   <?php 
+                    if (isset($_SESSION['user_name'])) {
+                        echo "<a class='active2 rel' href='view_profile.php'>
+                                <div class='inlne-block profile_photo_menu_box'>
+                                    <img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> 
+                                </div>
+                            </a>";
+                        echo "<a class='active2' href='view_profile.php'>";
+                        echo ''.$_SESSION['first_name'];
+                        echo "</a>";
+                    }
+                    ?> 
+                <a class="active2" >
+                    <?php 
+                    if (isset($_SESSION['user_name'])) {
+                        echo"<a href='logout.php'>$array[3]</a>";/*4*/
+                    }
+                    else echo "<a href='login_page.php'>$array[4]</a>";/*5*/
+                    ?>
+                </a>
+            </div>
         </div>
-
     </div>
-
 </header>
-<br><br><br><br>
-<section class="section_profile_photo mt-8">
-        <div class="wrap">
-            
-        <div class="container">
-        <form class ="button_foto" action="" method="post" enctype="multipart/form-data">
-    <div class="clearfix_card rel">
-                    <div class="prof_photo_box">
-                         <img class="rounded prof_photo" id="avatar" src="uploads/default.png" alt="avatar">
-                    </div>
-                        <input type="file"  id="input" class="sr-only" name="fileToUpload" >
-                        <label for="input"  class="text_edit_box"> 
-                            <div class="btn-add-photo"><i class="fas fa-camera"></i></div>
-                            <div class="text_edit"> Edit your profile photo</div>
-                        </label>
-                </div> </form>
-    <div class="alert" role="alert"></div>
-    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="img-container">
-              <img id="image" src="https://avatars0.githubusercontent.com/u/3456749">
-            </div>
-          </div>
-          <div class="modal-footer">
-          <div class="btn-group">
-              <button type="button" class="btn btn-primary" id="zoom-in" title="Zoom In">
-                  <span class="docs-tooltip" data-toggle="tooltip" >
-                  <span class="fa fa-search-plus"></span>
-                  </span>
-              </button>
-              <button type="button" class="btn btn-primary" id="zoom-out" title="Zoom Out">
-                  <span class="docs-tooltip" data-toggle="tooltip" >
-                  <span class="fa fa-search-minus"></span>
-                  </span>
-              </button>
-          </div>
-          <div class="btn-group btn-group-footer">
-              <button type="button" class="btn btn-primary" id="move-left" title="Move Left">
-                  <span class="docs-tooltip" data-toggle="tooltip" >
-                  <span class="fa fa-arrow-left"></span>
-                  </span>
-              </button>
-              <button type="button" class="btn btn-primary" id="move-right" title="Move Right">
-                  <span class="docs-tooltip" data-toggle="tooltip" >
-                  <span class="fa fa-arrow-right"></span>
-                  </span>
-              </button>
-              <button type="button" class="btn btn-primary" id="move-up" title="Move Up">
-                  <span class="docs-tooltip" data-toggle="tooltip">
-                  <span class="fa fa-arrow-up"></span>
-                  </span>
-              </button>
-              <button type="button" class="btn btn-primary" id="move-down" title="Move Down">
-                  <span class="docs-tooltip" data-toggle="tooltip" s>
-                  <span class="fa fa-arrow-down"></span>
-                  </span>
-              </button>
-            </div>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary" id="crop">Crop</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-        <!-- <div class="container">
-            <form class ="button_foto" action="" method="post" enctype="multipart/form-data">
-                <div class="clearfix_card rel">
-                    <div class="prof_photo_box">
-                        <img class="rounded prof_photo" id="avatar" src ="<?php echo "uploads/default.png";?>" alt="avatar">
-                    </div>
-                        <input type="file"  id="input" name="fileToUpload" >
-                        <label for="input"  class="text_edit_box"> 
-                            <div class="btn-add-photo"><i class="fas fa-camera"></i></div>
-                            <div class="text_edit"> Edit your profile photo</div>
-                        </label>
-                </div>
-                <div class="alert" role="alert"></div>
-                <div class="modal" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="img-container">
-                            <img id="image" src="image_crop/default.jpg">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-primary" id="zoom-in" title="Zoom In">
-                                    <span class="docs-tooltip" data-toggle="tooltip" >
-                                    <span class="fa fa-search-plus"></span>
-                                    </span>
-                                </button>
-                                <button type="button" class="btn btn-primary" id="zoom-out" title="Zoom Out">
-                                    <span class="docs-tooltip" data-toggle="tooltip" >
-                                    <span class="fa fa-search-minus"></span>
-                                    </span>
-                                </button>
-                            </div>
-                            <div class="btn-group btn-group-footer">
-                                <button type="button" class="btn btn-primary" id="move-left" title="Move Left">
-                                    <span class="docs-tooltip" data-toggle="tooltip" >
-                                    <span class="fa fa-arrow-left"></span>
-                                    </span>
-                                </button>
-                                <button type="button" class="btn btn-primary" id="move-right" title="Move Right">
-                                    <span class="docs-tooltip" data-toggle="tooltip" >
-                                    <span class="fa fa-arrow-right"></span>
-                                    </span>
-                                </button>
-                                <button type="button" class="btn btn-primary" id="move-up" title="Move Up">
-                                    <span class="docs-tooltip" data-toggle="tooltip">
-                                    <span class="fa fa-arrow-up"></span>
-                                    </span>
-                                </button>
-                                <button type="button" class="btn btn-primary" id="move-down" title="Move Down">
-                                    <span class="docs-tooltip" data-toggle="tooltip" s>
-                                    <span class="fa fa-arrow-down"></span>
-                                    </span>
-                                </button>
-                            </div>
-                            <button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button>
-                            <button type="button" id="crop" class="btn btn-primary" >Crop</button>
-                            <input type="submit" class="notablock"  value="Upload Image" name="submit">
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div> -->
-    </div>
-		
-        
-
-        </div>
-    </section>
 		<section class="section_register rel">
 			<div class="wrap" >
             	<div class="logo"></div>
@@ -346,288 +253,38 @@ $_SESSION['profile_foto'] = $update_img;
 						<form method="post" id="register_form">
 							<?php echo $message; ?>
 							<div class="form-group">
-								<label for="user_name">User Name</label>
+								<label for="user_name"><?php echo $array[26]; ?></label><!--27-->
 								<input type="text" name="user_name" id="user_name" class="form-control email" value="<?php echo isset($_POST['user_name']) ? $_POST['user_name'] : '' ?>" pattern="[a-zA-Z ]+" required />
 							</div>
 							<div class="form-group">
-								<label for="user_email">User Email</label>
+								<label for="user_email"><?php echo $array[27]; ?></label><!--28-->
 								<input type="email" name="user_email" id="user_email" class="form-control email" value="<?php echo isset($_POST['user_email']) ? $_POST['user_email'] : '' ?>" required />
 							</div>
 							<div class="form-group">
-								<label for="user_password">Your Password</label>
-								<input type="text" name="user_password" id="user_password" class="form-control password" value="<?php echo isset($_POST['user_password']) ? $_POST['user_password'] : '' ?>" required />
-							</div>
-							<div class="form-group">
-								<label for="gender">Gender</label>
-								<select name="gender">
+								<label for="user_password"><?php echo $array[28]; ?></label><!--29-->
+								<input type="password" name="user_password" id="user_password" class="form-control password" value="<?php echo isset($_POST['user_password']) ? $_POST['user_password'] : '' ?>" required />
+              </div>
+              <label for="gender"><?php echo $array[29]; ?></label><!--30-->
+              <div class="input-group">
+                <select class="custom-select" id="gender" name="gender">
 									<option value="male">male</option>
 									<option value="female">female</option>
-								</select> 
-							</div>
+                </select>
+              </div>
 							<div class="form-group">
-								<label for="birth_date">Birthday</label>
+								<label for="birth_date"><?php echo $array[30] ;?></label><!--31-->
 								<input type="date" name="birth_date" id="birth_date" class="form-control email" value="<?php echo isset($_POST['birth_date']) ? $_POST['birth_date'] : '' ?>" required />
 							</div>
 
 							<div class="form-group">
-								<input type="submit" name="register" id="register" value="Register" class="btn btn-danger register-btn" />
+								<input type="submit" name="register" id="register" value="Register" class="btn btn-danger inline-block register-btn" />
+								<a  href="login_page.php" class="login-link inline-block btn btn-danger "><?php echo $array[4]; ?></a><!--31-->
 							</div>
-
-							
 						</form>
-						<div class="login-link btn btn-danger "><a href="login_page.php" >Log in</a></div>
 					</div>
 				</div>
 			</div>
 		</section>
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.bundle.min.js"></script>
-  <script src="cropper.js"></script>
-  <script>
-    window.addEventListener('DOMContentLoaded', function () {
-        var avatar = document.getElementById('avatar');
-      var image = document.getElementById('image');
-      var input = document.getElementById('input');
-      var moveLeft = document.getElementById('move-left');
-      var moveRight = document.getElementById('move-right');
-      var moveUp = document.getElementById('move-up');
-      var moveDown = document.getElementById('move-down');
-      var zoomIn = document.getElementById('zoom-in');
-      var zoomOut = document.getElementById('zoom-out');
-      var $alert = $('.alert');
-      var $modal = $('#modal');
-      var cropper;
-
-      $('[data-toggle="tooltip"]').tooltip();
-
-      moveLeft.addEventListener('click', function(){
-        cropper.move(4, 0);
-      })
-      moveRight.addEventListener('click', function(){
-        cropper.move(-4, 0);
-      })
-      moveUp.addEventListener('click', function(){
-        cropper.move(0, 4);
-      })
-      moveDown.addEventListener('click', function(){
-        cropper.move(0, -4);
-      })
-      zoomIn.addEventListener('click', function(){
-        cropper.zoom(0.1);
-      })
-      zoomOut.addEventListener('click', function(){
-        cropper.zoom(-0.1);
-      })
-      input.addEventListener('change', function (e) {
-        var files = e.target.files;
-        var done = function (url) {
-          input.value = '';
-          image.src = url;
-          $alert.hide();
-          $modal.modal('show');
-        };
-        var reader;
-        var file;
-        var url;
-
-        if (files && files.length > 0) {
-          file = files[0];
-          document.cookie = "file=" + escape(file.name) 
-              + "; path=/";
-          console.log(document.cookie);
-
-          if (URL) {
-            done(URL.createObjectURL(file));
-          } else if (FileReader) {
-            reader = new FileReader();
-            reader.onload = function (e) {
-              done(reader.result);
-            };
-            reader.readAsDataURL(file);
-          }
-        }
-      });
-
-        var cook = function createCookie(x, y, w, h) {
-            document.cookie = "y=" + escape(y) 
-              + "; path=/";
-             document.cookie =  "width=" + escape(w) 
-             +  "; path=/";
-             document.cookie = 
-             "height=" + escape(h)  + "; path=/";
-             document.cookie = "x=" + escape(x) 
-              + "; path=/";
-              console.log(document.cookie);
-              
-        }
-      var data = document.querySelector('#data');
-      $modal.on('shown.bs.modal', function () {
-        cropper = new Cropper(image, {
-          
-        ready: function (event) {
-          // Zoom the image to its natural size
-          cropper.zoomTo(1);
-        },
-
-        crop: function (event) {
-            
-            cook(cropper.getData().x, cropper.getData().y, cropper.getData().width, cropper.getData().height);
-        },
-
-          dragMode: 'move',
-        aspectRatio: 200 / 250,
-        autoCropArea: 0.65,
-        restore: false,
-        guides: false,
-        center: false,
-        highlight: false,
-        cropBoxMovable: false,
-        cropBoxResizable: false,
-        toggleDragModeOnDblclick: false,
-        });
-      }).on('hidden.bs.modal', function () {
-        cropper.destroy();
-        cropper = null;
-      });
-
-      document.getElementById('crop').addEventListener('click', function () {
-        var initialAvatarURL;
-        var canvas;
-
-        $modal.modal('hide');
-
-        if (cropper) {
-          canvas = cropper.getCroppedCanvas({
-            width: 160,
-            height: 160,
-          });
-          initialAvatarURL = avatar.src;
-          avatar.src = canvas.toDataURL();
-        }
-      });
-    });
-  </script>
-  <!-- <script>
-      
-    window.addEventListener('DOMContentLoaded', function () {
-      var avatar = document.getElementById('avatar');
-      var image = document.getElementById('image');
-      var input = document.getElementById('input');
-      var moveLeft = document.getElementById('move-left');
-      var moveRight = document.getElementById('move-right');
-      var moveUp = document.getElementById('move-up');
-      var moveDown = document.getElementById('move-down');
-      var zoomIn = document.getElementById('zoom-in');
-      var zoomOut = document.getElementById('zoom-out');
-      var $alert = $('.alert');
-      var $modal = $('#modal');
-      var cropper;
-      $('[data-toggle="tooltip"]').tooltip();
-      
-      moveLeft.addEventListener('click', function(){
-        cropper.move(4, 0);
-      })
-      moveRight.addEventListener('click', function(){
-        cropper.move(-4, 0);
-      })
-      moveUp.addEventListener('click', function(){
-        cropper.move(0, 4);
-      })
-      moveDown.addEventListener('click', function(){
-        cropper.move(0, -4);
-      })
-      zoomIn.addEventListener('click', function(){
-        cropper.zoom(0.1);
-      })
-      zoomOut.addEventListener('click', function(){
-        cropper.zoom(-0.1);
-      })
-      input.addEventListener('change', function (e) {
-        var files = e.target.files;
-        var done = function (url) {
-          
-          image.src = url;
-
-          $alert.hide();
-          $modal.modal('show');
-        };
-        var reader;
-        var file;
-        var url;
-
-        if (files && files.length > 0) {
-          file = files[0];
-
-          if (URL) {
-            done(URL.createObjectURL(file));
-console.log(URL.createObjectURL(file));
-          } else if (FileReader) {
-            reader = new FileReader();
-            reader.onload = function (e) {
-              done(reader.result);
-            };
-            reader.readAsDataURL(file);
-          }
-        }
-      }); 
-     
-        var cook = function createCookie(x, y, w, h) {
-            document.cookie = "y=" + escape(y) 
-              + "; path=/";
-             document.cookie =  "width=" + escape(w) 
-             +  "; path=/";
-             document.cookie = 
-             "height=" + escape(h)  + "; path=/";
-             document.cookie = "x=" + escape(x) 
-              + "; path=/";
-console.log(document.cookie);
-        }
-      var data = document.querySelector('#data');
-      $modal.on('shown.bs.modal', function () {
-        cropper = new Cropper(image, {
-            
-        ready: function (event) {
-          // Zoom the image to its natural size
-          cropper.zoomTo(1);
-        },
-
-        crop: function (event) {
-            cook(cropper.getData().x, cropper.getData().y, cropper.getData().width, cropper.getData().height);
-        },
-
-          dragMode: 'move',
-        aspectRatio: 200 / 250,
-        autoCropArea: 0.65,
-        restore: false,
-        guides: false,
-        center: false,
-        highlight: false,
-        cropBoxMovable: false,
-        cropBoxResizable: false,
-        toggleDragModeOnDblclick: false,
-        });
-        
-      }).on('hidden.bs.modal', function () {
-        cropper.destroy();
-        cropper = null;
-      });
-
-      document.getElementById('crop').addEventListener('click', function () {
-        var initialAvatarURL;
-        var canvas;
-        $modal.modal('hide');
-
-        if (cropper) {
-          canvas = cropper.getCroppedCanvas({
-            width: 160,
-            height: 160,
-          });
-          initialAvatarURL = avatar.src;
-          avatar.src = canvas.toDataURL();
-
-        }
-      });
-    });
-  </script> -->
 	</body>
 </html>

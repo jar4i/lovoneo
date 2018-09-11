@@ -16,9 +16,9 @@ $rs_result = mysqli_query($conn, $sql);
 	while ($row = mysqli_fetch_assoc($rs_result)) :
 	?>  
 		<div>
-			<div class="rel card">
+			<div class="rel card1">
 			    <a href="personal_page.php?user_id=<?php echo $row['user_id'];?>" >
-					<img src="<?php echo $row['profile_foto']; ?>" class="card-photo">
+					<img src="<?php echo $row['profile_foto']; ?>" class="card-photo1">
 					<div class="small-info" >
 						  	<?php echo $row['first_name']?>,
 							  <?php echo $row['age']?>
@@ -38,40 +38,33 @@ $rs_result = mysqli_query($conn, $sql);
    
    $(document).ready(function(){
        $('.responsive').slick({
-     infinite: false,
+     infinite: true,
      autoplay: true,
      speed: 300,
-     slidesToShow: 4,
-     slidesToScroll: 4,
+     slidesToShow: 6,
+     slidesToScroll: 5,
      responsive: [
+      
        {
-         breakpoint: 1240,
+         breakpoint: 991,
+         settings: {
+           slidesToShow: 4,
+           slidesToScroll: 4
+         }
+       },
+       {
+         breakpoint: 768,
          settings: {
            slidesToShow: 3,
-           slidesToScroll: 2,
-           infinite: true,
-           dots: true
-         }
-       },
+           slidesToScroll: 3
+          }
+        } ,
+
        {
-         breakpoint: 1010,
-         settings: {
-           slidesToShow: 2,
-           slidesToScroll: 2
-         }
-       },
-       {
-         breakpoint: 815,
-         settings: {
-           slidesToShow: 2,
-           slidesToScroll: 2
-         }
-       },
-       {
-         breakpoint: 575,
+         breakpoint: 660,
          settings: {
            slidesToShow: 1,
-           slidesToScroll: 2
+           slidesToScroll: 1
           }
         } 
        // You can unslick at a given breakpoint now by adding:

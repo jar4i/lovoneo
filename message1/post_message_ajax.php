@@ -11,7 +11,7 @@ ini_set('display_errors', 'On');
  
        
         //insert into `messages`
-        $q = mysqli_query($con, "INSERT INTO messages (conversation_id, user_from, user_to, message) VALUES ('$conversation_id','$user_from','$user_to','$message')");
+        $q = mysqli_query($con, "INSERT INTO messages (conversation_id, user_from, user_to, message, message_status) VALUES ('$conversation_id','$user_from','$user_to','$message', 1)");
         if($q){
             echo "Posted";
         }else{
@@ -19,3 +19,4 @@ ini_set('display_errors', 'On');
         }
     }
 ?>
+

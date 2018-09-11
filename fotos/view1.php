@@ -5,9 +5,6 @@
 		<link href="fotos/css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
-		<section class="section_view" id="view">
-			<div class="wrap">
-				<div class="container">			
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<?php
@@ -21,13 +18,13 @@
 								}
 							?>
 							<?php 
-								$conn = mysqli_connect("localhost","lovoneo","ZMaLPF2-unV-ch","projekt");
-								$query = "SELECT * FROM files WHERE us_us_id= '$user_id'";
-								$result = mysqli_query($conn, $query);
+								$con = mysqli_connect("localhost","lovoneo","ZMaLPF2-unV-ch","projekt");
+								$query = "SELECT * FROM files WHERE us_us_id= '".$_SESSION['us_id']."'";
+								$result = mysqli_query($con, $query);
 								if(mysqli_num_rows($result) > 0)
 								{
-									while($row = mysqli_fetch_assoc($result))
-									{
+									while($row = mysqli_fetch_assoc($result)){
+									
 										$url = "albums/uploads/";
 							?>
 							<form class ="delete inline-block" action="" method="post">
@@ -47,9 +44,6 @@
 							?>					
 						</div>
 					</div>
-				</div>
-			</div>
-		</section>
 		
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="fotos/js/jQuery.js"></script>

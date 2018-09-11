@@ -1,3 +1,8 @@
+<?php
+session_start();
+$array = $_SESSION['array'];
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -5,54 +10,50 @@
 	</head>
 	<body>
 <div class="panel panel-2 panel-default">
-    			        <div class="panel-body">
-                            <form class="search rel" action="search_form.php" method="post">
-                                        <div class=" rel">
-                                            <h4 class="center search-text">I'm</h4>
-                                            <div class="labeles-div">
-                                                <label class="labeles">
-                                                    <input class="radio radio1" type="radio" name="Radios1" id="r1-m" value="male" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='male' ){echo ' checked="checked"';}?>>
-                                                    <span class="radio-custom"></span>
-                                                    <div class="label_r">Man</div>
-                                                </label>
-                                                <label class="labeles">
-                                                    <input class="radio radio1" type="radio" name="Radios1" id="r1-f" value="female" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='female' ){echo ' checked="checked"';}?>>
-                                                    <span class="radio-custom"></span>
-                                                    <div class="label_r">Woman</div>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="rel">
-                                            <h4 class="center  search-text">I'm looking for</h4>
-                                            <div class="labeles-div">
-                                                <label class="labeles">
-                                                    <input class="radio radio2" type="radio" name="Radios2" id="r2-m" value="male" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='male' ){echo ' checked="checked"';}?>>
-                                                    <span class="radio-custom"></span>
-                                                    <div class="label_r">Man</div>
-                                                </label>
-                                                <label class="labeles">
-                                                    <input class="radio radio2" type="radio" name="Radios2" id="r2-f" value="female" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='female' ){echo ' checked="checked"';}?>>
-                                                    <span class="radio-custom"></span>
-                                                    <div class="label_r">Woman</div>
-                                                </label>
-                                            </div>
-                                        </div>
-                                <div class="slider">
-                                    <p class="center slider-age">Choose age</p>
-                                    <div class="rel">
-                                      <input type="text" class="inputs-age" name ="amount" id="amount" value="<?php echo isset($_POST['amount']) ? $_POST['amount'] : '' ?>" readonly>
-                                      <input type="text" class="inputs-age" name ="amount-2" id="amount-2" value="<?php echo isset($_POST['amount-2']) ? $_POST['amount-2'] : '' ?>" readonly>
-                                    </div>
-                                    <div id="slider-range"></div>
-                                </div>
-                                <div class="form-group search-btn-block">
-                                    <input class="search-btn btn btn-lg btn-danger" id="search" onclick="location.href = 'search_form.php';" type="submit" name="search" value="Search">
-                                </div>
-                            </form>
-    			        </div>
-    		        </div>
-                </div>
-                
+    <div class="panel-body">
+        <form class="search " action="search_form.php" method="post">
+            <h4 class="center search-text"><?php echo $array[14];?></h4><!--15-->
+            <div class="labeles-div">
+                <label class="labeles">
+                    <input class="radio radio1" type="radio" name="Radios1" id="r1-m" value="male" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='male' ){echo ' checked="checked"';}?>>
+                    <span class="radio-custom"></span>
+                    <div class="label_r"><?php echo $array[15];?></div><!--16-->
+                </label>
+                <label class="labeles">
+                    <input class="radio radio1" type="radio" name="Radios1" id="r1-f" value="female" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='female' ){echo ' checked="checked"';}?>>
+                    <span class="radio-custom"></span>
+                    <div class="label_r"><?php echo $array[16];?></div><!--17-->
+                </label>
+            </div>
+            <h4 class="center  search-text"><?php echo $array[17];?></h4><!--18-->
+            <div class="labeles-div">
+                <label class="labeles">
+                    <input class="radio radio2" type="radio" name="Radios2" id="r2-m" value="male" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='male' ){echo ' checked="checked"';}?>>
+                    <span class="radio-custom"></span>
+                    <div class="label_r"><?php echo $array[15];?></div><!--16-->
+                </label>
+                <label class="labeles">
+                    <input class="radio radio2" type="radio" name="Radios2" id="r2-f" value="female" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='female' ){echo ' checked="checked"';}?>>
+                    <span class="radio-custom"></span>
+                    <div class="label_r"><?php echo $array[16];?></div><!--17-->
+                </label>
+            </div>
+            <p class="center slider-age"><?php echo $array[18];?></p><!--19-->
+            <div class="amounts">
+                <input type="text" class="inputs-age" name ="amount" id="amount" value="<?php echo isset($_POST['amount']) ? $_POST['amount'] : '' ?>" readonly>
+                <input type="text" class="inputs-age" name ="amount-2" id="amount-2" value="<?php echo isset($_POST['amount-2']) ? $_POST['amount-2'] : '' ?>" readonly>
+            </div>
+            <div class="slider">
+                <div id="slider-range"></div>
+            </div>
+            <div class="form-group search-btn-block">
+	            <input class="search-btn btn btn-lg btn-danger" id="search" onclick="location.href = 'search_form.php';" type="submit" name="search" value="<?php echo $array[19];?>"><!--20-->
+            </div>
+        </form>
+    </div>
+</div>
+
+              
 
 
               <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

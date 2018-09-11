@@ -175,7 +175,7 @@
 
 .dropzone {
   min-height: 250px;
-  width: 800px;
+  max-width: 800px;
   margin: 40px auto;
   border: 2px solid rgba(0, 0, 0, 0.3);
   background: white;

@@ -20,71 +20,9 @@
     padding-right: 20px;
     margin: 0 auto;
   }
-/*menu*/
-.welcom{
-    cursor: pointer;
-    position: absolute;
-    left: -90px;
+  body{
+    background: #e7e8fa78 !important;
   }
-  .profile_photo_menu_box{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    position: absolute;
-    left: -47px;
-    top: -10px;
-  }
-  .profile_photo_menu{
-    width: 40px;
-    height: 50px;
-  }
-  .head{
-    background: linear-gradient(to top left,#8918ce, #3d5de4);
-    opacity: 0.94 ; 
-    width: 100%;
-    padding: 20px 5px; 
-    font-size: 16px;
-    top:0;
-    z-index: 1000;
-  
-  }
-  nav{
-    width: 400px;
-    display: inline-block !important;
-  }
-  .pull-right{
-    display: inline-block;
-  }
-  .li-item{
-    margin-left: 10px;
-    padding-right: 5px; 
-    color: #ffffff;
-    display: inline-block;
-  }
-  .li-item::after{
-    content: "|";
-    padding-left: 10px; 
-  }
-  .li-item:hover{
-  color: #ffafaf;
-  transition: 400ms;
-  }
-  .head a{
-    color: #ffffff !important;
-  }
-  .head a:hover,
-  .head a:focus,
-  .head a:active {
-      text-decoration: none !important;
-      color: #ffafaf !important;
-      transition: 400ms;
-    }
-  
-  ul{
-    margin-bottom: 0 !important;
-  }
-
 /*logo*/
 .logo{
     background: url('logo.png') no-repeat;
@@ -103,8 +41,13 @@
     height: 100%;
   }
    .panel{
+     padding: 15px;
+     border-radius: 5px;
     background: #fffdf9cb;
-    border-color: #b12b8fc2 !important; 
+    border-color: #181818 !important; 
+    -webkit-box-shadow: 2px 1px 16px 1px rgba(0,0,0,0.5) !important;
+    -moz-box-shadow: 2px 1px 16px 1px rgba(0,0,0,0.5) !important;
+    box-shadow: 2px 1px 16px 1px rgba(0,0,0,0.5) !important;
   }
     .email,
      .password,
@@ -112,27 +55,59 @@
        .login-link{
     font-size: 15px !important;
   }
-    .email:focus,   .password:focus{
+    .email:focus,   .password:focus, #gender:focus{
     border-color: #b12b8f6b !important;
     box-shadow: 0 0 0 .2rem #b12b8f56 !important;
   }
-    .register-btn{
-    width: 80px;
+    .register-btn, .login-link{
     margin-top: 16px;
   }
-    .login-link{
-        position: absolute;
-        right: 300px;
-        top: 507px;
-  }
-    
+  .input-group {
+    margin-bottom: 15px !important;
+}  
   .form-signin .form-group{
     margin-top: 30px;
   }
     .login-link a{
     color: #ffffff !important;
+    text-decoration: none;
   }
-  
+   .input-group .custom-select {
+    width: 100% !important;
+}
+  /*adaptation*/
+@media (max-width: 625px){
+  .section_register {
+    max-width: 400px;
+}
+.panel-default {
+  border: none !important; 
+}
+.panel {
+   border: none !important; 
+   -webkit-box-shadow: none !important;
+   box-shadow: none !important;
+}
+body{
+  background: #fffdf9cb;
+}
+.login-link {
+  left: 147px;
+}
+}
+@media (max-width: 416px){
+  .section_register {
+    max-width: 300px;
+}
+.logo {
+  width: 244px;
+  height: 87px;}
+.panel-default {
+  border: none !important; 
+}
 
-
+.login-link {
+  top: 562px;
+}
+}
   

@@ -1,0 +1,135 @@
+
+/*menu*/
+.menu{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.language_box{
+  color: #e73591;
+  display: flex;
+  font-size: 16px;  width: 60px;
+  margin-bottom: 0 !important;
+}
+.active2{
+    color: #fff;
+    padding-right: 10px; 
+    }
+    .language1{
+      background: url('Russia-Flag.png');
+    
+    }
+    .language2{
+      background: url('Germany-Flag.png');
+    
+    }
+    .language{
+      border: none !important;
+        background-size: cover;
+        width: 24px;
+        height: 21px;
+        margin-left: 5px;
+        cursor: pointer !important;
+     }
+  .hamburger {
+    color: #ffffff;
+    font-size: 2rem;
+    cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-bottom: 15px;
+  }
+  
+  .active{
+    display: inline-block;
+    padding-right: 10px; 
+  }
+  
+  .right_side_menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+align-items: center;
+  }
+  .welcom{
+    cursor: pointer;
+  }
+  .profile_photo_menu_box{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .profile_photo_menu{
+    width: 40px;
+    height: 50px;
+  }
+  .head{
+    background: linear-gradient(to top left,#8918ce, #3d5de4);
+    opacity: 0.94 ; 
+    width: 100%;
+    padding: 20px 5px; 
+    font-size: 16px;
+    top:0;
+    z-index: 1000;
+    min-height: 60px;
+  }
+  
+  .pull-right{
+    display: inline-block;
+  }
+  .li-item{
+    margin-left: 10px;
+    padding-right: 5px; 
+    color: #ffffff;
+  }
+  .li-item::after{
+    content: "|";
+    padding-left: 10px; 
+  }
+  .li-item:hover{
+  color: #ffafaf;
+  transition: 400ms;
+  }
+  .head a{
+    color: #ffffff !important;
+  }
+  .head a:hover,
+  .head a:focus,
+  .head a:active {
+      text-decoration: none !important;
+      color: #ffafaf !important;
+      transition: 400ms;
+    }
+  
+  ul{
+    margin-bottom: 0 !important;
+  }
+
+@media (max-width: 991px){
+    .hero-nav{
+      display: none;
+      padding-top: 26px;
+    }
+    .hamburger {
+    display: block;
+    }
+    .active{
+      display: block;
+    }
+  
+    .panel-2{
+      width: 309px !important;
+      margin-top: 21px !important;
+    }
+  }
+  
+  @media (max-width: 767px){
+    nav{
+      width: 200px !important;
+    }
+  }

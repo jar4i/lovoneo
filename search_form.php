@@ -1,5 +1,6 @@
 <?php
 session_start();
+$array = $_SESSION['array'];
 $user_id=$_GET["user_id"];
 include("config.php");
 $con = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
@@ -7,168 +8,146 @@ $sthandler = $con->prepare("SELECT TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) 
 $sthandler->execute();
 ?>
 <head>
+
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="style-search.css">
 <title>LOVONEO | FIND YOUR LOVE</title>
-<link rel="stylesheet" href="style-search.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+<link rel="shortcut icon" href="ico.png">
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 </head>
 <body>
-
 <header class="head fixed">
     <div class="wrap rel">
-    <div class="hamburger pull-left _hamburger">
-                        <i class="fa fa-bars" aria-hidden="true"></i>
-</div>
-        <nav class=" hero-nav pull_left _nav">
-        
-            <ul class="list-unstyled ">
-            <a class="active" href="index.php">Home |</a>
-            <a class="active" href="view_profile.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "Profile";
-                echo '  |';} 
-            ?>
-            </a>
-            <a class="active" href="message1/message.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "Massage";
-                echo '  |';
-            }
-            ?>
-            </a>
-   
-
-            <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
-            <?php
-            if (isset($_SESSION['user_name'])) {
-                echo "Edit profile";
-                echo '  |';
-            }
-            ?>
-            </a>
-            
-            </ul>
-        </nav>
-        <div class="right_side_menu">
-        <a class="welcom" href="view_profile.php"> <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo "<div class='profile_photo_menu_box inline-block'><img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> </div>";
-               echo ''.$_SESSION['first_name'];
-               echo '  |';
-            
-            }
-            ?>
-        </a>
-        <?php 
-            if (isset($_SESSION['user_name'])) {
-                echo'<a href="logout.php">Log out</a>';
-            }
-            else echo '<a href="login_page.php">Log in</a>';
-            ?>
+        <div class="menu">
+            <div class="menu_left">
+                <div class="hamburger pull-left _hamburger">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+                <nav class=" hero-nav pull_left _nav">
+                    <ul class="list-unstyled ">
+                        <a class="active" href="index.php"><?php echo $array[1];?> |</a><!--2-->
+                        <a class="active" href="search_form.php"><?php echo $array[19];?> |</a><!--2-->
+                        <a class="active" href="view_profile.php"> <?php 
+                        if (isset($_SESSION['user_name'])) {
+                            echo $array[60];
+                            echo '  |';} 
+                        ?>
+                        </a>
+                        <a class="active" href="message1/message.php"> <?php 
+                        if (isset($_SESSION['user_name'])) {
+                            echo $array[13];
+                            echo '  |';
+                        }
+                        ?>
+                        </a>
+                        <a class="active" href="personal_page_edit.php?user_activation_code=<?php echo $_SESSION['user_activation_code'];?>&&user_id=<?php echo $_SESSION['user_id'];?>">
+                        <?php
+                        if (isset($_SESSION['user_name'])) {
+                            echo $array[2];
+                            echo '  |';
+                        }
+                        ?>
+                        </a>
+                
+                    </ul>
+                </nav>
+            </div>
+            <div class="right_side_menu rel">
+                <form method="post" class="active2 language_box ">
+                <input class="language1  language" name="en" value=""  type="submit">
+                    <input class="language2  language" name="de" value=""  type="submit">
+                </form>
+                   <?php 
+                    if (isset($_SESSION['user_name'])) {
+                        echo "<a class='active2 rel' href='view_profile.php'>
+                                <div class='inlne-block profile_photo_menu_box'>
+                                    <img class='profile_photo_menu' src='".$_SESSION['profile_foto']."'> 
+                                </div>
+                            </a>";
+                        echo "<a class='active2' href='view_profile.php'>";
+                        echo ''.$_SESSION['first_name'];
+                        echo "</a>";
+                    }
+                    ?> 
+                <a class="active2" >
+                    <?php 
+                    if (isset($_SESSION['user_name'])) {
+                        echo"<a href='logout.php'>$array[3]</a>";/*4*/
+                    }
+                    else echo "<a href='login_page.php'>$array[4]</a>";/*5*/
+                    ?>
+                </a>
+            </div>
         </div>
-
     </div>
 </header>
-<section class="section-slide">
-    <div class="wrap">
-        <div id="_slick-icons">
+<div class="container">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <br>
+                <br>
+                <div class="logo"></div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <section class="section-slide">
+                    <div id="_slick-icons">
+                    </div>
+                </section>
+                <br>
+            </div>
         </div>
-    </div>
-</section>
-<section class="section-control">
-    <div class="wrap">
-        <?php
-        session_start();
-            if (isset($_POST['search'])){
-            $_SESSION['age1'] = $_POST['amount'];
-            $_SESSION['age2'] = $_POST['amount-2'];
-            $_SESSION['gender'] = $_POST['Radios2'];
-            }
-        ?>
-        <div class="search-container">
-            <form class="search rel" action="search_form.php" method="post">
-                <div class="inline-block conter rel">
-                    <div class="inline-block search-text">I'm</div>
-                    <div class="inline-block labeles-container">
-                        <label class="labeles block">
-                            <input class="radio radio1" type="radio" name="Radios1" id="r1-m" value="male" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='male' ){echo ' checked="checked"';}?>>
-                            <span class="inline-block radio-custom"></span>
-                            <div class="inline-block label-r">Man</div>
-                        </label>
-                        <label class="labeles block">
-                            <input class="radio radio1" type="radio" name="Radios1" id="r1-f" value="female" <?php if (isset($_POST[ 'Radios1']) && $_POST[ 'Radios1']=='female' ){echo ' checked="checked"';}?>>
-                            <span class="inline-block radio-custom"></span>
-                            <div class="inline-block label-r">Woman</div>
-                        </label>
-                    </div>
-                </div>
-                <div class="inline-block conter conter-2 rel">
-                    <div class="inline-block search-text" >I'm looking for</div>
-                    <div class="inline-block labeles-container" id="labeles-container">
-                        <label class="labeles block">
-                            <input class="radio radio2" type="radio" name="Radios2" id="r2-m" value="male" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='male' ){echo ' checked="checked"';}?>>
-                            <span class="inline-block radio-custom"></span>
-                            <div class="inline-block label-r">Man</div>
-                        </label>
-                        <label class="labeles block">
-                            <input class="radio radio2" type="radio" name="Radios2" id="r2-f" value="female" <?php if (isset($_POST[ 'Radios2']) && $_POST[ 'Radios2']=='female' ){echo ' checked="checked"';}?>>
-                            <span class="inline-block radio-custom"></span>
-                            <div class="inline-block label-r">Woman</div>
-                        </label>
-                    </div> 
-                </div>
-                
-                <div class="inline-block rel conter conter-3">
-                    <div class="inline-block search-text">Age</div>
-                    <div class="inline-block slider">
-                        <input type="text" class="inputs-age" name ="amount" id="amount" value="<?php echo isset($_POST['amount']) ? $_POST['amount'] : '' ?>" readonly>
-                        <input type="text" class="inputs-age" name ="amount-2" id="amount-2" value="<?php echo isset($_POST['amount-2']) ? $_POST['amount-2'] : '' ?>" readonly>
-                        <div id="slider-range"></div>
-                    </div>
-                </div>
-                <div class="inline-block conter rel">
-                    <div class="inline-block search-btn-container">
-                        <input class="btn btn-lg btn-danger" id="search" type="submit" name="search" value="Search">
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</section>
-<section class="section-pages rel">
-    <div class="wrap">
-        <div id="target-content" class="clearfix"></div>
-        <div class="pagination_main rel">
-            <?php
-             error_reporting(E_ALL | E_STRICT);
-             ini_set('display_errors', 'On');
+        <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12  section-control ">
+                        <div class=" form-log ">
+                        <?php
+                                if (isset($_POST['search'])){
+                                $_SESSION['age1'] = $_POST['amount'];
+                                $_SESSION['age2'] = $_POST['amount-2'];
+                                $_SESSION['gender'] = $_POST['Radios2'];
+                                }
+                            ?>
+                        <?php
+                            include("filter.php");
+                            ?>         
+                         </div>
+            </div>
+        <div class=" col-lg-12 col-md-12 col-sm-12  col-xs-12  ">
+            <div class="section-cards">
+                <div id="target-content" class="clearfix"></div>
+                <div class="pagination_main rel">
+                    <?php
+                    error_reporting(E_ALL | E_STRICT);
+                    ini_set('display_errors', 'On');
 
-             include('connection.php');
-             //for total count data
-	
-             $countSql = "SELECT COUNT(register_user_id) FROM register_user WHERE gender LIKE '%".$_SESSION['gender']."%' AND TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) BETWEEN ".$_SESSION['age1']." AND ".$_SESSION['age2']."";  
-  
-             
-             $tot_result = mysqli_query($conn, $countSql);  
-             $row = mysqli_fetch_row($tot_result);  
-             $total_records = $row[0];  
-             $total_pages = ceil($total_records / $limit);
-             ?>
-            <ul class='pagination' id="pagination">
-                <?php if(!empty($total_pages)):for($i=1; $i<=$total_pages; $i++):  
-                if($i == 1):?>
-                <li class='page-item active'  id="<?php echo $i;?>"><a href='search_form_response.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li> 
-                <?php else:?>
-                <li id="<?php echo $i;?>" class="page-item"><a href='search_form_response.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li>
-                <?php endif;?>
-                <?php endfor;endif;?>
-            </ul>
+                    include('connection.php');
+                    //for total count data
+                    $countSql = "SELECT COUNT(register_user_id) FROM register_user WHERE gender LIKE '%".$_SESSION['gender']."%' AND TIMESTAMPDIFF(YEAR, `birth_date`, CURDATE()) BETWEEN ".$_SESSION['age1']." AND ".$_SESSION['age2']."";  
+            
+                    
+                    $tot_result = mysqli_query($conn, $countSql);  
+                    $row = mysqli_fetch_row($tot_result);  
+                    $total_records = $row[0];  
+                    $total_pages = ceil($total_records / $limit);
+                    ?>
+                    <ul class='pagination' id="pagination">
+                        <?php if(!empty($total_pages)):for($i=1; $i<=$total_pages; $i++):  
+                        if($i == 1):?>
+                        <li class='page-item active'  id="<?php echo $i;?>"><a href='search_form_response.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li> 
+                        <?php else:?>
+                        <li id="<?php echo $i;?>" class="page-item"><a href='search_form_response.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li>
+                        <?php endif;?>
+                        <?php endfor;endif;?>
+                    </ul>
+            </div>
         </div>
     </div>
-</section>
+</div>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -230,7 +209,6 @@ $(document).ready(function(){
     });
   </script>
 
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="slick/slick.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
