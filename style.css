@@ -40,86 +40,6 @@ body{
   background: #e7e8fa78 !important;
 }
 
-<<<<<<< HEAD
-/*menu*/
-.hamburger {
-  color: #ffffff;
-  font-size: 2rem;
-  cursor: pointer;
-display: none;
-position: absolute;
-top: 0;
-left: 0;
-margin-bottom: 15px;
-}
-
-.active{
-  display: inline-block;
-  padding-right: 10px; 
-}
-@media screen and (max-width: 800px){
-  .hero-nav{
-    display: none;
-    padding-top: 26px;
-  }
-  .hamburger {
-  display: block;
-  }
-  .active{
-    display: block;
-  }
-  nav{
-    width: 100px !important;
-  }
-}
-.right_side_menu{
-  position: absolute;
-  top: 0;
-  right: 10px;
-}
-.welcom{
-  cursor: pointer;
-  position: absolute;
-  left: -75px;
-}
-.profile_photo_menu_box{
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  position: absolute;
-  left: -47px;
-  top: -10px;
-}
-.profile_photo_menu{
-  width: 40px;
-  height: 50px;
-}
-.head{
-  background: linear-gradient(to top left,#8918ce, #3d5de4);
-  opacity: 0.94 ; 
-  width: 100%;
-  padding: 20px 5px; 
-  font-size: 16px;
-  top:0;
-  z-index: 1000;
-  min-height: 30px;
-}
-nav{
-  width: 350px;
-}
-.pull-right{
-  display: inline-block;
-}
-.li-item{
-  margin-left: 10px;
-  padding-right: 5px; 
-  color: #ffffff;
-}
-.li-item::after{
-  content: "|";
-  padding-left: 10px; 
-=======
 /*section_1 slider*/
 .section_general{
   padding-top: 60px;
@@ -128,7 +48,6 @@ nav{
   justify-content: space-around;
   margin: 0 auto;
   align-items: flex-start;
->>>>>>> 04296954d5547a86a572df6e952a1ef172f99b5e
 }
 .sect_left{
   display: flex;
@@ -187,35 +106,15 @@ nav{
 /*logo*/
 .logo{
   background: url('logo.png') no-repeat;
-<<<<<<< HEAD
-  background-size: 100%; 
-  width: 263px;
-=======
   background-size: cover; 
   width: 268px;
->>>>>>> 04296954d5547a86a572df6e952a1ef172f99b5e
   height: 100px;
   margin-bottom: 34px;
 }
 /*login*/
-<<<<<<< HEAD
-.section-control{
-  display: inline-block;
-  float: left;
-  margin-top: 80px; 
-  width: 310px;
-  height: 100%;
-  clear: bottom;
-}
-.right-side{
-  max-width: 890px;
-  display: flex;
-  flex-direction: column;  
-=======
   
   .panel-body{
   padding: 0 !important;
->>>>>>> 04296954d5547a86a572df6e952a1ef172f99b5e
 }
   .panel{
   background: #fffdf9cb;
@@ -387,70 +286,6 @@ margin-top: 10px;
   text-align: center;
   margin-bottom: 100px; 
 }
-<<<<<<< HEAD
-
-
-  @media (min-width: 1060px) and (max-width: 1237px) {
-  .section-slide {
-    max-width: 630px;
-    margin-left: 50px;
-  }
-  .main_form {
-    margin-left: 57px;
-  }
-  .card-container {
-    margin: 10px 23px 10px;
-}
-} 
-  @media  (max-width: 1059px) {
-  .section-slide {
-    max-width: 610px;
-    margin-left: 40px;
-  }
-}
-  @media (max-width: 1020px) {
-    .section-slide {
-      max-width: 585px;
-    }
-    .main_form {
-      margin-left: 40px;
-    }
-  }
-  @media (max-width: 1001px) {
-    
-=======
-.section-control{
-  z-index: 500;
-}
-.logo_box2{
-  display: none;
-}
-.section-control2{
-    display: none;
-}
-/*adaptation*/
-@media (max-width: 1310px){
-  .logo{
-    width: 168px;
-    height: 67px;
-  }
-  .form-control {
-    width: 170px !important;
-}
-.radio-custom, .label_r {
-  font-size: 11px !important;
-}
-  #form-log, .panel-2 {
-    width: 200px !important;
-}
-}
-@media (max-width: 1199px){
-  .form-control {
-    width: 260px !important;
-}
-#form-log, .panel-2 {
-  width: 290px !important;
-}
   .sect_left{
     display: none;
   }
@@ -567,5 +402,4 @@ margin-top: 10px;
     position: absolute;
     bottom: 10%;
     right: 10%;
->>>>>>> 04296954d5547a86a572df6e952a1ef172f99b5e
   }

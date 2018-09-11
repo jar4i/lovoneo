@@ -35,35 +35,6 @@
     background-size: contain;
   }
   */
-<<<<<<< HEAD
- 
-/*menu*/
-.hamburger {
-  color: #ffffff;
-  font-size: 2rem;
-  cursor: pointer;
-display: none;
-position: absolute;
-top: 0;
-left: 0;
-margin-bottom: 15px;
-}
-
-.active{
-  display: inline-block;
-  padding-right: 10px; 
-}
-@media(max-width: 800px){
-  .hero-nav{
-    display: none;
-    padding-top: 26px;
-  }
-  .hamburger {
-  display: block;
-  }
-  .active{
-    display: block;
-=======
   .section_general{
     padding-top: 60px;
     display: flex;
@@ -71,7 +42,6 @@ margin-bottom: 15px;
     justify-content: space-around;
     margin: 0 auto;
     align-items: flex-start;
->>>>>>> 04296954d5547a86a572df6e952a1ef172f99b5e
   }
   .sect_left{
     display: flex;
